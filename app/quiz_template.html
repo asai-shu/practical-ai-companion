@@ -36,6 +36,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted);align-items:center}
 .tag{border:1px solid var(--line);border-radius:3px;padding:0 6px}
 .tag.lv{color:var(--drop);border-color:var(--drop)}
+.tag.src{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+.tag.src.pred{background:transparent;color:var(--ink);border-style:dashed}
 .word{font-family:var(--f-word);font-size:clamp(40px,9vw,60px);font-weight:700;line-height:1.05;margin:0;overflow-wrap:anywhere}
 .ask{margin:0;font-weight:500}
 .ask em{font-style:normal;color:var(--drop);font-family:var(--f-num);font-size:18px}
@@ -91,8 +93,15 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="chip" id="lv4" data-lv="4" aria-pressed="true">最難関</button>
   </div>
 
+  <div class="filters" role="group" aria-label="出題元">
+    <span>出題元</span>
+    <button class="chip src-chip" id="src-exam" data-src="exam" aria-pressed="true">名大の入試</button>
+    <button class="chip src-chip" id="src-article" data-src="source_article" aria-pressed="true">入試の出典記事</button>
+    <button class="chip src-chip" id="src-pred" data-src="predicted" aria-pressed="true">予想（最近の記事）</button>
+  </div>
+
   <section class="sheet" aria-live="polite">
-    <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span id="q-exam">名大で27回 / 1年分</span></div>
+    <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span class="tag src" id="q-src">名大の入試</span><span id="q-exam">名大で27回 / 1年分</span></div>
     <p class="word" id="q-word">dolphin</p>
     <p class="ask" id="q-ask">正しい意味を <em>1</em> つ選んでください</p>
     <div class="hint" id="hint" hidden></div>
@@ -104,7 +113,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <span class="result" id="result"></span>
     </div>
     <div class="answer" id="answer" hidden>
-      <h2>この単語の意味（★＝名大で出た意味）</h2>
+      <h2 id="a-mh">この単語の意味（★＝名大で出た意味）</h2>
       <ul id="a-means"></ul>
       <h2 id="a-eth">語源</h2>
       <p class="etym" id="a-ety"></p>
@@ -114,14 +123,14 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <ul id="a-cfs"></ul>
     </div>
   </section>
-  <p class="note">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。レベル分けは CEFR-J Wordlist Version 1.5 と英語の使用頻度データ（wordfreq）（Compiled by Yukio Tono, Tokyo University of Foreign Studies）を参照しています。</p>
+  <p class="note">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は2026年10〜11月の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。レベル分けは CEFR-J Wordlist Version 1.5 と英語の使用頻度データ（wordfreq）（Compiled by Yukio Tono, Tokyo University of Foreign Studies）を参照しています。</p>
 </div>
 
 <script>
 const WORDS = __DATA__;
 const KEY = "meidai-nine-v2";
 const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
-let st = {done:0, ok:0, mastery:{}, levels:[2,3,4]};
+let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"]};
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
 const $ = id => document.getElementById(id);
@@ -129,7 +138,8 @@ const id = w => w.word + "|" + w.pos;
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 let queue = [], cur = null, correct = [], picked = new Set(), answered = false;
 
-function pool() { return WORDS.filter(w => st.levels.includes(w.level)); }
+const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想"};
+function pool() { return WORDS.filter(w => st.levels.includes(w.level) && st.sources.includes(w.source || "exam")); }
 function buildQueue() {
   // 習得度の低い単語を先に（同じ習得度ならランダム）
   queue = shuffle(pool().slice()).sort((a, b) => (st.mastery[id(a)] || 0) - (st.mastery[id(b)] || 0));
@@ -157,7 +167,11 @@ function render() {
   $("q-word").textContent = cur.word;
   $("q-pos").textContent = cur.pos;
   $("q-lv").textContent = LVNAME[cur.level];
-  $("q-exam").textContent = "名大で" + cur.exam_count + "回 / " + cur.exam_years + "年分";
+  const src = cur.source || "exam";
+  $("q-src").textContent = SRC[src];
+  $("q-src").className = "tag src" + (src === "predicted" ? " pred" : "");
+  $("q-exam").textContent = src === "exam" ? "名大で" + cur.exam_count + "回 / " + cur.exam_years + "年分"
+    : (src === "predicted" ? "最近の記事で" : "入試の出典記事で") + cur.article_count + "回 / " + cur.article_num + "本";
   $("q-ask").innerHTML = "正しい意味を <em>" + correct.length + "</em> つ選んでください";
   $("opts").innerHTML = "";
   opts.forEach((t, i) => {
@@ -195,9 +209,10 @@ function check() {
   $("result").textContent = good ? "正解" : "不正解（点線が正しい答え）";
   $("result").className = "result " + (good ? "ok" : "ng");
   $("a-means").innerHTML = "";
+  $("a-mh").textContent = (cur.source || "exam") === "exam" ? "この単語の意味（★＝名大で出た意味）" : "この単語の意味（◆＝記事で使われた意味）";
   cur.meanings.forEach(m => {
     const li = document.createElement("li");
-    li.innerHTML = '<span class="star">' + (m.in_exam ? "★" : "") + '</span><span></span><span class="cnt"></span>';
+    li.innerHTML = '<span class="star">' + (m.in_exam ? "★" : (m.in_article ? "◆" : "")) + '</span><span></span><span class="cnt"></span>';
     li.children[1].textContent = m.ja;
     li.children[2].textContent = m.exam_count ? m.exam_count + "回" : "";
     $("a-means").appendChild(li);
@@ -220,7 +235,7 @@ function stats() {
   $("s-total").textContent = p.length;
   $("s-master").textContent = p.filter(w => (st.mastery[id(w)] || 0) >= 2).length;
 }
-document.querySelectorAll(".chip").forEach(c => {
+document.querySelectorAll(".chip[data-lv]").forEach(c => {
   c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv));
   c.onclick = () => {
     const lv = +c.dataset.lv, on = st.levels.includes(lv);
@@ -235,6 +250,15 @@ function showHint() {
   h.hidden = false;
 }
 $("hintbtn").onclick = () => { showHint(); $("hintbtn").hidden = true; };
+document.querySelectorAll(".src-chip").forEach(c => {
+  c.setAttribute("aria-pressed", st.sources.includes(c.dataset.src));
+  c.onclick = () => {
+    const v = c.dataset.src, on = st.sources.includes(v);
+    if (on && st.sources.length === 1) return;
+    st.sources = on ? st.sources.filter(x => x !== v) : st.sources.concat(v);
+    c.setAttribute("aria-pressed", !on); save(); buildQueue(); stats(); render();
+  };
+});
 $("check").onclick = check; $("next").onclick = render;
 buildQueue(); stats(); render();
 </script>

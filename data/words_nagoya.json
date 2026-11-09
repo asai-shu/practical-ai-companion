@@ -13,7 +13,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "whistle",
@@ -44,7 +45,8 @@
     "ja": "～の不正を告発する"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "crater",
@@ -75,7 +77,8 @@
     "en": "creator",
     "ja": "創造者"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "diver",
@@ -96,7 +99,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "diving",
@@ -117,7 +121,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "recipient",
@@ -169,7 +174,8 @@
     }
    ],
    "explain": "取り戻す・受け取る人 → 受け取る人・受け手"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "signature",
@@ -213,7 +219,8 @@
     }
    ],
    "explain": "しるしにするもの → 署名・その人らしさを表す特徴"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "lecture",
@@ -248,7 +255,8 @@
     "en": "literature",
     "ja": "文学"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "interaction",
@@ -301,7 +309,8 @@
     }
    ],
    "explain": "お互いの間で働きかけること → 交流・相互作用"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "experiment",
@@ -349,7 +358,8 @@
     }
    ],
    "explain": "試してみること → 実験"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "individual",
@@ -382,7 +392,8 @@
     }
    ],
    "explain": "それ以上分けられないもの → 個人・個体"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "active",
@@ -422,7 +433,8 @@
     "en": "actual",
     "ja": "実際の"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "positive",
@@ -463,7 +475,8 @@
     "en": "possible",
     "ja": "可能な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "various",
@@ -484,7 +497,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "environment",
@@ -527,7 +541,8 @@
     }
    ],
    "explain": "周りを取り巻くもの → 環境"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "underlined",
@@ -548,7 +563,8 @@
     "ja": "下線部"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "professor",
@@ -569,7 +585,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "instructor",
@@ -602,7 +619,8 @@
     }
    ],
    "explain": "知識を積み上げてやる人 → 指導者"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "able",
@@ -628,7 +646,8 @@
     "ja": "～できる"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "actual",
@@ -649,7 +668,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "approximately",
@@ -691,7 +711,8 @@
     }
    ],
    "explain": "最も近いところへ → およそ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "community",
@@ -721,7 +742,8 @@
     "en": "commute",
     "ja": "通勤する"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "select",
@@ -759,7 +781,8 @@
     }
    ],
    "explain": "選び分ける → 選ぶ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "data",
@@ -775,7 +798,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "benefit",
@@ -823,7 +847,8 @@
     }
    ],
    "explain": "よいことをする → 利益・恩恵"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "learning",
@@ -844,7 +869,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "global",
@@ -875,7 +901,8 @@
     "en": "globe",
     "ja": "地球(儀)"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "main",
@@ -891,7 +918,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "mental",
@@ -930,7 +958,8 @@
     "en": "mentor",
     "ja": "指導者"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "outcome",
@@ -968,7 +997,8 @@
     }
    ],
    "explain": "外に出てくるもの → 結果"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "percent",
@@ -984,7 +1014,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "phrase",
@@ -1000,7 +1031,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "researcher",
@@ -1016,7 +1048,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "unique",
@@ -1060,7 +1093,8 @@
     }
    ],
    "explain": "ただ1つの → 独特の・唯一の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "cultural",
@@ -1081,7 +1115,8 @@
     "en": "agricultural",
     "ja": "農業の"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "participant",
@@ -1114,7 +1149,8 @@
     }
    ],
    "explain": "一部分を受け持つ人 → 参加者"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "perceive",
@@ -1166,7 +1202,8 @@
     }
    ],
    "explain": "しっかりつかむ → 認識する・受け止める"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "previous",
@@ -1209,7 +1246,8 @@
     }
    ],
    "explain": "前の道を行く → 以前の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "breathing",
@@ -1230,7 +1268,8 @@
     "en": "breeding",
     "ja": "繁殖"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "geological",
@@ -1263,7 +1302,8 @@
     }
    ],
    "explain": "大地の学問の → 地質学の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "network",
@@ -1289,7 +1329,8 @@
     "ja": "人のつながり・SNS"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "sometimes",
@@ -1305,7 +1346,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "according to",
@@ -1326,7 +1368,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "length",
@@ -1352,7 +1395,8 @@
     "ja": "詳しく・ついに"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "axis",
@@ -1368,7 +1412,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "comma",
@@ -1384,7 +1429,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "composition",
@@ -1436,7 +1482,8 @@
     }
    ],
    "explain": "一緒に置いて組み立てたもの → 作文・構成"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "examine",
@@ -1480,7 +1527,8 @@
     }
    ],
    "explain": "はかって確かめる → 調べる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "historical",
@@ -1505,7 +1553,8 @@
     "en": "hysterical",
     "ja": "ヒステリックな"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "perception",
@@ -1552,7 +1601,8 @@
     }
    ],
    "explain": "しっかりつかむこと → 認識・知覚"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "safety",
@@ -1573,7 +1623,8 @@
     "ja": "安全対策"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "donor",
@@ -1612,7 +1663,8 @@
     }
    ],
    "explain": "与える人 → 提供者"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "explosion",
@@ -1655,7 +1707,8 @@
     }
    ],
    "explain": "外へはじけること → 爆発"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "identify",
@@ -1707,7 +1760,8 @@
     }
    ],
    "explain": "同じだと確かめる → 識別する・特定する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "offline",
@@ -1723,7 +1777,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "performer",
@@ -1761,7 +1816,8 @@
     }
    ],
    "explain": "最後までやり遂げる人 → 行う人・演奏者"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "session",
@@ -1782,7 +1838,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "veteran",
@@ -1803,7 +1860,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "require",
@@ -1856,7 +1914,8 @@
     }
    ],
    "explain": "求める → 必要とする"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "connect",
@@ -1895,7 +1954,8 @@
     }
    ],
    "explain": "一緒に結ぶ → つなぐ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "gain",
@@ -1926,7 +1986,8 @@
     "en": "grain",
     "ja": "穀物"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "individual",
@@ -1964,7 +2025,8 @@
     }
    ],
    "explain": "それ以上分けられないもの → 個人・個体"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "location",
@@ -1980,7 +2042,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "observe",
@@ -2032,7 +2095,8 @@
     }
    ],
    "explain": "～に向かって見守る → 観察する・(規則を)守る"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "particular",
@@ -2077,7 +2141,8 @@
     "en": "partial",
     "ja": "部分的な・ひいきする"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "pattern",
@@ -2103,7 +2168,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "probably",
@@ -2119,7 +2185,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "tend",
@@ -2154,7 +2221,8 @@
     "en": "intend",
     "ja": "意図する"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "amount",
@@ -2180,7 +2248,8 @@
     "ja": "(合計)～に達する"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "associate",
@@ -2232,7 +2301,8 @@
     }
    ],
    "explain": "仲間にする → 結びつける・関連づける"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "connection",
@@ -2262,7 +2332,8 @@
     "en": "collection",
     "ja": "収集"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "distance",
@@ -2305,7 +2376,8 @@
     }
    ],
    "explain": "離れて立つこと → 距離"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "encounter",
@@ -2339,7 +2411,8 @@
     }
    ],
    "explain": "向かい合うところに入る → 出会い・遭遇"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "formation",
@@ -2382,7 +2455,8 @@
     }
    ],
    "explain": "形をつくること → 形成"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "huge",
@@ -2408,7 +2482,8 @@
     "en": "hug",
     "ja": "抱きしめる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "involve",
@@ -2456,7 +2531,8 @@
     }
    ],
    "explain": "中に巻き込む → 含む・巻き込む"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "optimistic",
@@ -2472,7 +2548,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "potential",
@@ -2506,7 +2583,8 @@
     }
    ],
    "explain": "力をもっている → 潜在的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "reduce",
@@ -2553,7 +2631,8 @@
     }
    ],
    "explain": "後ろへ引き下げる → 減らす"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "risk",
@@ -2578,7 +2657,8 @@
     "ja": "危険を冒す"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "trend",
@@ -2599,7 +2679,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "variety",
@@ -2647,7 +2728,8 @@
     }
    ],
    "explain": "変化があること → 多様さ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "applicant",
@@ -2680,7 +2762,8 @@
     }
    ],
    "explain": "自分を～に当てはめる人 → 応募者"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "buddy",
@@ -2696,7 +2779,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "fluid",
@@ -2717,7 +2801,8 @@
     "en": "fruit",
     "ja": "果物"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "landing",
@@ -2738,7 +2823,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "literature",
@@ -2764,7 +2850,8 @@
     "en": "literacy",
     "ja": "読み書き能力"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "mythological",
@@ -2780,7 +2867,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "object",
@@ -2815,7 +2903,8 @@
     "en": "objection",
     "ja": "反対"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "protein",
@@ -2831,7 +2920,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "underestimate",
@@ -2860,7 +2950,8 @@
     }
    ],
    "explain": "低く見積もる → 過小評価する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "user",
@@ -2876,7 +2967,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "absolutely",
@@ -2897,7 +2989,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "amazing",
@@ -2918,7 +3011,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "anonymous",
@@ -2951,7 +3045,8 @@
     }
    ],
    "explain": "名前がない → 匿名の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "demonstrate",
@@ -2994,7 +3089,8 @@
     }
    ],
    "explain": "はっきり示す → 証明する・示す"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "exactly",
@@ -3015,7 +3111,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "expectation",
@@ -3063,7 +3160,8 @@
     }
    ],
    "explain": "外を見て待つこと → 期待・予想"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "infer",
@@ -3105,7 +3203,8 @@
     }
    ],
    "explain": "(結論を)中へ運び込む → 推測する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "instruction",
@@ -3143,7 +3242,8 @@
     }
    ],
    "explain": "知識を積み上げること → 指示・指導"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "loss",
@@ -3178,7 +3278,8 @@
     "en": "loose",
     "ja": "ゆるい"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "practical",
@@ -3199,7 +3300,8 @@
     "en": "practice",
     "ja": "練習"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "prove",
@@ -3229,7 +3331,8 @@
     "en": "approve",
     "ja": "承認する"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "survival",
@@ -3262,7 +3365,8 @@
     }
    ],
    "explain": "生き越えること → 生存"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "aspect",
@@ -3300,7 +3404,8 @@
     }
    ],
    "explain": "見る方向 → 側面・面"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "comfort",
@@ -3330,7 +3435,8 @@
     "en": "conform",
     "ja": "従う"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "conclusion",
@@ -3373,7 +3479,8 @@
     }
    ],
    "explain": "すっかり閉じること → 結論"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "conscious",
@@ -3430,7 +3537,8 @@
     }
    ],
    "explain": "わかっている → 意識している"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "decrease",
@@ -3464,7 +3572,8 @@
     }
    ],
    "explain": "下へ育つ → 減る"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "engage",
@@ -3495,7 +3604,8 @@
     "en": "enrage",
     "ja": "激怒させる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "enhance",
@@ -3529,7 +3639,8 @@
     }
    ],
    "explain": "高くする → 高める"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "environmental",
@@ -3545,7 +3656,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "factor",
@@ -3579,7 +3691,8 @@
     }
    ],
    "explain": "結果をつくり出すもの → 要因"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "gesture",
@@ -3605,7 +3718,8 @@
     "en": "posture",
     "ja": "姿勢"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "historian",
@@ -3621,7 +3735,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "ignorance",
@@ -3642,7 +3757,8 @@
     "en": "ignore",
     "ja": "無視する"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "participate",
@@ -3668,7 +3784,8 @@
     "en": "anticipate",
     "ja": "予想する"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "phenomenon",
@@ -3697,7 +3814,8 @@
     }
    ],
    "explain": "現れたもの → 現象"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "relationship",
@@ -3713,7 +3831,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "revolution",
@@ -3765,7 +3884,8 @@
     }
    ],
    "explain": "ぐるりと回ること → 革命・回転"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "substantial",
@@ -3808,7 +3928,8 @@
     }
    ],
    "explain": "下に立って支えている → 実質的な・かなりの"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "taste",
@@ -3829,7 +3950,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "thus",
@@ -3850,7 +3972,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "understanding",
@@ -3871,7 +3994,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "adulthood",
@@ -3887,7 +4011,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "archaeological",
@@ -3920,7 +4045,8 @@
     }
    ],
    "explain": "古いものの学問の → 考古学の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "calf",
@@ -3946,7 +4072,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "comprehend",
@@ -3975,7 +4102,8 @@
     }
    ],
    "explain": "すっかりつかむ → 理解する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "crucial",
@@ -4004,7 +4132,8 @@
     }
    ],
    "explain": "十字路のような分かれ目の → 決定的な・重大な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "diagram",
@@ -4033,7 +4162,8 @@
     }
    ],
    "explain": "線を引いて書いたもの → 図"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "dive",
@@ -4054,7 +4184,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "fellow",
@@ -4080,7 +4211,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "fungus",
@@ -4096,7 +4228,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "growth",
@@ -4117,7 +4250,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "humanities",
@@ -4138,7 +4272,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "infant",
@@ -4177,7 +4312,8 @@
     }
    ],
    "explain": "まだ話せない者 → 乳児"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "initial",
@@ -4203,7 +4339,8 @@
     "en": "initiative",
     "ja": "主導権"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "layer",
@@ -4228,7 +4365,8 @@
     "en": "player",
     "ja": "選手"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "lecture",
@@ -4258,7 +4396,8 @@
     "en": "literature",
     "ja": "文学"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "manufacturer",
@@ -4295,7 +4434,8 @@
     }
    ],
    "explain": "手で作る人 → 製造業者"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "microwave",
@@ -4311,7 +4451,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "mortality",
@@ -4358,7 +4499,8 @@
     }
    ],
    "explain": "死ぬこと → 死亡率"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "narrative",
@@ -4379,7 +4521,8 @@
     "en": "native",
     "ja": "生まれつきの"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "narrow",
@@ -4410,7 +4553,8 @@
     "en": "marrow",
     "ja": "骨髄"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "overcome",
@@ -4426,7 +4570,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "perennial",
@@ -4469,7 +4614,8 @@
     }
    ],
    "explain": "年を通して続く → 絶え間ない・多年生の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "physics",
@@ -4485,7 +4631,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "random",
@@ -4506,7 +4653,8 @@
     "ja": "無作為に"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "rapid",
@@ -4527,7 +4675,8 @@
     "en": "rabid",
     "ja": "狂犬病の"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "rim",
@@ -4543,7 +4692,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "scholar",
@@ -4564,7 +4714,8 @@
     "en": "scholarship",
     "ja": "奨学金"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "score",
@@ -4590,7 +4741,8 @@
     "ja": "多数の～"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "sensory",
@@ -4615,7 +4767,8 @@
     "en": "sensitive",
     "ja": "敏感な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "sentimental",
@@ -4646,7 +4799,8 @@
     "en": "sensational",
     "ja": "センセーショナルな"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "steady",
@@ -4667,7 +4821,8 @@
     "en": "study",
     "ja": "勉強"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "subtitle",
@@ -4688,7 +4843,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "teaching",
@@ -4709,7 +4865,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "therapeutic",
@@ -4738,7 +4895,8 @@
     }
    ],
    "explain": "治療の世話をする → 治療の・癒しの"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "vegetarian",
@@ -4754,7 +4912,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "accompany",
@@ -4793,7 +4952,8 @@
     }
    ],
    "explain": "～の仲間になる → 同行する・伴う"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "afford",
@@ -4824,7 +4984,8 @@
     "en": "effort",
     "ja": "努力"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "balance",
@@ -4845,7 +5006,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "barrier",
@@ -4883,7 +5045,8 @@
     }
    ],
    "explain": "柵 → 壁・障害"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "behavioral",
@@ -4899,7 +5062,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "broad",
@@ -4929,7 +5093,8 @@
     "en": "abroad",
     "ja": "海外に"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "broadcast",
@@ -4950,7 +5115,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "broaden",
@@ -4971,7 +5137,8 @@
     "ja": "視野を広げる"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "characteristic",
@@ -5005,7 +5172,8 @@
     }
    ],
    "explain": "特徴を表す → 特徴(的な)"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "comprise",
@@ -5043,7 +5211,8 @@
     }
    ],
    "explain": "まとめてつかむ → ～から成る"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "concept",
@@ -5081,7 +5250,8 @@
     }
    ],
    "explain": "しっかりつかんだもの → 概念"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "consumption",
@@ -5119,7 +5289,8 @@
     }
    ],
    "explain": "すっかり取ってしまうこと → 消費"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "contain",
@@ -5162,7 +5333,8 @@
     }
    ],
    "explain": "一緒に保つ → 含む"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "content",
@@ -5192,7 +5364,8 @@
     "en": "contest",
     "ja": "競技"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "definitely",
@@ -5208,7 +5381,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "deliver",
@@ -5252,7 +5426,8 @@
     }
    ],
    "explain": "手から離して自由にする → 届ける"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "demand",
@@ -5296,7 +5471,8 @@
     }
    ],
    "explain": "強く命じる → 要求(する)"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "determine",
@@ -5340,7 +5516,8 @@
     }
    ],
    "explain": "境界をはっきり決める → 決定する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "dialogue",
@@ -5369,7 +5546,8 @@
     }
    ],
    "explain": "間で話すこと → 会話"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "distinguish",
@@ -5408,7 +5586,8 @@
     }
    ],
    "explain": "突いて区別の印をつける → 区別する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "dominant",
@@ -5437,7 +5616,8 @@
     }
    ],
    "explain": "支配している → 支配的な・主流の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "economic",
@@ -5458,7 +5638,8 @@
     "en": "economical",
     "ja": "節約になる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "emulate",
@@ -5496,7 +5677,8 @@
     }
    ],
    "explain": "張り合ってまねる → まねる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "entertaining",
@@ -5512,7 +5694,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "enthusiastic",
@@ -5528,7 +5711,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "equally",
@@ -5561,7 +5745,8 @@
     }
    ],
    "explain": "等しく → 同じように"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "equipment",
@@ -5582,7 +5767,8 @@
     "en": "equivalent",
     "ja": "同等のもの"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "estimate",
@@ -5616,7 +5802,8 @@
     }
    ],
    "explain": "値踏みする → 見積もる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "expand",
@@ -5654,7 +5841,8 @@
     }
    ],
    "explain": "外へ広げる → 拡大する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "extensive",
@@ -5696,7 +5884,8 @@
     }
    ],
    "explain": "外へ伸びた → 広範な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "extreme",
@@ -5717,7 +5906,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "finding",
@@ -5733,7 +5923,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "frequent",
@@ -5754,7 +5945,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "fundamental",
@@ -5787,7 +5979,8 @@
     }
    ],
    "explain": "土台の → 根本的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "gap",
@@ -5818,7 +6011,8 @@
     "en": "cap",
     "ja": "帽子・上限"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "general",
@@ -5849,7 +6043,8 @@
     "en": "generous",
     "ja": "気前のよい"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "highly",
@@ -5875,7 +6070,8 @@
     "ja": "～をほめる"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "horizontal",
@@ -5904,7 +6100,8 @@
     }
    ],
    "explain": "地平線と同じ向きの → 水平の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "identity",
@@ -5938,7 +6135,8 @@
     }
    ],
    "explain": "同じであること → 独自性・身元"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "immediate",
@@ -5981,7 +6179,8 @@
     }
    ],
    "explain": "間に何もない → 即座の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "inherent",
@@ -6019,7 +6218,8 @@
     }
    ],
    "explain": "中にくっついている → 本来備わっている"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "interact",
@@ -6058,7 +6258,8 @@
     }
    ],
    "explain": "互いの間で働きかける → 交流する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "keen",
@@ -6084,7 +6285,8 @@
     "ja": "～に夢中だ"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "lifetime",
@@ -6100,7 +6302,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "limited",
@@ -6121,7 +6324,8 @@
     "en": "limitless",
     "ja": "無限の"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "literary",
@@ -6146,7 +6350,8 @@
     "en": "literate",
     "ja": "読み書きできる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "media",
@@ -6176,7 +6381,8 @@
     "en": "meditate",
     "ja": "瞑想する"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "multiple",
@@ -6205,7 +6411,8 @@
     }
    ],
    "explain": "多く重ねた → 多数の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "occur",
@@ -6249,7 +6456,8 @@
     }
    ],
    "explain": "～に向かって走ってくる → 起こる・思い浮かぶ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "origin",
@@ -6279,7 +6487,8 @@
     "en": "organ",
     "ja": "器官"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "overall",
@@ -6295,7 +6504,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "participation",
@@ -6328,7 +6538,8 @@
     }
    ],
    "explain": "一部分を受け持つこと → 参加"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "perspective",
@@ -6376,7 +6587,8 @@
     }
    ],
    "explain": "通して見ること → 見方・観点"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "politician",
@@ -6392,7 +6604,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "prime",
@@ -6418,7 +6631,8 @@
     "en": "primitive",
     "ja": "原始的な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "process",
@@ -6466,7 +6680,8 @@
     }
    ],
    "explain": "前へ進むこと → 過程"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "promote",
@@ -6505,7 +6720,8 @@
     }
    ],
    "explain": "前へ動かす → 促進する・昇進させる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "recommend",
@@ -6539,7 +6755,8 @@
     }
    ],
    "explain": "強く推す → 勧める"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "regardless",
@@ -6573,7 +6790,8 @@
     }
    ],
    "explain": "注意を向けない → ～に関係なく"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "region",
@@ -6594,7 +6812,8 @@
     "en": "religion",
     "ja": "宗教"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "relation",
@@ -6620,7 +6839,8 @@
     "en": "relative",
     "ja": "親戚・相対的な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "remove",
@@ -6654,7 +6874,8 @@
     }
    ],
    "explain": "離れたところへ動かす → 取り除く"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "rest",
@@ -6680,7 +6901,8 @@
     "ja": "～の残り"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "robust",
@@ -6701,7 +6923,8 @@
     "en": "rubbish",
     "ja": "ごみ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "sharp",
@@ -6727,7 +6950,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "specialize",
@@ -6753,7 +6977,8 @@
     "ja": "～を専門にする"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "spirit",
@@ -6784,7 +7009,8 @@
     "en": "spiral",
     "ja": "らせん"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "starkly",
@@ -6800,7 +7026,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "subsequent",
@@ -6843,7 +7070,8 @@
     }
    ],
    "explain": "後に続く → その後の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "suppose",
@@ -6891,7 +7119,8 @@
     }
    ],
    "explain": "下に置いて考える → 仮定する・思う"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "surface",
@@ -6925,7 +7154,8 @@
     }
    ],
    "explain": "上の顔 → 表面"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "technique",
@@ -6946,7 +7176,8 @@
     "en": "technology",
     "ja": "技術"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "theory",
@@ -6977,7 +7208,8 @@
     "en": "theology",
     "ja": "神学"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "translate",
@@ -7016,7 +7248,8 @@
     }
    ],
    "explain": "向こうへ運ぶ → 翻訳する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "unexpected",
@@ -7053,7 +7286,8 @@
     }
    ],
    "explain": "予想して見ていなかった → 予期しない"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "variation",
@@ -7087,7 +7321,8 @@
     }
    ],
    "explain": "変わること → 変動"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "vary",
@@ -7117,7 +7352,8 @@
     "en": "weary",
     "ja": "疲れた"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "volume",
@@ -7148,7 +7384,8 @@
     "en": "value",
     "ja": "価値"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "willing",
@@ -7174,7 +7411,8 @@
     "en": "willful",
     "ja": "わがままな"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "access",
@@ -7222,7 +7460,8 @@
     }
    ],
    "explain": "～へ近づくこと → 利用・接続"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "alphabet",
@@ -7238,7 +7477,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "application",
@@ -7286,7 +7526,8 @@
     }
    ],
    "explain": "～に当てはめること → 申し込み・応用"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "army",
@@ -7302,7 +7543,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "arrival",
@@ -7345,7 +7587,8 @@
     }
    ],
    "explain": "岸に着くこと → 到着・登場"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "artist",
@@ -7361,7 +7604,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "athletic",
@@ -7377,7 +7621,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "attach",
@@ -7425,7 +7670,8 @@
     }
    ],
    "explain": "～に留める → 取り付ける"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "bullying",
@@ -7441,7 +7687,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "calm",
@@ -7462,7 +7709,8 @@
     "ja": "落ち着く"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "catastrophic",
@@ -7500,7 +7748,8 @@
     }
    ],
    "explain": "ひっくり返る → 壊滅的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "cave",
@@ -7516,7 +7765,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "clothes",
@@ -7532,7 +7782,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "comedy",
@@ -7553,7 +7804,8 @@
     "en": "comet",
     "ja": "彗星"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "commonality",
@@ -7569,7 +7821,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "compete",
@@ -7599,7 +7852,8 @@
     "en": "compute",
     "ja": "計算する"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "complement",
@@ -7637,7 +7891,8 @@
     }
    ],
    "explain": "すっかり満たすもの → 補う"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "comprehension",
@@ -7679,7 +7934,8 @@
     }
    ],
    "explain": "すっかりつかむこと → 理解"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "concerned",
@@ -7714,7 +7970,8 @@
     "en": "concerted",
     "ja": "協調した"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "construction",
@@ -7761,7 +8018,8 @@
     }
    ],
    "explain": "積み上げること → 建設・構造"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "convey",
@@ -7804,7 +8062,8 @@
     }
    ],
    "explain": "道を一緒に行く → 運ぶ・伝える"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "coordinate",
@@ -7842,7 +8101,8 @@
     }
    ],
    "explain": "順序をそろえる → 調整する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "creation",
@@ -7880,7 +8140,8 @@
     }
    ],
    "explain": "生み出すこと → 創造・誕生"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "demographic",
@@ -7913,7 +8174,8 @@
     }
    ],
    "explain": "人々について書いた → 人口統計の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "depict",
@@ -7947,7 +8209,8 @@
     }
    ],
    "explain": "描き出す → 描く"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "depth",
@@ -7973,7 +8236,8 @@
     "en": "death",
     "ja": "死"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "designer",
@@ -7989,7 +8253,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "detrimental",
@@ -8027,7 +8292,8 @@
     }
    ],
    "explain": "すり減らす → 有害な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "digital",
@@ -8043,7 +8309,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "disability",
@@ -8059,7 +8326,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "displace",
@@ -8098,7 +8366,8 @@
     }
    ],
    "explain": "別の場所に置く → 取って代わる・追い出す"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "distinct",
@@ -8146,7 +8415,8 @@
     }
    ],
    "explain": "印をつけて分けた → 異なる・はっきりした"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "donate",
@@ -8180,7 +8450,8 @@
     }
    ],
    "explain": "与える → 寄付する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "draft",
@@ -8205,7 +8476,8 @@
     "en": "raft",
     "ja": "いかだ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "effective",
@@ -8230,7 +8502,8 @@
     "en": "efficient",
     "ja": "効率的な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "equivalent",
@@ -8268,7 +8541,8 @@
     }
    ],
    "explain": "価値が等しい → 同等のもの"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "essential",
@@ -8294,7 +8568,8 @@
     "en": "existential",
     "ja": "存在の"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "excitement",
@@ -8310,7 +8585,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "facilitate",
@@ -8344,7 +8620,8 @@
     }
    ],
    "explain": "容易にする → 促す"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "filmmaker",
@@ -8360,7 +8637,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "flee",
@@ -8385,7 +8663,8 @@
     "en": "free",
     "ja": "自由な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "flow",
@@ -8410,7 +8689,8 @@
     "en": "fly",
     "ja": "飛ぶ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "frequent",
@@ -8426,7 +8706,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "gruesome",
@@ -8442,7 +8723,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "habitat",
@@ -8480,7 +8762,8 @@
     }
    ],
    "explain": "住むところ → 生息地"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "handout",
@@ -8496,7 +8779,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "highlight",
@@ -8512,7 +8796,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "hypothesis",
@@ -8546,7 +8831,8 @@
     }
    ],
    "explain": "下に置いた考え → 仮説"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "illusion",
@@ -8593,7 +8879,8 @@
     }
    ],
    "explain": "からかうもの → 錯覚"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "industrial",
@@ -8614,7 +8901,8 @@
     "en": "industrious",
     "ja": "勤勉な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "injury",
@@ -8652,7 +8940,8 @@
     }
    ],
    "explain": "正しくないこと(害) → けが"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "insomnia",
@@ -8685,7 +8974,8 @@
     }
    ],
    "explain": "眠れない状態 → 不眠症"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "intellectual",
@@ -8723,7 +9013,8 @@
     }
    ],
    "explain": "物事を見分ける → 知的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "limit",
@@ -8739,7 +9030,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "mate",
@@ -8765,7 +9057,8 @@
     "en": "mat",
     "ja": "マット"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "muddy",
@@ -8781,7 +9074,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "optimism",
@@ -8815,7 +9109,8 @@
     }
    ],
    "explain": "最もよいと考えること → 楽観"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "oral",
@@ -8840,7 +9135,8 @@
     "en": "moral",
     "ja": "道徳的な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "presence",
@@ -8875,7 +9171,8 @@
     "en": "pretense",
     "ja": "見せかけ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "procedure",
@@ -8922,7 +9219,8 @@
     }
    ],
    "explain": "進め方 → 手順・処置"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "psychological",
@@ -8960,7 +9258,8 @@
     }
    ],
    "explain": "心の学問の → 心理的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "queue",
@@ -8981,7 +9280,8 @@
     "en": "cue",
     "ja": "合図"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "recognize",
@@ -9029,7 +9329,8 @@
     }
    ],
    "explain": "再び知る → 認める・気づく"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "religious",
@@ -9050,7 +9351,8 @@
     "en": "rebellious",
     "ja": "反抗的な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "rely",
@@ -9076,7 +9378,8 @@
     "en": "reply",
     "ja": "返事をする"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "rhythmic",
@@ -9092,7 +9395,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "roommate",
@@ -9108,7 +9412,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "silent",
@@ -9129,7 +9434,8 @@
     "en": "salient",
     "ja": "目立つ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "skin",
@@ -9145,7 +9451,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "soybean",
@@ -9161,7 +9468,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "spare",
@@ -9187,7 +9495,8 @@
     "en": "spear",
     "ja": "やり"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "status",
@@ -9217,7 +9526,8 @@
     "en": "stature",
     "ja": "身長・名声"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "stream",
@@ -9238,7 +9548,8 @@
     "en": "scream",
     "ja": "叫ぶ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "stress",
@@ -9264,7 +9575,8 @@
     "en": "stretch",
     "ja": "伸ばす"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "surround",
@@ -9285,7 +9597,8 @@
     "en": "surrender",
     "ja": "降伏する"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "terrestrial",
@@ -9324,7 +9637,8 @@
     }
    ],
    "explain": "大地の → 地球上の・陸上の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "timeline",
@@ -9340,7 +9654,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "total",
@@ -9366,7 +9681,8 @@
     "en": "tidal",
     "ja": "潮の"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "treatise",
@@ -9387,7 +9703,8 @@
     "en": "treaty",
     "ja": "条約"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "undervalue",
@@ -9416,7 +9733,8 @@
     }
    ],
    "explain": "低く価値をつける → 過小評価する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "vegetarian",
@@ -9432,7 +9750,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "virtual",
@@ -9458,7 +9777,8 @@
     "en": "virtue",
     "ja": "美徳"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "warmth",
@@ -9479,7 +9799,8 @@
     "en": "worth",
     "ja": "価値"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "accelerate",
@@ -9527,7 +9848,8 @@
     }
    ],
    "explain": "速くする → 加速する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "acceleration",
@@ -9560,7 +9882,8 @@
     }
    ],
    "explain": "速くなること → 加速"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "accumulate",
@@ -9598,7 +9921,8 @@
     }
    ],
    "explain": "積み重ねる → 蓄積する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "accustom",
@@ -9619,7 +9943,8 @@
     "ja": "～に慣れている"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "adaptive",
@@ -9645,7 +9970,8 @@
     "en": "adoptive",
     "ja": "養子縁組の"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "adolescent",
@@ -9666,7 +9992,8 @@
     "en": "adolescence",
     "ja": "思春期"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "adore",
@@ -9705,7 +10032,8 @@
     }
    ],
    "explain": "～に祈る → 崇拝する・大好きである"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "advancement",
@@ -9726,7 +10054,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "affinity",
@@ -9769,7 +10098,8 @@
     }
    ],
    "explain": "境を接していること → 親近感"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "aggravate",
@@ -9812,7 +10142,8 @@
     }
    ],
    "explain": "重くする → 悪化させる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "agony",
@@ -9828,7 +10159,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "algorithmic",
@@ -9844,7 +10176,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "alkaline",
@@ -9860,7 +10193,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "alliance",
@@ -9881,7 +10215,8 @@
     "en": "allowance",
     "ja": "小遣い・手当"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "allocate",
@@ -9919,7 +10254,8 @@
     }
    ],
    "explain": "場所に置く → 割り当てる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "alter",
@@ -9945,7 +10281,8 @@
     "en": "altar",
     "ja": "祭壇"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "amateur",
@@ -9966,7 +10303,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "ambivalence",
@@ -9999,7 +10337,8 @@
     }
    ],
    "explain": "両方に力が働くこと → 相反する感情"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "amuse",
@@ -10015,7 +10354,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "anticipate",
@@ -10053,7 +10393,8 @@
     }
    ],
    "explain": "前もって取る → 予想する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "antiquity",
@@ -10092,7 +10433,8 @@
     }
    ],
    "explain": "古いこと → 古代"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "appliance",
@@ -10113,7 +10455,8 @@
     "en": "application",
     "ja": "申し込み・応用"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "archaeologist",
@@ -10129,7 +10472,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "archeological",
@@ -10145,7 +10489,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "aroma",
@@ -10161,7 +10506,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "array",
@@ -10187,7 +10533,8 @@
     "ja": "ずらりと並んだ～"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "artifact",
@@ -10203,7 +10550,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "ascend",
@@ -10237,7 +10585,8 @@
     }
    ],
    "explain": "登る → のぼる・(王位に)就く"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "assimilate",
@@ -10275,7 +10624,8 @@
     }
    ],
    "explain": "似たものにする → 同化させる・吸収する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "astonishing",
@@ -10296,7 +10646,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "autism",
@@ -10312,7 +10663,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "backup",
@@ -10333,7 +10685,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "bacteria",
@@ -10349,7 +10702,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "bead",
@@ -10370,7 +10724,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "belongingness",
@@ -10386,7 +10741,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "bemoan",
@@ -10402,7 +10758,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "beneficial",
@@ -10445,7 +10802,8 @@
     }
    ],
    "explain": "よいことをする → 有益な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "betterment",
@@ -10461,7 +10819,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "billion",
@@ -10482,7 +10841,8 @@
     "ja": "何十億もの～"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "biodiversity",
@@ -10519,7 +10879,8 @@
     }
    ],
    "explain": "生命がばらばらの方向を向いていること → 生物多様性"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "biologist",
@@ -10552,7 +10913,8 @@
     }
    ],
    "explain": "生命の学問をする人 → 生物学者"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "bland",
@@ -10578,7 +10940,8 @@
     "en": "blend",
     "ja": "混ぜる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "blazingly",
@@ -10594,7 +10957,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "bodily",
@@ -10610,7 +10974,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "boost",
@@ -10631,7 +10996,8 @@
     "en": "boast",
     "ja": "自慢する"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "bout",
@@ -10662,7 +11028,8 @@
     "en": "bought",
     "ja": "buyの過去形"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "brighten",
@@ -10683,7 +11050,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "brood",
@@ -10709,7 +11077,8 @@
     "en": "broad",
     "ja": "幅広い"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "calorie",
@@ -10725,7 +11094,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "cavalry",
@@ -10746,7 +11116,8 @@
     "en": "calvary",
     "ja": "キリストのはりつけの場所"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "celebrated",
@@ -10767,7 +11138,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "circuit",
@@ -10806,7 +11178,8 @@
     }
    ],
    "explain": "ぐるりと回ること → 巡回・回路"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "cite",
@@ -10836,7 +11209,8 @@
     "en": "sight",
     "ja": "光景"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "civilisation",
@@ -10865,7 +11239,8 @@
     }
    ],
    "explain": "市民化すること → 文明"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "cluster",
@@ -10881,7 +11256,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "coefficient",
@@ -10902,7 +11278,8 @@
     "ja": "摩擦係数"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "cognitive",
@@ -10931,7 +11308,8 @@
     }
    ],
    "explain": "知ることの → 認知の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "cohesion",
@@ -10969,7 +11347,8 @@
     }
    ],
    "explain": "くっつき合うこと → まとまり"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "collision",
@@ -11007,7 +11386,8 @@
     }
    ],
    "explain": "ぶつかり合うこと → 衝突"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "commentator",
@@ -11023,7 +11403,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "compel",
@@ -11062,7 +11443,8 @@
     }
    ],
    "explain": "強く押す → 無理に～させる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "complexity",
@@ -11078,7 +11460,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "compress",
@@ -11107,7 +11490,8 @@
     }
    ],
    "explain": "一緒に押しつける → 圧縮する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "compulsory",
@@ -11145,7 +11529,8 @@
     }
    ],
    "explain": "強く押しつけられた → 義務の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "conducive",
@@ -11188,7 +11573,8 @@
     }
    ],
    "explain": "一緒に導く → ～に役立つ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "conference",
@@ -11204,7 +11590,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "contagious",
@@ -11242,7 +11629,8 @@
     }
    ],
    "explain": "触れ合ってうつる → 伝染する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "contemporary",
@@ -11285,7 +11673,8 @@
     }
    ],
    "explain": "時を同じくする → 同時代の・現代の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "contentment",
@@ -11301,7 +11690,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "continental",
@@ -11317,7 +11707,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "converge",
@@ -11346,7 +11737,8 @@
     }
    ],
    "explain": "一点に向かって傾く → 一点に集まる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "cooperative",
@@ -11389,7 +11781,8 @@
     }
    ],
    "explain": "一緒に働く → 協力的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "cope",
@@ -11410,7 +11803,8 @@
     "ja": "～にうまく対処する"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "coronation",
@@ -11426,7 +11820,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "correlation",
@@ -11455,7 +11850,8 @@
     }
    ],
    "explain": "互いの関係 → 相関関係"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "corridor",
@@ -11476,7 +11872,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "crass",
@@ -11497,7 +11894,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "crawl",
@@ -11522,7 +11920,8 @@
     "en": "growl",
     "ja": "うなる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "cue",
@@ -11548,7 +11947,8 @@
     "en": "queue",
     "ja": "列"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "cult",
@@ -11569,7 +11969,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "cunningly",
@@ -11585,7 +11986,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "curl",
@@ -11606,7 +12008,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "cyclist",
@@ -11622,7 +12025,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "decade",
@@ -11638,7 +12042,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "deceive",
@@ -11672,7 +12077,8 @@
     }
    ],
    "explain": "つかんで(正しい道から)離す → だます"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "decisively",
@@ -11714,7 +12120,8 @@
     }
    ],
    "explain": "切り離して決める → きっぱりと"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "deepen",
@@ -11730,7 +12137,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "deforestation",
@@ -11763,7 +12171,8 @@
     }
    ],
    "explain": "森を取り除くこと → 森林破壊"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "deity",
@@ -11779,7 +12188,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "deliberately",
@@ -11800,7 +12210,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "demarcation",
@@ -11816,7 +12227,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "demography",
@@ -11845,7 +12257,8 @@
     }
    ],
    "explain": "人々の記述 → 人口統計学"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "desertification",
@@ -11874,7 +12287,8 @@
     }
    ],
    "explain": "砂漠になること → 砂漠化"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "destruct",
@@ -11890,7 +12304,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "detached",
@@ -11928,7 +12343,8 @@
     }
    ],
    "explain": "留め具を外した → 切り離された・無関心な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "detailed",
@@ -11944,7 +12360,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "developmental",
@@ -11960,7 +12377,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "dichotomy",
@@ -11989,7 +12407,8 @@
     }
    ],
    "explain": "2つに切ること → 二分"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "dictator",
@@ -12005,7 +12424,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "dimensional",
@@ -12026,7 +12446,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "disassemble",
@@ -12060,7 +12481,8 @@
     }
    ],
    "explain": "組み立ての反対 → 分解する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "disbelief",
@@ -12076,7 +12498,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "discipline",
@@ -12097,7 +12520,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "disorder",
@@ -12118,7 +12542,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "disrupt",
@@ -12147,7 +12572,8 @@
     }
    ],
    "explain": "ばらばらに壊す → 乱す"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "distinctive",
@@ -12168,7 +12594,8 @@
     "en": "distinct",
     "ja": "異なる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "distort",
@@ -12197,7 +12624,8 @@
     }
    ],
    "explain": "ねじ曲げる → ゆがめる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "distress",
@@ -12236,7 +12664,8 @@
     }
    ],
    "explain": "引き裂かれること → 苦痛"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "divinity",
@@ -12270,7 +12699,8 @@
     }
    ],
    "explain": "神であること → 神性"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "domain",
@@ -12291,7 +12721,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "domestic",
@@ -12312,7 +12743,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "donation",
@@ -12333,7 +12765,8 @@
     "ja": "寄付する"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "dotted",
@@ -12349,7 +12782,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "dough",
@@ -12365,7 +12799,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "downstream",
@@ -12386,7 +12821,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "drain",
@@ -12412,7 +12848,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "dressing",
@@ -12433,7 +12870,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "drift",
@@ -12449,7 +12887,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "driving",
@@ -12465,7 +12904,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "drowsiness",
@@ -12481,7 +12921,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "dweller",
@@ -12502,7 +12943,8 @@
     "ja": "都会の住人"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "dynamic",
@@ -12536,7 +12978,8 @@
     }
    ],
    "explain": "力のある → 活気のある"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "eavesdropping",
@@ -12552,7 +12995,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "elitist",
@@ -12568,7 +13012,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "eloquence",
@@ -12606,7 +13051,8 @@
     }
    ],
    "explain": "言葉が外へあふれること → 雄弁"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "embrace",
@@ -12627,7 +13073,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "emission",
@@ -12665,7 +13112,8 @@
     }
    ],
    "explain": "外へ送り出すこと → 排出"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "empower",
@@ -12694,7 +13142,8 @@
     }
    ],
    "explain": "力を与える → 力を与える"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "encapsulate",
@@ -12727,7 +13176,8 @@
     }
    ],
    "explain": "小箱の中に入れる → 凝縮する・要約する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "encircle",
@@ -12756,7 +13206,8 @@
     }
    ],
    "explain": "円で囲む → 取り囲む"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "endemic",
@@ -12799,7 +13250,8 @@
     }
    ],
    "explain": "人々の中にある → (ある地域に)はびこった"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "endorse",
@@ -12815,7 +13267,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "equation",
@@ -12844,7 +13297,8 @@
     }
    ],
    "explain": "等しくすること → 方程式"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "equilibrium",
@@ -12877,7 +13331,8 @@
     }
    ],
    "explain": "はかりが等しいこと → 平衡"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "erosion",
@@ -12915,7 +13370,8 @@
     }
    ],
    "explain": "かじり取ること → 浸食"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "ethical",
@@ -12936,7 +13392,8 @@
     "en": "ethnic",
     "ja": "民族の"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "evolutionary",
@@ -12957,7 +13414,8 @@
     "en": "revolutionary",
     "ja": "革命的な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "evolve",
@@ -12986,7 +13444,8 @@
     }
    ],
    "explain": "巻物を外へ広げる → 発展する・進化する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "excavation",
@@ -13019,7 +13478,8 @@
     }
    ],
    "explain": "穴から外へ出すこと → 発掘"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "exception",
@@ -13062,7 +13522,8 @@
     }
    ],
    "explain": "外へ取り出すこと → 例外"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "exert",
@@ -13101,7 +13562,8 @@
     }
    ],
    "explain": "外へ出す → (力を)及ぼす"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "expectancy",
@@ -13139,7 +13601,8 @@
     }
    ],
    "explain": "外を見て待つこと → 予期・見込み"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "experimental",
@@ -13155,7 +13618,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "extol",
@@ -13171,7 +13635,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "fascinated",
@@ -13187,7 +13652,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "fate",
@@ -13208,7 +13674,8 @@
     "en": "fete",
     "ja": "祝宴"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "fertility",
@@ -13247,7 +13714,8 @@
     }
    ],
    "explain": "実りがあること → 出生率・肥沃さ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "fiber",
@@ -13273,7 +13741,8 @@
     "en": "fever",
     "ja": "熱"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "forage",
@@ -13289,7 +13758,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "forbidding",
@@ -13305,7 +13775,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "forge",
@@ -13326,7 +13797,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "formidable",
@@ -13342,7 +13814,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "found",
@@ -13363,7 +13836,8 @@
     "en": "find(過去形 found)",
     "ja": "見つけた"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "foundational",
@@ -13379,7 +13853,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "fourfold",
@@ -13395,7 +13870,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "fraction",
@@ -13434,7 +13910,8 @@
     }
    ],
    "explain": "壊れたかけら → ごく一部・分数"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "friction",
@@ -13473,7 +13950,8 @@
     }
    ],
    "explain": "こすれ合うこと → 摩擦"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "gathering",
@@ -13489,7 +13967,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "gauge",
@@ -13505,7 +13984,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "generosity",
@@ -13534,7 +14014,8 @@
     }
    ],
    "explain": "家柄のよさ → 寛大さ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "geographic",
@@ -13567,7 +14048,8 @@
     }
    ],
    "explain": "大地について書いた → 地理的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "gossiping",
@@ -13583,7 +14065,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "grainy",
@@ -13599,7 +14082,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "grand",
@@ -13625,7 +14109,8 @@
     "en": "grant",
     "ja": "与える・補助金"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "gratifying",
@@ -13641,7 +14126,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "gymnasium",
@@ -13657,7 +14143,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "haltingly",
@@ -13673,7 +14160,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "halve",
@@ -13694,7 +14182,8 @@
     "en": "halves",
     "ja": "half の複数形"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "harassment",
@@ -13710,7 +14199,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "hollow",
@@ -13736,7 +14226,8 @@
     "en": "hallow",
     "ja": "神聖にする"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "humiliation",
@@ -13770,7 +14261,8 @@
     }
    ],
    "explain": "低くすること → 屈辱"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "hunting",
@@ -13786,7 +14278,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "iconic",
@@ -13807,7 +14300,8 @@
     "en": "ironic",
     "ja": "皮肉な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "identical",
@@ -13841,7 +14335,8 @@
     }
    ],
    "explain": "同じ → まったく同じ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "identification",
@@ -13857,7 +14352,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "identifier",
@@ -13873,7 +14369,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "ignorant",
@@ -13894,7 +14391,8 @@
     "ja": "～を知らない"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "illustrate",
@@ -13920,7 +14418,8 @@
     "ja": "例を挙げると"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "imaginative",
@@ -13945,7 +14444,8 @@
     "en": "imaginable",
     "ja": "想像できる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "imitate",
@@ -13979,7 +14479,8 @@
     }
    ],
    "explain": "似せる → まねる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "immersive",
@@ -13995,7 +14496,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "impolite",
@@ -14011,7 +14513,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "impose",
@@ -14045,7 +14548,8 @@
     }
    ],
    "explain": "上に置く → 課す・押しつける"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "impressed",
@@ -14061,7 +14565,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "impressionist",
@@ -14082,7 +14587,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "inconsequential",
@@ -14119,7 +14625,8 @@
     }
    ],
    "explain": "後に何も続かない → 取るに足らない"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "incorporate",
@@ -14152,7 +14659,8 @@
     }
    ],
    "explain": "体の中に入れる → 取り入れる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "indecently",
@@ -14168,7 +14676,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "indefinitely",
@@ -14205,7 +14714,8 @@
     }
    ],
    "explain": "終わりが決まっていない → 無期限に"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "indigenous",
@@ -14247,7 +14757,8 @@
     }
    ],
    "explain": "その中で生まれた → 先住の・土着の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "individualized",
@@ -14263,7 +14774,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "infantry",
@@ -14284,7 +14796,8 @@
     "en": "infancy",
     "ja": "幼児期"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "influential",
@@ -14300,7 +14813,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "ingenuity",
@@ -14321,7 +14835,8 @@
     "en": "ingenuous",
     "ja": "無邪気な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "inhabitant",
@@ -14354,7 +14869,8 @@
     }
    ],
    "explain": "中に住む人 → 住民"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "inquire",
@@ -14397,7 +14913,8 @@
     }
    ],
    "explain": "中を求める → 尋ねる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "insensitive",
@@ -14413,7 +14930,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "intellectual",
@@ -14451,7 +14969,8 @@
     }
    ],
    "explain": "物事を見分ける → 知的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "interactivity",
@@ -14467,7 +14986,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "interpretation",
@@ -14505,7 +15025,8 @@
     }
    ],
    "explain": "間に入って取り次ぐこと → 解釈・通訳"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "intersection",
@@ -14543,7 +15064,8 @@
     }
    ],
    "explain": "互いに切り合う所 → 交わるところ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "interwar",
@@ -14559,7 +15081,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "interweave",
@@ -14588,7 +15111,8 @@
     }
    ],
    "explain": "互いに織り合わせる → 織り交ぜる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "irrelevant",
@@ -14626,7 +15150,8 @@
     }
    ],
    "explain": "関係しない → 無関係な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "irritation",
@@ -14642,7 +15167,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "jeopardise",
@@ -14658,7 +15184,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "jurisdiction",
@@ -14691,7 +15218,8 @@
     }
    ],
    "explain": "法を言い渡すこと → 管轄"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "justify",
@@ -14720,7 +15248,8 @@
     }
    ],
    "explain": "正しいとする → 正当化する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "label",
@@ -14741,7 +15270,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "landmark",
@@ -14762,7 +15292,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "laptop",
@@ -14778,7 +15309,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "lecturing",
@@ -14794,7 +15326,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "liable",
@@ -14825,7 +15358,8 @@
     "en": "reliable",
     "ja": "信頼できる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "liken",
@@ -14859,7 +15393,8 @@
     }
    ],
    "explain": "似ているとする → たとえる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "limb",
@@ -14880,7 +15415,8 @@
     "en": "limp",
     "ja": "足を引きずる"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "linear",
@@ -14909,7 +15445,8 @@
     }
    ],
    "explain": "線の → 直線の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "locus",
@@ -14930,7 +15467,8 @@
     "en": "locust",
     "ja": "イナゴ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "loom",
@@ -14946,7 +15484,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "lovingly",
@@ -14962,7 +15501,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "lower",
@@ -14978,7 +15518,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "malicious",
@@ -15007,7 +15548,8 @@
     }
    ],
    "explain": "悪い → 悪意のある"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "mammal",
@@ -15023,7 +15565,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "manipulate",
@@ -15061,7 +15604,8 @@
     }
    ],
    "explain": "手で扱う → 操作する・扱う"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "matriarch",
@@ -15090,7 +15634,8 @@
     }
    ],
    "explain": "母の支配者 → 女家長"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "mediate",
@@ -15129,7 +15674,8 @@
     }
    ],
    "explain": "中間に立つ → 仲介する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "medication",
@@ -15150,7 +15696,8 @@
     "en": "meditation",
     "ja": "瞑想"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "meditative",
@@ -15171,7 +15718,8 @@
     "en": "mediative",
     "ja": "仲裁の"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "melody",
@@ -15187,7 +15735,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "melting",
@@ -15203,7 +15752,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "mend",
@@ -15219,7 +15769,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "mercifully",
@@ -15240,7 +15791,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "messenger",
@@ -15261,7 +15813,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "meteorite",
@@ -15277,7 +15830,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "microbe",
@@ -15293,7 +15847,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "microorganism",
@@ -15322,7 +15877,8 @@
     }
    ],
    "explain": "小さい生物 → 微生物"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "microscope",
@@ -15356,7 +15912,8 @@
     }
    ],
    "explain": "小さいものを見る道具 → 顕微鏡"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "milieu",
@@ -15372,7 +15929,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "minister",
@@ -15393,7 +15951,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "mixed",
@@ -15409,7 +15968,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "moan",
@@ -15435,7 +15995,8 @@
     "en": "mourn",
     "ja": "悲しむ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "monarch",
@@ -15464,7 +16025,8 @@
     }
    ],
    "explain": "1人の支配者 → 君主"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "motivated",
@@ -15480,7 +16042,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "multidisciplinary",
@@ -15513,7 +16076,8 @@
     }
    ],
    "explain": "多くの学問分野にまたがる → 学際的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "multiplication",
@@ -15551,7 +16115,8 @@
     }
    ],
    "explain": "何重にも重ねること → 増加・掛け算"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "multivalent",
@@ -15567,7 +16132,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "mythology",
@@ -15583,7 +16149,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "neatly",
@@ -15604,7 +16171,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "nobility",
@@ -15634,7 +16202,8 @@
     "en": "novel",
     "ja": "目新しい・小説"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "norm",
@@ -15655,7 +16224,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "nuance",
@@ -15671,7 +16241,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "nutritious",
@@ -15705,7 +16276,8 @@
     }
    ],
    "explain": "養う → 栄養のある"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "obey",
@@ -15721,7 +16293,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "obligation",
@@ -15754,7 +16327,8 @@
     }
    ],
    "explain": "～に縛りつけること → 義務"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "oblige",
@@ -15775,7 +16349,8 @@
     "ja": "～せざるを得ない"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "observer",
@@ -15791,7 +16366,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "obsession",
@@ -15807,7 +16383,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "offence",
@@ -15828,7 +16405,8 @@
     "ja": "刑事犯罪"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "offense",
@@ -15849,7 +16427,8 @@
     "ja": "悪気はないんだけど"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "offspring",
@@ -15878,7 +16457,8 @@
     }
    ],
    "explain": "離れて生まれ出たもの → 子孫"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "onwards",
@@ -15894,7 +16474,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "orator",
@@ -15923,7 +16504,8 @@
     }
    ],
    "explain": "話す人 → 演説家"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "orientation",
@@ -15944,7 +16526,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "outpouring",
@@ -15965,7 +16548,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "overall",
@@ -15981,7 +16565,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "overflow",
@@ -15997,7 +16582,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "overlay",
@@ -16013,7 +16599,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "overrate",
@@ -16042,7 +16629,8 @@
     }
    ],
    "explain": "実際より高く評価する → 過大評価する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "oversleep",
@@ -16058,7 +16646,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "paralyzed",
@@ -16074,7 +16663,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "passionate",
@@ -16095,7 +16685,8 @@
     "en": "patient",
     "ja": "忍耐強い"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "pastor",
@@ -16116,7 +16707,8 @@
     "en": "pasture",
     "ja": "牧草地"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "peer",
@@ -16137,7 +16729,8 @@
     "en": "pier",
     "ja": "桟橋"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "percentage",
@@ -16153,7 +16746,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "perpetual",
@@ -16191,7 +16785,8 @@
     }
    ],
    "explain": "ずっと続いていく → 永久の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "perplex",
@@ -16220,7 +16815,8 @@
     }
    ],
    "explain": "すっかりからませる → 当惑させる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "pervade",
@@ -16254,7 +16850,8 @@
     }
    ],
    "explain": "すみずみまで行き渡る → 広がる"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "pessimistic",
@@ -16283,7 +16880,8 @@
     }
    ],
    "explain": "最も悪いと考える → 悲観的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "phase",
@@ -16304,7 +16902,8 @@
     "en": "phrase",
     "ja": "句・表現"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "philosophically",
@@ -16320,7 +16919,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "physically",
@@ -16341,7 +16941,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "physiological",
@@ -16379,7 +16980,8 @@
     }
    ],
    "explain": "体の働きの学問の → 生理的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "pictograph",
@@ -16395,7 +16997,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "pilgrimage",
@@ -16411,7 +17014,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "pitch",
@@ -16432,7 +17036,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "planetary",
@@ -16448,7 +17053,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "plummet",
@@ -16464,7 +17070,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "pod",
@@ -16485,7 +17092,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "politics",
@@ -16501,7 +17109,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "polymath",
@@ -16517,7 +17126,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "popularity",
@@ -16538,7 +17148,8 @@
     "en": "population",
     "ja": "人口"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "populate",
@@ -16554,7 +17165,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "portion",
@@ -16580,7 +17192,8 @@
     "en": "potion",
     "ja": "水薬"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "postulate",
@@ -16609,7 +17222,8 @@
     }
    ],
    "explain": "当然のこととして求める → 仮定する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "preacher",
@@ -16625,7 +17239,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "precipitous",
@@ -16668,7 +17283,8 @@
     }
    ],
    "explain": "頭から前へ落ちる → 急激な・険しい"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "pregnancy",
@@ -16684,7 +17300,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "prerequisite",
@@ -16718,7 +17335,8 @@
     }
    ],
    "explain": "前もって必要なもの → 前提条件"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "presumably",
@@ -16751,7 +17369,8 @@
     }
    ],
    "explain": "前もって取ってみると → おそらく"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "pretext",
@@ -16780,7 +17399,8 @@
     }
    ],
    "explain": "前に織り込んだもの → 口実"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "prevalence",
@@ -16818,7 +17438,8 @@
     }
    ],
    "explain": "力が勝っていること → 広まり"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "primary",
@@ -16839,7 +17460,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "prior",
@@ -16860,7 +17482,8 @@
     "ja": "～より前に"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "profound",
@@ -16889,7 +17512,8 @@
     }
    ],
    "explain": "底の方まで → 深い・重大な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "project",
@@ -16905,7 +17529,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "prolific",
@@ -16934,7 +17559,8 @@
     }
    ],
    "explain": "子孫を多く作る → 多作の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "prone",
@@ -16955,7 +17581,8 @@
     "ja": "～しがちだ"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "propel",
@@ -16984,7 +17611,8 @@
     }
    ],
    "explain": "前へ押す → 推進する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "propitiate",
@@ -17000,7 +17628,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "prosocial",
@@ -17016,7 +17645,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "provision",
@@ -17032,7 +17662,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "provoke",
@@ -17066,7 +17697,8 @@
     }
    ],
    "explain": "呼び出す → 引き起こす"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "psychiatric",
@@ -17082,7 +17714,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "psychiatry",
@@ -17116,7 +17749,8 @@
     }
    ],
    "explain": "心の治療 → 精神医学"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "publication",
@@ -17132,7 +17766,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "pursuit",
@@ -17153,7 +17788,8 @@
     "ja": "～を求めて"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "quandary",
@@ -17169,7 +17805,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "questionnaire",
@@ -17185,7 +17822,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "reaction",
@@ -17201,7 +17839,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "reckon",
@@ -17222,7 +17861,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "recreation",
@@ -17243,7 +17883,8 @@
     "en": "re-creation",
     "ja": "再現"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "recreational",
@@ -17259,7 +17900,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "reinforce",
@@ -17292,7 +17934,8 @@
     }
    ],
    "explain": "再び力を入れる → 強める"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "related",
@@ -17308,7 +17951,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "reminder",
@@ -17324,7 +17968,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "render",
@@ -17345,7 +17990,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "repertoire",
@@ -17361,7 +18007,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "reproductive",
@@ -17377,7 +18024,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "reside",
@@ -17406,7 +18054,8 @@
     }
    ],
    "explain": "あとに残って座る → 住む"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "resonant",
@@ -17444,7 +18093,8 @@
     }
    ],
    "explain": "音が返ってくる → 響き渡る・共感を呼ぶ"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "respective",
@@ -17486,7 +18136,8 @@
     }
    ],
    "explain": "一つずつ振り返って見る → それぞれの"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "rethink",
@@ -17502,7 +18153,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "revise",
@@ -17536,7 +18188,8 @@
     }
    ],
    "explain": "もう一度見る → 修正する"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "revolutionary",
@@ -17578,7 +18231,8 @@
     }
    ],
    "explain": "ぐるりと回すような → 革命的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "rewrite",
@@ -17594,7 +18248,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "rhetorical",
@@ -17615,7 +18270,8 @@
     "ja": "反語"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "rink",
@@ -17631,7 +18287,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "roam",
@@ -17647,7 +18304,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "rotate",
@@ -17668,7 +18326,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "route",
@@ -17689,7 +18348,8 @@
     "en": "root",
     "ja": "根"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "saline",
@@ -17705,7 +18365,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "salinity",
@@ -17721,7 +18382,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "sanctuary",
@@ -17742,7 +18404,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "scented",
@@ -17758,7 +18421,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "schoolgirl",
@@ -17774,7 +18438,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "scuba",
@@ -17790,7 +18455,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "seasonal",
@@ -17806,7 +18472,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "secondary",
@@ -17827,7 +18494,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "selective",
@@ -17860,7 +18528,8 @@
     }
    ],
    "explain": "選び分ける → 選択的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "semi",
@@ -17876,7 +18545,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "sermon",
@@ -17892,7 +18562,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "servant",
@@ -17908,7 +18579,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "shared",
@@ -17924,7 +18596,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "shrill",
@@ -17940,7 +18613,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "shrine",
@@ -17956,7 +18630,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "sibling",
@@ -17972,7 +18647,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "siren",
@@ -17988,7 +18664,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "sleeper",
@@ -18004,7 +18681,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "smartphone",
@@ -18020,7 +18698,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "snooze",
@@ -18036,7 +18715,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "sociability",
@@ -18065,7 +18745,8 @@
     }
    ],
    "explain": "仲間になれること → 社交性"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "somewhat",
@@ -18081,7 +18762,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "spacecraft",
@@ -18097,7 +18779,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "speaking",
@@ -18113,7 +18796,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "specialism",
@@ -18129,7 +18813,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "spellbinding",
@@ -18145,7 +18830,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "sprint",
@@ -18161,7 +18847,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "squeak",
@@ -18177,7 +18864,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "stake",
@@ -18208,7 +18896,8 @@
     "en": "steak",
     "ja": "ステーキ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "startling",
@@ -18229,7 +18918,8 @@
     "en": "starling",
     "ja": "ムクドリ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "starve",
@@ -18250,7 +18940,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "static",
@@ -18271,7 +18962,8 @@
     "en": "statistic",
     "ja": "統計"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "stellar",
@@ -18292,7 +18984,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "straitjacket",
@@ -18308,7 +19001,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "strand",
@@ -18329,7 +19023,8 @@
     "en": "stranded",
     "ja": "立ち往生した"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "stressor",
@@ -18345,7 +19040,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "stroke",
@@ -18371,7 +19067,8 @@
     "en": "strike",
     "ja": "打つ"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "subjective",
@@ -18409,7 +19106,8 @@
     }
    ],
    "explain": "自分の下に置いた → 主観的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "subscriber",
@@ -18442,7 +19140,8 @@
     }
    ],
    "explain": "下に名前を書く人 → 購読者・登録者"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "successive",
@@ -18480,7 +19179,8 @@
     }
    ],
    "explain": "後に続いていく → 連続する・歴代の"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "supplement",
@@ -18518,7 +19218,8 @@
     }
    ],
    "explain": "下から満たすもの → 補う"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "suspiciously",
@@ -18534,7 +19235,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "sustainable",
@@ -18567,7 +19269,8 @@
     }
    ],
    "explain": "下から支えて保てる → 持続可能な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "sustenance",
@@ -18600,7 +19303,8 @@
     }
    ],
    "explain": "下から支えるもの → 食物・生きる糧"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "swaddle",
@@ -18616,7 +19320,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "swap",
@@ -18632,7 +19337,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "swimmer",
@@ -18648,7 +19354,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "technical",
@@ -18664,7 +19371,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "temperate",
@@ -18703,7 +19411,8 @@
     }
    ],
    "explain": "ほどよい → 温暖な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "tempting",
@@ -18719,7 +19428,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "tenth",
@@ -18735,7 +19445,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "texture",
@@ -18756,7 +19467,8 @@
     "en": "text",
     "ja": "文章"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "thrilling",
@@ -18772,7 +19484,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "throne",
@@ -18793,7 +19506,8 @@
     "en": "thrown",
     "ja": "throw の過去分詞"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "tofu",
@@ -18809,7 +19523,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "trailer",
@@ -18830,7 +19545,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "tranquility",
@@ -18846,7 +19562,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "transformative",
@@ -18879,7 +19596,8 @@
     }
    ],
    "explain": "形を向こうへ変える → 変革をもたらす"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "transfusion",
@@ -18917,7 +19635,8 @@
     }
    ],
    "explain": "向こうへ注ぐこと → 輸血"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "transient",
@@ -18946,7 +19665,8 @@
     }
    ],
    "explain": "過ぎ去っていく → 一時的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "traumatic",
@@ -18962,7 +19682,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "tray",
@@ -18978,7 +19699,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "treaty",
@@ -18999,7 +19721,8 @@
     "en": "treatment",
     "ja": "治療・扱い"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "tribe",
@@ -19015,7 +19738,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "tricky",
@@ -19031,7 +19755,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "trivial",
@@ -19047,7 +19772,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "typify",
@@ -19063,7 +19789,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "typing",
@@ -19079,7 +19806,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "unaffordable",
@@ -19095,7 +19823,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "unappetizing",
@@ -19111,7 +19840,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "uncover",
@@ -19127,7 +19857,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "underpin",
@@ -19143,7 +19874,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "unfamiliar",
@@ -19159,7 +19891,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "unfold",
@@ -19180,7 +19913,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "uninteresting",
@@ -19201,7 +19935,8 @@
     "en": "disinterested",
     "ja": "公平な"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "unlock",
@@ -19222,7 +19957,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "unnoticed",
@@ -19243,7 +19979,8 @@
     "ja": "気づかれずに終わる"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "unprecedented",
@@ -19280,7 +20017,8 @@
     }
    ],
    "explain": "前に行ったものがない → 前例のない"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "unpublished",
@@ -19296,7 +20034,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "unveil",
@@ -19312,7 +20051,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "urban",
@@ -19333,7 +20073,8 @@
     "en": "urbane",
     "ja": "洗練された"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "utilitarian",
@@ -19362,7 +20103,8 @@
     }
    ],
    "explain": "役に立つことを重んじる → 実用的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "variability",
@@ -19378,7 +20120,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "venue",
@@ -19412,7 +20155,8 @@
     }
    ],
    "explain": "人がやって来る所 → 会場"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "version",
@@ -19446,7 +20190,8 @@
     }
    ],
    "explain": "向きを変えたもの → 版・型"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "vibrant",
@@ -19467,7 +20212,8 @@
     "en": "vibration",
     "ja": "振動"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "victimisation",
@@ -19483,7 +20229,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "visibility",
@@ -19512,7 +20259,8 @@
     }
    ],
    "explain": "見えること → 視界"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "voluntary",
@@ -19541,7 +20289,8 @@
     }
    ],
    "explain": "自分の意志の → 自発的な"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "vulnerable",
@@ -19580,7 +20329,8 @@
     }
    ],
    "explain": "傷つけられうる → 傷つきやすい"
-  }
+  },
+  "source": "exam"
  },
  {
   "word": "warming",
@@ -19606,7 +20356,8 @@
     "en": "warning",
     "ja": "警告"
    }
-  ]
+  ],
+  "source": "exam"
  },
  {
   "word": "weightlessness",
@@ -19622,7 +20373,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "wobbly",
@@ -19638,7 +20390,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "worrying",
@@ -19654,7 +20407,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "worsen",
@@ -19670,7 +20424,8 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "source": "exam"
  },
  {
   "word": "yawn",
@@ -19683,6 +20438,3558 @@
     "ja": "あくびをする",
     "in_exam": true,
     "exam_count": 1
+   }
+  ],
+  "idioms": [],
+  "confusables": [],
+  "source": "exam"
+ },
+ {
+  "word": "accord",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "一致する(accord with)",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "与える",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "award",
+    "ja": "賞を与える"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ac",
+     "ja": "～へ"
+    },
+    {
+     "part": "cord",
+     "ja": "心"
+    }
+   ],
+   "explain": "心を合わせる → 一致する"
+  }
+ },
+ {
+  "word": "bypass",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "迂回する・素通りする",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "避けて通る",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "calibrate",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "調整する・目盛りを合わせる",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "celebrate",
+    "ja": "祝う"
+   }
+  ]
+ },
+ {
+  "word": "exposure",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "さらされること・接すること",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "暴露",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "exposition",
+    "ja": "説明・博覧会"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "pos",
+     "ja": "置く"
+    },
+    {
+     "part": "ure",
+     "ja": ""
+    }
+   ],
+   "explain": "外に置かれること → さらされること"
+  }
+ },
+ {
+  "word": "rightly",
+  "pos": "副詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "当然・正しく",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "lightly",
+    "ja": "軽く"
+   }
+  ]
+ },
+ {
+  "word": "scenario",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 5,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "筋書き・想定される状況",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "therapy",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 8,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "治療",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "療法",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "subside",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 6,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "沈下する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "(嵐などが)おさまる",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "subsidy",
+    "ja": "補助金"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sub",
+     "ja": "下に"
+    },
+    {
+     "part": "side",
+     "ja": "座る"
+    }
+   ],
+   "explain": "下に座りこむ → 沈下する・おさまる"
+  }
+ },
+ {
+  "word": "extraction",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 5,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "抜き取ること・採取",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "抽出",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "tract",
+     "ja": "引く"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "外へ引き出すこと → 抽出"
+  }
+ },
+ {
+  "word": "benign",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "無害な",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "優しい",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "benignant",
+    "ja": "情け深い"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "bene",
+     "ja": "よい"
+    },
+    {
+     "part": "gn",
+     "ja": "生まれ"
+    }
+   ],
+   "explain": "生まれのよい → 優しい・無害な"
+  }
+ },
+ {
+  "word": "deafness",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "耳が聞こえないこと",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "flooding",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "洪水・浸水",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "gravity",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "重力",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "重大さ",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "gravel",
+    "ja": "砂利"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "grav",
+     "ja": "重い"
+    },
+    {
+     "part": "ity",
+     "ja": ""
+    }
+   ],
+   "explain": "重いこと → 重力・重大さ"
+  }
+ },
+ {
+  "word": "intrinsically",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "本質的に",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "extrinsically",
+    "ja": "外的に"
+   }
+  ]
+ },
+ {
+  "word": "trial",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "臨床試験",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "裁判",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   },
+   {
+    "ja": "試み",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "trail",
+    "ja": "小道・跡"
+   }
+  ]
+ },
+ {
+  "word": "assess",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "評価する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "access",
+    "ja": "利用"
+   }
+  ]
+ },
+ {
+  "word": "astronomer",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "天文学者",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "astrologer",
+    "ja": "占星術師"
+   }
+  ]
+ },
+ {
+  "word": "consensus",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "一致した意見",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "census",
+    "ja": "国勢調査"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "sens",
+     "ja": "感じる"
+    }
+   ],
+   "explain": "同じように感じること → 合意"
+  }
+ },
+ {
+  "word": "controversy",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "論争",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "criticism",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "批判",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "批評",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "essentially",
+  "pos": "副詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "本質的に・要するに",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "expertise",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "専門知識",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "expert",
+    "ja": "専門家"
+   }
+  ]
+ },
+ {
+  "word": "generative",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "生成する(generative AI)",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "groundwater",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "地下水",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "intellect",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "知性",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "likewise",
+  "pos": "副詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 4,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "同様に",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "overturn",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "覆す",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "ひっくり返す",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "parochial",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "視野の狭い",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "教区の",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "pivotal",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "極めて重要な",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "relief",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "安心",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "救済",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   },
+   {
+    "ja": "軽減",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "belief",
+    "ja": "信念"
+   }
+  ]
+ },
+ {
+  "word": "scrutiny",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "綿密な調査",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "skepticism",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "懐疑・疑い",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "tackle",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "取り組む",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "タックルする",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "tentative",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "仮の・暫定的な",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "attentive",
+    "ja": "注意深い"
+   }
+  ]
+ },
+ {
+  "word": "transcend",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "超える",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "transcendent",
+    "ja": "卓越した"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "trans",
+     "ja": "越えて"
+    },
+    {
+     "part": "scend",
+     "ja": "登る"
+    }
+   ],
+   "explain": "登り越える → 超える"
+  }
+ },
+ {
+  "word": "confront",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "source_article",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "直面する・立ち向かう",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "comfort",
+    "ja": "慰め"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "front",
+     "ja": "額・正面"
+    }
+   ],
+   "explain": "正面を合わせる → 立ち向かう"
+  }
+ },
+ {
+  "word": "energy",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 13,
+  "article_num": 5,
+  "meanings": [
+   {
+    "ja": "エネルギー",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "活力",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "colleague",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 6,
+  "article_num": 4,
+  "meanings": [
+   {
+    "ja": "同僚",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "college",
+    "ja": "大学"
+   }
+  ]
+ },
+ {
+  "word": "motion",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 12,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "動き・運動",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "動議",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "emotion",
+    "ja": "感情"
+   }
+  ]
+ },
+ {
+  "word": "necessarily",
+  "pos": "副詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 6,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "必ずしも(～ない)",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "previously",
+  "pos": "副詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "以前に",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "sustainability",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "持続可能性",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "induce",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "引き起こす・誘発する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "説得して～させる",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "reduce",
+    "ja": "減らす"
+   },
+   {
+    "en": "deduce",
+    "ja": "推論する"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "中へ"
+    },
+    {
+     "part": "duce",
+     "ja": "導く"
+    }
+   ],
+   "explain": "導き入れる → 引き起こす"
+  }
+ },
+ {
+  "word": "investigate",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "調査する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "neuroscience",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "神経科学",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "yield",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 3,
+  "meanings": [
+   {
+    "ja": "生み出す",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "屈する",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "field",
+    "ja": "分野"
+   }
+  ]
+ },
+ {
+  "word": "external",
+  "pos": "形容詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 18,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "外部の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "eternal",
+    "ja": "永遠の"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外"
+    },
+    {
+     "part": "tern",
+     "ja": ""
+    },
+    {
+     "part": "al",
+     "ja": ""
+    }
+   ],
+   "explain": "外側の → 外部の"
+  }
+ },
+ {
+  "word": "linguistic",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 5,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "言語の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "consistent",
+  "pos": "形容詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "一貫した",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "一致する",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "constant",
+    "ja": "一定の"
+   },
+   {
+    "en": "persistent",
+    "ja": "しつこい"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "sist",
+     "ja": "立つ"
+    },
+    {
+     "part": "ent",
+     "ja": ""
+    }
+   ],
+   "explain": "一緒に立ち続ける → 一貫した"
+  }
+ },
+ {
+  "word": "fossil",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "化石",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "fossil fuel",
+    "ja": "化石燃料"
+   }
+  ],
+  "confusables": []
+ },
+ {
+  "word": "prehistoric",
+  "pos": "形容詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "先史時代の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "specialisation",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "専門化",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "subsequently",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "その後",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "consequently",
+    "ja": "その結果"
+   }
+  ]
+ },
+ {
+  "word": "carbon",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "炭素",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "carbon dioxide",
+    "ja": "二酸化炭素"
+   }
+  ],
+  "confusables": []
+ },
+ {
+  "word": "coincide",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "同時に起こる",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "一致する",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "coincidence",
+    "ja": "偶然"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "co",
+     "ja": "一緒に"
+    },
+    {
+     "part": "in",
+     "ja": "上に"
+    },
+    {
+     "part": "cide",
+     "ja": "落ちる"
+    }
+   ],
+   "explain": "一緒に落ちてくる → 同時に起こる"
+  }
+ },
+ {
+  "word": "mechanism",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "仕組み",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "neuron",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "神経細胞",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "output",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "出力・生産量",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "input",
+    "ja": "入力"
+   }
+  ]
+ },
+ {
+  "word": "philosophical",
+  "pos": "形容詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "哲学的な",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "recognition",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "認識・識別",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "承認",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "reliably",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "確実に",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "scheme",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "計画・制度",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "たくらみ",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "schema",
+    "ja": "図式"
+   }
+  ]
+ },
+ {
+  "word": "selectively",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "選択的に",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "stimulate",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "刺激する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "simulate",
+    "ja": "模擬実験する"
+   }
+  ]
+ },
+ {
+  "word": "abruptly",
+  "pos": "副詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "突然",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "accomplishment",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "達成・業績",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "activate",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "活性化させる",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "aversion",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "嫌悪",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "version",
+    "ja": "版"
+   },
+   {
+    "en": "diversion",
+    "ja": "気晴らし"
+   }
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "a",
+     "ja": "離れて"
+    },
+    {
+     "part": "vers",
+     "ja": "向ける"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "顔をそむけること → 嫌悪"
+  }
+ },
+ {
+  "word": "bind",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "結合する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "縛る",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "blind",
+    "ja": "目の見えない"
+   }
+  ]
+ },
+ {
+  "word": "constant",
+  "pos": "形容詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "絶え間ない",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "一定の",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "consistent",
+    "ja": "一貫した"
+   }
+  ]
+ },
+ {
+  "word": "engagement",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "関わり・参加",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "婚約",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "evolution",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "進化",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "発展",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "revolution",
+    "ja": "革命"
+   }
+  ]
+ },
+ {
+  "word": "fixate",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "固執する(fixate on)",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "founder",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "創設者",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "foundry",
+    "ja": "鋳造所"
+   }
+  ]
+ },
+ {
+  "word": "historically",
+  "pos": "副詞",
+  "level": 1,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "歴史的に",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "innovate",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "革新する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "renovate",
+    "ja": "改装する"
+   }
+  ]
+ },
+ {
+  "word": "millennia",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "数千年(millenniumの複数)",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "molecular",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "分子の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "negatively",
+  "pos": "副詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "否定的に・悪く",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "neural",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "神経の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "natural",
+    "ja": "自然な"
+   }
+  ]
+ },
+ {
+  "word": "nomad",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "遊牧民",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "notably",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "特に",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "著しく",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "ongoing",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "進行中の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "outgoing",
+    "ja": "外向的な"
+   }
+  ]
+ },
+ {
+  "word": "potentially",
+  "pos": "副詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "潜在的に・ひょっとすると",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "profoundly",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "深く・大いに",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "psychology",
+  "pos": "名詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "心理学",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "心理",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "physiology",
+    "ja": "生理学"
+   }
+  ]
+ },
+ {
+  "word": "redirect",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "向け直す",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "resonate",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "共感を呼ぶ",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "響く",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "scatter",
+  "pos": "動詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "まき散らす",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "散らばる",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "shatter",
+    "ja": "粉々にする"
+   }
+  ]
+ },
+ {
+  "word": "sediment",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "堆積物",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "sentiment",
+    "ja": "感情"
+   }
+  ]
+ },
+ {
+  "word": "specifically",
+  "pos": "副詞",
+  "level": 2,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 2,
+  "meanings": [
+   {
+    "ja": "特に・具体的に",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "dilettante",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 74,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "(芸術・学問の)愛好家・好事家",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "fatigue",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 11,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "疲労",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "vocal",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 9,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "声の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "遠慮なく意見を言う",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "local",
+    "ja": "地元の"
+   },
+   {
+    "en": "focal",
+    "ja": "焦点の"
+   }
+  ]
+ },
+ {
+  "word": "engraving",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 8,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "彫られた絵・版画",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "aesthetic",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 7,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "美的な",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "anesthetic",
+    "ja": "麻酔の"
+   }
+  ]
+ },
+ {
+  "word": "textile",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 6,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "織物・繊維",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "texture",
+    "ja": "手触り"
+   }
+  ]
+ },
+ {
+  "word": "receptor",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 5,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "受容体",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "receiver",
+    "ja": "受信者"
+   }
+  ]
+ },
+ {
+  "word": "acoustic",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "音響の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "amateurism",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "アマチュア精神",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "auditory",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "聴覚の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "auditorium",
+    "ja": "講堂"
+   }
+  ]
+ },
+ {
+  "word": "chatbot",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "対話型AI・チャットボット",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "plasticity",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "可塑性・柔軟性",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "wavelength",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 4,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "波長",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be on the same wavelength",
+    "ja": "気が合う"
+   }
+  ],
+  "confusables": []
+ },
+ {
+  "word": "ancestral",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "祖先の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "cortex",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "(脳の)皮質",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "domesticate",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "家畜化する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "electrification",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "電化",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "exploratory",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "探索の・調査の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "explanatory",
+    "ja": "説明的な"
+   }
+  ]
+ },
+ {
+  "word": "hostility",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "敵意",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "hospitality",
+    "ja": "もてなし"
+   }
+  ]
+ },
+ {
+  "word": "paleolithic",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "旧石器時代の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "neolithic",
+    "ja": "新石器時代の"
+   }
+  ]
+ },
+ {
+  "word": "practitioner",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "実践者・開業医",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "simulation",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "模擬実験・シミュレーション",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "stimulation",
+    "ja": "刺激"
+   }
+  ]
+ },
+ {
+  "word": "wildfire",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "山火事",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "woodland",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 3,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "森林地帯",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "admonition",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "忠告・戒め",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "ammunition",
+    "ja": "弾薬"
+   }
+  ]
+ },
+ {
+  "word": "ancestry",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "祖先・家系",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "breadth",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "幅広さ",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "breath",
+    "ja": "息"
+   }
+  ]
+ },
+ {
+  "word": "cognition",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "認知",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "connotation",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "言外の意味・含み",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "denotation",
+    "ja": "明示的な意味"
+   }
+  ]
+ },
+ {
+  "word": "conservationist",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "自然保護活動家",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "conversationalist",
+    "ja": "話し上手"
+   }
+  ]
+ },
+ {
+  "word": "detach",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "切り離す",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "dispersal",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "分散・拡散",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "disposal",
+    "ja": "処分"
+   }
+  ]
+ },
+ {
+  "word": "forgo",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "あきらめる・控える",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "forego",
+    "ja": "先行する"
+   }
+  ]
+ },
+ {
+  "word": "foster",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "育む・促進する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "里親として育てる",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "frictionless",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "摩擦のない・手間のかからない",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "heatwave",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "熱波",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "intensity",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "強さ・激しさ",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "intention",
+    "ja": "意図"
+   }
+  ]
+ },
+ {
+  "word": "landfill",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "ごみの埋め立て地",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "migrate",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "移住する・移動する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "immigrate",
+    "ja": "(外国から)移住する"
+   },
+   {
+    "en": "emigrate",
+    "ja": "(外国へ)移住する"
+   }
+  ]
+ },
+ {
+  "word": "negotiator",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "交渉者",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "orbital",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "軌道の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "perceptual",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "知覚の",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "perpetual",
+    "ja": "永久の"
+   }
+  ]
+ },
+ {
+  "word": "recyclable",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "再利用できる",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "renewable",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "再生可能な",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "renewable energy",
+    "ja": "再生可能エネルギー"
+   }
+  ],
+  "confusables": []
+ },
+ {
+  "word": "rotation",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "回転",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   },
+   {
+    "ja": "交替",
+    "in_exam": false,
+    "in_article": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "template",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "ひな形",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "temple",
+    "ja": "寺院"
+   }
+  ]
+ },
+ {
+  "word": "variable",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "変数・変動要因",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": [
+   {
+    "en": "valuable",
+    "ja": "価値のある"
+   }
+  ]
+ },
+ {
+  "word": "verify",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "確かめる・検証する",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
+   }
+  ],
+  "idioms": [],
+  "confusables": []
+ },
+ {
+  "word": "vitality",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 0,
+  "exam_years": 0,
+  "source": "predicted",
+  "article_count": 2,
+  "article_num": 1,
+  "meanings": [
+   {
+    "ja": "活力",
+    "in_exam": false,
+    "in_article": true,
+    "exam_count": null
    }
   ],
   "idioms": [],

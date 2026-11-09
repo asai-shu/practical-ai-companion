@@ -1,0 +1,207 @@
+<title>名大単語ナイン</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one answer sheet in the middle; word on top, 9 mark-sheet bubbles below, feedback slides under it */
+:root{
+  --paper:#fbf9f8; --sheet:#ffffff; --ink:#1d2330; --muted:#6b6f7b; --line:#ecd9d6;
+  --drop:#d2554a;   /* マークシートの印刷色 */
+  --drop-soft:#fbe9e6; --mark:#2b2f38; --ok:#1f7a4d; --ok-soft:#e3f3ea; --ng:#b3261e; --ng-soft:#fbe4e2;
+  --f-word:"Newsreader", "Times New Roman", serif;
+  --f-ja:"Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --f-num:"IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#16181d; --sheet:#1e2128; --ink:#eceef2; --muted:#9aa0ad; --line:#3a2f31;
+  --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#16181d; --sheet:#1e2128; --ink:#eceef2; --muted:#9aa0ad; --line:#3a2f31;
+  --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-ja);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:18px}
+header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px}
+h1{font-size:20px;margin:0;letter-spacing:.04em;text-wrap:balance}
+h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.08em}
+.stats{display:flex;gap:16px;font-size:12px;color:var(--muted)}
+.stats b{font-family:var(--f-num);font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:2px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px}
+.filters span{color:var(--muted);margin-right:4px}
+.chip{border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--drop);border-color:var(--drop);color:var(--sheet)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:22px clamp(16px,4vw,32px) 24px;display:grid;gap:18px;
+  background-image:linear-gradient(var(--drop-soft),var(--drop-soft));background-size:100% 6px;background-repeat:no-repeat}
+.meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted);align-items:center}
+.tag{border:1px solid var(--line);border-radius:3px;padding:0 6px}
+.tag.lv{color:var(--drop);border-color:var(--drop)}
+.word{font-family:var(--f-word);font-size:clamp(40px,9vw,60px);font-weight:700;line-height:1.05;margin:0;overflow-wrap:anywhere}
+.ask{margin:0;font-weight:500}
+.ask em{font-style:normal;color:var(--drop);font-family:var(--f-num);font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.opt{display:flex;gap:10px;align-items:center;text-align:left;font:inherit;color:var(--ink);background:var(--sheet);
+  border:1px solid var(--line);border-radius:6px;padding:10px 12px;cursor:pointer;min-height:52px}
+.opt:focus-visible,.chip:focus-visible,.btn:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
+.bub{flex:none;width:22px;height:30px;border:1.5px solid var(--drop);border-radius:50%;display:grid;place-items:center;
+  font-family:var(--f-num);font-size:11px;color:var(--drop)}
+.opt[aria-pressed="true"] .bub{background:var(--mark);border-color:var(--mark);color:var(--sheet)}
+.opt.ok{background:var(--ok-soft);border-color:var(--ok)}
+.opt.ng{background:var(--ng-soft);border-color:var(--ng)}
+.opt.miss{border:2px dashed var(--ok)}
+.opt:disabled{cursor:default}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{font:inherit;font-weight:700;border-radius:6px;padding:10px 22px;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:var(--sheet)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--ink)}
+.result{font-weight:700}
+.result.ok{color:var(--ok)} .result.ng{color:var(--ng)}
+.answer{border-top:1px dashed var(--line);padding-top:14px;display:grid;gap:10px}
+.answer h2{font-size:13px;margin:0;color:var(--muted);letter-spacing:.08em}
+.answer ul{margin:0;padding-left:0;list-style:none;display:grid;gap:4px}
+.answer li{display:flex;gap:8px;align-items:baseline}
+.star{color:var(--drop);width:1em;flex:none}
+.cnt{font-family:var(--f-num);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.idiom b{font-family:var(--f-word);font-size:17px}
+.note{font-size:12px;color:var(--muted);margin:0}
+@media (prefers-reduced-motion:no-preference){.answer{animation:in .25s ease-out}@keyframes in{from{transform:translateY(-4px);opacity:.4}}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1><small>名古屋大学 2次試験（2020〜2024年度）頻出</small>名大単語ナイン</h1>
+    <div class="stats" aria-live="polite">
+      <div><b id="s-done">0</b>問</div>
+      <div><b id="s-rate">–</b>正答率</div>
+      <div><b id="s-master">0</b>/<span id="s-total">0</span>語 習得</div>
+    </div>
+  </header>
+
+  <div class="filters" role="group" aria-label="出題するレベル">
+    <span>レベル</span>
+    <button class="chip" id="lv3" data-lv="3" aria-pressed="true">3 高校発展</button>
+    <button class="chip" id="lv4" data-lv="4" aria-pressed="true">4 入試難関</button>
+    <button class="chip" id="lv5" data-lv="5" aria-pressed="true">5 難関・専門</button>
+  </div>
+
+  <section class="sheet" aria-live="polite">
+    <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">レベル3</span><span id="q-exam">名大で27回 / 1年分</span></div>
+    <p class="word" id="q-word">dolphin</p>
+    <p class="ask" id="q-ask">正しい意味を <em>1</em> つ選んでください</p>
+    <div class="grid" id="opts"></div>
+    <div class="actions">
+      <button class="btn" id="check" disabled>答え合わせ</button>
+      <button class="btn ghost" id="next" hidden>次の単語</button>
+      <span class="result" id="result"></span>
+    </div>
+    <div class="answer" id="answer" hidden>
+      <h2>この単語の意味（★＝名大で出た意味）</h2>
+      <ul id="a-means"></ul>
+      <h2 id="a-idh">イディオム</h2>
+      <ul id="a-ids"></ul>
+    </div>
+  </section>
+  <p class="note">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）を参照しています。</p>
+</div>
+
+<script>
+const WORDS = __DATA__;
+const KEY = "meidai-nine-v1";
+let st = {done:0, ok:0, mastery:{}, levels:[3,4,5]};
+try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
+const $ = id => document.getElementById(id);
+const id = w => w.word + "|" + w.pos;
+const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+let queue = [], cur = null, correct = [], picked = new Set(), answered = false;
+
+function pool() { return WORDS.filter(w => st.levels.includes(w.level)); }
+function buildQueue() {
+  // 習得度の低い単語・名大で多く出た単語を先に
+  queue = pool().slice().sort((a, b) => ((st.mastery[id(a)] || 0) - (st.mastery[id(b)] || 0)) || (b.exam_count - a.exam_count) || (Math.random() - .5));
+}
+function distractors(w, n) {
+  const own = new Set(w.meanings.map(m => m.ja));
+  const same = shuffle(WORDS.filter(x => x !== w && x.pos === w.pos).flatMap(x => x.meanings.map(m => m.ja)));
+  const other = shuffle(WORDS.filter(x => x !== w && x.pos !== w.pos).flatMap(x => x.meanings.map(m => m.ja)));
+  const out = [];
+  for (const m of same.concat(other)) { if (!own.has(m) && !out.includes(m)) out.push(m); if (out.length === n) break; }
+  return out;
+}
+function render() {
+  if (!queue.length) buildQueue();
+  cur = queue.shift(); answered = false; picked.clear();
+  const ms = cur.meanings.slice().sort((a, b) => (b.exam_count || 0) - (a.exam_count || 0));
+  correct = ms.slice(0, Math.min(3, ms.length)).map(m => m.ja);
+  const opts = shuffle(correct.concat(distractors(cur, 9 - correct.length)));
+  $("q-word").textContent = cur.word;
+  $("q-pos").textContent = cur.pos;
+  $("q-lv").textContent = "レベル" + cur.level;
+  $("q-exam").textContent = "名大で" + cur.exam_count + "回 / " + cur.exam_years + "年分";
+  $("q-ask").innerHTML = "正しい意味を <em>" + correct.length + "</em> つ選んでください";
+  $("opts").innerHTML = "";
+  opts.forEach((t, i) => {
+    const b = document.createElement("button");
+    b.className = "opt"; b.id = "opt" + i; b.setAttribute("aria-pressed", "false"); b.dataset.t = t;
+    b.innerHTML = '<span class="bub">' + (i + 1) + '</span><span></span>';
+    b.lastChild.textContent = t;
+    b.onclick = () => toggle(b);
+    $("opts").appendChild(b);
+  });
+  $("check").disabled = true; $("check").hidden = false; $("next").hidden = true;
+  $("result").textContent = ""; $("result").className = "result"; $("answer").hidden = true;
+}
+function toggle(b) {
+  if (answered) return;
+  const t = b.dataset.t;
+  if (picked.has(t)) picked.delete(t);
+  else { if (picked.size >= correct.length) return; picked.add(t); }
+  b.setAttribute("aria-pressed", picked.has(t));
+  $("check").disabled = picked.size !== correct.length;
+}
+function check() {
+  answered = true;
+  const good = correct.every(c => picked.has(c));
+  document.querySelectorAll(".opt").forEach(b => {
+    b.disabled = true; const t = b.dataset.t;
+    if (picked.has(t)) b.classList.add(correct.includes(t) ? "ok" : "ng");
+    else if (correct.includes(t)) b.classList.add("miss");
+  });
+  st.done++; if (good) st.ok++;
+  const k = id(cur); st.mastery[k] = good ? (st.mastery[k] || 0) + 1 : 0;
+  if (!good) queue.splice(Math.min(3, queue.length), 0, cur); // 間違えた単語は少し後にもう一度
+  save(); stats();
+  $("result").textContent = good ? "正解" : "不正解（点線が正しい答え）";
+  $("result").className = "result " + (good ? "ok" : "ng");
+  $("a-means").innerHTML = "";
+  cur.meanings.forEach(m => {
+    const li = document.createElement("li");
+    li.innerHTML = '<span class="star">' + (m.in_exam ? "★" : "") + '</span><span></span><span class="cnt"></span>';
+    li.children[1].textContent = m.ja;
+    li.children[2].textContent = m.exam_count ? m.exam_count + "回" : "";
+    $("a-means").appendChild(li);
+  });
+  $("a-ids").innerHTML = ""; $("a-idh").hidden = !cur.idioms.length;
+  cur.idioms.forEach(x => { const li = document.createElement("li"); li.className = "idiom"; li.innerHTML = "<b></b><span></span>"; li.firstChild.textContent = x.en; li.lastChild.textContent = "　" + x.ja; $("a-ids").appendChild(li); });
+  $("answer").hidden = false; $("check").hidden = true; $("next").hidden = false; $("next").focus();
+}
+function stats() {
+  $("s-done").textContent = st.done;
+  $("s-rate").textContent = st.done ? Math.round(st.ok / st.done * 100) + "%" : "–";
+  const p = pool();
+  $("s-total").textContent = p.length;
+  $("s-master").textContent = p.filter(w => (st.mastery[id(w)] || 0) >= 2).length;
+}
+document.querySelectorAll(".chip").forEach(c => {
+  c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv));
+  c.onclick = () => {
+    const lv = +c.dataset.lv, on = st.levels.includes(lv);
+    if (on && st.levels.length === 1) return;
+    st.levels = on ? st.levels.filter(x => x !== lv) : st.levels.concat(lv);
+    c.setAttribute("aria-pressed", !on); save(); buildQueue(); stats(); render();
+  };
+});
+$("check").onclick = check; $("next").onclick = render;
+buildQueue(); stats(); render();
+</script>

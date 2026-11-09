@@ -80,13 +80,14 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
   <div class="filters" role="group" aria-label="出題するレベル">
     <span>レベル</span>
-    <button class="chip" id="lv3" data-lv="3" aria-pressed="true">3 高校発展</button>
-    <button class="chip" id="lv4" data-lv="4" aria-pressed="true">4 入試難関</button>
-    <button class="chip" id="lv5" data-lv="5" aria-pressed="true">5 難関・専門</button>
+    <button class="chip" id="lv1" data-lv="1" aria-pressed="false">基礎</button>
+    <button class="chip" id="lv2" data-lv="2" aria-pressed="true">標準</button>
+    <button class="chip" id="lv3" data-lv="3" aria-pressed="true">難関</button>
+    <button class="chip" id="lv4" data-lv="4" aria-pressed="true">最難関</button>
   </div>
 
   <section class="sheet" aria-live="polite">
-    <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">レベル3</span><span id="q-exam">名大で27回 / 1年分</span></div>
+    <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span id="q-exam">名大で27回 / 1年分</span></div>
     <p class="word" id="q-word">dolphin</p>
     <p class="ask" id="q-ask">正しい意味を <em>1</em> つ選んでください</p>
     <div class="grid" id="opts"></div>
@@ -100,15 +101,18 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <ul id="a-means"></ul>
       <h2 id="a-idh">イディオム</h2>
       <ul id="a-ids"></ul>
+      <h2 id="a-cfh">まぎらわしい単語</h2>
+      <ul id="a-cfs"></ul>
     </div>
   </section>
-  <p class="note">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）を参照しています。</p>
+  <p class="note">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。レベル分けは CEFR-J Wordlist Version 1.5 と英語の使用頻度データ（wordfreq）（Compiled by Yukio Tono, Tokyo University of Foreign Studies）を参照しています。</p>
 </div>
 
 <script>
 const WORDS = __DATA__;
-const KEY = "meidai-nine-v1";
-let st = {done:0, ok:0, mastery:{}, levels:[3,4,5]};
+const KEY = "meidai-nine-v2";
+const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
+let st = {done:0, ok:0, mastery:{}, levels:[2,3,4]};
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
 const $ = id => document.getElementById(id);
@@ -118,15 +122,21 @@ let queue = [], cur = null, correct = [], picked = new Set(), answered = false;
 
 function pool() { return WORDS.filter(w => st.levels.includes(w.level)); }
 function buildQueue() {
-  // 習得度の低い単語・名大で多く出た単語を先に
-  queue = pool().slice().sort((a, b) => ((st.mastery[id(a)] || 0) - (st.mastery[id(b)] || 0)) || (b.exam_count - a.exam_count) || (Math.random() - .5));
+  // 習得度の低い単語を先に（同じ習得度ならランダム）
+  queue = shuffle(pool().slice()).sort((a, b) => (st.mastery[id(a)] || 0) - (st.mastery[id(b)] || 0));
 }
+let confShown = new Set();
 function distractors(w, n) {
   const own = new Set(w.meanings.map(m => m.ja));
-  const same = shuffle(WORDS.filter(x => x !== w && x.pos === w.pos).flatMap(x => x.meanings.map(m => m.ja)));
-  const other = shuffle(WORDS.filter(x => x !== w && x.pos !== w.pos).flatMap(x => x.meanings.map(m => m.ja)));
   const out = [];
-  for (const m of same.concat(other)) { if (!own.has(m) && !out.includes(m)) out.push(m); if (out.length === n) break; }
+  const add = m => { if (out.length < n && !own.has(m) && !out.includes(m)) out.push(m); };
+  // つづりがまぎらわしい単語の意味を最大2つ
+  shuffle((w.confusables || []).map(c => c.ja)).slice(0, 2).forEach(add);
+  confShown = new Set(out);
+  // 同じ品詞で、同じくらいの難しさの単語の意味
+  const near = shuffle(WORDS.filter(x => x !== w && x.pos === w.pos && Math.abs(x.level - w.level) <= 1).flatMap(x => x.meanings.map(m => m.ja)));
+  const rest = shuffle(WORDS.filter(x => x !== w).flatMap(x => x.meanings.map(m => m.ja)));
+  near.concat(rest).forEach(add);
   return out;
 }
 function render() {
@@ -137,7 +147,7 @@ function render() {
   const opts = shuffle(correct.concat(distractors(cur, 9 - correct.length)));
   $("q-word").textContent = cur.word;
   $("q-pos").textContent = cur.pos;
-  $("q-lv").textContent = "レベル" + cur.level;
+  $("q-lv").textContent = LVNAME[cur.level];
   $("q-exam").textContent = "名大で" + cur.exam_count + "回 / " + cur.exam_years + "年分";
   $("q-ask").innerHTML = "正しい意味を <em>" + correct.length + "</em> つ選んでください";
   $("opts").innerHTML = "";
@@ -184,6 +194,9 @@ function check() {
   });
   $("a-ids").innerHTML = ""; $("a-idh").hidden = !cur.idioms.length;
   cur.idioms.forEach(x => { const li = document.createElement("li"); li.className = "idiom"; li.innerHTML = "<b></b><span></span>"; li.firstChild.textContent = x.en; li.lastChild.textContent = "　" + x.ja; $("a-ids").appendChild(li); });
+  const cfs = cur.confusables || [];
+  $("a-cfs").innerHTML = ""; $("a-cfh").hidden = !cfs.length;
+  cfs.forEach(x => { const li = document.createElement("li"); li.className = "idiom"; li.innerHTML = "<b></b><span></span><span class=\"cnt\"></span>"; li.children[0].textContent = x.en; li.children[1].textContent = "　" + x.ja; li.children[2].textContent = confShown.has(x.ja) ? "　選択肢にあった意味" : ""; $("a-cfs").appendChild(li); });
   $("answer").hidden = false; $("check").hidden = true; $("next").hidden = false; $("next").focus();
 }
 function stats() {

@@ -1,0 +1,172 @@
+{
+  "_説明": "名大のアドミッション・ポリシー（令和9年度選抜要項）と過去の出典の傾向から作った、記事の選び方の基準。",
+  "themes": {
+    "科学と社会": {
+      "weight": 3,
+      "words": [
+        "science",
+        "scientist",
+        "research",
+        "researchers",
+        "study",
+        "evidence",
+        "experiment",
+        "discovery",
+        "theory",
+        "knowledge"
+      ]
+    },
+    "心理・幸福・人間関係": {
+      "weight": 3,
+      "words": [
+        "psychology",
+        "happiness",
+        "well-being",
+        "wellbeing",
+        "kindness",
+        "loneliness",
+        "emotion",
+        "mind",
+        "behaviour",
+        "behavior",
+        "habit",
+        "motivation",
+        "empathy",
+        "social connection"
+      ]
+    },
+    "動物・生物の知能": {
+      "weight": 3,
+      "words": [
+        "animal",
+        "animals",
+        "dolphin",
+        "bird",
+        "birds",
+        "species",
+        "evolution",
+        "brain",
+        "cognition",
+        "intelligence",
+        "communication"
+      ]
+    },
+    "食・環境・健康": {
+      "weight": 3,
+      "words": [
+        "climate",
+        "environment",
+        "food",
+        "diet",
+        "health",
+        "sleep",
+        "pollution",
+        "biodiversity",
+        "forest",
+        "ocean",
+        "sustainab"
+      ]
+    },
+    "テクノロジーとAI": {
+      "weight": 2,
+      "words": [
+        "ai",
+        "artificial intelligence",
+        "technology",
+        "internet",
+        "smartphone",
+        "robot",
+        "digital",
+        "online",
+        "algorithm"
+      ]
+    },
+    "教育・学び": {
+      "weight": 2,
+      "words": [
+        "learning",
+        "education",
+        "students",
+        "teaching",
+        "school",
+        "skills",
+        "lecture"
+      ]
+    },
+    "歴史・考古学・文化": {
+      "weight": 2,
+      "words": [
+        "ancient",
+        "history",
+        "archaeolog",
+        "culture",
+        "cultural",
+        "religion",
+        "myth",
+        "tradition",
+        "cave"
+      ]
+    },
+    "言語・ことば": {
+      "weight": 2,
+      "words": [
+        "language",
+        "languages",
+        "speech",
+        "words",
+        "linguist",
+        "vocabulary"
+      ]
+    }
+  },
+  "exclude": [
+    "election",
+    "midterm",
+    "vote",
+    "trump",
+    "senate",
+    "parliament",
+    "football",
+    "rugby",
+    "cricket",
+    "celebrity",
+    "stock market",
+    "podcast",
+    "video",
+    "puzzle",
+    "quiz",
+    "deal of",
+    "discount",
+    "recipe"
+  ],
+  "feeds": {
+    "Scientific American": "https://www.scientificamerican.com/platform/syndication/rss/",
+    "Aeon": "https://aeon.co/feed.rss",
+    "The Conversation": "https://theconversation.com/global/articles.atom",
+    "Psychology Today": "https://www.psychologytoday.com/us/front/feed",
+    "BBC Science": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+    "BBC Health": "https://feeds.bbci.co.uk/news/health/rss.xml",
+    "BBC Technology": "https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  "min_words": 450,
+  "max_words": 4000,
+  "pick": 12,
+  "ignore_words": [
+    "journalism",
+    "datum",
+    "impactful",
+    "purchase",
+    "subscribe",
+    "subscription",
+    "subscriber",
+    "newsletter",
+    "browser",
+    "cookie",
+    "podcast",
+    "copyright",
+    "editor",
+    "reprint",
+    "advertisement",
+    "sponsor"
+  ]
+}

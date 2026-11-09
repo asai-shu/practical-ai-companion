@@ -152,7 +152,24 @@
     "en": "recipe",
     "ja": "レシピ"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "元へ"
+    },
+    {
+     "part": "cip",
+     "ja": "取る"
+    },
+    {
+     "part": "ient",
+     "ja": "人"
+    }
+   ],
+   "explain": "取り戻す・受け取る人 → 受け取る人・受け手"
+  }
  },
  {
   "word": "signature",
@@ -183,7 +200,20 @@
     "en": "significance",
     "ja": "重要性"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sign",
+     "ja": "しるし"
+    },
+    {
+     "part": "ature",
+     "ja": "もの"
+    }
+   ],
+   "explain": "しるしにするもの → 署名・その人らしさを表す特徴"
+  }
  },
  {
   "word": "lecture",
@@ -254,7 +284,24 @@
     "en": "interference",
     "ja": "干渉"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "inter",
+     "ja": "間で"
+    },
+    {
+     "part": "act",
+     "ja": "行う"
+    },
+    {
+     "part": "ion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "お互いの間で働きかけること → 交流・相互作用"
+  }
  },
  {
   "word": "experiment",
@@ -285,7 +332,24 @@
     "en": "experience",
     "ja": "経験"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "peri",
+     "ja": "試す"
+    },
+    {
+     "part": "ment",
+     "ja": "こと"
+    }
+   ],
+   "explain": "試してみること → 実験"
+  }
  },
  {
   "word": "individual",
@@ -301,7 +365,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "～できない"
+    },
+    {
+     "part": "divid",
+     "ja": "分ける"
+    },
+    {
+     "part": "ual",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "それ以上分けられないもの → 個人・個体"
+  }
  },
  {
   "word": "active",
@@ -429,7 +510,24 @@
     "en": "environmental",
     "ja": "環境の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "en",
+     "ja": "中に"
+    },
+    {
+     "part": "viron",
+     "ja": "取り巻く"
+    },
+    {
+     "part": "ment",
+     "ja": "もの"
+    }
+   ],
+   "explain": "周りを取り巻くもの → 環境"
+  }
  },
  {
   "word": "underlined",
@@ -487,7 +585,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "中に"
+    },
+    {
+     "part": "struct",
+     "ja": "積み上げる"
+    },
+    {
+     "part": "or",
+     "ja": "人"
+    }
+   ],
+   "explain": "知識を積み上げてやる人 → 指導者"
+  }
  },
  {
   "word": "able",
@@ -555,7 +670,28 @@
     "en": "appropriately",
     "ja": "適切に"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ap",
+     "ja": "～へ"
+    },
+    {
+     "part": "proxim",
+     "ja": "最も近い"
+    },
+    {
+     "part": "ate",
+     "ja": ""
+    },
+    {
+     "part": "ly",
+     "ja": ""
+    }
+   ],
+   "explain": "最も近いところへ → およそ"
+  }
  },
  {
   "word": "community",
@@ -610,7 +746,20 @@
     "en": "collect",
     "ja": "集める"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "se",
+     "ja": "離して"
+    },
+    {
+     "part": "lect",
+     "ja": "選ぶ"
+    }
+   ],
+   "explain": "選び分ける → 選ぶ"
+  }
  },
  {
   "word": "data",
@@ -661,7 +810,20 @@
     "en": "beneficial",
     "ja": "有益な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "bene",
+     "ja": "よく"
+    },
+    {
+     "part": "fit",
+     "ja": "行う"
+    }
+   ],
+   "explain": "よいことをする → 利益・恩恵"
+  }
  },
  {
   "word": "learning",
@@ -793,7 +955,20 @@
     "en": "outlook",
     "ja": "見通し"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "out",
+     "ja": "外へ"
+    },
+    {
+     "part": "come",
+     "ja": "来る"
+    }
+   ],
+   "explain": "外に出てくるもの → 結果"
+  }
  },
  {
   "word": "percent",
@@ -872,7 +1047,20 @@
     "en": "uniform",
     "ja": "制服・均一の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "uni",
+     "ja": "1つ"
+    },
+    {
+     "part": "que",
+     "ja": ""
+    }
+   ],
+   "explain": "ただ1つの → 独特の・唯一の"
+  }
  },
  {
   "word": "cultural",
@@ -909,7 +1097,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "parti",
+     "ja": "部分"
+    },
+    {
+     "part": "cip",
+     "ja": "取る"
+    },
+    {
+     "part": "ant",
+     "ja": "人"
+    }
+   ],
+   "explain": "一部分を受け持つ人 → 参加者"
+  }
  },
  {
   "word": "perceive",
@@ -948,7 +1153,20 @@
     "en": "deceive",
     "ja": "だます"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "per",
+     "ja": "完全に"
+    },
+    {
+     "part": "ceive",
+     "ja": "つかむ"
+    }
+   ],
+   "explain": "しっかりつかむ → 認識する・受け止める"
+  }
  },
  {
   "word": "previous",
@@ -974,7 +1192,24 @@
     "en": "precious",
     "ja": "貴重な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pre",
+     "ja": "前に"
+    },
+    {
+     "part": "vi",
+     "ja": "道"
+    },
+    {
+     "part": "ous",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "前の道を行く → 以前の"
+  }
  },
  {
   "word": "breathing",
@@ -1011,7 +1246,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "geo",
+     "ja": "大地"
+    },
+    {
+     "part": "log",
+     "ja": "学問"
+    },
+    {
+     "part": "ical",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "大地の学問の → 地質学の"
+  }
  },
  {
   "word": "network",
@@ -1167,7 +1419,24 @@
     "en": "position",
     "ja": "位置"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "com",
+     "ja": "一緒に"
+    },
+    {
+     "part": "pos",
+     "ja": "置く"
+    },
+    {
+     "part": "tion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "一緒に置いて組み立てたもの → 作文・構成"
+  }
  },
  {
   "word": "examine",
@@ -1198,7 +1467,20 @@
     "en": "exam",
     "ja": "試験"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "amin",
+     "ja": "はかる"
+    }
+   ],
+   "explain": "はかって確かめる → 調べる"
+  }
  },
  {
   "word": "historical",
@@ -1253,7 +1535,24 @@
     "en": "exception",
     "ja": "例外"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "per",
+     "ja": "完全に"
+    },
+    {
+     "part": "cept",
+     "ja": "つかむ"
+    },
+    {
+     "part": "ion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "しっかりつかむこと → 認識・知覚"
+  }
  },
  {
   "word": "safety",
@@ -1300,7 +1599,20 @@
     "ja": "献血者"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "don",
+     "ja": "与える"
+    },
+    {
+     "part": "or",
+     "ja": "人"
+    }
+   ],
+   "explain": "与える人 → 提供者"
+  }
  },
  {
   "word": "explosion",
@@ -1326,7 +1638,24 @@
     "ja": "人口爆発"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "plos",
+     "ja": "手を打つ・音を出す"
+    },
+    {
+     "part": "ion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "外へはじけること → 爆発"
+  }
  },
  {
   "word": "identify",
@@ -1365,7 +1694,20 @@
     "en": "intensify",
     "ja": "強める"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ident",
+     "ja": "同じ"
+    },
+    {
+     "part": "ify",
+     "ja": "～にする"
+    }
+   ],
+   "explain": "同じだと確かめる → 識別する・特定する"
+  }
  },
  {
   "word": "offline",
@@ -1402,7 +1744,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "per",
+     "ja": "完全に"
+    },
+    {
+     "part": "form",
+     "ja": "形づくる"
+    },
+    {
+     "part": "er",
+     "ja": "人"
+    }
+   ],
+   "explain": "最後までやり遂げる人 → 行う人・演奏者"
+  }
  },
  {
   "word": "session",
@@ -1484,7 +1843,20 @@
     "en": "inquire",
     "ja": "尋ねる"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "何度も"
+    },
+    {
+     "part": "quire",
+     "ja": "求める"
+    }
+   ],
+   "explain": "求める → 必要とする"
+  }
  },
  {
   "word": "connect",
@@ -1510,7 +1882,20 @@
     "ja": "～と関係がある"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "nect",
+     "ja": "結ぶ"
+    }
+   ],
+   "explain": "一緒に結ぶ → つなぐ"
+  }
  },
  {
   "word": "gain",
@@ -1562,7 +1947,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "～できない"
+    },
+    {
+     "part": "divid",
+     "ja": "分ける"
+    },
+    {
+     "part": "ual",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "それ以上分けられないもの → 個人・個体"
+  }
  },
  {
   "word": "location",
@@ -1617,7 +2019,20 @@
     "en": "reserve",
     "ja": "予約する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ob",
+     "ja": "～に向かって"
+    },
+    {
+     "part": "serve",
+     "ja": "見守る"
+    }
+   ],
+   "explain": "～に向かって見守る → 観察する・(規則を)守る"
+  }
  },
  {
   "word": "particular",
@@ -1800,7 +2215,24 @@
     "en": "assistant",
     "ja": "助手"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "as",
+     "ja": "～へ"
+    },
+    {
+     "part": "soci",
+     "ja": "仲間"
+    },
+    {
+     "part": "ate",
+     "ja": "～にする"
+    }
+   ],
+   "explain": "仲間にする → 結びつける・関連づける"
+  }
  },
  {
   "word": "connection",
@@ -1856,7 +2288,24 @@
     "ja": "遠くに"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "di",
+     "ja": "離れて"
+    },
+    {
+     "part": "st",
+     "ja": "立つ"
+    },
+    {
+     "part": "ance",
+     "ja": "こと"
+    }
+   ],
+   "explain": "離れて立つこと → 距離"
+  }
  },
  {
   "word": "encounter",
@@ -1877,7 +2326,20 @@
     "en": "counter",
     "ja": "カウンター・反対の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "en",
+     "ja": "中に"
+    },
+    {
+     "part": "counter",
+     "ja": "反対の"
+    }
+   ],
+   "explain": "向かい合うところに入る → 出会い・遭遇"
+  }
  },
  {
   "word": "formation",
@@ -1907,7 +2369,20 @@
     "en": "formality",
     "ja": "形式"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "form",
+     "ja": "形"
+    },
+    {
+     "part": "ation",
+     "ja": "こと"
+    }
+   ],
+   "explain": "形をつくること → 形成"
+  }
  },
  {
   "word": "huge",
@@ -1968,7 +2443,20 @@
     "en": "revolve",
     "ja": "回転する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "中に"
+    },
+    {
+     "part": "volve",
+     "ja": "巻く"
+    }
+   ],
+   "explain": "中に巻き込む → 含む・巻き込む"
+  }
  },
  {
   "word": "optimistic",
@@ -2005,7 +2493,20 @@
     "en": "essential",
     "ja": "不可欠な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pot",
+     "ja": "力がある"
+    },
+    {
+     "part": "ential",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "力をもっている → 潜在的な"
+  }
  },
  {
   "word": "reduce",
@@ -2039,7 +2540,20 @@
     "en": "deduce",
     "ja": "推論する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "元へ・後ろへ"
+    },
+    {
+     "part": "duce",
+     "ja": "導く"
+    }
+   ],
+   "explain": "後ろへ引き下げる → 減らす"
+  }
  },
  {
   "word": "risk",
@@ -2120,7 +2634,20 @@
     "en": "vanity",
     "ja": "虚栄心"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "vari",
+     "ja": "変わる"
+    },
+    {
+     "part": "ety",
+     "ja": "こと"
+    }
+   ],
+   "explain": "変化があること → 多様さ"
+  }
  },
  {
   "word": "applicant",
@@ -2136,7 +2663,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ap",
+     "ja": "～へ"
+    },
+    {
+     "part": "plic",
+     "ja": "折る・重ねる"
+    },
+    {
+     "part": "ant",
+     "ja": "人"
+    }
+   ],
+   "explain": "自分を～に当てはめる人 → 応募者"
+  }
  },
  {
   "word": "buddy",
@@ -2303,7 +2847,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "under",
+     "ja": "下に"
+    },
+    {
+     "part": "estimate",
+     "ja": "見積もる"
+    }
+   ],
+   "explain": "低く見積もる → 過小評価する"
+  }
  },
  {
   "word": "user",
@@ -2377,7 +2934,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "an",
+     "ja": "ない"
+    },
+    {
+     "part": "onym",
+     "ja": "名前"
+    },
+    {
+     "part": "ous",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "名前がない → 匿名の"
+  }
  },
  {
   "word": "demonstrate",
@@ -2403,7 +2977,24 @@
     "en": "monstrous",
     "ja": "恐ろしい"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "完全に"
+    },
+    {
+     "part": "monstr",
+     "ja": "示す"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "はっきり示す → 証明する・示す"
+  }
  },
  {
   "word": "exactly",
@@ -2455,7 +3046,24 @@
     "en": "expectancy",
     "ja": "予想される期間"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外を"
+    },
+    {
+     "part": "spect",
+     "ja": "見る"
+    },
+    {
+     "part": "ation",
+     "ja": "こと"
+    }
+   ],
+   "explain": "外を見て待つこと → 期待・予想"
+  }
  },
  {
   "word": "infer",
@@ -2484,7 +3092,20 @@
     "en": "prefer",
     "ja": "好む"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "中に"
+    },
+    {
+     "part": "fer",
+     "ja": "運ぶ"
+    }
+   ],
+   "explain": "(結論を)中へ運び込む → 推測する"
+  }
  },
  {
   "word": "instruction",
@@ -2505,7 +3126,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "中に"
+    },
+    {
+     "part": "struct",
+     "ja": "積み上げる"
+    },
+    {
+     "part": "ion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "知識を積み上げること → 指示・指導"
+  }
  },
  {
   "word": "loss",
@@ -2607,7 +3245,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sur",
+     "ja": "越えて"
+    },
+    {
+     "part": "viv",
+     "ja": "生きる"
+    },
+    {
+     "part": "al",
+     "ja": "こと"
+    }
+   ],
+   "explain": "生き越えること → 生存"
+  }
  },
  {
   "word": "aspect",
@@ -2632,7 +3287,20 @@
     "en": "expect",
     "ja": "予想する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "a",
+     "ja": "～へ"
+    },
+    {
+     "part": "spect",
+     "ja": "見る"
+    }
+   ],
+   "explain": "見る方向 → 側面・面"
+  }
  },
  {
   "word": "comfort",
@@ -2688,7 +3356,24 @@
     "ja": "結論として"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "完全に"
+    },
+    {
+     "part": "clus",
+     "ja": "閉じる"
+    },
+    {
+     "part": "ion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "すっかり閉じること → 結論"
+  }
  },
  {
   "word": "conscious",
@@ -2728,7 +3413,24 @@
     "en": "conscientious",
     "ja": "誠実な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "sci",
+     "ja": "知る"
+    },
+    {
+     "part": "ous",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "わかっている → 意識している"
+  }
  },
  {
   "word": "decrease",
@@ -2749,7 +3451,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "下へ"
+    },
+    {
+     "part": "crease",
+     "ja": "育つ"
+    }
+   ],
+   "explain": "下へ育つ → 減る"
+  }
  },
  {
   "word": "engage",
@@ -2801,7 +3516,20 @@
     "en": "enchant",
     "ja": "魅了する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "en",
+     "ja": "～にする"
+    },
+    {
+     "part": "hance",
+     "ja": "高い"
+    }
+   ],
+   "explain": "高くする → 高める"
+  }
  },
  {
   "word": "environmental",
@@ -2838,7 +3566,20 @@
     "en": "actor",
     "ja": "俳優"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "fact",
+     "ja": "作る"
+    },
+    {
+     "part": "or",
+     "ja": "もの"
+    }
+   ],
+   "explain": "結果をつくり出すもの → 要因"
+  }
  },
  {
   "word": "gesture",
@@ -2943,7 +3684,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "phen",
+     "ja": "現れる"
+    },
+    {
+     "part": "omenon",
+     "ja": "もの"
+    }
+   ],
+   "explain": "現れたもの → 現象"
+  }
  },
  {
   "word": "relationship",
@@ -2994,7 +3748,24 @@
     "en": "resolution",
     "ja": "決意・解決"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "元へ"
+    },
+    {
+     "part": "volu",
+     "ja": "回る"
+    },
+    {
+     "part": "tion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "ぐるりと回ること → 革命・回転"
+  }
  },
  {
   "word": "substantial",
@@ -3020,7 +3791,24 @@
     "en": "substitute",
     "ja": "代わりのもの"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sub",
+     "ja": "下に"
+    },
+    {
+     "part": "st",
+     "ja": "立つ"
+    },
+    {
+     "part": "ial",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "下に立って支えている → 実質的な・かなりの"
+  }
  },
  {
   "word": "taste",
@@ -3115,7 +3903,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "archae",
+     "ja": "古い"
+    },
+    {
+     "part": "log",
+     "ja": "学問"
+    },
+    {
+     "part": "ical",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "古いものの学問の → 考古学の"
+  }
  },
  {
   "word": "calf",
@@ -3157,7 +3962,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "com",
+     "ja": "完全に"
+    },
+    {
+     "part": "prehend",
+     "ja": "つかむ"
+    }
+   ],
+   "explain": "すっかりつかむ → 理解する"
+  }
  },
  {
   "word": "crucial",
@@ -3173,7 +3991,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "cruc",
+     "ja": "十字"
+    },
+    {
+     "part": "ial",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "十字路のような分かれ目の → 決定的な・重大な"
+  }
  },
  {
   "word": "diagram",
@@ -3189,7 +4020,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "dia",
+     "ja": "横切って"
+    },
+    {
+     "part": "gram",
+     "ja": "書く"
+    }
+   ],
+   "explain": "線を引いて書いたもの → 図"
+  }
  },
  {
   "word": "dive",
@@ -3320,7 +4164,20 @@
     "en": "infantry",
     "ja": "歩兵隊"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "ない"
+    },
+    {
+     "part": "fant",
+     "ja": "話す"
+    }
+   ],
+   "explain": "まだ話せない者 → 乳児"
+  }
  },
  {
   "word": "initial",
@@ -3417,7 +4274,28 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "manu",
+     "ja": "手"
+    },
+    {
+     "part": "fact",
+     "ja": "作る"
+    },
+    {
+     "part": "ure",
+     "ja": ""
+    },
+    {
+     "part": "er",
+     "ja": "人"
+    }
+   ],
+   "explain": "手で作る人 → 製造業者"
+  }
  },
  {
   "word": "microwave",
@@ -3463,7 +4341,24 @@
     "en": "mortal",
     "ja": "死すべき運命の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "mort",
+     "ja": "死"
+    },
+    {
+     "part": "al",
+     "ja": ""
+    },
+    {
+     "part": "ity",
+     "ja": "こと"
+    }
+   ],
+   "explain": "死ぬこと → 死亡率"
+  }
  },
  {
   "word": "narrative",
@@ -3557,7 +4452,24 @@
     "en": "personal",
     "ja": "個人的な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "per",
+     "ja": "通して"
+    },
+    {
+     "part": "enn",
+     "ja": "年"
+    },
+    {
+     "part": "ial",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "年を通して続く → 絶え間ない・多年生の"
+  }
  },
  {
   "word": "physics",
@@ -3813,7 +4725,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "therapeut",
+     "ja": "世話をする"
+    },
+    {
+     "part": "ic",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "治療の世話をする → 治療の・癒しの"
+  }
  },
  {
   "word": "vegetarian",
@@ -3855,7 +4780,20 @@
     "en": "company",
     "ja": "会社・仲間"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ac",
+     "ja": "～へ"
+    },
+    {
+     "part": "company",
+     "ja": "仲間"
+    }
+   ],
+   "explain": "～の仲間になる → 同行する・伴う"
+  }
  },
  {
   "word": "afford",
@@ -3932,7 +4870,20 @@
     "en": "barren",
     "ja": "不毛の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "barr",
+     "ja": "棒・柵"
+    },
+    {
+     "part": "ier",
+     "ja": "もの"
+    }
+   ],
+   "explain": "柵 → 壁・障害"
+  }
  },
  {
   "word": "behavioral",
@@ -4041,7 +4992,20 @@
     "en": "charismatic",
     "ja": "カリスマのある"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "character",
+     "ja": "特徴"
+    },
+    {
+     "part": "istic",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "特徴を表す → 特徴(的な)"
+  }
  },
  {
   "word": "comprise",
@@ -4066,7 +5030,20 @@
     "en": "surprise",
     "ja": "驚かせる"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "com",
+     "ja": "一緒に"
+    },
+    {
+     "part": "prise",
+     "ja": "つかむ"
+    }
+   ],
+   "explain": "まとめてつかむ → ～から成る"
+  }
  },
  {
   "word": "concept",
@@ -4091,7 +5068,20 @@
     "en": "contempt",
     "ja": "軽蔑"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "完全に"
+    },
+    {
+     "part": "cept",
+     "ja": "つかむ"
+    }
+   ],
+   "explain": "しっかりつかんだもの → 概念"
+  }
  },
  {
   "word": "consumption",
@@ -4112,7 +5102,24 @@
     "en": "assumption",
     "ja": "仮定"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "完全に"
+    },
+    {
+     "part": "sump",
+     "ja": "取る"
+    },
+    {
+     "part": "tion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "すっかり取ってしまうこと → 消費"
+  }
  },
  {
   "word": "contain",
@@ -4142,7 +5149,20 @@
     "en": "obtain",
     "ja": "得る"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "tain",
+     "ja": "保つ"
+    }
+   ],
+   "explain": "一緒に保つ → 含む"
+  }
  },
  {
   "word": "content",
@@ -4219,7 +5239,20 @@
     "en": "deliberate",
     "ja": "意図的な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "離して"
+    },
+    {
+     "part": "liver",
+     "ja": "自由にする"
+    }
+   ],
+   "explain": "手から離して自由にする → 届ける"
+  }
  },
  {
   "word": "demand",
@@ -4250,7 +5283,20 @@
     "en": "command",
     "ja": "命令する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "強く"
+    },
+    {
+     "part": "mand",
+     "ja": "命じる"
+    }
+   ],
+   "explain": "強く命じる → 要求(する)"
+  }
  },
  {
   "word": "determine",
@@ -4281,7 +5327,20 @@
     "en": "terminate",
     "ja": "終わらせる"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "完全に"
+    },
+    {
+     "part": "termin",
+     "ja": "境界"
+    }
+   ],
+   "explain": "境界をはっきり決める → 決定する"
+  }
  },
  {
   "word": "dialogue",
@@ -4297,7 +5356,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "dia",
+     "ja": "間で"
+    },
+    {
+     "part": "logue",
+     "ja": "話す"
+    }
+   ],
+   "explain": "間で話すこと → 会話"
+  }
  },
  {
   "word": "distinguish",
@@ -4323,7 +5395,20 @@
     "en": "extinguish",
     "ja": "(火を)消す"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "di",
+     "ja": "離して"
+    },
+    {
+     "part": "stingu",
+     "ja": "突き刺す"
+    }
+   ],
+   "explain": "突いて区別の印をつける → 区別する"
+  }
  },
  {
   "word": "dominant",
@@ -4339,7 +5424,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "domin",
+     "ja": "支配する"
+    },
+    {
+     "part": "ant",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "支配している → 支配的な・主流の"
+  }
  },
  {
   "word": "economic",
@@ -4385,7 +5483,20 @@
     "en": "stimulate",
     "ja": "刺激する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "emul",
+     "ja": "張り合う"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "張り合ってまねる → まねる"
+  }
  },
  {
   "word": "entertaining",
@@ -4433,7 +5544,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "equ",
+     "ja": "等しい"
+    },
+    {
+     "part": "al",
+     "ja": ""
+    },
+    {
+     "part": "ly",
+     "ja": ""
+    }
+   ],
+   "explain": "等しく → 同じように"
+  }
  },
  {
   "word": "equipment",
@@ -4475,7 +5603,20 @@
     "en": "esteem",
     "ja": "尊敬"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "estim",
+     "ja": "評価する"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "値踏みする → 見積もる"
+  }
  },
  {
   "word": "expand",
@@ -4500,7 +5641,20 @@
     "en": "extend",
     "ja": "延ばす"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "pand",
+     "ja": "広げる"
+    }
+   ],
+   "explain": "外へ広げる → 拡大する"
+  }
  },
  {
   "word": "extensive",
@@ -4525,7 +5679,24 @@
     "en": "intensive",
     "ja": "集中的な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "tens",
+     "ja": "伸ばす"
+    },
+    {
+     "part": "ive",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "外へ伸びた → 広範な"
+  }
  },
  {
   "word": "extreme",
@@ -4599,7 +5770,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "fund",
+     "ja": "底・基礎"
+    },
+    {
+     "part": "ament",
+     "ja": ""
+    },
+    {
+     "part": "al",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "土台の → 根本的な"
+  }
  },
  {
   "word": "gap",
@@ -4703,7 +5891,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "horizon",
+     "ja": "地平線"
+    },
+    {
+     "part": "tal",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "地平線と同じ向きの → 水平の"
+  }
  },
  {
   "word": "identity",
@@ -4724,7 +5925,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ident",
+     "ja": "同じ"
+    },
+    {
+     "part": "ity",
+     "ja": "こと"
+    }
+   ],
+   "explain": "同じであること → 独自性・身元"
+  }
  },
  {
   "word": "immediate",
@@ -4750,7 +5964,24 @@
     "en": "intermediate",
     "ja": "中級の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "im",
+     "ja": "ない"
+    },
+    {
+     "part": "medi",
+     "ja": "間"
+    },
+    {
+     "part": "ate",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "間に何もない → 即座の"
+  }
  },
  {
   "word": "inherent",
@@ -4771,7 +6002,24 @@
     "en": "inherit",
     "ja": "受け継ぐ"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "中に"
+    },
+    {
+     "part": "her",
+     "ja": "くっつく"
+    },
+    {
+     "part": "ent",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "中にくっついている → 本来備わっている"
+  }
  },
  {
   "word": "interact",
@@ -4797,7 +6045,20 @@
     "en": "interrupt",
     "ja": "邪魔をする"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "inter",
+     "ja": "間で"
+    },
+    {
+     "part": "act",
+     "ja": "行う"
+    }
+   ],
+   "explain": "互いの間で働きかける → 交流する"
+  }
  },
  {
   "word": "keen",
@@ -4931,7 +6192,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "multi",
+     "ja": "多くの"
+    },
+    {
+     "part": "ple",
+     "ja": "重ねた"
+    }
+   ],
+   "explain": "多く重ねた → 多数の"
+  }
  },
  {
   "word": "occur",
@@ -4962,7 +6236,20 @@
     "en": "occupy",
     "ja": "占める"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "oc",
+     "ja": "～に向かって"
+    },
+    {
+     "part": "cur",
+     "ja": "走る"
+    }
+   ],
+   "explain": "～に向かって走ってくる → 起こる・思い浮かぶ"
+  }
  },
  {
   "word": "origin",
@@ -5024,7 +6311,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "parti",
+     "ja": "部分"
+    },
+    {
+     "part": "cip",
+     "ja": "取る"
+    },
+    {
+     "part": "ation",
+     "ja": "こと"
+    }
+   ],
+   "explain": "一部分を受け持つこと → 参加"
+  }
  },
  {
   "word": "perspective",
@@ -5055,7 +6359,24 @@
     "en": "prospective",
     "ja": "見込みのある"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "per",
+     "ja": "通して"
+    },
+    {
+     "part": "spect",
+     "ja": "見る"
+    },
+    {
+     "part": "ive",
+     "ja": ""
+    }
+   ],
+   "explain": "通して見ること → 見方・観点"
+  }
  },
  {
   "word": "politician",
@@ -5132,7 +6453,20 @@
     "en": "proceed",
     "ja": "進む"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pro",
+     "ja": "前へ"
+    },
+    {
+     "part": "cess",
+     "ja": "進む"
+    }
+   ],
+   "explain": "前へ進むこと → 過程"
+  }
  },
  {
   "word": "promote",
@@ -5158,7 +6492,20 @@
     "en": "prompt",
     "ja": "即座の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pro",
+     "ja": "前へ"
+    },
+    {
+     "part": "mote",
+     "ja": "動かす"
+    }
+   ],
+   "explain": "前へ動かす → 促進する・昇進させる"
+  }
  },
  {
   "word": "recommend",
@@ -5179,7 +6526,20 @@
     "en": "commend",
     "ja": "ほめる"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "強く"
+    },
+    {
+     "part": "commend",
+     "ja": "任せる・ほめる"
+    }
+   ],
+   "explain": "強く推す → 勧める"
+  }
  },
  {
   "word": "regardless",
@@ -5200,7 +6560,20 @@
     "ja": "～に関係なく"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "regard",
+     "ja": "注意を向ける"
+    },
+    {
+     "part": "less",
+     "ja": "ない"
+    }
+   ],
+   "explain": "注意を向けない → ～に関係なく"
+  }
  },
  {
   "word": "region",
@@ -5268,7 +6641,20 @@
     "en": "remote",
     "ja": "遠い"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "離して"
+    },
+    {
+     "part": "move",
+     "ja": "動かす"
+    }
+   ],
+   "explain": "離れたところへ動かす → 取り除く"
+  }
  },
  {
   "word": "rest",
@@ -5440,7 +6826,24 @@
     "en": "consequent",
     "ja": "結果として起こる"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sub",
+     "ja": "下に・後に"
+    },
+    {
+     "part": "sequ",
+     "ja": "続く"
+    },
+    {
+     "part": "ent",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "後に続く → その後の"
+  }
  },
  {
   "word": "suppose",
@@ -5475,7 +6878,20 @@
     "en": "impose",
     "ja": "課す"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sup",
+     "ja": "下に"
+    },
+    {
+     "part": "pose",
+     "ja": "置く"
+    }
+   ],
+   "explain": "下に置いて考える → 仮定する・思う"
+  }
  },
  {
   "word": "surface",
@@ -5496,7 +6912,20 @@
     "en": "surgery",
     "ja": "手術"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sur",
+     "ja": "上の"
+    },
+    {
+     "part": "face",
+     "ja": "顔"
+    }
+   ],
+   "explain": "上の顔 → 表面"
+  }
  },
  {
   "word": "technique",
@@ -5574,7 +7003,20 @@
     "en": "transplant",
     "ja": "移植する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "trans",
+     "ja": "向こうへ"
+    },
+    {
+     "part": "late",
+     "ja": "運ばれた"
+    }
+   ],
+   "explain": "向こうへ運ぶ → 翻訳する"
+  }
  },
  {
   "word": "unexpected",
@@ -5590,7 +7032,28 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "un",
+     "ja": "ない"
+    },
+    {
+     "part": "ex",
+     "ja": "外を"
+    },
+    {
+     "part": "spect",
+     "ja": "見る"
+    },
+    {
+     "part": "ed",
+     "ja": ""
+    }
+   ],
+   "explain": "予想して見ていなかった → 予期しない"
+  }
  },
  {
   "word": "variation",
@@ -5611,7 +7074,20 @@
     "en": "vacation",
     "ja": "休暇"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "vari",
+     "ja": "変わる"
+    },
+    {
+     "part": "ation",
+     "ja": "こと"
+    }
+   ],
+   "explain": "変わること → 変動"
+  }
  },
  {
   "word": "vary",
@@ -5733,7 +7209,20 @@
     "en": "assess",
     "ja": "評価する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ac",
+     "ja": "～へ"
+    },
+    {
+     "part": "cess",
+     "ja": "進む"
+    }
+   ],
+   "explain": "～へ近づくこと → 利用・接続"
+  }
  },
  {
   "word": "alphabet",
@@ -5780,7 +7269,24 @@
     "en": "appliance",
     "ja": "電気器具"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ap",
+     "ja": "～へ"
+    },
+    {
+     "part": "plic",
+     "ja": "折る・当てはめる"
+    },
+    {
+     "part": "ation",
+     "ja": "こと"
+    }
+   ],
+   "explain": "～に当てはめること → 申し込み・応用"
+  }
  },
  {
   "word": "army",
@@ -5822,7 +7328,24 @@
     "en": "rival",
     "ja": "競争相手"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ar",
+     "ja": "～へ"
+    },
+    {
+     "part": "riv",
+     "ja": "岸"
+    },
+    {
+     "part": "al",
+     "ja": "こと"
+    }
+   ],
+   "explain": "岸に着くこと → 到着・登場"
+  }
  },
  {
   "word": "artist",
@@ -5889,7 +7412,20 @@
     "en": "detach",
     "ja": "切り離す"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "at",
+     "ja": "～へ"
+    },
+    {
+     "part": "tach",
+     "ja": "杭・留め具"
+    }
+   ],
+   "explain": "～に留める → 取り付ける"
+  }
  },
  {
   "word": "bullying",
@@ -5947,7 +7483,24 @@
     "en": "catastrophe",
     "ja": "大災害"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "cata",
+     "ja": "下に"
+    },
+    {
+     "part": "strophe",
+     "ja": "ひっくり返る"
+    },
+    {
+     "part": "ic",
+     "ja": ""
+    }
+   ],
+   "explain": "ひっくり返る → 壊滅的な"
+  }
  },
  {
   "word": "cave",
@@ -6067,7 +7620,24 @@
     "en": "compliment",
     "ja": "ほめ言葉"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "com",
+     "ja": "完全に"
+    },
+    {
+     "part": "ple",
+     "ja": "満たす"
+    },
+    {
+     "part": "ment",
+     "ja": ""
+    }
+   ],
+   "explain": "すっかり満たすもの → 補う"
+  }
  },
  {
   "word": "comprehension",
@@ -6092,7 +7662,24 @@
     "en": "apprehension",
     "ja": "不安"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "com",
+     "ja": "完全に"
+    },
+    {
+     "part": "prehens",
+     "ja": "つかむ"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "すっかりつかむこと → 理解"
+  }
  },
  {
   "word": "concerned",
@@ -6157,7 +7744,24 @@
     "en": "destruction",
     "ja": "破壊"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "struct",
+     "ja": "積み上げる"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "積み上げること → 建設・構造"
+  }
  },
  {
   "word": "convey",
@@ -6187,7 +7791,20 @@
     "en": "survey",
     "ja": "調査"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "vey",
+     "ja": "道"
+    }
+   ],
+   "explain": "道を一緒に行く → 運ぶ・伝える"
+  }
  },
  {
   "word": "coordinate",
@@ -6208,7 +7825,24 @@
     "en": "subordinate",
     "ja": "部下"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "co",
+     "ja": "一緒に"
+    },
+    {
+     "part": "ordin",
+     "ja": "順序"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "順序をそろえる → 調整する"
+  }
  },
  {
   "word": "creation",
@@ -6233,7 +7867,20 @@
     "en": "recreation",
     "ja": "娯楽"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "cre",
+     "ja": "生む・育てる"
+    },
+    {
+     "part": "ation",
+     "ja": "こと"
+    }
+   ],
+   "explain": "生み出すこと → 創造・誕生"
+  }
  },
  {
   "word": "demographic",
@@ -6249,7 +7896,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "demo",
+     "ja": "人々"
+    },
+    {
+     "part": "graph",
+     "ja": "書く"
+    },
+    {
+     "part": "ic",
+     "ja": ""
+    }
+   ],
+   "explain": "人々について書いた → 人口統計の"
+  }
  },
  {
   "word": "depict",
@@ -6270,7 +7934,20 @@
     "en": "predict",
     "ja": "予測する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "下に・完全に"
+    },
+    {
+     "part": "pict",
+     "ja": "描く"
+    }
+   ],
+   "explain": "描き出す → 描く"
+  }
  },
  {
   "word": "depth",
@@ -6333,7 +8010,24 @@
     "en": "determined",
     "ja": "決心した"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "離して"
+    },
+    {
+     "part": "tri",
+     "ja": "こする"
+    },
+    {
+     "part": "mental",
+     "ja": ""
+    }
+   ],
+   "explain": "すり減らす → 有害な"
+  }
  },
  {
   "word": "digital",
@@ -6391,7 +8085,20 @@
     "en": "display",
     "ja": "展示する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "dis",
+     "ja": "離れて"
+    },
+    {
+     "part": "place",
+     "ja": "置く"
+    }
+   ],
+   "explain": "別の場所に置く → 取って代わる・追い出す"
+  }
  },
  {
   "word": "distinct",
@@ -6426,7 +8133,20 @@
     "en": "extinct",
     "ja": "絶滅した"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "di",
+     "ja": "離して"
+    },
+    {
+     "part": "stinct",
+     "ja": "突き刺す"
+    }
+   ],
+   "explain": "印をつけて分けた → 異なる・はっきりした"
+  }
  },
  {
   "word": "donate",
@@ -6447,7 +8167,20 @@
     "en": "dominate",
     "ja": "支配する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "don",
+     "ja": "与える"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "与える → 寄付する"
+  }
  },
  {
   "word": "draft",
@@ -6518,7 +8251,24 @@
     "ja": "～に相当する"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "equi",
+     "ja": "等しい"
+    },
+    {
+     "part": "val",
+     "ja": "価値"
+    },
+    {
+     "part": "ent",
+     "ja": ""
+    }
+   ],
+   "explain": "価値が等しい → 同等のもの"
+  }
  },
  {
   "word": "essential",
@@ -6581,7 +8331,20 @@
     "en": "felicitate",
     "ja": "祝う"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "facil",
+     "ja": "容易な"
+    },
+    {
+     "part": "itate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "容易にする → 促す"
+  }
  },
  {
   "word": "filmmaker",
@@ -6704,7 +8467,20 @@
     "en": "inhabitant",
     "ja": "住民"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "habit",
+     "ja": "住む"
+    },
+    {
+     "part": "at",
+     "ja": ""
+    }
+   ],
+   "explain": "住むところ → 生息地"
+  }
  },
  {
   "word": "handout",
@@ -6757,7 +8533,20 @@
     "en": "thesis",
     "ja": "論文"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "hypo",
+     "ja": "下に"
+    },
+    {
+     "part": "thesis",
+     "ja": "置くこと"
+    }
+   ],
+   "explain": "下に置いた考え → 仮説"
+  }
  },
  {
   "word": "illusion",
@@ -6787,7 +8576,24 @@
     "en": "delusion",
     "ja": "思い込み"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "il",
+     "ja": "～に向かって"
+    },
+    {
+     "part": "lus",
+     "ja": "遊ぶ・からかう"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "からかうもの → 錯覚"
+  }
  },
  {
   "word": "industrial",
@@ -6829,7 +8635,24 @@
     "en": "injustice",
     "ja": "不正"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "ない"
+    },
+    {
+     "part": "jur",
+     "ja": "正しさ・法"
+    },
+    {
+     "part": "y",
+     "ja": ""
+    }
+   ],
+   "explain": "正しくないこと(害) → けが"
+  }
  },
  {
   "word": "insomnia",
@@ -6845,7 +8668,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "ない"
+    },
+    {
+     "part": "somn",
+     "ja": "眠り"
+    },
+    {
+     "part": "ia",
+     "ja": "状態"
+    }
+   ],
+   "explain": "眠れない状態 → 不眠症"
+  }
  },
  {
   "word": "intellectual",
@@ -6866,7 +8706,24 @@
     "en": "intelligent",
     "ja": "頭のよい"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "intel",
+     "ja": "間で"
+    },
+    {
+     "part": "lect",
+     "ja": "選ぶ"
+    },
+    {
+     "part": "ual",
+     "ja": ""
+    }
+   ],
+   "explain": "物事を見分ける → 知的な"
+  }
  },
  {
   "word": "limit",
@@ -6945,7 +8802,20 @@
     "en": "optimum",
     "ja": "最適な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "optim",
+     "ja": "最もよい"
+    },
+    {
+     "part": "ism",
+     "ja": "主義"
+    }
+   ],
+   "explain": "最もよいと考えること → 楽観"
+  }
  },
  {
   "word": "oral",
@@ -7035,7 +8905,24 @@
     "en": "producer",
     "ja": "生産者"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pro",
+     "ja": "前へ"
+    },
+    {
+     "part": "ced",
+     "ja": "進む"
+    },
+    {
+     "part": "ure",
+     "ja": "こと"
+    }
+   ],
+   "explain": "進め方 → 手順・処置"
+  }
  },
  {
   "word": "psychological",
@@ -7056,7 +8943,24 @@
     "en": "physiological",
     "ja": "生理的な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "psycho",
+     "ja": "心"
+    },
+    {
+     "part": "log",
+     "ja": "学問"
+    },
+    {
+     "part": "ical",
+     "ja": ""
+    }
+   ],
+   "explain": "心の学問の → 心理的な"
+  }
  },
  {
   "word": "queue",
@@ -7108,7 +9012,24 @@
     "en": "reorganize",
     "ja": "再編成する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "再び"
+    },
+    {
+     "part": "cogn",
+     "ja": "知る"
+    },
+    {
+     "part": "ize",
+     "ja": "～する"
+    }
+   ],
+   "explain": "再び知る → 認める・気づく"
+  }
  },
  {
   "word": "religious",
@@ -7390,7 +9311,20 @@
     "en": "celestial",
     "ja": "天の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "terr",
+     "ja": "大地"
+    },
+    {
+     "part": "estrial",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "大地の → 地球上の・陸上の"
+  }
  },
  {
   "word": "timeline",
@@ -7469,7 +9403,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "under",
+     "ja": "下に"
+    },
+    {
+     "part": "value",
+     "ja": "価値をつける"
+    }
+   ],
+   "explain": "低く価値をつける → 過小評価する"
+  }
  },
  {
   "word": "vegetarian",
@@ -7563,7 +9510,24 @@
     "en": "exhilarate",
     "ja": "気分を浮き立たせる"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ac",
+     "ja": "～へ"
+    },
+    {
+     "part": "celer",
+     "ja": "速い"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "速くする → 加速する"
+  }
  },
  {
   "word": "acceleration",
@@ -7579,7 +9543,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ac",
+     "ja": "～へ"
+    },
+    {
+     "part": "celer",
+     "ja": "速い"
+    },
+    {
+     "part": "ation",
+     "ja": "こと"
+    }
+   ],
+   "explain": "速くなること → 加速"
+  }
  },
  {
   "word": "accumulate",
@@ -7600,7 +9581,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ac",
+     "ja": "～へ"
+    },
+    {
+     "part": "cumul",
+     "ja": "積み重ね"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "積み重ねる → 蓄積する"
+  }
  },
  {
   "word": "accustom",
@@ -7694,7 +9692,20 @@
     "en": "adorn",
     "ja": "飾る"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ad",
+     "ja": "～へ"
+    },
+    {
+     "part": "ore",
+     "ja": "祈る"
+    }
+   ],
+   "explain": "～に祈る → 崇拝する・大好きである"
+  }
  },
  {
   "word": "advancement",
@@ -7741,7 +9752,24 @@
     "ja": "～に親しみを感じる"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "af",
+     "ja": "～へ"
+    },
+    {
+     "part": "fin",
+     "ja": "境界"
+    },
+    {
+     "part": "ity",
+     "ja": "こと"
+    }
+   ],
+   "explain": "境を接していること → 親近感"
+  }
  },
  {
   "word": "aggravate",
@@ -7767,7 +9795,24 @@
     "en": "aggregate",
     "ja": "集める・合計の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ag",
+     "ja": "～へ"
+    },
+    {
+     "part": "grav",
+     "ja": "重い"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "重くする → 悪化させる"
+  }
  },
  {
   "word": "agony",
@@ -7857,7 +9902,24 @@
     "en": "locate",
     "ja": "位置を突き止める"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "al",
+     "ja": "～へ"
+    },
+    {
+     "part": "loc",
+     "ja": "場所"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "場所に置く → 割り当てる"
+  }
  },
  {
   "word": "alter",
@@ -7920,7 +9982,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ambi",
+     "ja": "両方"
+    },
+    {
+     "part": "val",
+     "ja": "力・価値"
+    },
+    {
+     "part": "ence",
+     "ja": "こと"
+    }
+   ],
+   "explain": "両方に力が働くこと → 相反する感情"
+  }
  },
  {
   "word": "amuse",
@@ -7957,7 +10036,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "anti",
+     "ja": "前に"
+    },
+    {
+     "part": "cip",
+     "ja": "取る"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "前もって取る → 予想する"
+  }
  },
  {
   "word": "antiquity",
@@ -7983,7 +10079,20 @@
     "en": "antique",
     "ja": "骨董品"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "antiqu",
+     "ja": "古い"
+    },
+    {
+     "part": "ity",
+     "ja": "こと"
+    }
+   ],
+   "explain": "古いこと → 古代"
+  }
  },
  {
   "word": "appliance",
@@ -8115,7 +10224,20 @@
     "ja": "王位に就く"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "a",
+     "ja": "～へ"
+    },
+    {
+     "part": "scend",
+     "ja": "登る"
+    }
+   ],
+   "explain": "登る → のぼる・(王位に)就く"
+  }
  },
  {
   "word": "assimilate",
@@ -8136,7 +10258,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "as",
+     "ja": "～へ"
+    },
+    {
+     "part": "simil",
+     "ja": "似た"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "似たものにする → 同化させる・吸収する"
+  }
  },
  {
   "word": "astonishing",
@@ -8289,7 +10428,24 @@
     "en": "beneficiary",
     "ja": "受益者"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "bene",
+     "ja": "よく"
+    },
+    {
+     "part": "fic",
+     "ja": "行う"
+    },
+    {
+     "part": "ial",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "よいことをする → 有益な"
+  }
  },
  {
   "word": "betterment",
@@ -8342,7 +10498,28 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "bio",
+     "ja": "生命"
+    },
+    {
+     "part": "di",
+     "ja": "離れて"
+    },
+    {
+     "part": "vers",
+     "ja": "向く"
+    },
+    {
+     "part": "ity",
+     "ja": ""
+    }
+   ],
+   "explain": "生命がばらばらの方向を向いていること → 生物多様性"
+  }
  },
  {
   "word": "biologist",
@@ -8358,7 +10535,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "bio",
+     "ja": "生命"
+    },
+    {
+     "part": "log",
+     "ja": "学問"
+    },
+    {
+     "part": "ist",
+     "ja": "人"
+    }
+   ],
+   "explain": "生命の学問をする人 → 生物学者"
+  }
  },
  {
   "word": "bland",
@@ -8599,7 +10793,20 @@
     "en": "circus",
     "ja": "サーカス"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "circu",
+     "ja": "円"
+    },
+    {
+     "part": "it",
+     "ja": "行く"
+    }
+   ],
+   "explain": "ぐるりと回ること → 巡回・回路"
+  }
  },
  {
   "word": "cite",
@@ -8645,7 +10852,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "civil",
+     "ja": "市民"
+    },
+    {
+     "part": "isation",
+     "ja": "～化"
+    }
+   ],
+   "explain": "市民化すること → 文明"
+  }
  },
  {
   "word": "cluster",
@@ -8698,7 +10918,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "cogn",
+     "ja": "知る"
+    },
+    {
+     "part": "itive",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "知ることの → 認知の"
+  }
  },
  {
   "word": "cohesion",
@@ -8719,7 +10952,24 @@
     "en": "coherent",
     "ja": "首尾一貫した"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "co",
+     "ja": "一緒に"
+    },
+    {
+     "part": "hes",
+     "ja": "くっつく"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "くっつき合うこと → まとまり"
+  }
  },
  {
   "word": "collision",
@@ -8740,7 +10990,24 @@
     "en": "collusion",
     "ja": "共謀"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "col",
+     "ja": "一緒に"
+    },
+    {
+     "part": "lis",
+     "ja": "打つ"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "ぶつかり合うこと → 衝突"
+  }
  },
  {
   "word": "commentator",
@@ -8782,7 +11049,20 @@
     "en": "compile",
     "ja": "編集する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "com",
+     "ja": "完全に"
+    },
+    {
+     "part": "pel",
+     "ja": "押す"
+    }
+   ],
+   "explain": "強く押す → 無理に～させる"
+  }
  },
  {
   "word": "complexity",
@@ -8814,7 +11094,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "com",
+     "ja": "一緒に"
+    },
+    {
+     "part": "press",
+     "ja": "押す"
+    }
+   ],
+   "explain": "一緒に押しつける → 圧縮する"
+  }
  },
  {
   "word": "compulsory",
@@ -8835,7 +11128,24 @@
     "en": "compulsive",
     "ja": "衝動的な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "com",
+     "ja": "完全に"
+    },
+    {
+     "part": "puls",
+     "ja": "押す"
+    },
+    {
+     "part": "ory",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "強く押しつけられた → 義務の"
+  }
  },
  {
   "word": "conducive",
@@ -8861,7 +11171,24 @@
     "en": "conductive",
     "ja": "伝導性の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "duc",
+     "ja": "導く"
+    },
+    {
+     "part": "ive",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "一緒に導く → ～に役立つ"
+  }
  },
  {
   "word": "conference",
@@ -8898,7 +11225,24 @@
     "en": "contiguous",
     "ja": "隣接した"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "tag",
+     "ja": "触れる"
+    },
+    {
+     "part": "ious",
+     "ja": ""
+    }
+   ],
+   "explain": "触れ合ってうつる → 伝染する"
+  }
  },
  {
   "word": "contemporary",
@@ -8924,7 +11268,24 @@
     "en": "temporary",
     "ja": "一時的な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "tempor",
+     "ja": "時"
+    },
+    {
+     "part": "ary",
+     "ja": ""
+    }
+   ],
+   "explain": "時を同じくする → 同時代の・現代の"
+  }
  },
  {
   "word": "contentment",
@@ -8972,7 +11333,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "verge",
+     "ja": "傾く"
+    }
+   ],
+   "explain": "一点に向かって傾く → 一点に集まる"
+  }
  },
  {
   "word": "cooperative",
@@ -8998,7 +11372,24 @@
     "en": "corporate",
     "ja": "企業の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "co",
+     "ja": "一緒に"
+    },
+    {
+     "part": "oper",
+     "ja": "働く"
+    },
+    {
+     "part": "ative",
+     "ja": ""
+    }
+   ],
+   "explain": "一緒に働く → 協力的な"
+  }
  },
  {
   "word": "cope",
@@ -9051,7 +11442,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "cor",
+     "ja": "一緒に"
+    },
+    {
+     "part": "relation",
+     "ja": "関係"
+    }
+   ],
+   "explain": "互いの関係 → 相関関係"
+  }
  },
  {
   "word": "corridor",
@@ -9255,7 +11659,20 @@
     "en": "receive",
     "ja": "受け取る"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "離して"
+    },
+    {
+     "part": "ceive",
+     "ja": "つかむ"
+    }
+   ],
+   "explain": "つかんで(正しい道から)離す → だます"
+  }
  },
  {
   "word": "decisively",
@@ -9276,7 +11693,28 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "離して"
+    },
+    {
+     "part": "cis",
+     "ja": "切る"
+    },
+    {
+     "part": "ive",
+     "ja": ""
+    },
+    {
+     "part": "ly",
+     "ja": ""
+    }
+   ],
+   "explain": "切り離して決める → きっぱりと"
+  }
  },
  {
   "word": "deepen",
@@ -9308,7 +11746,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "取り除く"
+    },
+    {
+     "part": "forest",
+     "ja": "森"
+    },
+    {
+     "part": "ation",
+     "ja": ""
+    }
+   ],
+   "explain": "森を取り除くこと → 森林破壊"
+  }
  },
  {
   "word": "deity",
@@ -9377,7 +11832,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "demo",
+     "ja": "人々"
+    },
+    {
+     "part": "graphy",
+     "ja": "記述"
+    }
+   ],
+   "explain": "人々の記述 → 人口統計学"
+  }
  },
  {
   "word": "desertification",
@@ -9393,7 +11861,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "desert",
+     "ja": "砂漠"
+    },
+    {
+     "part": "ification",
+     "ja": "～化"
+    }
+   ],
+   "explain": "砂漠になること → 砂漠化"
+  }
  },
  {
   "word": "destruct",
@@ -9430,7 +11911,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "de",
+     "ja": "離して"
+    },
+    {
+     "part": "tach",
+     "ja": "留め具"
+    },
+    {
+     "part": "ed",
+     "ja": ""
+    }
+   ],
+   "explain": "留め具を外した → 切り離された・無関心な"
+  }
  },
  {
   "word": "detailed",
@@ -9478,7 +11976,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "dicho",
+     "ja": "2つに"
+    },
+    {
+     "part": "tomy",
+     "ja": "切ること"
+    }
+   ],
+   "explain": "2つに切ること → 二分"
+  }
  },
  {
   "word": "dictator",
@@ -9536,7 +12047,20 @@
     "en": "dissemble",
     "ja": "本心を隠す"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "dis",
+     "ja": "反対"
+    },
+    {
+     "part": "assemble",
+     "ja": "組み立てる"
+    }
+   ],
+   "explain": "組み立ての反対 → 分解する"
+  }
  },
  {
   "word": "disbelief",
@@ -9610,7 +12134,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "dis",
+     "ja": "ばらばらに"
+    },
+    {
+     "part": "rupt",
+     "ja": "壊す"
+    }
+   ],
+   "explain": "ばらばらに壊す → 乱す"
+  }
  },
  {
   "word": "distinctive",
@@ -9647,7 +12184,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "dis",
+     "ja": "離して"
+    },
+    {
+     "part": "tort",
+     "ja": "ねじる"
+    }
+   ],
+   "explain": "ねじ曲げる → ゆがめる"
+  }
  },
  {
   "word": "distress",
@@ -9673,7 +12223,20 @@
     "ja": "苦しんで"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "di",
+     "ja": "離して"
+    },
+    {
+     "part": "stress",
+     "ja": "引っ張る"
+    }
+   ],
+   "explain": "引き裂かれること → 苦痛"
+  }
  },
  {
   "word": "divinity",
@@ -9694,7 +12257,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "divin",
+     "ja": "神の"
+    },
+    {
+     "part": "ity",
+     "ja": "こと"
+    }
+   ],
+   "explain": "神であること → 神性"
+  }
  },
  {
   "word": "domain",
@@ -9947,7 +12523,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "dynam",
+     "ja": "力"
+    },
+    {
+     "part": "ic",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "力のある → 活気のある"
+  }
  },
  {
   "word": "eavesdropping",
@@ -10000,7 +12589,24 @@
     "en": "elegance",
     "ja": "優雅さ"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "e",
+     "ja": "外へ"
+    },
+    {
+     "part": "loqu",
+     "ja": "話す"
+    },
+    {
+     "part": "ence",
+     "ja": "こと"
+    }
+   ],
+   "explain": "言葉が外へあふれること → 雄弁"
+  }
  },
  {
   "word": "embrace",
@@ -10042,7 +12648,24 @@
     "en": "omission",
     "ja": "省略"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "e",
+     "ja": "外へ"
+    },
+    {
+     "part": "miss",
+     "ja": "送る"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "外へ送り出すこと → 排出"
+  }
  },
  {
   "word": "empower",
@@ -10058,7 +12681,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "em",
+     "ja": "～にする"
+    },
+    {
+     "part": "power",
+     "ja": "力"
+    }
+   ],
+   "explain": "力を与える → 力を与える"
+  }
  },
  {
   "word": "encapsulate",
@@ -10074,7 +12710,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "en",
+     "ja": "中に"
+    },
+    {
+     "part": "capsul",
+     "ja": "小箱"
+    },
+    {
+     "part": "ate",
+     "ja": ""
+    }
+   ],
+   "explain": "小箱の中に入れる → 凝縮する・要約する"
+  }
  },
  {
   "word": "encircle",
@@ -10090,7 +12743,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "en",
+     "ja": "～にする"
+    },
+    {
+     "part": "circle",
+     "ja": "円"
+    }
+   ],
+   "explain": "円で囲む → 取り囲む"
+  }
  },
  {
   "word": "endemic",
@@ -10116,7 +12782,24 @@
     "en": "epidemic",
     "ja": "流行病"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "en",
+     "ja": "中に"
+    },
+    {
+     "part": "dem",
+     "ja": "人々"
+    },
+    {
+     "part": "ic",
+     "ja": ""
+    }
+   ],
+   "explain": "人々の中にある → (ある地域に)はびこった"
+  }
  },
  {
   "word": "endorse",
@@ -10148,7 +12831,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "equ",
+     "ja": "等しい"
+    },
+    {
+     "part": "ation",
+     "ja": "こと"
+    }
+   ],
+   "explain": "等しくすること → 方程式"
+  }
  },
  {
   "word": "equilibrium",
@@ -10164,7 +12860,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "equi",
+     "ja": "等しい"
+    },
+    {
+     "part": "libr",
+     "ja": "はかり"
+    },
+    {
+     "part": "ium",
+     "ja": ""
+    }
+   ],
+   "explain": "はかりが等しいこと → 平衡"
+  }
  },
  {
   "word": "erosion",
@@ -10185,7 +12898,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "e",
+     "ja": "外へ"
+    },
+    {
+     "part": "ros",
+     "ja": "かじる"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "かじり取ること → 浸食"
+  }
  },
  {
   "word": "ethical",
@@ -10243,7 +12973,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "e",
+     "ja": "外へ"
+    },
+    {
+     "part": "volve",
+     "ja": "巻く"
+    }
+   ],
+   "explain": "巻物を外へ広げる → 発展する・進化する"
+  }
  },
  {
   "word": "excavation",
@@ -10259,7 +13002,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "cav",
+     "ja": "穴"
+    },
+    {
+     "part": "ation",
+     "ja": ""
+    }
+   ],
+   "explain": "穴から外へ出すこと → 発掘"
+  }
  },
  {
   "word": "exception",
@@ -10285,7 +13045,24 @@
     "en": "exemption",
     "ja": "免除"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "cept",
+     "ja": "取る"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "外へ取り出すこと → 例外"
+  }
  },
  {
   "word": "exert",
@@ -10311,7 +13088,20 @@
     "en": "exit",
     "ja": "出口"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外へ"
+    },
+    {
+     "part": "ert",
+     "ja": "結びつける・出す"
+    }
+   ],
+   "explain": "外へ出す → (力を)及ぼす"
+  }
  },
  {
   "word": "expectancy",
@@ -10332,7 +13122,24 @@
     "ja": "平均寿命"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ex",
+     "ja": "外を"
+    },
+    {
+     "part": "spect",
+     "ja": "見る"
+    },
+    {
+     "part": "ancy",
+     "ja": "こと"
+    }
+   ],
+   "explain": "外を見て待つこと → 予期・見込み"
+  }
  },
  {
   "word": "experimental",
@@ -10427,7 +13234,20 @@
     "en": "futility",
     "ja": "無益さ"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "fert",
+     "ja": "運ぶ・実る"
+    },
+    {
+     "part": "ility",
+     "ja": "こと"
+    }
+   ],
+   "explain": "実りがあること → 出生率・肥沃さ"
+  }
  },
  {
   "word": "fiber",
@@ -10601,7 +13421,20 @@
     "en": "friction",
     "ja": "摩擦"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "fract",
+     "ja": "壊す"
+    },
+    {
+     "part": "ion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "壊れたかけら → ごく一部・分数"
+  }
  },
  {
   "word": "friction",
@@ -10627,7 +13460,20 @@
     "en": "fiction",
     "ja": "作り話"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "frict",
+     "ja": "こする"
+    },
+    {
+     "part": "ion",
+     "ja": "こと"
+    }
+   ],
+   "explain": "こすれ合うこと → 摩擦"
+  }
  },
  {
   "word": "gathering",
@@ -10675,7 +13521,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "gener",
+     "ja": "生まれ・家柄"
+    },
+    {
+     "part": "osity",
+     "ja": "こと"
+    }
+   ],
+   "explain": "家柄のよさ → 寛大さ"
+  }
  },
  {
   "word": "geographic",
@@ -10691,7 +13550,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "geo",
+     "ja": "大地"
+    },
+    {
+     "part": "graph",
+     "ja": "書く"
+    },
+    {
+     "part": "ic",
+     "ja": ""
+    }
+   ],
+   "explain": "大地について書いた → 地理的な"
+  }
  },
  {
   "word": "gossiping",
@@ -10881,7 +13757,20 @@
     "en": "humility",
     "ja": "謙虚さ"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "humil",
+     "ja": "低い・地面"
+    },
+    {
+     "part": "iation",
+     "ja": "こと"
+    }
+   ],
+   "explain": "低くすること → 屈辱"
+  }
  },
  {
   "word": "hunting",
@@ -10939,7 +13828,20 @@
     "en": "identity",
     "ja": "独自性"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ident",
+     "ja": "同じ"
+    },
+    {
+     "part": "ical",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "同じ → まったく同じ"
+  }
  },
  {
   "word": "identification",
@@ -11064,7 +13966,20 @@
     "en": "intimate",
     "ja": "親密な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "imit",
+     "ja": "似せる"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "似せる → まねる"
+  }
  },
  {
   "word": "immersive",
@@ -11117,7 +14032,20 @@
     "ja": "AをBに課す"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "im",
+     "ja": "上に"
+    },
+    {
+     "part": "pose",
+     "ja": "置く"
+    }
+   ],
+   "explain": "上に置く → 課す・押しつける"
+  }
  },
  {
   "word": "impressed",
@@ -11170,7 +14098,28 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "ない"
+    },
+    {
+     "part": "con",
+     "ja": "一緒に"
+    },
+    {
+     "part": "sequ",
+     "ja": "続く"
+    },
+    {
+     "part": "ential",
+     "ja": ""
+    }
+   ],
+   "explain": "後に何も続かない → 取るに足らない"
+  }
  },
  {
   "word": "incorporate",
@@ -11186,7 +14135,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "中に"
+    },
+    {
+     "part": "corpor",
+     "ja": "体"
+    },
+    {
+     "part": "ate",
+     "ja": ""
+    }
+   ],
+   "explain": "体の中に入れる → 取り入れる"
+  }
  },
  {
   "word": "indecently",
@@ -11218,7 +14184,28 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "ない"
+    },
+    {
+     "part": "de",
+     "ja": "完全に"
+    },
+    {
+     "part": "fin",
+     "ja": "終わり"
+    },
+    {
+     "part": "itely",
+     "ja": ""
+    }
+   ],
+   "explain": "終わりが決まっていない → 無期限に"
+  }
  },
  {
   "word": "indigenous",
@@ -11243,7 +14230,24 @@
     "en": "ingenious",
     "ja": "独創的な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "indi",
+     "ja": "中に"
+    },
+    {
+     "part": "gen",
+     "ja": "生まれる"
+    },
+    {
+     "part": "ous",
+     "ja": ""
+    }
+   ],
+   "explain": "その中で生まれた → 先住の・土着の"
+  }
  },
  {
   "word": "individualized",
@@ -11333,7 +14337,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "中に"
+    },
+    {
+     "part": "habit",
+     "ja": "住む"
+    },
+    {
+     "part": "ant",
+     "ja": "人"
+    }
+   ],
+   "explain": "中に住む人 → 住民"
+  }
  },
  {
   "word": "inquire",
@@ -11363,7 +14384,20 @@
     "en": "require",
     "ja": "必要とする"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "in",
+     "ja": "中に"
+    },
+    {
+     "part": "quire",
+     "ja": "求める"
+    }
+   ],
+   "explain": "中を求める → 尋ねる"
+  }
  },
  {
   "word": "insensitive",
@@ -11400,7 +14434,24 @@
     "en": "intelligent",
     "ja": "頭のよい"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "intel",
+     "ja": "間で"
+    },
+    {
+     "part": "lect",
+     "ja": "選ぶ"
+    },
+    {
+     "part": "ual",
+     "ja": ""
+    }
+   ],
+   "explain": "物事を見分ける → 知的な"
+  }
  },
  {
   "word": "interactivity",
@@ -11437,7 +14488,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "inter",
+     "ja": "間で"
+    },
+    {
+     "part": "pret",
+     "ja": "値段・取り引き"
+    },
+    {
+     "part": "ation",
+     "ja": ""
+    }
+   ],
+   "explain": "間に入って取り次ぐこと → 解釈・通訳"
+  }
  },
  {
   "word": "intersection",
@@ -11458,7 +14526,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "inter",
+     "ja": "間で"
+    },
+    {
+     "part": "sect",
+     "ja": "切る"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "互いに切り合う所 → 交わるところ"
+  }
  },
  {
   "word": "interwar",
@@ -11490,7 +14575,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "inter",
+     "ja": "間で"
+    },
+    {
+     "part": "weave",
+     "ja": "織る"
+    }
+   ],
+   "explain": "互いに織り合わせる → 織り交ぜる"
+  }
  },
  {
   "word": "irrelevant",
@@ -11511,7 +14609,24 @@
     "en": "irreverent",
     "ja": "不敬な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ir",
+     "ja": "ない"
+    },
+    {
+     "part": "relev",
+     "ja": "持ち上げる・関係する"
+    },
+    {
+     "part": "ant",
+     "ja": ""
+    }
+   ],
+   "explain": "関係しない → 無関係な"
+  }
  },
  {
   "word": "irritation",
@@ -11559,7 +14674,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "juris",
+     "ja": "法"
+    },
+    {
+     "part": "dict",
+     "ja": "言う"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "法を言い渡すこと → 管轄"
+  }
  },
  {
   "word": "justify",
@@ -11575,7 +14707,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "just",
+     "ja": "正しい"
+    },
+    {
+     "part": "ify",
+     "ja": "～にする"
+    }
+   ],
+   "explain": "正しいとする → 正当化する"
+  }
  },
  {
   "word": "label",
@@ -11701,7 +14846,20 @@
     "ja": "AをBにたとえる"
    }
   ],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "like",
+     "ja": "似ている"
+    },
+    {
+     "part": "en",
+     "ja": "～にする"
+    }
+   ],
+   "explain": "似ているとする → たとえる"
+  }
  },
  {
   "word": "limb",
@@ -11738,7 +14896,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "line",
+     "ja": "線"
+    },
+    {
+     "part": "ar",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "線の → 直線の"
+  }
  },
  {
   "word": "locus",
@@ -11823,7 +14994,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "mal",
+     "ja": "悪い"
+    },
+    {
+     "part": "icious",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "悪い → 悪意のある"
+  }
  },
  {
   "word": "mammal",
@@ -11860,7 +15044,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "mani",
+     "ja": "手"
+    },
+    {
+     "part": "pul",
+     "ja": "満たす"
+    },
+    {
+     "part": "ate",
+     "ja": ""
+    }
+   ],
+   "explain": "手で扱う → 操作する・扱う"
+  }
  },
  {
   "word": "matriarch",
@@ -11876,7 +15077,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "matri",
+     "ja": "母"
+    },
+    {
+     "part": "arch",
+     "ja": "支配者"
+    }
+   ],
+   "explain": "母の支配者 → 女家長"
+  }
  },
  {
   "word": "mediate",
@@ -11902,7 +15116,20 @@
     "en": "meditate",
     "ja": "瞑想する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "medi",
+     "ja": "中間"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "中間に立つ → 仲介する"
+  }
  },
  {
   "word": "medication",
@@ -12082,7 +15309,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "micro",
+     "ja": "小さい"
+    },
+    {
+     "part": "organism",
+     "ja": "生物"
+    }
+   ],
+   "explain": "小さい生物 → 微生物"
+  }
  },
  {
   "word": "microscope",
@@ -12103,7 +15343,20 @@
     "en": "telescope",
     "ja": "望遠鏡"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "micro",
+     "ja": "小さい"
+    },
+    {
+     "part": "scope",
+     "ja": "見る道具"
+    }
+   ],
+   "explain": "小さいものを見る道具 → 顕微鏡"
+  }
  },
  {
   "word": "milieu",
@@ -12198,7 +15451,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "mon",
+     "ja": "1人"
+    },
+    {
+     "part": "arch",
+     "ja": "支配者"
+    }
+   ],
+   "explain": "1人の支配者 → 君主"
+  }
  },
  {
   "word": "motivated",
@@ -12230,7 +15496,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "multi",
+     "ja": "多くの"
+    },
+    {
+     "part": "discipline",
+     "ja": "学問分野"
+    },
+    {
+     "part": "ary",
+     "ja": ""
+    }
+   ],
+   "explain": "多くの学問分野にまたがる → 学際的な"
+  }
  },
  {
   "word": "multiplication",
@@ -12251,7 +15534,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "multi",
+     "ja": "多くの"
+    },
+    {
+     "part": "plic",
+     "ja": "重ねる"
+    },
+    {
+     "part": "ation",
+     "ja": ""
+    }
+   ],
+   "explain": "何重にも重ねること → 増加・掛け算"
+  }
  },
  {
   "word": "multivalent",
@@ -12392,7 +15692,20 @@
     "en": "notorious",
     "ja": "悪名高い"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "nutri",
+     "ja": "養う"
+    },
+    {
+     "part": "tious",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "養う → 栄養のある"
+  }
  },
  {
   "word": "obey",
@@ -12424,7 +15737,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ob",
+     "ja": "～に向かって"
+    },
+    {
+     "part": "lig",
+     "ja": "縛る"
+    },
+    {
+     "part": "ation",
+     "ja": ""
+    }
+   ],
+   "explain": "～に縛りつけること → 義務"
+  }
  },
  {
   "word": "oblige",
@@ -12535,7 +15865,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "off",
+     "ja": "離れて"
+    },
+    {
+     "part": "spring",
+     "ja": "生まれる"
+    }
+   ],
+   "explain": "離れて生まれ出たもの → 子孫"
+  }
  },
  {
   "word": "onwards",
@@ -12567,7 +15910,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "or",
+     "ja": "話す"
+    },
+    {
+     "part": "ator",
+     "ja": "人"
+    }
+   ],
+   "explain": "話す人 → 演説家"
+  }
  },
  {
   "word": "orientation",
@@ -12673,7 +16029,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "over",
+     "ja": "越えて"
+    },
+    {
+     "part": "rate",
+     "ja": "評価する"
+    }
+   ],
+   "explain": "実際より高く評価する → 過大評価する"
+  }
  },
  {
   "word": "oversleep",
@@ -12805,7 +16174,24 @@
     "en": "perceptual",
     "ja": "知覚の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "per",
+     "ja": "通して"
+    },
+    {
+     "part": "pet",
+     "ja": "求める・進む"
+    },
+    {
+     "part": "ual",
+     "ja": ""
+    }
+   ],
+   "explain": "ずっと続いていく → 永久の"
+  }
  },
  {
   "word": "perplex",
@@ -12821,7 +16207,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "per",
+     "ja": "完全に"
+    },
+    {
+     "part": "plex",
+     "ja": "編む・からむ"
+    }
+   ],
+   "explain": "すっかりからませる → 当惑させる"
+  }
  },
  {
   "word": "pervade",
@@ -12842,7 +16241,20 @@
     "en": "persuade",
     "ja": "説得する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "per",
+     "ja": "通して"
+    },
+    {
+     "part": "vade",
+     "ja": "行く"
+    }
+   ],
+   "explain": "すみずみまで行き渡る → 広がる"
+  }
  },
  {
   "word": "pessimistic",
@@ -12858,7 +16270,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pessim",
+     "ja": "最も悪い"
+    },
+    {
+     "part": "istic",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "最も悪いと考える → 悲観的な"
+  }
  },
  {
   "word": "phase",
@@ -12937,7 +16362,24 @@
     "en": "psychological",
     "ja": "心理的な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "physio",
+     "ja": "自然・体"
+    },
+    {
+     "part": "log",
+     "ja": "学問"
+    },
+    {
+     "part": "ical",
+     "ja": ""
+    }
+   ],
+   "explain": "体の働きの学問の → 生理的な"
+  }
  },
  {
   "word": "pictograph",
@@ -13154,7 +16596,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "postul",
+     "ja": "求める"
+    },
+    {
+     "part": "ate",
+     "ja": "～する"
+    }
+   ],
+   "explain": "当然のこととして求める → 仮定する"
+  }
  },
  {
   "word": "preacher",
@@ -13196,7 +16651,24 @@
     "en": "precipitate",
     "ja": "早まった・促進する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pre",
+     "ja": "前に"
+    },
+    {
+     "part": "cipit",
+     "ja": "頭"
+    },
+    {
+     "part": "ous",
+     "ja": ""
+    }
+   ],
+   "explain": "頭から前へ落ちる → 急激な・険しい"
+  }
  },
  {
   "word": "pregnancy",
@@ -13233,7 +16705,20 @@
     "en": "perquisite",
     "ja": "特典"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pre",
+     "ja": "前に"
+    },
+    {
+     "part": "requisite",
+     "ja": "必要なもの"
+    }
+   ],
+   "explain": "前もって必要なもの → 前提条件"
+  }
  },
  {
   "word": "presumably",
@@ -13249,7 +16734,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pre",
+     "ja": "前に"
+    },
+    {
+     "part": "sum",
+     "ja": "取る"
+    },
+    {
+     "part": "ably",
+     "ja": ""
+    }
+   ],
+   "explain": "前もって取ってみると → おそらく"
+  }
  },
  {
   "word": "pretext",
@@ -13265,7 +16767,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pre",
+     "ja": "前に"
+    },
+    {
+     "part": "text",
+     "ja": "織る"
+    }
+   ],
+   "explain": "前に織り込んだもの → 口実"
+  }
  },
  {
   "word": "prevalence",
@@ -13286,7 +16801,24 @@
     "en": "prevalent",
     "ja": "広く行き渡った"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pre",
+     "ja": "前に"
+    },
+    {
+     "part": "val",
+     "ja": "力"
+    },
+    {
+     "part": "ence",
+     "ja": "こと"
+    }
+   ],
+   "explain": "力が勝っていること → 広まり"
+  }
  },
  {
   "word": "primary",
@@ -13344,7 +16876,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pro",
+     "ja": "前に"
+    },
+    {
+     "part": "found",
+     "ja": "底"
+    }
+   ],
+   "explain": "底の方まで → 深い・重大な"
+  }
  },
  {
   "word": "project",
@@ -13376,7 +16921,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "proli",
+     "ja": "子孫"
+    },
+    {
+     "part": "fic",
+     "ja": "作る"
+    }
+   ],
+   "explain": "子孫を多く作る → 多作の"
+  }
  },
  {
   "word": "prone",
@@ -13413,7 +16971,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pro",
+     "ja": "前へ"
+    },
+    {
+     "part": "pel",
+     "ja": "押す"
+    }
+   ],
+   "explain": "前へ押す → 推進する"
+  }
  },
  {
   "word": "propitiate",
@@ -13482,7 +17053,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "pro",
+     "ja": "前へ"
+    },
+    {
+     "part": "voke",
+     "ja": "呼ぶ"
+    }
+   ],
+   "explain": "呼び出す → 引き起こす"
+  }
  },
  {
   "word": "psychiatric",
@@ -13519,7 +17103,20 @@
     "en": "psychology",
     "ja": "心理学"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "psych",
+     "ja": "心"
+    },
+    {
+     "part": "iatry",
+     "ja": "治療"
+    }
+   ],
+   "explain": "心の治療 → 精神医学"
+  }
  },
  {
   "word": "publication",
@@ -13678,7 +17275,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "再び"
+    },
+    {
+     "part": "in",
+     "ja": "中に"
+    },
+    {
+     "part": "force",
+     "ja": "力"
+    }
+   ],
+   "explain": "再び力を入れる → 強める"
+  }
  },
  {
   "word": "related",
@@ -13779,7 +17393,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "後ろに"
+    },
+    {
+     "part": "side",
+     "ja": "座る"
+    }
+   ],
+   "explain": "あとに残って座る → 住む"
+  }
  },
  {
   "word": "resonant",
@@ -13800,7 +17427,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "再び"
+    },
+    {
+     "part": "son",
+     "ja": "音"
+    },
+    {
+     "part": "ant",
+     "ja": ""
+    }
+   ],
+   "explain": "音が返ってくる → 響き渡る・共感を呼ぶ"
+  }
  },
  {
   "word": "respective",
@@ -13825,7 +17469,24 @@
     "en": "respectable",
     "ja": "立派な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "後ろを"
+    },
+    {
+     "part": "spect",
+     "ja": "見る"
+    },
+    {
+     "part": "ive",
+     "ja": ""
+    }
+   ],
+   "explain": "一つずつ振り返って見る → それぞれの"
+  }
  },
  {
   "word": "rethink",
@@ -13862,7 +17523,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "再び"
+    },
+    {
+     "part": "vise",
+     "ja": "見る"
+    }
+   ],
+   "explain": "もう一度見る → 修正する"
+  }
  },
  {
   "word": "revolutionary",
@@ -13883,7 +17557,28 @@
     "en": "evolutionary",
     "ja": "進化の"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "re",
+     "ja": "元へ"
+    },
+    {
+     "part": "volu",
+     "ja": "回る"
+    },
+    {
+     "part": "tion",
+     "ja": ""
+    },
+    {
+     "part": "ary",
+     "ja": ""
+    }
+   ],
+   "explain": "ぐるりと回すような → 革命的な"
+  }
  },
  {
   "word": "rewrite",
@@ -14148,7 +17843,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "se",
+     "ja": "離して"
+    },
+    {
+     "part": "lect",
+     "ja": "選ぶ"
+    },
+    {
+     "part": "ive",
+     "ja": ""
+    }
+   ],
+   "explain": "選び分ける → 選択的な"
+  }
  },
  {
   "word": "semi",
@@ -14340,7 +18052,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "soci",
+     "ja": "仲間"
+    },
+    {
+     "part": "ability",
+     "ja": "できること"
+    }
+   ],
+   "explain": "仲間になれること → 社交性"
+  }
  },
  {
   "word": "somewhat",
@@ -14667,7 +18392,24 @@
     "en": "objective",
     "ja": "客観的な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sub",
+     "ja": "下に"
+    },
+    {
+     "part": "ject",
+     "ja": "投げる"
+    },
+    {
+     "part": "ive",
+     "ja": ""
+    }
+   ],
+   "explain": "自分の下に置いた → 主観的な"
+  }
  },
  {
   "word": "subscriber",
@@ -14683,7 +18425,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sub",
+     "ja": "下に"
+    },
+    {
+     "part": "scribe",
+     "ja": "書く"
+    },
+    {
+     "part": "er",
+     "ja": ""
+    }
+   ],
+   "explain": "下に名前を書く人 → 購読者・登録者"
+  }
  },
  {
   "word": "successive",
@@ -14704,7 +18463,24 @@
     "en": "successful",
     "ja": "成功した"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "suc",
+     "ja": "下に・後に"
+    },
+    {
+     "part": "cess",
+     "ja": "進む"
+    },
+    {
+     "part": "ive",
+     "ja": ""
+    }
+   ],
+   "explain": "後に続いていく → 連続する・歴代の"
+  }
  },
  {
   "word": "supplement",
@@ -14725,7 +18501,24 @@
     "en": "complement",
     "ja": "補完する"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sup",
+     "ja": "下から"
+    },
+    {
+     "part": "ple",
+     "ja": "満たす"
+    },
+    {
+     "part": "ment",
+     "ja": ""
+    }
+   ],
+   "explain": "下から満たすもの → 補う"
+  }
  },
  {
   "word": "suspiciously",
@@ -14757,7 +18550,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sus",
+     "ja": "下から"
+    },
+    {
+     "part": "tain",
+     "ja": "保つ"
+    },
+    {
+     "part": "able",
+     "ja": ""
+    }
+   ],
+   "explain": "下から支えて保てる → 持続可能な"
+  }
  },
  {
   "word": "sustenance",
@@ -14773,7 +18583,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "sus",
+     "ja": "下から"
+    },
+    {
+     "part": "ten",
+     "ja": "保つ"
+    },
+    {
+     "part": "ance",
+     "ja": ""
+    }
+   ],
+   "explain": "下から支えるもの → 食物・生きる糧"
+  }
  },
  {
   "word": "swaddle",
@@ -14863,7 +18690,20 @@
     "en": "temperature",
     "ja": "温度"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "temper",
+     "ja": "ほどよく混ぜる"
+    },
+    {
+     "part": "ate",
+     "ja": ""
+    }
+   ],
+   "explain": "ほどよい → 温暖な"
+  }
  },
  {
   "word": "tempting",
@@ -15022,7 +18862,24 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "trans",
+     "ja": "向こうへ"
+    },
+    {
+     "part": "form",
+     "ja": "形"
+    },
+    {
+     "part": "ative",
+     "ja": ""
+    }
+   ],
+   "explain": "形を向こうへ変える → 変革をもたらす"
+  }
  },
  {
   "word": "transfusion",
@@ -15043,7 +18900,24 @@
     "en": "transformation",
     "ja": "変化"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "trans",
+     "ja": "向こうへ"
+    },
+    {
+     "part": "fus",
+     "ja": "注ぐ"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "向こうへ注ぐこと → 輸血"
+  }
  },
  {
   "word": "transient",
@@ -15059,7 +18933,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "trans",
+     "ja": "向こうへ"
+    },
+    {
+     "part": "ient",
+     "ja": "行く"
+    }
+   ],
+   "explain": "過ぎ去っていく → 一時的な"
+  }
  },
  {
   "word": "traumatic",
@@ -15372,7 +19259,28 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "un",
+     "ja": "ない"
+    },
+    {
+     "part": "pre",
+     "ja": "前に"
+    },
+    {
+     "part": "ced",
+     "ja": "行く"
+    },
+    {
+     "part": "ented",
+     "ja": ""
+    }
+   ],
+   "explain": "前に行ったものがない → 前例のない"
+  }
  },
  {
   "word": "unpublished",
@@ -15441,7 +19349,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "util",
+     "ja": "役に立つ"
+    },
+    {
+     "part": "itarian",
+     "ja": ""
+    }
+   ],
+   "explain": "役に立つことを重んじる → 実用的な"
+  }
  },
  {
   "word": "variability",
@@ -15478,7 +19399,20 @@
     "en": "avenue",
     "ja": "大通り"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "ven",
+     "ja": "来る"
+    },
+    {
+     "part": "ue",
+     "ja": ""
+    }
+   ],
+   "explain": "人がやって来る所 → 会場"
+  }
  },
  {
   "word": "version",
@@ -15499,7 +19433,20 @@
     "en": "vision",
     "ja": "視力・展望"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "vers",
+     "ja": "向ける・変える"
+    },
+    {
+     "part": "ion",
+     "ja": ""
+    }
+   ],
+   "explain": "向きを変えたもの → 版・型"
+  }
  },
  {
   "word": "vibrant",
@@ -15552,7 +19499,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "vis",
+     "ja": "見る"
+    },
+    {
+     "part": "ibility",
+     "ja": "できること"
+    }
+   ],
+   "explain": "見えること → 視界"
+  }
  },
  {
   "word": "voluntary",
@@ -15568,7 +19528,20 @@
    }
   ],
   "idioms": [],
-  "confusables": []
+  "confusables": [],
+  "etymology": {
+   "parts": [
+    {
+     "part": "volunt",
+     "ja": "意志"
+    },
+    {
+     "part": "ary",
+     "ja": "形容詞"
+    }
+   ],
+   "explain": "自分の意志の → 自発的な"
+  }
  },
  {
   "word": "vulnerable",
@@ -15594,7 +19567,20 @@
     "en": "valuable",
     "ja": "貴重な"
    }
-  ]
+  ],
+  "etymology": {
+   "parts": [
+    {
+     "part": "vulner",
+     "ja": "傷"
+    },
+    {
+     "part": "able",
+     "ja": "できる"
+    }
+   ],
+   "explain": "傷つけられうる → 傷つきやすい"
+  }
  },
  {
   "word": "warming",

@@ -65,6 +65,11 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .cnt{font-family:var(--f-num);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
 .idiom b{font-family:var(--f-word);font-size:17px}
 .note{font-size:12px;color:var(--muted);margin:0}
+.hint{border:1px dashed var(--drop);border-radius:6px;padding:10px 12px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.hint .lbl{font-size:12px;color:var(--drop);font-weight:700;letter-spacing:.06em}
+.part b{font-family:var(--f-word);font-size:18px}
+.part span{font-size:13px;color:var(--muted)}
+.etym{font-size:14px}
 @media (prefers-reduced-motion:no-preference){.answer{animation:in .25s ease-out}@keyframes in{from{transform:translateY(-4px);opacity:.4}}}
 </style>
 
@@ -90,15 +95,19 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span id="q-exam">名大で27回 / 1年分</span></div>
     <p class="word" id="q-word">dolphin</p>
     <p class="ask" id="q-ask">正しい意味を <em>1</em> つ選んでください</p>
+    <div class="hint" id="hint" hidden></div>
     <div class="grid" id="opts"></div>
     <div class="actions">
       <button class="btn" id="check" disabled>答え合わせ</button>
       <button class="btn ghost" id="next" hidden>次の単語</button>
+      <button class="btn ghost" id="hintbtn" hidden>語源ヒントを見る</button>
       <span class="result" id="result"></span>
     </div>
     <div class="answer" id="answer" hidden>
       <h2>この単語の意味（★＝名大で出た意味）</h2>
       <ul id="a-means"></ul>
+      <h2 id="a-eth">語源</h2>
+      <p class="etym" id="a-ety"></p>
       <h2 id="a-idh">イディオム</h2>
       <ul id="a-ids"></ul>
       <h2 id="a-cfh">まぎらわしい単語</h2>
@@ -161,6 +170,7 @@ function render() {
   });
   $("check").disabled = true; $("check").hidden = false; $("next").hidden = true;
   $("result").textContent = ""; $("result").className = "result"; $("answer").hidden = true;
+  $("hint").hidden = true; $("hintbtn").hidden = !cur.etymology;
 }
 function toggle(b) {
   if (answered) return;
@@ -197,6 +207,10 @@ function check() {
   const cfs = cur.confusables || [];
   $("a-cfs").innerHTML = ""; $("a-cfh").hidden = !cfs.length;
   cfs.forEach(x => { const li = document.createElement("li"); li.className = "idiom"; li.innerHTML = "<b></b><span></span><span class=\"cnt\"></span>"; li.children[0].textContent = x.en; li.children[1].textContent = "　" + x.ja; li.children[2].textContent = confShown.has(x.ja) ? "　選択肢にあった意味" : ""; $("a-cfs").appendChild(li); });
+  const et = cur.etymology;
+  $("a-eth").hidden = $("a-ety").hidden = !et;
+  if (et) { showHint(); $("a-ety").textContent = et.explain; }
+  $("hintbtn").hidden = true;
   $("answer").hidden = false; $("check").hidden = true; $("next").hidden = false; $("next").focus();
 }
 function stats() {
@@ -215,6 +229,12 @@ document.querySelectorAll(".chip").forEach(c => {
     c.setAttribute("aria-pressed", !on); save(); buildQueue(); stats(); render();
   };
 });
+function showHint() {
+  const h = $("hint"); h.innerHTML = '<span class="lbl">語源</span>';
+  cur.etymology.parts.forEach(p => { const e = document.createElement("span"); e.className = "part"; e.innerHTML = "<b></b> <span></span>"; e.children[0].textContent = p.part; e.children[1].textContent = p.ja ? "＝" + p.ja : ""; h.appendChild(e); });
+  h.hidden = false;
+}
+$("hintbtn").onclick = () => { showHint(); $("hintbtn").hidden = true; };
 $("check").onclick = check; $("next").onclick = render;
 buildQueue(); stats(); render();
 </script>

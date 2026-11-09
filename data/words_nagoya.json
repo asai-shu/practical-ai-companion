@@ -185,6 +185,36 @@
   ]
  },
  {
+  "word": "interaction",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 11,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "(人との)交流・関わり",
+    "in_exam": true,
+    "exam_count": 9
+   },
+   {
+    "ja": "やりとり",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "相互作用",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "social interaction",
+    "ja": "人との交流"
+   }
+  ]
+ },
+ {
   "word": "experiment",
   "pos": "名詞",
   "level": 3,
@@ -223,6 +253,75 @@
    }
   ],
   "idioms": []
+ },
+ {
+  "word": "active",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 10,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "積極的な・能動的な",
+    "in_exam": true,
+    "exam_count": 9
+   },
+   {
+    "ja": "活動的な・活発な",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "(火山が)活動中の",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "take an active part in ～",
+    "ja": "～に積極的に参加する"
+   },
+   {
+    "en": "active learning",
+    "ja": "能動的な学習"
+   }
+  ]
+ },
+ {
+  "word": "positive",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 10,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "よい・好ましい",
+    "in_exam": true,
+    "exam_count": 7
+   },
+   {
+    "ja": "肯定的な・前向きな",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "確信している",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "(検査が)陽性の",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be positive that ～",
+    "ja": "～と確信している"
+   }
+  ]
  },
  {
   "word": "various",
@@ -285,68 +384,39 @@
   ]
  },
  {
-  "word": "interaction",
+  "word": "professor",
   "pos": "名詞",
   "level": 3,
-  "exam_count": 11,
+  "exam_count": 9,
   "exam_years": 3,
   "meanings": [
    {
-    "ja": "(人との)交流・関わり",
+    "ja": "教授",
     "in_exam": true,
-    "exam_count": 9
+    "exam_count": 7
    },
    {
-    "ja": "やりとり",
+    "ja": "先生(呼びかけ)",
     "in_exam": true,
     "exam_count": 2
-   },
-   {
-    "ja": "相互作用",
-    "in_exam": false,
-    "exam_count": null
    }
   ],
-  "idioms": [
-   {
-    "en": "social interaction",
-    "ja": "人との交流"
-   }
-  ]
+  "idioms": []
  },
  {
-  "word": "active",
-  "pos": "形容詞",
+  "word": "instructor",
+  "pos": "名詞",
   "level": 3,
-  "exam_count": 10,
+  "exam_count": 8,
   "exam_years": 2,
   "meanings": [
    {
-    "ja": "積極的な・能動的な",
+    "ja": "講師・指導者",
     "in_exam": true,
-    "exam_count": 9
-   },
-   {
-    "ja": "活動的な・活発な",
-    "in_exam": true,
-    "exam_count": 1
-   },
-   {
-    "ja": "(火山が)活動中の",
-    "in_exam": false,
-    "exam_count": null
+    "exam_count": 8
    }
   ],
-  "idioms": [
-   {
-    "en": "take an active part in ～",
-    "ja": "～に積極的に参加する"
-   },
-   {
-    "en": "active learning",
-    "ja": "能動的な学習"
-   }
-  ]
+  "idioms": []
  },
  {
   "word": "able",
@@ -374,6 +444,26 @@
   ]
  },
  {
+  "word": "actual",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 7,
+  "exam_years": 4,
+  "meanings": [
+   {
+    "ja": "実は・実際に(actually)",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "実際の",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
   "word": "approximately",
   "pos": "副詞",
   "level": 4,
@@ -384,6 +474,26 @@
     "ja": "およそ・約",
     "in_exam": true,
     "exam_count": 7
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "community",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 7,
+  "exam_years": 4,
+  "meanings": [
+   {
+    "ja": "地域社会・共同体",
+    "in_exam": true,
+    "exam_count": 6
+   },
+   {
+    "ja": "(同じ関心を持つ)仲間・集団",
+    "in_exam": true,
+    "exam_count": 1
    }
   ],
   "idioms": []
@@ -419,26 +529,6 @@
   "idioms": []
  },
  {
-  "word": "professor",
-  "pos": "名詞",
-  "level": 3,
-  "exam_count": 9,
-  "exam_years": 3,
-  "meanings": [
-   {
-    "ja": "教授",
-    "in_exam": true,
-    "exam_count": 7
-   },
-   {
-    "ja": "先生(呼びかけ)",
-    "in_exam": true,
-    "exam_count": 2
-   }
-  ],
-  "idioms": []
- },
- {
   "word": "benefit",
   "pos": "名詞",
   "level": 3,
@@ -468,41 +558,6 @@
   ]
  },
  {
-  "word": "positive",
-  "pos": "形容詞",
-  "level": 3,
-  "exam_count": 10,
-  "exam_years": 2,
-  "meanings": [
-   {
-    "ja": "よい・好ましい",
-    "in_exam": true,
-    "exam_count": 7
-   },
-   {
-    "ja": "肯定的な・前向きな",
-    "in_exam": true,
-    "exam_count": 2
-   },
-   {
-    "ja": "確信している",
-    "in_exam": true,
-    "exam_count": 1
-   },
-   {
-    "ja": "(検査が)陽性の",
-    "in_exam": false,
-    "exam_count": null
-   }
-  ],
-  "idioms": [
-   {
-    "en": "be positive that ～",
-    "ja": "～と確信している"
-   }
-  ]
- },
- {
   "word": "learning",
   "pos": "名詞",
   "level": 4,
@@ -518,26 +573,6 @@
     "ja": "学問・学識",
     "in_exam": false,
     "exam_count": null
-   }
-  ],
-  "idioms": []
- },
- {
-  "word": "community",
-  "pos": "名詞",
-  "level": 4,
-  "exam_count": 7,
-  "exam_years": 4,
-  "meanings": [
-   {
-    "ja": "地域社会・共同体",
-    "in_exam": true,
-    "exam_count": 6
-   },
-   {
-    "ja": "(同じ関心を持つ)仲間・集団",
-    "in_exam": true,
-    "exam_count": 1
    }
   ],
   "idioms": []
@@ -712,21 +747,6 @@
   "idioms": []
  },
  {
-  "word": "instructor",
-  "pos": "名詞",
-  "level": 3,
-  "exam_count": 8,
-  "exam_years": 2,
-  "meanings": [
-   {
-    "ja": "講師・指導者",
-    "in_exam": true,
-    "exam_count": 8
-   }
-  ],
-  "idioms": []
- },
- {
   "word": "participant",
   "pos": "名詞",
   "level": 3,
@@ -877,6 +897,31 @@
   "idioms": []
  },
  {
+  "word": "length",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 5,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "(文章の)分量",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "長さ",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "at length",
+    "ja": "詳しく・ついに"
+   }
+  ]
+ },
+ {
   "word": "axis",
   "pos": "名詞",
   "level": 4,
@@ -902,6 +947,31 @@
     "ja": "コンマ",
     "in_exam": true,
     "exam_count": 5
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "composition",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 5,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "作文",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "構成・成り立ち",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "(音楽などの)作品",
+    "in_exam": false,
+    "exam_count": null
    }
   ],
   "idioms": []
@@ -1121,21 +1191,4872 @@
   "idioms": []
  },
  {
-  "word": "actual",
-  "pos": "形容詞",
+  "word": "veteran",
+  "pos": "名詞",
   "level": 4,
-  "exam_count": 7,
-  "exam_years": 4,
+  "exam_count": 5,
+  "exam_years": 1,
   "meanings": [
    {
-    "ja": "実は・実際に(actually)",
+    "ja": "退役軍人",
     "in_exam": true,
     "exam_count": 4
    },
    {
-    "ja": "実際の",
+    "ja": "熟練者・ベテラン",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "require",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 4,
+  "meanings": [
+   {
+    "ja": "必要とする",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "必須の・求められる(required)",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "要求する",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be required to ～",
+    "ja": "～するよう求められる"
+   }
+  ]
+ },
+ {
+  "word": "connect",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "つなぐ・結びつける",
     "in_exam": true,
     "exam_count": 3
+   },
+   {
+    "ja": "共感する・心が通う",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be connected with ～",
+    "ja": "～と関係がある"
+   }
+  ]
+ },
+ {
+  "word": "gain",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "得る・手に入れる",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "(体重などが)増える",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "gain weight",
+    "ja": "体重が増える"
+   }
+  ]
+ },
+ {
+  "word": "individual",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "個々の・個人の",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "独特の",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "location",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "場所・位置",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "observe",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "観察する・気づく",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "述べる",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "(規則を)守る",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "particular",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 4,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "特定の・この",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "特別な",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "特にない(no particular)",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "好みがうるさい",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in particular",
+    "ja": "特に"
+   },
+   {
+    "en": "be particular about ～",
+    "ja": "～にこだわる"
+   }
+  ]
+ },
+ {
+  "word": "pattern",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "パターン・型",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "様式",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "模様",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "probably",
+  "pos": "副詞",
+  "level": 4,
+  "exam_count": 4,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "おそらく・たぶん",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "tend",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "～する傾向がある(tend to)",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "世話をする",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "tend to ～",
+    "ja": "～しがちである"
+   }
+  ]
+ },
+ {
+  "word": "amount",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "量",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "金額",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "amount to ～",
+    "ja": "(合計)～に達する"
+   }
+  ]
+ },
+ {
+  "word": "associate",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "関連づける・結びつけて考える",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "付き合う",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be associated with ～",
+    "ja": "～と関係がある"
+   },
+   {
+    "en": "associate A with B",
+    "ja": "AでBを連想する"
+   }
+  ]
+ },
+ {
+  "word": "connection",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "つながり・関係",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in connection with ～",
+    "ja": "～に関連して"
+   }
+  ]
+ },
+ {
+  "word": "distance",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "距離",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "(心理的な)隔たり",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in the distance",
+    "ja": "遠くに"
+   }
+  ]
+ },
+ {
+  "word": "encounter",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "出会い・遭遇",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "formation",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "形成",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "地形・地層",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "huge",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "巨大な・莫大な",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "大いに(hugely)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "involve",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "含む・伴う",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "巻き込む・参加させる",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be involved in ～",
+    "ja": "～に関わる"
+   }
+  ]
+ },
+ {
+  "word": "optimistic",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "楽観的な",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "potential",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "潜在的な・起こりうる",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "reduce",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "減らす",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": [
+   {
+    "en": "reduce A to B",
+    "ja": "AをB(悪い状態)にしてしまう"
+   }
+  ]
+ },
+ {
+  "word": "risk",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "危険・リスク",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": [
+   {
+    "en": "at the risk of ～",
+    "ja": "～の危険を冒して"
+   },
+   {
+    "en": "take a risk",
+    "ja": "危険を冒す"
+   }
+  ]
+ },
+ {
+  "word": "trend",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "傾向・動向",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "流行",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "variety",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "さまざまなもの",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "多様性",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "a variety of ～",
+    "ja": "さまざまな～"
+   }
+  ]
+ },
+ {
+  "word": "applicant",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "応募者・志願者",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "buddy",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "仲間・相棒",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "fluid",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "流体・液体",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "landing",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "着陸",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "(階段の)踊り場",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "literature",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "文学",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "(研究の)文献",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "mythological",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "神話の",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "object",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "物体・物",
+    "in_exam": true,
+    "exam_count": 4
+   },
+   {
+    "ja": "目的",
+    "in_exam": false,
+    "exam_count": null
+   },
+   {
+    "ja": "対象",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "protein",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "たんぱく質",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "underestimate",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "過小評価する・甘く見る",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "user",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 4,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "利用者・ユーザー",
+    "in_exam": true,
+    "exam_count": 4
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "absolutely",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "まったく・絶対に",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "そのとおり・もちろん",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "amazing",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "驚くほど(amazingly)",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "驚くべき・すばらしい",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "anonymous",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "匿名の",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "demonstrate",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "示す・証明する",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "デモをする",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "exactly",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "そのとおり",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "正確に・まさに",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "expectation",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "期待",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "予想",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "live up to one's expectations",
+    "ja": "期待に応える"
+   }
+  ]
+ },
+ {
+  "word": "infer",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "推測する・推論する",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "instruction",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "指示",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "教えること・指導",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "loss",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "失うこと・損失",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "減少(weight loss)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be at a loss",
+    "ja": "途方に暮れる"
+   }
+  ]
+ },
+ {
+  "word": "practical",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "実際的な・実用的な",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "prove",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "～だとわかる(prove to be)",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "証明する",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "survival",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 3,
+  "meanings": [
+   {
+    "ja": "生存",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "aspect",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "側面・面",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "comfort",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "安心感・心地よさ",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "慰め",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "conclusion",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "結論",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "終わり",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in conclusion",
+    "ja": "結論として"
+   }
+  ]
+ },
+ {
+  "word": "conscious",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "～を意識した",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "意識(consciousness)",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "意識のある",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be conscious of ～",
+    "ja": "～を意識している"
+   }
+  ]
+ },
+ {
+  "word": "decrease",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "減る",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "減らす",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "engage",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "従事する・参加する(engage in)",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "関わる・引きつける",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "engage in ～",
+    "ja": "～に従事する"
+   }
+  ]
+ },
+ {
+  "word": "enhance",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "高める・強める",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "environmental",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "環境の",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "factor",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "要因",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "gesture",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "(気持ちを示す)行為・心づかい",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "身ぶり",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "historian",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "歴史家",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "ignorance",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "無知・知らないこと",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "participate",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "参加する",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": [
+   {
+    "en": "participate in ～",
+    "ja": "～に参加する"
+   }
+  ]
+ },
+ {
+  "word": "phenomenon",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "現象",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "relationship",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "関係",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "revolution",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "革命",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "回転",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "the Industrial Revolution",
+    "ja": "産業革命"
+   }
+  ]
+ },
+ {
+  "word": "substantial",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "かなりの・相当な",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "実質的な",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "taste",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "味",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "好み",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "thus",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "したがって・こうして",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "このように",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "understanding",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "理解",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "(相互の)了解・合意",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "adulthood",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "成人期・大人になること",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "archaeological",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "考古学の",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "calf",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "(クジラ・イルカなどの)子",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "子牛",
+    "in_exam": false,
+    "exam_count": null
+   },
+   {
+    "ja": "ふくらはぎ",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "comprehend",
+  "pos": "動詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "理解する",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "crucial",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "重大な・決定的な",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "diagram",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "図",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "dive",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "潜水",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "飛び込み",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "fellow",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "(学会などの)会員",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "仲間",
+    "in_exam": false,
+    "exam_count": null
+   },
+   {
+    "ja": "男・やつ",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "fungus",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "菌類・キノコ",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "growth",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "増加",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "成長",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "humanities",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "人文科学",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "人類・人間性(humanity)",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "infant",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "乳児",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": [
+   {
+    "en": "infant mortality",
+    "ja": "乳児死亡率"
+   }
+  ]
+ },
+ {
+  "word": "initial",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "最初の",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "最初は(initially)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "layer",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "層",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "lecture",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "講義する",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "説教する",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "manufacturer",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "製造業者・メーカー",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "microwave",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "電子レンジ",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "mortality",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "死亡率",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "死ぬ運命",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "narrative",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "物語・語り",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "narrow",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "狭い",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "視野の狭さ(narrowness)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "narrowly escape",
+    "ja": "かろうじて逃れる"
+   }
+  ]
+ },
+ {
+  "word": "overcome",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "克服する",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "perennial",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "絶え間ない・ずっと続く",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "(植物が)多年生の",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "physics",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "物理学",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "random",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "何気ない・無作為の",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": [
+   {
+    "en": "at random",
+    "ja": "無作為に"
+   }
+  ]
+ },
+ {
+  "word": "rapid",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "急速な",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "rim",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "縁・へり",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "scholar",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "学者",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "score",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "点数",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "20(の数)",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "scores of ～",
+    "ja": "多数の～"
+   }
+  ]
+ },
+ {
+  "word": "sensory",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "感覚の",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "sentimental",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "思い出の・感情的な",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "涙もろい",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "sentimental value",
+    "ja": "思い出としての価値"
+   }
+  ]
+ },
+ {
+  "word": "steady",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "安定した・一定の",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "subtitle",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "字幕",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "副題",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "teaching",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "教えること・教育",
+    "in_exam": true,
+    "exam_count": 3
+   },
+   {
+    "ja": "教え",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "therapeutic",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "治療の・癒しの",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "vegetarian",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 3,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "菜食主義者",
+    "in_exam": true,
+    "exam_count": 3
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "accompany",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "～に伴う",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "同行する",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "afford",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "～する余裕がある",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "与える・もたらす",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "can afford to ～",
+    "ja": "～する余裕がある"
+   }
+  ]
+ },
+ {
+  "word": "balance",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "両立させる",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "バランスをとる",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "barrier",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "壁・障害",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "behavioral",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "行動の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "broad",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "幅広い",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "大まかに(broadly)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "broadcast",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "放送する",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "広く伝える・発信する",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "broaden",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "広げる",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "broaden one's horizons",
+    "ja": "視野を広げる"
+   }
+  ]
+ },
+ {
+  "word": "characteristic",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "特徴・特性",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "comprise",
+  "pos": "動詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "～から成る・～を含む",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "concept",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "考え方・概念",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "consumption",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "消費",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "contain",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "含む",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "抑える",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "content",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "内容",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "満足(形容詞の content)",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "definitely",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "絶対に・確かに",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "deliver",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "届ける",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "(講義などを)行う",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "出産する",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "demand",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "要求",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "需要",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in demand",
+    "ja": "需要がある"
+   }
+  ]
+ },
+ {
+  "word": "determine",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "決定する・左右する",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "決心する(be determined to)",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be determined to ～",
+    "ja": "～しようと決心している"
+   }
+  ]
+ },
+ {
+  "word": "dialogue",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "会話・せりふ",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "distinguish",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "区別する",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "distinguish A from B",
+    "ja": "AとBを区別する"
+   }
+  ]
+ },
+ {
+  "word": "dominant",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "主流の・支配的な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "economic",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "経済の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "emulate",
+  "pos": "動詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "まねる・再現する",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "entertaining",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "面白い・楽しませる",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "enthusiastic",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "熱心な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "equally",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "同じように・等しく",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "equipment",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "装備・機器",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "estimate",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "見積もる・推定する",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "expand",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "広がる・拡大する",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "extensive",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "広範な・大規模な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "extreme",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "極端な",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "非常に(extremely)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "finding",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "(研究の)結果・発見",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "frequent",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "頻繁な",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "しばしば(frequently)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "fundamental",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "根本的な・基本的な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "gap",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "空所・すき間",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "(研究などの)欠けている部分",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "差・隔たり",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "general",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "一般の",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "一般に(generally)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in general",
+    "ja": "一般に"
+   }
+  ]
+ },
+ {
+  "word": "highly",
+  "pos": "副詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "高く(評価して)",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "非常に",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "speak highly of ～",
+    "ja": "～をほめる"
+   }
+  ]
+ },
+ {
+  "word": "horizontal",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "水平の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "identity",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "独自性・アイデンティティ",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "身元",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "immediate",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "即座の",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "すぐに(immediately)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "inherent",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "本来備わっている・内在する",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "interact",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "交流する・関わり合う",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "interact with ～",
+    "ja": "～と交流する"
+   }
+  ]
+ },
+ {
+  "word": "keen",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "熱心な・～したがっている",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "鋭い",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be keen on ～",
+    "ja": "～に夢中だ"
+   }
+  ]
+ },
+ {
+  "word": "lifetime",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "一生・生涯",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "limited",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "限られた・小規模な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "literary",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "文学の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "media",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "メディア・報道機関",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "social media",
+    "ja": "SNS"
+   }
+  ]
+ },
+ {
+  "word": "multiple",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "多数の・複数の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "occur",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "起こる",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "(考えが)思い浮かぶ(occur to)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "occur to ～",
+    "ja": "～の心に浮かぶ"
+   }
+  ]
+ },
+ {
+  "word": "origin",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "起源",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "生まれ・出身",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "overall",
+  "pos": "副詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "全体として",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "participation",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "参加",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "perspective",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "見方・考え方",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "遠近法",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "from a ～ perspective",
+    "ja": "～の観点から"
+   }
+  ]
+ },
+ {
+  "word": "politician",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "政治家",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "prime",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "最も重要な・主要な",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "首相(prime minister)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "process",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "過程",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "(製造の)工程",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in the process of ～",
+    "ja": "～の最中で"
+   }
+  ]
+ },
+ {
+  "word": "promote",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "促進する",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "昇進させる",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "recommend",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "勧める",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "regardless",
+  "pos": "副詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "～に関係なく(regardless of)",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "regardless of ～",
+    "ja": "～に関係なく"
+   }
+  ]
+ },
+ {
+  "word": "region",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "地域",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "relation",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "関係",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in relation to ～",
+    "ja": "～に関して"
+   }
+  ]
+ },
+ {
+  "word": "remove",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "取り除く",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "rest",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "残り",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "休息",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "the rest of ～",
+    "ja": "～の残り"
+   }
+  ]
+ },
+ {
+  "word": "robust",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "強い・しっかりした",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "sharp",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "はっきりした",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "急激に(sharply)",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "鋭い",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "specialize",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "専門に扱う(specialize in)",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "専門の(specialized)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "specialize in ～",
+    "ja": "～を専門にする"
+   }
+  ]
+ },
+ {
+  "word": "spirit",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "精神・心",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "霊",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "community spirit",
+    "ja": "地域の連帯感"
+   }
+  ]
+ },
+ {
+  "word": "starkly",
+  "pos": "副詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "はっきりと・極端に",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "subsequent",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "その後の",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "その後(subsequently)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "suppose",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "～することになっている(be supposed to)",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "思う",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be supposed to ～",
+    "ja": "～することになっている"
+   }
+  ]
+ },
+ {
+  "word": "surface",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "表面",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "technique",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "技術・方法",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "theory",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "理論",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "説・考え",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in theory",
+    "ja": "理論上は"
+   }
+  ]
+ },
+ {
+  "word": "translate",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "翻訳する",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "変える(translate into)",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "unexpected",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "予期しない",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "variation",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "変動・ばらつき",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "vary",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "さまざまである・変わる",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "vary from ～ to ～",
+    "ja": "～によってさまざまである"
+   }
+  ]
+ },
+ {
+  "word": "volume",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "量",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "音量",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "(本の)巻",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "willing",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 2,
+  "meanings": [
+   {
+    "ja": "～する気がある(be willing to)",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be willing to ～",
+    "ja": "進んで～する"
+   }
+  ]
+ },
+ {
+  "word": "access",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "利用・接続",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "近づく手段",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "have access to ～",
+    "ja": "～を利用できる"
+   }
+  ]
+ },
+ {
+  "word": "alphabet",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "アルファベット",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "application",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "申し込み・出願",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "応用",
+    "in_exam": false,
+    "exam_count": null
+   },
+   {
+    "ja": "アプリ",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "army",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "軍隊",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "arrival",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "登場・出現",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "到着",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "artist",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "芸術家",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "athletic",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "運動競技の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "attach",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "貼る・取り付ける",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "(価値を)置く(attach value to)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": [
+   {
+    "en": "attach importance to ～",
+    "ja": "～を重視する"
+   }
+  ]
+ },
+ {
+  "word": "bullying",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "いじめ",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "calm",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "落ち着いた",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "calm down",
+    "ja": "落ち着く"
+   }
+  ]
+ },
+ {
+  "word": "catastrophic",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "壊滅的な・大災害の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "cave",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "洞窟",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "clothes",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "衣服",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "comedy",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "喜劇・コメディ",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "commonality",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "共通点",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "compete",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "対立する(competing)",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "競争する",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "complement",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "補う",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "comprehension",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "理解",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "concerned",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "心配している",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "関係している",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be concerned about ～",
+    "ja": "～を心配している"
+   },
+   {
+    "en": "as far as ～ is concerned",
+    "ja": "～に関する限り"
+   }
+  ]
+ },
+ {
+  "word": "construction",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "建設",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "構造",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "convey",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "伝える",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "運ぶ",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "coordinate",
+  "pos": "動詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "調整する・協調させる",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "creation",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "誕生・創造",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "demographic",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "人口統計の・人口の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "depict",
+  "pos": "動詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "描く・表す",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "depth",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "深さ",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in depth",
+    "ja": "詳しく"
+   }
+  ]
+ },
+ {
+  "word": "designer",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "デザイナー",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "detrimental",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "有害な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "digital",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "デジタルの",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "disability",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "障がい",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "displace",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "取って代わる",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "追い出す",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "distinct",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "異なる・別の",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "はっきりした",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be distinct from ～",
+    "ja": "～とは異なる"
+   }
+  ]
+ },
+ {
+  "word": "donate",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "提供する・寄付する",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "draft",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "下書き",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "effective",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "効果的な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "equivalent",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "同等のもの・相当するもの",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "be equivalent to ～",
+    "ja": "～に相当する"
+   }
+  ]
+ },
+ {
+  "word": "essential",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "必要不可欠な",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "本質的な",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "excitement",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "興奮",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "facilitate",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "容易にする・促す",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "filmmaker",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "映画監督・映画製作者",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "flee",
+  "pos": "動詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "逃げる",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "flow",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "流れる",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "frequent",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "よく訪れる",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "gruesome",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "ぞっとする",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "habitat",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "生息地",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "handout",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "配布資料・プリント",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "highlight",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "目立たせる・強調する",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "hypothesis",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "仮説",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "illusion",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "錯覚",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "幻想",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "industrial",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "産業の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "injury",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "けが・損傷",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "insomnia",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "不眠症",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "intellectual",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "知的な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "limit",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "制限する",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "mate",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "(動物の)つがいの相手",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "仲間",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "muddy",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "泥の・濁った",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "optimism",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "楽観",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "oral",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "口頭の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "presence",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "存在",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "出席",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": [
+   {
+    "en": "in the presence of ～",
+    "ja": "～のいる前で"
+   }
+  ]
+ },
+ {
+  "word": "procedure",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "手術・処置",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "手順",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "psychological",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "心理的な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "queue",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "(順番待ちの)列",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "recognize",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "認める",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "気づく",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "見分ける",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "religious",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "宗教の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "rely",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "頼る(rely on)",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "rely on ～",
+    "ja": "～に頼る"
+   }
+  ]
+ },
+ {
+  "word": "rhythmic",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "リズミカルな・規則的な",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "roommate",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "ルームメイト",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "silent",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "静かな・音のない",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "skin",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "肌・皮膚",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "soybean",
+  "pos": "名詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "大豆",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "spare",
+  "pos": "形容詞",
+  "level": 4,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "予備の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": [
+   {
+    "en": "spare time",
+    "ja": "暇な時間"
+   }
+  ]
+ },
+ {
+  "word": "status",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "状態",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "地位",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "stream",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "小川・流れ",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "stress",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "ストレス",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "強調",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "surround",
+  "pos": "動詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "取り囲む",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "terrestrial",
+  "pos": "形容詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "地球上の",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "陸上の",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "timeline",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "年表・時系列",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "total",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "全体の・合計の",
+    "in_exam": true,
+    "exam_count": 1
+   },
+   {
+    "ja": "まったく(totally)",
+    "in_exam": true,
+    "exam_count": 1
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "treatise",
+  "pos": "名詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "論文・専門書",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "undervalue",
+  "pos": "動詞",
+  "level": 5,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "過小評価する",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "vegetarian",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "菜食主義の",
+    "in_exam": true,
+    "exam_count": 2
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "virtual",
+  "pos": "形容詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "仮想の",
+    "in_exam": true,
+    "exam_count": 2
+   },
+   {
+    "ja": "事実上の",
+    "in_exam": false,
+    "exam_count": null
+   }
+  ],
+  "idioms": []
+ },
+ {
+  "word": "warmth",
+  "pos": "名詞",
+  "level": 3,
+  "exam_count": 2,
+  "exam_years": 1,
+  "meanings": [
+   {
+    "ja": "温かさ・思いやり",
+    "in_exam": true,
+    "exam_count": 2
    }
   ],
   "idioms": []

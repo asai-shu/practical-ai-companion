@@ -21,17 +21,22 @@
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-ja);font-size:15px;line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
-.wrap{max-width:760px;margin:0 auto;display:grid;gap:18px}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:14px}
 header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px}
 h1{font-size:20px;margin:0;letter-spacing:.04em;text-wrap:balance}
 h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.08em}
 .stats{display:flex;gap:16px;font-size:12px;color:var(--muted)}
 .stats b{font-family:var(--f-num);font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:2px}
+.modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--ink);border-radius:6px;overflow:hidden}
+.mode{font:inherit;font-weight:700;padding:10px 8px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.mode+.mode{border-left:1px solid var(--ink)}
+.mode[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.mode small{display:block;font-weight:400;font-size:11px;opacity:.75}
 .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px}
 .filters span{color:var(--muted);margin-right:4px}
 .chip{border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--drop);border-color:var(--drop);color:var(--sheet)}
-.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:22px clamp(16px,4vw,32px) 24px;display:grid;gap:18px;
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:22px clamp(16px,4vw,32px) 24px;display:grid;gap:16px;
   background-image:linear-gradient(var(--drop-soft),var(--drop-soft));background-size:100% 6px;background-repeat:no-repeat}
 .meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted);align-items:center}
 .tag{border:1px solid var(--line);border-radius:3px;padding:0 6px}
@@ -39,15 +44,18 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .tag.src{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
 .tag.src.pred{background:transparent;color:var(--ink);border-style:dashed}
 .word{font-family:var(--f-word);font-size:clamp(40px,9vw,60px);font-weight:700;line-height:1.05;margin:0;overflow-wrap:anywhere}
+.word.idiom{font-size:clamp(28px,6vw,40px)}
 .ask{margin:0;font-weight:500}
 .ask em{font-style:normal;color:var(--drop);font-family:var(--f-num);font-size:18px}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 @media (max-width:560px){.grid{grid-template-columns:1fr}}
 .opt{display:flex;gap:10px;align-items:center;text-align:left;font:inherit;color:var(--ink);background:var(--sheet);
   border:1px solid var(--line);border-radius:6px;padding:10px 12px;cursor:pointer;min-height:52px}
-.opt:focus-visible,.chip:focus-visible,.btn:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
+.opt:focus-visible,.chip:focus-visible,.btn:focus-visible,.mode:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .bub{flex:none;width:22px;height:30px;border:1.5px solid var(--drop);border-radius:50%;display:grid;place-items:center;
   font-family:var(--f-num);font-size:11px;color:var(--drop)}
+.opt .txt{display:grid;gap:2px;min-width:0}
+.opt .from{font-family:var(--f-word);font-size:14px;color:var(--muted)}
 .opt[aria-pressed="true"] .bub{background:var(--mark);border-color:var(--mark);color:var(--sheet)}
 .opt.ok{background:var(--ok-soft);border-color:var(--ok)}
 .opt.ng{background:var(--ng-soft);border-color:var(--ng)}
@@ -62,16 +70,16 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .answer{border-top:1px dashed var(--line);padding-top:14px;display:grid;gap:10px}
 .answer h2{font-size:13px;margin:0;color:var(--muted);letter-spacing:.08em}
 .answer ul{margin:0;padding-left:0;list-style:none;display:grid;gap:4px}
-.answer li{display:flex;gap:8px;align-items:baseline}
+.answer li{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
 .star{color:var(--drop);width:1em;flex:none}
 .cnt{font-family:var(--f-num);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
-.idiom b{font-family:var(--f-word);font-size:17px}
-.note{font-size:12px;color:var(--muted);margin:0}
+.en{font-family:var(--f-word);font-size:17px;font-weight:700}
 .hint{border:1px dashed var(--drop);border-radius:6px;padding:10px 12px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
 .hint .lbl{font-size:12px;color:var(--drop);font-weight:700;letter-spacing:.06em}
 .part b{font-family:var(--f-word);font-size:18px}
 .part span{font-size:13px;color:var(--muted)}
-.etym{font-size:14px}
+.tip{font-size:13px;color:var(--muted);margin:0}
+.note{font-size:12px;color:var(--muted);margin:0}
 @media (prefers-reduced-motion:no-preference){.answer{animation:in .25s ease-out}@keyframes in{from{transform:translateY(-4px);opacity:.4}}}
 </style>
 
@@ -81,118 +89,175 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <div class="stats" aria-live="polite">
       <div><b id="s-done">0</b>問</div>
       <div><b id="s-rate">–</b>正答率</div>
-      <div><b id="s-master">0</b>/<span id="s-total">0</span>語 習得</div>
+      <div><b id="s-master">0</b>/<span id="s-total">0</span> 習得</div>
     </div>
   </header>
 
-  <div class="filters" role="group" aria-label="出題するレベル">
+  <div class="modes" role="group" aria-label="モード">
+    <button class="mode" id="m-word" data-mode="word" aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
+    <button class="mode" id="m-idiom" data-mode="idiom" aria-pressed="false">イディオム<small>熟語の意味を選ぶ</small></button>
+    <button class="mode" id="m-ety" data-mode="ety" aria-pressed="false">語源で推測<small>部品から意味を当てる</small></button>
+  </div>
+
+  <div class="filters" role="group" aria-label="出題するレベル" id="f-level">
     <span>レベル</span>
     <button class="chip" id="lv1" data-lv="1" aria-pressed="false">基礎</button>
     <button class="chip" id="lv2" data-lv="2" aria-pressed="true">標準</button>
     <button class="chip" id="lv3" data-lv="3" aria-pressed="true">難関</button>
     <button class="chip" id="lv4" data-lv="4" aria-pressed="true">最難関</button>
   </div>
-
-  <div class="filters" role="group" aria-label="出題元">
+  <div class="filters" role="group" aria-label="出題元" id="f-src">
     <span>出題元</span>
-    <button class="chip src-chip" id="src-exam" data-src="exam" aria-pressed="true">名大の入試</button>
-    <button class="chip src-chip" id="src-article" data-src="source_article" aria-pressed="true">入試の出典記事</button>
-    <button class="chip src-chip" id="src-pred" data-src="predicted" aria-pressed="true">予想（最近の記事）</button>
+    <button class="chip" id="src-exam" data-src="exam" aria-pressed="true">名大の入試</button>
+    <button class="chip" id="src-article" data-src="source_article" aria-pressed="true">入試の出典記事</button>
+    <button class="chip" id="src-pred" data-src="predicted" aria-pressed="true">予想（最近の記事）</button>
   </div>
 
   <section class="sheet" aria-live="polite">
     <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span class="tag src" id="q-src">名大の入試</span><span id="q-exam">名大で27回 / 1年分</span></div>
     <p class="word" id="q-word">dolphin</p>
-    <p class="ask" id="q-ask">正しい意味を <em>1</em> つ選んでください</p>
     <div class="hint" id="hint" hidden></div>
+    <p class="tip" id="q-tip" hidden></p>
+    <p class="ask" id="q-ask">正しい意味を <em>1</em> つ選んでください</p>
     <div class="grid" id="opts"></div>
     <div class="actions">
       <button class="btn" id="check" disabled>答え合わせ</button>
-      <button class="btn ghost" id="next" hidden>次の単語</button>
+      <button class="btn ghost" id="next" hidden>次の問題</button>
       <button class="btn ghost" id="hintbtn" hidden>語源ヒントを見る</button>
       <span class="result" id="result"></span>
     </div>
     <div class="answer" id="answer" hidden>
-      <h2 id="a-mh">この単語の意味（★＝名大で出た意味）</h2>
+      <h2 id="a-mh">この単語の意味</h2>
       <ul id="a-means"></ul>
       <h2 id="a-eth">語源</h2>
-      <p class="etym" id="a-ety"></p>
+      <p id="a-ety"></p>
       <h2 id="a-idh">イディオム</h2>
       <ul id="a-ids"></ul>
       <h2 id="a-cfh">まぎらわしい単語</h2>
       <ul id="a-cfs"></ul>
     </div>
   </section>
-  <p class="note">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は2026年10〜11月の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。レベル分けは CEFR-J Wordlist Version 1.5 と英語の使用頻度データ（wordfreq）（Compiled by Yukio Tono, Tokyo University of Foreign Studies）を参照しています。</p>
+  <p class="note">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
 </div>
 
 <script>
 const WORDS = __DATA__;
+const IDIOMS = __IDIOMS__;
 const KEY = "meidai-nine-v2";
 const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
-let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"]};
+const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想"};
+let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word"};
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
 const $ = id => document.getElementById(id);
-const id = w => w.word + "|" + w.pos;
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-let queue = [], cur = null, correct = [], picked = new Set(), answered = false;
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
 
-const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想"};
-function pool() { return WORDS.filter(w => st.levels.includes(w.level) && st.sources.includes(w.source || "exam")); }
-function buildQueue() {
-  // 習得度の低い単語を先に（同じ習得度ならランダム）
-  queue = shuffle(pool().slice()).sort((a, b) => (st.mastery[id(a)] || 0) - (st.mastery[id(b)] || 0));
+// 意味 → それを持つ英単語（不正解の選択肢の正体を表示するため）
+const OWNER = new Map();
+WORDS.forEach(w => w.meanings.forEach(m => { if (!OWNER.has(m.ja)) OWNER.set(m.ja, w.word); }));
+WORDS.forEach(w => (w.confusables || []).forEach(c => { if (!OWNER.has(c.ja)) OWNER.set(c.ja, c.en); }));
+// イディオム問題の材料：入試に出たイディオム＋単語データのイディオム
+const IDIOM_ITEMS = IDIOMS.map(x => ({en: x.en, ja: x.ja, src: "exam", year: x.year}))
+  .concat(WORDS.flatMap(w => w.idioms.map(i => ({en: i.en, ja: i.ja, src: w.source || "exam", word: w.word, level: w.level}))))
+  .filter((x, i, a) => a.findIndex(y => y.en === x.en) === i);
+
+let queue = [], cur = null, correct = [], picked = new Set(), answered = false, confShown = new Set(), fromOf = new Map();
+
+const keyOf = q => st.mode + "|" + (q.word || q.en) + "|" + (q.pos || "");
+function pool() {
+  if (st.mode === "idiom") return IDIOM_ITEMS.filter(x => st.sources.includes(x.src));
+  const base = WORDS.filter(w => st.levels.includes(w.level) && st.sources.includes(w.source || "exam"));
+  return st.mode === "ety" ? base.filter(w => w.etymology) : base;
 }
-let confShown = new Set();
-function distractors(w, n) {
-  const own = new Set(w.meanings.map(m => m.ja));
+function buildQueue() {
+  queue = shuffle(pool().slice()).sort((a, b) => (st.mastery[keyOf(a)] || 0) - (st.mastery[keyOf(b)] || 0));
+}
+function pickDistractors(own, n, conf, near, rest) {
   const out = [];
   const add = m => { if (out.length < n && !own.has(m) && !out.includes(m)) out.push(m); };
-  // つづりがまぎらわしい単語の意味を最大2つ
-  shuffle((w.confusables || []).map(c => c.ja)).slice(0, 2).forEach(add);
-  confShown = new Set(out);
-  // 同じ品詞で、同じくらいの難しさの単語の意味
+  conf.forEach(add); confShown = new Set(out);
+  near.forEach(add); rest.forEach(add);
+  return out;
+}
+function setupWordQuestion(w) {
+  const ms = w.meanings.slice().sort((a, b) => (b.exam_count || 0) - (a.exam_count || 0) || (b.in_article ? 1 : 0) - (a.in_article ? 1 : 0));
+  const total = st.mode === "ety" ? 6 : 9;
+  correct = st.mode === "ety" ? [ms[0].ja] : ms.slice(0, Math.min(3, ms.length)).map(m => m.ja);
+  const conf = shuffle((w.confusables || []).map(c => c.ja)).slice(0, 2);
   const near = shuffle(WORDS.filter(x => x !== w && x.pos === w.pos && Math.abs(x.level - w.level) <= 1).flatMap(x => x.meanings.map(m => m.ja)));
   const rest = shuffle(WORDS.filter(x => x !== w).flatMap(x => x.meanings.map(m => m.ja)));
-  near.concat(rest).forEach(add);
-  return out;
+  const opts = shuffle(correct.concat(pickDistractors(new Set(w.meanings.map(m => m.ja)), total - correct.length, conf, near, rest)));
+  fromOf = new Map(opts.map(t => [t, correct.includes(t) ? w.word : (OWNER.get(t) || "")]));
+  // まぎらわしい単語の意味は、その単語名を表示する
+  (w.confusables || []).forEach(c => { if (fromOf.has(c.ja) && !correct.includes(c.ja)) fromOf.set(c.ja, c.en); });
+  return opts;
+}
+function setupIdiomQuestion(q) {
+  correct = [q.ja];
+  const rest = shuffle(IDIOM_ITEMS.filter(x => x !== q).map(x => x.ja));
+  const opts = shuffle(correct.concat(pickDistractors(new Set([q.ja]), 8, [], [], rest)));
+  confShown = new Set();
+  fromOf = new Map(opts.map(t => [t, t === q.ja ? q.en : (IDIOM_ITEMS.find(x => x.ja === t) || {}).en || ""]));
+  return opts;
+}
+function showHint(et) {
+  const h = $("hint"); h.innerHTML = ""; h.appendChild(el("span", "lbl", "語源"));
+  et.parts.forEach(p => { const e = el("span", "part"); e.appendChild(el("b", null, p.part)); e.appendChild(el("span", null, p.ja ? " ＝" + p.ja : "")); h.appendChild(e); });
+  h.hidden = false;
 }
 function render() {
   if (!queue.length) buildQueue();
+  if (!queue.length) { $("q-word").textContent = "出題できる問題がありません"; $("opts").innerHTML = ""; return; }
   cur = queue.shift(); answered = false; picked.clear();
-  const ms = cur.meanings.slice().sort((a, b) => (b.exam_count || 0) - (a.exam_count || 0));
-  correct = ms.slice(0, Math.min(3, ms.length)).map(m => m.ja);
-  const opts = shuffle(correct.concat(distractors(cur, 9 - correct.length)));
-  $("q-word").textContent = cur.word;
-  $("q-pos").textContent = cur.pos;
-  $("q-lv").textContent = LVNAME[cur.level];
-  const src = cur.source || "exam";
-  $("q-src").textContent = SRC[src];
+  const idiom = st.mode === "idiom";
+  const opts = idiom ? setupIdiomQuestion(cur) : setupWordQuestion(cur);
+  const src = cur.source || cur.src || "exam";
+  $("q-word").textContent = idiom ? cur.en : cur.word;
+  $("q-word").className = "word" + (idiom ? " idiom" : "");
+  $("q-pos").textContent = idiom ? "イディオム" : cur.pos;
+  $("q-lv").hidden = idiom; if (!idiom) $("q-lv").textContent = LVNAME[cur.level];
+  $("q-src").textContent = idiom && !cur.year ? "単語の関連表現" : SRC[src];
   $("q-src").className = "tag src" + (src === "predicted" ? " pred" : "");
-  $("q-exam").textContent = src === "exam" ? "名大で" + cur.exam_count + "回 / " + cur.exam_years + "年分"
+  $("q-exam").textContent = idiom ? (cur.year ? "名大 " + cur.year + "年度に出題" : "「" + cur.word + "」の関連表現")
+    : src === "exam" ? "名大で" + cur.exam_count + "回 / " + cur.exam_years + "年分"
     : (src === "predicted" ? "最近の記事で" : "入試の出典記事で") + cur.article_count + "回 / " + cur.article_num + "本";
-  $("q-ask").innerHTML = "正しい意味を <em>" + correct.length + "</em> つ選んでください";
+  $("q-ask").innerHTML = st.mode === "word" ? "正しい意味を <em>" + correct.length + "</em> つ選んでください" : "いちばん近い意味を <em>1</em> つ選んでください";
+  $("hint").hidden = true;
+  $("q-tip").hidden = st.mode !== "ety";
+  $("q-tip").textContent = "知らない単語でも大丈夫です。部品の意味をつなげて、意味を推測してみましょう。";
+  if (st.mode === "ety") showHint(cur.etymology);
+  $("hintbtn").hidden = !(st.mode === "word" && cur.etymology);
   $("opts").innerHTML = "";
   opts.forEach((t, i) => {
-    const b = document.createElement("button");
-    b.className = "opt"; b.id = "opt" + i; b.setAttribute("aria-pressed", "false"); b.dataset.t = t;
-    b.innerHTML = '<span class="bub">' + (i + 1) + '</span><span></span>';
-    b.lastChild.textContent = t;
+    const b = el("button", "opt"); b.id = "opt" + i; b.setAttribute("aria-pressed", "false"); b.dataset.t = t;
+    b.appendChild(el("span", "bub", String(i + 1)));
+    const tx = el("span", "txt"); tx.appendChild(el("span", null, t)); b.appendChild(tx);
     b.onclick = () => toggle(b);
     $("opts").appendChild(b);
   });
   $("check").disabled = true; $("check").hidden = false; $("next").hidden = true;
   $("result").textContent = ""; $("result").className = "result"; $("answer").hidden = true;
-  $("hint").hidden = true; $("hintbtn").hidden = !cur.etymology;
 }
 function toggle(b) {
   if (answered) return;
   const t = b.dataset.t;
   if (picked.has(t)) picked.delete(t);
-  else { if (picked.size >= correct.length) return; picked.add(t); }
+  else {
+    if (correct.length === 1) { picked.clear(); document.querySelectorAll(".opt").forEach(o => o.setAttribute("aria-pressed", "false")); }
+    else if (picked.size >= correct.length) return;
+    picked.add(t);
+  }
   b.setAttribute("aria-pressed", picked.has(t));
   $("check").disabled = picked.size !== correct.length;
+}
+function listItem(mark, ja, cnt, en) {
+  const li = el("li");
+  li.appendChild(el("span", "star", mark));
+  if (en) li.appendChild(el("span", "en", en));
+  li.appendChild(el("span", null, ja));
+  if (cnt) li.appendChild(el("span", "cnt", cnt));
+  return li;
 }
 function check() {
   answered = true;
@@ -201,30 +266,34 @@ function check() {
     b.disabled = true; const t = b.dataset.t;
     if (picked.has(t)) b.classList.add(correct.includes(t) ? "ok" : "ng");
     else if (correct.includes(t)) b.classList.add("miss");
+    const f = fromOf.get(t);
+    if (f) b.querySelector(".txt").appendChild(el("span", "from", (correct.includes(t) ? "" : "← ") + f));
   });
   st.done++; if (good) st.ok++;
-  const k = id(cur); st.mastery[k] = good ? (st.mastery[k] || 0) + 1 : 0;
-  if (!good) queue.splice(Math.min(3, queue.length), 0, cur); // 間違えた単語は少し後にもう一度
+  const k = keyOf(cur); st.mastery[k] = good ? (st.mastery[k] || 0) + 1 : 0;
+  if (!good) queue.splice(Math.min(3, queue.length), 0, cur);
   save(); stats();
   $("result").textContent = good ? "正解" : "不正解（点線が正しい答え）";
   $("result").className = "result " + (good ? "ok" : "ng");
+  const idiom = st.mode === "idiom";
   $("a-means").innerHTML = "";
-  $("a-mh").textContent = (cur.source || "exam") === "exam" ? "この単語の意味（★＝名大で出た意味）" : "この単語の意味（◆＝記事で使われた意味）";
-  cur.meanings.forEach(m => {
-    const li = document.createElement("li");
-    li.innerHTML = '<span class="star">' + (m.in_exam ? "★" : (m.in_article ? "◆" : "")) + '</span><span></span><span class="cnt"></span>';
-    li.children[1].textContent = m.ja;
-    li.children[2].textContent = m.exam_count ? m.exam_count + "回" : "";
-    $("a-means").appendChild(li);
-  });
-  $("a-ids").innerHTML = ""; $("a-idh").hidden = !cur.idioms.length;
-  cur.idioms.forEach(x => { const li = document.createElement("li"); li.className = "idiom"; li.innerHTML = "<b></b><span></span>"; li.firstChild.textContent = x.en; li.lastChild.textContent = "　" + x.ja; $("a-ids").appendChild(li); });
-  const cfs = cur.confusables || [];
-  $("a-cfs").innerHTML = ""; $("a-cfh").hidden = !cfs.length;
-  cfs.forEach(x => { const li = document.createElement("li"); li.className = "idiom"; li.innerHTML = "<b></b><span></span><span class=\"cnt\"></span>"; li.children[0].textContent = x.en; li.children[1].textContent = "　" + x.ja; li.children[2].textContent = confShown.has(x.ja) ? "　選択肢にあった意味" : ""; $("a-cfs").appendChild(li); });
-  const et = cur.etymology;
+  if (idiom) {
+    $("a-mh").textContent = "このイディオムの意味";
+    $("a-means").appendChild(listItem(cur.src === "exam" && cur.year ? "★" : "", cur.ja, cur.year ? "名大 " + cur.year + "年度" : ""));
+  } else {
+    const ex = (cur.source || "exam") === "exam";
+    $("a-mh").textContent = ex ? "この単語の意味（★＝名大で出た意味）" : "この単語の意味（◆＝記事で使われた意味）";
+    cur.meanings.forEach(m => $("a-means").appendChild(listItem(m.in_exam ? "★" : (m.in_article ? "◆" : ""), m.ja, m.exam_count ? m.exam_count + "回" : "")));
+  }
+  const et = !idiom && cur.etymology;
   $("a-eth").hidden = $("a-ety").hidden = !et;
-  if (et) { showHint(); $("a-ety").textContent = et.explain; }
+  if (et) { showHint(et); $("a-ety").textContent = et.explain; }
+  const ids = idiom ? [] : cur.idioms;
+  $("a-ids").innerHTML = ""; $("a-idh").hidden = !ids.length;
+  ids.forEach(x => $("a-ids").appendChild(listItem("", "　" + x.ja, "", x.en)));
+  const cfs = idiom ? [] : (cur.confusables || []);
+  $("a-cfs").innerHTML = ""; $("a-cfh").hidden = !cfs.length;
+  cfs.forEach(x => $("a-cfs").appendChild(listItem("", "　" + x.ja, confShown.has(x.ja) ? "選択肢にあった意味" : "", x.en)));
   $("hintbtn").hidden = true;
   $("answer").hidden = false; $("check").hidden = true; $("next").hidden = false; $("next").focus();
 }
@@ -233,32 +302,27 @@ function stats() {
   $("s-rate").textContent = st.done ? Math.round(st.ok / st.done * 100) + "%" : "–";
   const p = pool();
   $("s-total").textContent = p.length;
-  $("s-master").textContent = p.filter(w => (st.mastery[id(w)] || 0) >= 2).length;
+  $("s-master").textContent = p.filter(q => (st.mastery[keyOf(q)] || 0) >= 2).length;
 }
-document.querySelectorAll(".chip[data-lv]").forEach(c => {
-  c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv));
-  c.onclick = () => {
-    const lv = +c.dataset.lv, on = st.levels.includes(lv);
-    if (on && st.levels.length === 1) return;
-    st.levels = on ? st.levels.filter(x => x !== lv) : st.levels.concat(lv);
-    c.setAttribute("aria-pressed", !on); save(); buildQueue(); stats(); render();
-  };
-});
-function showHint() {
-  const h = $("hint"); h.innerHTML = '<span class="lbl">語源</span>';
-  cur.etymology.parts.forEach(p => { const e = document.createElement("span"); e.className = "part"; e.innerHTML = "<b></b> <span></span>"; e.children[0].textContent = p.part; e.children[1].textContent = p.ja ? "＝" + p.ja : ""; h.appendChild(e); });
-  h.hidden = false;
+function syncControls() {
+  document.querySelectorAll(".mode").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === st.mode));
+  document.querySelectorAll(".chip[data-lv]").forEach(c => c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv)));
+  document.querySelectorAll(".chip[data-src]").forEach(c => c.setAttribute("aria-pressed", st.sources.includes(c.dataset.src)));
+  $("f-level").hidden = st.mode === "idiom";
 }
-$("hintbtn").onclick = () => { showHint(); $("hintbtn").hidden = true; };
-document.querySelectorAll(".src-chip").forEach(c => {
-  c.setAttribute("aria-pressed", st.sources.includes(c.dataset.src));
-  c.onclick = () => {
-    const v = c.dataset.src, on = st.sources.includes(v);
-    if (on && st.sources.length === 1) return;
-    st.sources = on ? st.sources.filter(x => x !== v) : st.sources.concat(v);
-    c.setAttribute("aria-pressed", !on); save(); buildQueue(); stats(); render();
-  };
+function restart() { save(); syncControls(); buildQueue(); stats(); render(); }
+document.querySelectorAll(".mode").forEach(b => b.onclick = () => { st.mode = b.dataset.mode; restart(); });
+document.querySelectorAll(".chip[data-lv]").forEach(c => c.onclick = () => {
+  const lv = +c.dataset.lv, on = st.levels.includes(lv);
+  if (on && st.levels.length === 1) return;
+  st.levels = on ? st.levels.filter(x => x !== lv) : st.levels.concat(lv); restart();
 });
+document.querySelectorAll(".chip[data-src]").forEach(c => c.onclick = () => {
+  const v = c.dataset.src, on = st.sources.includes(v);
+  if (on && st.sources.length === 1) return;
+  st.sources = on ? st.sources.filter(x => x !== v) : st.sources.concat(v); restart();
+});
+$("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = true; };
 $("check").onclick = check; $("next").onclick = render;
-buildQueue(); stats(); render();
+syncControls(); buildQueue(); stats(); render();
 </script>

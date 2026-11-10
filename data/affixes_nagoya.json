@@ -1,0 +1,846 @@
+[
+ {
+  "affix": "un-",
+  "type": "prefix",
+  "role": "否定（～でない）",
+  "pos": null,
+  "examples": [
+   [
+    "unfamiliar",
+    "よく知らない"
+   ],
+   [
+    "unexpected",
+    "予期しない"
+   ],
+   [
+    "unprecedented",
+    "前例のない"
+   ],
+   [
+    "unaffordable",
+    "高すぎて買えない"
+   ],
+   [
+    "uncover",
+    "明らかにする（覆いを取る）"
+   ]
+  ]
+ },
+ {
+  "affix": "in- / im- / il- / ir-",
+  "type": "prefix",
+  "role": "否定（～でない）",
+  "pos": null,
+  "examples": [
+   [
+    "inconsequential",
+    "取るに足らない"
+   ],
+   [
+    "impolite",
+    "失礼な"
+   ],
+   [
+    "irrelevant",
+    "無関係な"
+   ],
+   [
+    "insensitive",
+    "無神経な"
+   ],
+   [
+    "indefinitely",
+    "無期限に"
+   ]
+  ]
+ },
+ {
+  "affix": "dis-",
+  "type": "prefix",
+  "role": "反対・分離（～しない・ばらばらに）",
+  "pos": null,
+  "examples": [
+   [
+    "disassemble",
+    "分解する"
+   ],
+   [
+    "disbelief",
+    "信じられない気持ち"
+   ],
+   [
+    "disrupt",
+    "乱す"
+   ],
+   [
+    "displace",
+    "取って代わる・追い出す"
+   ]
+  ]
+ },
+ {
+  "affix": "re-",
+  "type": "prefix",
+  "role": "再び・元へ",
+  "pos": null,
+  "examples": [
+   [
+    "rewrite",
+    "書き直す"
+   ],
+   [
+    "rethink",
+    "考え直す"
+   ],
+   [
+    "revise",
+    "修正する"
+   ],
+   [
+    "redirect",
+    "向け直す"
+   ],
+   [
+    "reinforce",
+    "強める"
+   ]
+  ]
+ },
+ {
+  "affix": "pre-",
+  "type": "prefix",
+  "role": "前に・前もって",
+  "pos": null,
+  "examples": [
+   [
+    "prerequisite",
+    "前提条件"
+   ],
+   [
+    "prehistoric",
+    "先史時代の"
+   ],
+   [
+    "precede",
+    "先行する"
+   ],
+   [
+    "predict",
+    "予測する"
+   ]
+  ]
+ },
+ {
+  "affix": "inter-",
+  "type": "prefix",
+  "role": "～の間で・相互に",
+  "pos": null,
+  "examples": [
+   [
+    "interaction",
+    "交流・相互作用"
+   ],
+   [
+    "interweave",
+    "織り交ぜる"
+   ],
+   [
+    "intersection",
+    "交わるところ"
+   ],
+   [
+    "interwar",
+    "戦間期の"
+   ]
+  ]
+ },
+ {
+  "affix": "trans-",
+  "type": "prefix",
+  "role": "越えて・向こうへ",
+  "pos": null,
+  "examples": [
+   [
+    "transformative",
+    "変革をもたらす"
+   ],
+   [
+    "transfusion",
+    "輸血"
+   ],
+   [
+    "transient",
+    "一時的な"
+   ],
+   [
+    "translate",
+    "翻訳する"
+   ]
+  ]
+ },
+ {
+  "affix": "sub-",
+  "type": "prefix",
+  "role": "下に・あとに",
+  "pos": null,
+  "examples": [
+   [
+    "subsequent",
+    "その後の"
+   ],
+   [
+    "subjective",
+    "主観的な"
+   ],
+   [
+    "subscriber",
+    "登録者"
+   ],
+   [
+    "substantial",
+    "かなりの"
+   ]
+  ]
+ },
+ {
+  "affix": "over-",
+  "type": "prefix",
+  "role": "過度に・上に",
+  "pos": null,
+  "examples": [
+   [
+    "overrate",
+    "過大評価する"
+   ],
+   [
+    "oversleep",
+    "寝坊する"
+   ],
+   [
+    "overflow",
+    "あふれる"
+   ],
+   [
+    "overlay",
+    "上に重ねる"
+   ]
+  ]
+ },
+ {
+  "affix": "under-",
+  "type": "prefix",
+  "role": "不足して・下に",
+  "pos": null,
+  "examples": [
+   [
+    "underestimate",
+    "過小評価する"
+   ],
+   [
+    "undervalue",
+    "過小評価する"
+   ],
+   [
+    "underpin",
+    "支える"
+   ]
+  ]
+ },
+ {
+  "affix": "co- / com- / con-",
+  "type": "prefix",
+  "role": "一緒に・完全に",
+  "pos": null,
+  "examples": [
+   [
+    "cooperative",
+    "協力的な"
+   ],
+   [
+    "cohesion",
+    "まとまり"
+   ],
+   [
+    "compress",
+    "圧縮する"
+   ],
+   [
+    "converge",
+    "一点に集まる"
+   ],
+   [
+    "coincide",
+    "同時に起こる"
+   ]
+  ]
+ },
+ {
+  "affix": "multi-",
+  "type": "prefix",
+  "role": "多くの",
+  "pos": null,
+  "examples": [
+   [
+    "multidisciplinary",
+    "学際的な"
+   ],
+   [
+    "multiple",
+    "多数の"
+   ],
+   [
+    "multivalent",
+    "多様な意味を持つ"
+   ]
+  ]
+ },
+ {
+  "affix": "micro-",
+  "type": "prefix",
+  "role": "小さい",
+  "pos": null,
+  "examples": [
+   [
+    "microscope",
+    "顕微鏡"
+   ],
+   [
+    "microorganism",
+    "微生物"
+   ],
+   [
+    "microbe",
+    "微生物"
+   ]
+  ]
+ },
+ {
+  "affix": "en- / em-",
+  "type": "prefix",
+  "role": "～にする・中に入れる",
+  "pos": null,
+  "examples": [
+   [
+    "empower",
+    "力を与える"
+   ],
+   [
+    "encircle",
+    "取り囲む"
+   ],
+   [
+    "encapsulate",
+    "要約する"
+   ],
+   [
+    "enhance",
+    "高める"
+   ]
+  ]
+ },
+ {
+  "affix": "de-",
+  "type": "prefix",
+  "role": "取り除く・下へ",
+  "pos": null,
+  "examples": [
+   [
+    "deforestation",
+    "森林破壊"
+   ],
+   [
+    "decrease",
+    "減る"
+   ],
+   [
+    "detach",
+    "切り離す"
+   ]
+  ]
+ },
+ {
+  "affix": "-tion / -sion",
+  "type": "suffix",
+  "role": "名詞をつくる（～すること）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "acceleration",
+    "加速"
+   ],
+   [
+    "perception",
+    "認識"
+   ],
+   [
+    "collision",
+    "衝突"
+   ],
+   [
+    "excavation",
+    "発掘"
+   ],
+   [
+    "humiliation",
+    "屈辱"
+   ]
+  ]
+ },
+ {
+  "affix": "-ment",
+  "type": "suffix",
+  "role": "名詞をつくる（～すること・もの）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "advancement",
+    "進歩"
+   ],
+   [
+    "contentment",
+    "満足"
+   ],
+   [
+    "environment",
+    "環境"
+   ],
+   [
+    "accomplishment",
+    "達成"
+   ]
+  ]
+ },
+ {
+  "affix": "-ness",
+  "type": "suffix",
+  "role": "名詞をつくる（～な状態）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "weightlessness",
+    "無重力感"
+   ],
+   [
+    "drowsiness",
+    "眠気"
+   ],
+   [
+    "deafness",
+    "耳が聞こえないこと"
+   ],
+   [
+    "narrowness",
+    "視野の狭さ"
+   ]
+  ]
+ },
+ {
+  "affix": "-ity",
+  "type": "suffix",
+  "role": "名詞をつくる（～な性質）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "generosity",
+    "寛大さ"
+   ],
+   [
+    "fertility",
+    "出生率"
+   ],
+   [
+    "visibility",
+    "視界"
+   ],
+   [
+    "sociability",
+    "社交性"
+   ],
+   [
+    "complexity",
+    "複雑さ"
+   ]
+  ]
+ },
+ {
+  "affix": "-ance / -ence",
+  "type": "suffix",
+  "role": "名詞をつくる（～すること・状態）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "ambivalence",
+    "相反する感情"
+   ],
+   [
+    "eloquence",
+    "雄弁"
+   ],
+   [
+    "prevalence",
+    "広まり"
+   ],
+   [
+    "ignorance",
+    "無知"
+   ]
+  ]
+ },
+ {
+  "affix": "-er / -or",
+  "type": "suffix",
+  "role": "人・ものを表す（～する人）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "performer",
+    "行う人"
+   ],
+   [
+    "donor",
+    "提供者"
+   ],
+   [
+    "orator",
+    "演説家"
+   ],
+   [
+    "manufacturer",
+    "製造業者"
+   ],
+   [
+    "subscriber",
+    "登録者"
+   ]
+  ]
+ },
+ {
+  "affix": "-ist",
+  "type": "suffix",
+  "role": "人を表す（～の専門家・主義の人）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "archaeologist",
+    "考古学者"
+   ],
+   [
+    "biologist",
+    "生物学者"
+   ],
+   [
+    "scientist",
+    "科学者"
+   ],
+   [
+    "conservationist",
+    "自然保護活動家"
+   ]
+  ]
+ },
+ {
+  "affix": "-ize / -ise",
+  "type": "suffix",
+  "role": "動詞をつくる（～にする）",
+  "pos": "動詞",
+  "examples": [
+   [
+    "specialize",
+    "専門に扱う"
+   ],
+   [
+    "recognize",
+    "認める"
+   ],
+   [
+    "jeopardise",
+    "危うくする"
+   ],
+   [
+    "generalise",
+    "一般化する"
+   ]
+  ]
+ },
+ {
+  "affix": "-ify",
+  "type": "suffix",
+  "role": "動詞をつくる（～にする）",
+  "pos": "動詞",
+  "examples": [
+   [
+    "identify",
+    "識別する"
+   ],
+   [
+    "justify",
+    "正当化する"
+   ],
+   [
+    "typify",
+    "典型である"
+   ],
+   [
+    "verify",
+    "確かめる"
+   ]
+  ]
+ },
+ {
+  "affix": "-en",
+  "type": "suffix",
+  "role": "動詞をつくる（～にする）",
+  "pos": "動詞",
+  "examples": [
+   [
+    "brighten",
+    "明るくする"
+   ],
+   [
+    "deepen",
+    "深める"
+   ],
+   [
+    "worsen",
+    "悪化させる"
+   ],
+   [
+    "broaden",
+    "広げる"
+   ]
+  ]
+ },
+ {
+  "affix": "-ate",
+  "type": "suffix",
+  "role": "動詞をつくる（～させる）",
+  "pos": "動詞",
+  "examples": [
+   [
+    "accelerate",
+    "加速する"
+   ],
+   [
+    "accumulate",
+    "蓄積する"
+   ],
+   [
+    "allocate",
+    "割り当てる"
+   ],
+   [
+    "manipulate",
+    "操作する"
+   ]
+  ]
+ },
+ {
+  "affix": "-able / -ible",
+  "type": "suffix",
+  "role": "形容詞をつくる（～できる）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "sustainable",
+    "持続可能な"
+   ],
+   [
+    "recyclable",
+    "再利用できる"
+   ],
+   [
+    "vulnerable",
+    "傷つきやすい"
+   ],
+   [
+    "unaffordable",
+    "高すぎて買えない"
+   ]
+  ]
+ },
+ {
+  "affix": "-less",
+  "type": "suffix",
+  "role": "形容詞をつくる（～がない）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "frictionless",
+    "摩擦のない"
+   ],
+   [
+    "regardless",
+    "～に関係なく"
+   ],
+   [
+    "limitless",
+    "無限の"
+   ]
+  ]
+ },
+ {
+  "affix": "-ful",
+  "type": "suffix",
+  "role": "形容詞をつくる（～に満ちた）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "successful",
+    "成功した"
+   ],
+   [
+    "meaningful",
+    "意味のある"
+   ],
+   [
+    "fruitful",
+    "実りの多い"
+   ]
+  ]
+ },
+ {
+  "affix": "-ous",
+  "type": "suffix",
+  "role": "形容詞をつくる（～の性質がある）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "anonymous",
+    "匿名の"
+   ],
+   [
+    "contagious",
+    "伝染する"
+   ],
+   [
+    "malicious",
+    "悪意のある"
+   ],
+   [
+    "nutritious",
+    "栄養のある"
+   ],
+   [
+    "precipitous",
+    "急激な"
+   ]
+  ]
+ },
+ {
+  "affix": "-ive",
+  "type": "suffix",
+  "role": "形容詞をつくる（～の性質がある）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "immersive",
+    "没入感のある"
+   ],
+   [
+    "imaginative",
+    "想像力に富んだ"
+   ],
+   [
+    "distinctive",
+    "特徴的な"
+   ],
+   [
+    "successive",
+    "連続する"
+   ]
+  ]
+ },
+ {
+  "affix": "-al / -ial",
+  "type": "suffix",
+  "role": "形容詞をつくる（～の）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "perpetual",
+    "永久の"
+   ],
+   [
+    "crucial",
+    "決定的な"
+   ],
+   [
+    "continental",
+    "大陸の"
+   ],
+   [
+    "seasonal",
+    "季節の"
+   ]
+  ]
+ },
+ {
+  "affix": "-ic",
+  "type": "suffix",
+  "role": "形容詞をつくる（～の・～的な）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "iconic",
+    "象徴的な"
+   ],
+   [
+    "catastrophic",
+    "壊滅的な"
+   ],
+   [
+    "algorithmic",
+    "アルゴリズムの"
+   ],
+   [
+    "dynamic",
+    "活気のある"
+   ]
+  ]
+ },
+ {
+  "affix": "-ly",
+  "type": "suffix",
+  "role": "副詞をつくる（～に）",
+  "pos": "副詞",
+  "examples": [
+   [
+    "deliberately",
+    "わざと"
+   ],
+   [
+    "presumably",
+    "おそらく"
+   ],
+   [
+    "indefinitely",
+    "無期限に"
+   ],
+   [
+    "mercifully",
+    "ありがたいことに"
+   ]
+  ]
+ },
+ {
+  "affix": "-hood",
+  "type": "suffix",
+  "role": "名詞をつくる（～の時期・状態）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "adulthood",
+    "成人期"
+   ],
+   [
+    "childhood",
+    "子ども時代"
+   ],
+   [
+    "neighborhood",
+    "近所"
+   ]
+  ]
+ }
+]

@@ -27,9 +27,10 @@ h1{font-size:20px;margin:0;letter-spacing:.04em;text-wrap:balance}
 h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.08em}
 .stats{display:flex;gap:16px;font-size:12px;color:var(--muted)}
 .stats b{font-family:var(--f-num);font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:2px}
-.modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--ink);border-radius:6px;overflow:hidden}
+.modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--ink);border:1px solid var(--ink);border-radius:6px;overflow:hidden}
+@media (max-width:560px){.modes{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .mode{font:inherit;font-weight:700;padding:10px 8px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
-.mode+.mode{border-left:1px solid var(--ink)}
+.word mark{background:var(--drop-soft);color:var(--drop);border-bottom:3px solid var(--drop);padding:0 2px}
 .mode[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
 .mode small{display:block;font-weight:400;font-size:11px;opacity:.75}
 .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px}
@@ -97,6 +98,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="mode" id="m-word" data-mode="word" aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
     <button class="mode" id="m-idiom" data-mode="idiom" aria-pressed="false">イディオム<small>熟語の意味を選ぶ</small></button>
     <button class="mode" id="m-ety" data-mode="ety" aria-pressed="false">語源で推測<small>部品から意味を当てる</small></button>
+    <button class="mode" id="m-affix" data-mode="affix" aria-pressed="false">接頭辞・接尾辞<small>形から働きを当てる</small></button>
   </div>
 
   <div class="filters" role="group" aria-label="出題するレベル" id="f-level">
@@ -143,6 +145,21 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 <script>
 const WORDS = __DATA__;
 const IDIOMS = __IDIOMS__;
+const AFFIXES = __AFFIXES__;
+// 接頭辞・接尾辞の問題：例の単語ごとに「働き」を問う問題と、接尾辞なら「品詞」を問う問題を作る
+const AFFIX_ITEMS = AFFIXES.flatMap(a => a.examples.flatMap(([w, ja]) => {
+  const items = [{kind: "role", affix: a, w, ja}];
+  if (a.pos) items.push({kind: "pos", affix: a, w, ja});
+  return items;
+}));
+function affixSpan(a, w) {
+  const vs = a.affix.split("/").map(v => v.trim().replace(/-/g, ""));
+  for (const v of vs) {
+    if (a.type === "prefix" && w.startsWith(v)) return [0, v.length];
+    if (a.type === "suffix" && w.endsWith(v)) return [w.length - v.length, w.length];
+  }
+  return [0, 0];
+}
 const KEY = "meidai-nine-v2";
 const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
 const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想"};
@@ -164,8 +181,9 @@ const IDIOM_ITEMS = IDIOMS.map(x => ({en: x.en, ja: x.ja, src: "exam", year: x.y
 
 let queue = [], cur = null, correct = [], picked = new Set(), answered = false, confShown = new Set(), fromOf = new Map();
 
-const keyOf = q => st.mode + "|" + (q.word || q.en) + "|" + (q.pos || "");
+const keyOf = q => st.mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "");
 function pool() {
+  if (st.mode === "affix") return AFFIX_ITEMS;
   if (st.mode === "idiom") return IDIOM_ITEMS.filter(x => st.sources.includes(x.src));
   const base = WORDS.filter(w => st.levels.includes(w.level) && st.sources.includes(w.source || "exam"));
   return st.mode === "ety" ? base.filter(w => w.etymology) : base;
@@ -201,6 +219,31 @@ function setupIdiomQuestion(q) {
   fromOf = new Map(opts.map(t => [t, t === q.ja ? q.en : (IDIOM_ITEMS.find(x => x.ja === t) || {}).en || ""]));
   return opts;
 }
+function setupAffixQuestion(q) {
+  confShown = new Set();
+  if (q.kind === "pos") {
+    correct = [q.affix.pos];
+    const opts = ["名詞", "動詞", "形容詞", "副詞"];
+    fromOf = new Map();
+    return opts;
+  }
+  correct = [q.affix.role];
+  const same = shuffle(AFFIXES.filter(a => a.type === q.affix.type && a.role !== q.affix.role));
+  const other = shuffle(AFFIXES.filter(a => a.type !== q.affix.type));
+  const roles = [];
+  same.concat(other).forEach(a => { if (roles.length < 5 && !roles.includes(a.role) && a.role !== q.affix.role) roles.push(a.role); });
+  const opts = shuffle(correct.concat(roles));
+  fromOf = new Map(opts.map(r => [r, (AFFIXES.find(a => a.role === r) || {}).affix || ""]));
+  fromOf.set(q.affix.role, q.affix.affix);
+  return opts;
+}
+function showAffixWord(q) {
+  const [s, e] = affixSpan(q.affix, q.w);
+  const box = $("q-word"); box.innerHTML = "";
+  box.appendChild(document.createTextNode(q.w.slice(0, s)));
+  box.appendChild(el("mark", null, q.w.slice(s, e)));
+  box.appendChild(document.createTextNode(q.w.slice(e)));
+}
 function showHint(et) {
   const h = $("hint"); h.innerHTML = ""; h.appendChild(el("span", "lbl", "語源"));
   et.parts.forEach(p => { const e = el("span", "part"); e.appendChild(el("b", null, p.part)); e.appendChild(el("span", null, p.ja ? " ＝" + p.ja : "")); h.appendChild(e); });
@@ -210,6 +253,8 @@ function render() {
   if (!queue.length) buildQueue();
   if (!queue.length) { $("q-word").textContent = "出題できる問題がありません"; $("opts").innerHTML = ""; return; }
   cur = queue.shift(); answered = false; picked.clear();
+  if (st.mode === "affix") { renderAffix(); return; }
+  $("q-lv").parentElement.hidden = false; $("q-src").hidden = false;
   const idiom = st.mode === "idiom";
   const opts = idiom ? setupIdiomQuestion(cur) : setupWordQuestion(cur);
   const src = cur.source || cur.src || "exam";
@@ -228,6 +273,22 @@ function render() {
   $("q-tip").textContent = "知らない単語でも大丈夫です。部品の意味をつなげて、意味を推測してみましょう。";
   if (st.mode === "ety") showHint(cur.etymology);
   $("hintbtn").hidden = !(st.mode === "word" && cur.etymology);
+  drawOptions(opts);
+}
+function renderAffix() {
+  const opts = setupAffixQuestion(cur);
+  $("q-pos").textContent = cur.affix.type === "prefix" ? "接頭辞" : "接尾辞";
+  $("q-lv").hidden = true; $("q-src").hidden = true;
+  $("q-exam").textContent = "色の付いた部分：" + cur.affix.affix;
+  showAffixWord(cur);
+  $("q-word").className = "word";
+  $("q-ask").innerHTML = cur.kind === "pos" ? "形から考えると、この単語の品詞は？ <em>1</em> つ選んでください" : "色の付いた部分の働きは？ <em>1</em> つ選んでください";
+  $("hint").hidden = true; $("q-tip").hidden = false;
+  $("q-tip").textContent = cur.kind === "pos" ? "意味が分からなくても、語尾の形で品詞を見分けられます。" : "単語を知らなくても、頭や語尾の部品から意味の方向がつかめます。";
+  $("hintbtn").hidden = true;
+  drawOptions(opts);
+}
+function drawOptions(opts) {
   $("opts").innerHTML = "";
   opts.forEach((t, i) => {
     const b = el("button", "opt"); b.id = "opt" + i; b.setAttribute("aria-pressed", "false"); b.dataset.t = t;
@@ -277,6 +338,8 @@ function check() {
   $("result").className = "result " + (good ? "ok" : "ng");
   const idiom = st.mode === "idiom";
   $("a-means").innerHTML = "";
+  if (st.mode === "affix") { answerAffix(); return; }
+  $("a-eth").textContent = "語源"; $("a-idh").textContent = "イディオム";
   if (idiom) {
     $("a-mh").textContent = "このイディオムの意味";
     $("a-means").appendChild(listItem(cur.src === "exam" && cur.year ? "★" : "", cur.ja, cur.year ? "名大 " + cur.year + "年度" : ""));
@@ -297,6 +360,20 @@ function check() {
   $("hintbtn").hidden = true;
   $("answer").hidden = false; $("check").hidden = true; $("next").hidden = false; $("next").focus();
 }
+function answerAffix() {
+  const a = cur.affix;
+  $("a-mh").textContent = "この単語";
+  $("a-means").appendChild(listItem("", "　" + cur.ja + (a.pos ? "（" + a.pos + "）" : ""), "", cur.w));
+  $("a-eth").hidden = $("a-ety").hidden = false;
+  $("a-eth").textContent = "「" + a.affix + "」の働き";
+  $("a-ety").textContent = a.role;
+  $("a-idh").hidden = false; $("a-idh").textContent = "ほかの例";
+  $("a-ids").innerHTML = "";
+  a.examples.filter(([w]) => w !== cur.w).forEach(([w, ja]) => $("a-ids").appendChild(listItem("", "　" + ja, "", w)));
+  $("a-cfh").hidden = true; $("a-cfs").innerHTML = "";
+  $("hintbtn").hidden = true;
+  $("answer").hidden = false; $("check").hidden = true; $("next").hidden = false; $("next").focus();
+}
 function stats() {
   $("s-done").textContent = st.done;
   $("s-rate").textContent = st.done ? Math.round(st.ok / st.done * 100) + "%" : "–";
@@ -308,7 +385,8 @@ function syncControls() {
   document.querySelectorAll(".mode").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === st.mode));
   document.querySelectorAll(".chip[data-lv]").forEach(c => c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv)));
   document.querySelectorAll(".chip[data-src]").forEach(c => c.setAttribute("aria-pressed", st.sources.includes(c.dataset.src)));
-  $("f-level").hidden = st.mode === "idiom";
+  $("f-level").hidden = st.mode === "idiom" || st.mode === "affix";
+  $("f-src").hidden = st.mode === "affix";
 }
 function restart() { save(); syncControls(); buildQueue(); stats(); render(); }
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => { st.mode = b.dataset.mode; restart(); });

@@ -32,6 +32,7 @@ def parse_done():
 def main():
     nagoya = {(x["word"], x["pos"]): x for x in json.load(open(ROOT / "data" / "words_nagoya.json", encoding="utf-8"))}
     done = parse_done()
+    overrides = json.load(open(ROOT / "data" / "level_overrides.json", encoding="utf-8"))  # 目視の見直しで直したレベル
     words, missing = [], []
     for r in csv.DictReader(open(SRC / "selected.csv", encoding="utf-8")):
         k = (r["単語"], r["品詞"])
@@ -40,7 +41,7 @@ def main():
             missing.append(k)
             continue
         e = {
-            "word": r["単語"], "pos": r["品詞"], "level": int(r["レベル"]),
+            "word": r["単語"], "pos": r["品詞"], "level": overrides.get(r["単語"], int(r["レベル"])),
             "exam_count": int(r["合計回数"]), "exam_years": int(r["出た年数"]), "source": "kyotsu",
             # 共通テストでどの意味で使われたかは数えていないので、意味の印（★）は付けない
             "meanings": [{"ja": m["ja"], "in_exam": False, "exam_count": None} for m in base["meanings"]],

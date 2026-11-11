@@ -17,7 +17,6 @@ rise|名詞|上昇・増加||
 timing|名詞|タイミング・時機||
 vehicle|名詞|乗り物・車||
 announcement|名詞|発表・お知らせ||
-eco|名詞|環境に配慮した(eco-)||
 farming|名詞|農業||
 positively|副詞|前向きに・肯定的に||
 public|形容詞|公共の;公の・人前の|in public=人前で|

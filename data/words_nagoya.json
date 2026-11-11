@@ -2108,15 +2108,10 @@
    {
     "ja": "特定の・この",
     "in_exam": true,
-    "exam_count": 2
+    "exam_count": 3
    },
    {
     "ja": "特別な",
-    "in_exam": true,
-    "exam_count": 1
-   },
-   {
-    "ja": "特にない(no particular)",
     "in_exam": true,
     "exam_count": 1
    },
@@ -5349,7 +5344,7 @@
     "exam_count": 2
    },
    {
-    "ja": "満足(形容詞の content)",
+    "ja": "満足して(形容詞)",
     "in_exam": false,
     "exam_count": null
    }
@@ -6620,7 +6615,7 @@
     "exam_count": 1
    },
    {
-    "ja": "首相(prime minister)",
+    "ja": "第一位の(prime minister＝首相)",
     "in_exam": true,
     "exam_count": 1
    }
@@ -7810,7 +7805,7 @@
  {
   "word": "commonality",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 2,
   "exam_years": 1,
   "meanings": [
@@ -7832,7 +7827,7 @@
   "exam_years": 1,
   "meanings": [
    {
-    "ja": "対立する(competing)",
+    "ja": "競合する・対立する(competing)",
     "in_exam": true,
     "exam_count": 2
    },
@@ -10165,7 +10160,7 @@
  {
   "word": "algorithmic",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -10181,7 +10176,7 @@
  },
  {
   "word": "alkaline",
-  "pos": "名詞",
+  "pos": "形容詞",
   "level": 3,
   "exam_count": 1,
   "exam_years": 1,
@@ -10476,26 +10471,9 @@
   "source": "exam"
  },
  {
-  "word": "archeological",
-  "pos": "形容詞",
-  "level": 4,
-  "exam_count": 1,
-  "exam_years": 1,
-  "meanings": [
-   {
-    "ja": "考古学の",
-    "in_exam": true,
-    "exam_count": 1
-   }
-  ],
-  "idioms": [],
-  "confusables": [],
-  "source": "exam"
- },
- {
   "word": "aroma",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -10691,7 +10669,7 @@
  {
   "word": "bacteria",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -10730,7 +10708,7 @@
  {
   "word": "belongingness",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -11083,7 +11061,7 @@
  {
   "word": "calorie",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -11975,7 +11953,7 @@
  {
   "word": "cunningly",
   "pos": "副詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -12233,7 +12211,7 @@
  {
   "word": "demography",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -12263,7 +12241,7 @@
  {
   "word": "desertification",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -12452,7 +12430,7 @@
  {
   "word": "disassemble",
   "pos": "動詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -12854,7 +12832,7 @@
  {
   "word": "dressing",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -12910,7 +12888,7 @@
  {
   "word": "drowsiness",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -12927,7 +12905,7 @@
  {
   "word": "dweller",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -12984,7 +12962,7 @@
  {
   "word": "eavesdropping",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -13182,7 +13160,7 @@
  {
   "word": "encircle",
   "pos": "動詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -13646,7 +13624,7 @@
   "exam_years": 1,
   "meanings": [
    {
-    "ja": "魅了された(fascinate)",
+    "ja": "魅了された",
     "in_exam": true,
     "exam_count": 1
    }
@@ -13833,7 +13811,7 @@
   "idioms": [],
   "confusables": [
    {
-    "en": "find(過去形 found)",
+    "en": "found（find の過去形）",
     "ja": "見つけた"
    }
   ],
@@ -13859,7 +13837,7 @@
  {
   "word": "fourfold",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -14054,7 +14032,7 @@
  {
   "word": "gossiping",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -14502,7 +14480,7 @@
  {
   "word": "impolite",
   "pos": "形容詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -14975,7 +14953,7 @@
  {
   "word": "interactivity",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -15554,7 +15532,7 @@
  {
   "word": "mammal",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -15702,7 +15680,7 @@
  {
   "word": "meditative",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -15775,7 +15753,7 @@
  {
   "word": "mercifully",
   "pos": "副詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -16605,7 +16583,7 @@
  {
   "word": "overrate",
   "pos": "動詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -16635,7 +16613,7 @@
  {
   "word": "oversleep",
   "pos": "動詞",
-  "level": 4,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -17159,7 +17137,7 @@
   "exam_years": 1,
   "meanings": [
    {
-    "ja": "(人が)住む・満たす",
+    "ja": "(場所に)住む・(場所を)人で満たす",
     "in_exam": true,
     "exam_count": 1
    }
@@ -18276,7 +18254,7 @@
  {
   "word": "rink",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -18371,7 +18349,7 @@
  {
   "word": "salinity",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -18585,7 +18563,7 @@
  {
   "word": "shrill",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -18670,7 +18648,7 @@
  {
   "word": "smartphone",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -18687,7 +18665,7 @@
  {
   "word": "snooze",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -18704,7 +18682,7 @@
  {
   "word": "sociability",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -18785,7 +18763,7 @@
  {
   "word": "specialism",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -18836,7 +18814,7 @@
  {
   "word": "squeak",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -19012,7 +18990,7 @@
  {
   "word": "stressor",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -19493,23 +19471,6 @@
   "source": "exam"
  },
  {
-  "word": "tofu",
-  "pos": "名詞",
-  "level": 3,
-  "exam_count": 1,
-  "exam_years": 1,
-  "meanings": [
-   {
-    "ja": "豆腐",
-    "in_exam": true,
-    "exam_count": 1
-   }
-  ],
-  "idioms": [],
-  "confusables": [],
-  "source": "exam"
- },
- {
   "word": "trailer",
   "pos": "名詞",
   "level": 2,
@@ -19778,7 +19739,7 @@
  {
   "word": "typing",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -19795,7 +19756,7 @@
  {
   "word": "unaffordable",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -19812,7 +19773,7 @@
  {
   "word": "unappetizing",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -20201,7 +20162,7 @@
  {
   "word": "victimisation",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -20345,7 +20306,7 @@
  {
   "word": "weightlessness",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 1,
   "exam_years": 1,
   "meanings": [
@@ -20500,7 +20461,7 @@
  {
   "word": "calibrate",
   "pos": "動詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "source_article",
@@ -20775,7 +20736,7 @@
  {
   "word": "deafness",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "source_article",
@@ -21100,7 +21061,7 @@
  {
   "word": "generative",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "source_article",
@@ -21831,7 +21792,7 @@
  {
   "word": "fossil",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -21876,7 +21837,7 @@
  {
   "word": "specialisation",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23055,7 +23016,7 @@
  {
   "word": "amateurism",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23100,7 +23061,7 @@
  {
   "word": "chatbot",
   "pos": "名詞",
-  "level": 4,
+  "level": 2,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23205,7 +23166,7 @@
  {
   "word": "domesticate",
   "pos": "動詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23295,7 +23256,7 @@
  {
   "word": "paleolithic",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23365,7 +23326,7 @@
  {
   "word": "wildfire",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23495,7 +23456,7 @@
  {
   "word": "connotation",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23520,7 +23481,7 @@
  {
   "word": "conservationist",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23641,7 +23602,7 @@
  {
   "word": "frictionless",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23661,7 +23622,7 @@
  {
   "word": "heatwave",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23795,7 +23756,7 @@
  {
   "word": "perceptual",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",
@@ -23820,7 +23781,7 @@
  {
   "word": "recyclable",
   "pos": "形容詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 0,
   "exam_years": 0,
   "source": "predicted",

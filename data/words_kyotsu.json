@@ -1887,7 +1887,7 @@
  {
   "word": "smartphone",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 7,
   "exam_years": 3,
   "source": "kyotsu",
@@ -3795,7 +3795,7 @@
  {
   "word": "bacteria",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 10,
   "exam_years": 2,
   "source": "kyotsu",
@@ -4487,23 +4487,6 @@
   "meanings": [
    {
     "ja": "発表・お知らせ",
-    "in_exam": false,
-    "exam_count": null
-   }
-  ],
-  "idioms": [],
-  "confusables": []
- },
- {
-  "word": "eco",
-  "pos": "名詞",
-  "level": 1,
-  "exam_count": 6,
-  "exam_years": 2,
-  "source": "kyotsu",
-  "meanings": [
-   {
-    "ja": "環境に配慮した(eco-)",
     "in_exam": false,
     "exam_count": null
    }
@@ -8964,11 +8947,6 @@
     "exam_count": null
    },
    {
-    "ja": "特にない(no particular)",
-    "in_exam": false,
-    "exam_count": null
-   },
-   {
     "ja": "好みがうるさい",
     "in_exam": false,
     "exam_count": null
@@ -10971,7 +10949,7 @@
   "source": "kyotsu",
   "meanings": [
    {
-    "ja": "対立する(competing)",
+    "ja": "競合する・対立する(competing)",
     "in_exam": false,
     "exam_count": null
    },
@@ -12151,7 +12129,7 @@
  {
   "word": "calorie",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",

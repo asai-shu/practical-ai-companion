@@ -1,0 +1,12 @@
+spacesuit|名詞
+stethoscope|名詞
+sunglass|名詞
+superb|形容詞
+swing|名詞
+tag|名詞
+terrace|名詞
+transmit|動詞
+underground|形容詞
+vend|動詞
+wearer|名詞
+worksheet|名詞

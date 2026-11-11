@@ -1,4 +1,4 @@
-accommodation|名詞|宿泊施設;適応||
+accommodation|名詞|宿泊施設;(要望などへの)対応||
 deposit|名詞|預け金・手付金;堆積物||
 trail|名詞|小道;跡||trial=試み
 housework|名詞|家事||

@@ -16,7 +16,7 @@ height|名詞|高さ・身長||weight=重さ
 hurt|動詞|傷つける;痛む||
 improvement|名詞|改善・向上||
 increase|名詞|増加||
-intense|形容詞|激しい・強烈な||intents=意図(複数)
+intense|形容詞|激しい・強烈な||intensive=集中的な
 land|動詞|着陸する;上陸する||
 marine|形容詞|海の||
 memorable|形容詞|記憶に残る||

@@ -686,7 +686,7 @@
  {
   "word": "respondent",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 16,
   "exam_years": 3,
   "source": "kyotsu",
@@ -3163,7 +3163,7 @@
  {
   "word": "upcoming",
   "pos": "形容詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 4,
   "exam_years": 3,
   "source": "kyotsu",
@@ -3928,7 +3928,7 @@
  {
   "word": "flyer",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 9,
   "exam_years": 2,
   "source": "kyotsu",
@@ -3945,7 +3945,7 @@
  {
   "word": "memo",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 9,
   "exam_years": 2,
   "source": "kyotsu",
@@ -4822,7 +4822,7 @@
  {
   "word": "debris",
   "pos": "名詞",
-  "level": 1,
+  "level": 3,
   "exam_count": 5,
   "exam_years": 2,
   "source": "kyotsu",
@@ -5509,7 +5509,7 @@
  {
   "word": "awkward",
   "pos": "形容詞",
-  "level": 1,
+  "level": 2,
   "exam_count": 4,
   "exam_years": 2,
   "source": "kyotsu",
@@ -5575,7 +5575,7 @@
  {
   "word": "coating",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 4,
   "exam_years": 2,
   "source": "kyotsu",
@@ -5928,7 +5928,7 @@
  {
   "word": "hiker",
   "pos": "名詞",
-  "level": 4,
+  "level": 2,
   "exam_count": 4,
   "exam_years": 2,
   "source": "kyotsu",
@@ -6426,7 +6426,7 @@
  {
   "word": "undecided",
   "pos": "形容詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 4,
   "exam_years": 2,
   "source": "kyotsu",
@@ -6884,7 +6884,7 @@
  {
   "word": "daydream",
   "pos": "動詞",
-  "level": 4,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 2,
   "source": "kyotsu",
@@ -7416,8 +7416,8 @@
   "idioms": [],
   "confusables": [
    {
-    "en": "intents",
-    "ja": "意図(複数)"
+    "en": "intensive",
+    "ja": "集中的な"
    }
   ]
  },
@@ -8099,7 +8099,7 @@
  {
   "word": "reuse",
   "pos": "動詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 2,
   "source": "kyotsu",
@@ -8481,7 +8481,7 @@
  {
   "word": "belonging",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 2,
   "source": "kyotsu",
@@ -8656,7 +8656,7 @@
  {
   "word": "coupon",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 2,
   "source": "kyotsu",
@@ -8836,7 +8836,7 @@
  {
   "word": "inactive",
   "pos": "形容詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 2,
   "source": "kyotsu",
@@ -8892,7 +8892,7 @@
  {
   "word": "layout",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 2,
   "source": "kyotsu",
@@ -8994,7 +8994,7 @@
  {
   "word": "prioritize",
   "pos": "動詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 2,
   "source": "kyotsu",
@@ -9116,7 +9116,7 @@
  {
   "word": "stimulating",
   "pos": "形容詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 2,
   "source": "kyotsu",
@@ -9502,7 +9502,7 @@
     "exam_count": null
    },
    {
-    "ja": "適応",
+    "ja": "(要望などへの)対応",
     "in_exam": false,
     "exam_count": null
    }
@@ -9530,7 +9530,7 @@
  {
   "word": "deposit",
   "pos": "名詞",
-  "level": 1,
+  "level": 2,
   "exam_count": 8,
   "exam_years": 1,
   "source": "kyotsu",
@@ -9690,7 +9690,7 @@
  {
   "word": "perseverance",
   "pos": "名詞",
-  "level": 2,
+  "level": 3,
   "exam_count": 7,
   "exam_years": 1,
   "source": "kyotsu",
@@ -10216,7 +10216,7 @@
  {
   "word": "aquarium",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 4,
   "exam_years": 1,
   "source": "kyotsu",
@@ -10282,7 +10282,7 @@
  {
   "word": "dairy",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 4,
   "exam_years": 1,
   "source": "kyotsu",
@@ -10465,7 +10465,7 @@
  {
   "word": "hardness",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 4,
   "exam_years": 1,
   "source": "kyotsu",
@@ -10692,7 +10692,7 @@
  {
   "word": "sensation",
   "pos": "名詞",
-  "level": 1,
+  "level": 2,
   "exam_count": 4,
   "exam_years": 1,
   "source": "kyotsu",
@@ -10909,7 +10909,7 @@
  {
   "word": "chore",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 1,
   "source": "kyotsu",
@@ -10974,7 +10974,7 @@
  {
   "word": "compound",
   "pos": "名詞",
-  "level": 1,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 1,
   "source": "kyotsu",
@@ -11063,7 +11063,7 @@
  {
   "word": "cosmetic",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 1,
   "source": "kyotsu",
@@ -11227,7 +11227,7 @@
  {
   "word": "excite",
   "pos": "動詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 1,
   "source": "kyotsu",
@@ -11356,7 +11356,7 @@
  {
   "word": "heading",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 1,
   "source": "kyotsu",
@@ -11395,7 +11395,7 @@
  {
   "word": "irony",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 1,
   "source": "kyotsu",
@@ -11526,7 +11526,7 @@
  {
   "word": "pamphlet",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 1,
   "source": "kyotsu",
@@ -11686,7 +11686,7 @@
  {
   "word": "projector",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 1,
   "source": "kyotsu",
@@ -11793,7 +11793,7 @@
  {
   "word": "reset",
   "pos": "動詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 3,
   "exam_years": 1,
   "source": "kyotsu",
@@ -11927,7 +11927,7 @@
  {
   "word": "allergy",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12022,7 +12022,7 @@
  {
   "word": "ballot",
   "pos": "名詞",
-  "level": 2,
+  "level": 3,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12112,7 +12112,7 @@
  {
   "word": "calcium",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12190,7 +12190,7 @@
  {
   "word": "childcare",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12224,7 +12224,7 @@
  {
   "word": "coordinator",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12280,7 +12280,7 @@
  {
   "word": "dine",
   "pos": "動詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12297,7 +12297,7 @@
  {
   "word": "diner",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12363,7 +12363,7 @@
  {
   "word": "etiquette",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12436,7 +12436,7 @@
  {
   "word": "forum",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12487,7 +12487,7 @@
  {
   "word": "heartbeat",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12676,7 +12676,7 @@
  {
   "word": "internship",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12693,7 +12693,7 @@
  {
   "word": "kindergarten",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12749,7 +12749,7 @@
  {
   "word": "maximize",
   "pos": "動詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12827,7 +12827,7 @@
  {
   "word": "microplastic",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12912,7 +12912,7 @@
  {
   "word": "ownership",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -12997,7 +12997,7 @@
  {
   "word": "planner",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -13019,7 +13019,7 @@
  {
   "word": "poisoning",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -13053,7 +13053,7 @@
  {
   "word": "prestige",
   "pos": "名詞",
-  "level": 2,
+  "level": 3,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -13070,7 +13070,7 @@
  {
   "word": "preview",
   "pos": "動詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -13231,7 +13231,7 @@
  {
   "word": "refreshment",
   "pos": "名詞",
-  "level": 4,
+  "level": 3,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -13387,7 +13387,7 @@
  {
   "word": "skydiving",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -13426,7 +13426,7 @@
  {
   "word": "soften",
   "pos": "動詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -13465,7 +13465,7 @@
  {
   "word": "spacesuit",
   "pos": "名詞",
-  "level": 4,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -13676,26 +13676,9 @@
   }
  },
  {
-  "word": "vend",
-  "pos": "動詞",
-  "level": 4,
-  "exam_count": 2,
-  "exam_years": 1,
-  "source": "kyotsu",
-  "meanings": [
-   {
-    "ja": "売る(vending machine=自動販売機)",
-    "in_exam": false,
-    "exam_count": null
-   }
-  ],
-  "idioms": [],
-  "confusables": []
- },
- {
   "word": "wearer",
   "pos": "名詞",
-  "level": 3,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",
@@ -13712,7 +13695,7 @@
  {
   "word": "worksheet",
   "pos": "名詞",
-  "level": 4,
+  "level": 2,
   "exam_count": 2,
   "exam_years": 1,
   "source": "kyotsu",

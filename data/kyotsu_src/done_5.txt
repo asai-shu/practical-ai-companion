@@ -83,6 +83,5 @@ tag|名詞|札・タグ||
 terrace|名詞|テラス;段々畑||
 transmit|動詞|伝える・送る;感染させる||
 underground|形容詞|地下の||
-vend|動詞|売る(vending machine=自動販売機)||
 wearer|名詞|着用者||
 worksheet|名詞|ワークシート・作業用紙||

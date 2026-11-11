@@ -1,0 +1,18 @@
+{
+ "name": "入試 英単語 ナイン",
+ "short_name": "英単語ナイン",
+ "description": "大学入試に実際に出た英単語を、9つの選択肢から意味をすべて選ぶクイズで覚える単語アプリ。共通テスト版は無料。",
+ "lang": "ja",
+ "start_url": ".",
+ "display": "standalone",
+ "background_color": "#fbf9f8",
+ "theme_color": "#d2554a",
+ "icons": [
+  {
+   "src": "icon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml",
+   "purpose": "any"
+  }
+ ]
+}

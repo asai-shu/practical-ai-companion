@@ -1,0 +1,100 @@
+take|動詞|取る・持っていく;(時間が)かかる;受ける・参加する;(乗り物に)乗る|take part in ～=～に参加する,take care of ～=～の世話をする,take place=行われる|
+more|形容詞|より多くの;それ以上の||
+option|名詞|選択肢|have no option but to ～=～するしかない|
+more|副詞|もっと・より;さらに|more or less=多かれ少なかれ|
+comment|名詞|意見・コメント||
+even|副詞|～でさえ;(比較級を強めて)さらに|even if ～=たとえ～でも|
+last|形容詞|最後の;この前の|last but not least=最後に大事なことを言うと|
+presentation|名詞|発表;提示||
+sleep|名詞|睡眠|get enough sleep=十分に眠る|
+leave|動詞|去る・出発する;残す・置いていく;～のままにしておく|leave A for B=Bに向けてAを出発する|live=住む
+like|動詞|好む|would like to ～=～したい|
+service|名詞|サービス・業務;(交通機関の)便|
+workshop|名詞|研修会・ワークショップ;作業場||
+stay|動詞|滞在する;～のままでいる|stay up late=夜ふかしする|
+affect|動詞|影響を与える||effect=影響・効果
+increase|動詞|増える;増やす||decrease=減る
+respondent|名詞|回答者||
+available|形容詞|利用できる・手に入る;手が空いている||
+blog|名詞|ブログ||
+level|名詞|水準・程度;高さ||
+live|動詞|住む;生きる;暮らす||leave=去る
+half|名詞|半分||
+maintain|動詞|維持する;主張する||
+talk|動詞|話す|talk A into ～=Aを説得して～させる|
+lead|動詞|導く・率いる;つながる(lead to)|lead to ～=～につながる|
+resident|名詞|住民||
+protect|動詞|守る|protect A from B=AをBから守る|
+benefit|動詞|利益を得る・恩恵を受ける|benefit from ～=～から恩恵を受ける|
+ensure|動詞|確実にする||insure=保険をかける
+quality|名詞|質・品質;特質||quantity=量
+race|名詞|競走・レース;人種||
+relate|動詞|関係させる;共感する(relate to)|be related to ～=～と関係がある|
+wonder|動詞|～だろうかと思う;不思議に思う||wander=さまよう
+attend|動詞|出席する;世話をする(attend to)||
+property|名詞|財産・所有物;特性||
+industry|名詞|産業;勤勉||
+introduction|名詞|紹介;導入;序論||
+respond|動詞|答える;反応する|respond to ～=～に応じる|
+absorb|動詞|吸収する;夢中にさせる|be absorbed in ～=～に夢中だ|
+device|名詞|装置・機器||devise=考案する
+discovery|名詞|発見||
+hire|動詞|雇う||
+immediately|副詞|すぐに||
+least|形容詞|最も少ない|at least=少なくとも|
+like|形容詞|似ている||
+majority|名詞|大多数||minority=少数
+medium|名詞|媒体・手段(media は複数形)||
+pick|動詞|選ぶ;摘む|pick up ～=～を拾う・迎えに行く|
+recommendation|名詞|推薦・おすすめ||
+recycling|名詞|リサイクル||
+satisfied|形容詞|満足した|be satisfied with ～=～に満足している|
+top|名詞|頂上・上部||
+top|形容詞|最高の・一番上の||
+challenging|形容詞|やりがいのある・難しい||
+climate|名詞|気候||climax=最高潮
+combination|名詞|組み合わせ||
+consume|動詞|消費する;食べる||assume=仮定する
+current|形容詞|現在の||currant=干しぶどう
+least|副詞|最も少なく||
+locate|動詞|(場所を)突き止める;置く(be located in)|be located in ～=～にある|
+term|名詞|用語;期間;条件|in terms of ～=～の点で|
+transport|名詞|輸送・交通機関||
+attract|動詞|引きつける||
+awareness|名詞|意識・認識||
+constantly|副詞|絶えず||
+damage|動詞|損害を与える||
+duty|名詞|義務;任務;関税||
+effectively|副詞|効果的に;事実上||
+financial|形容詞|財政の・金銭的な||
+furthermore|副詞|さらに||
+gear|名詞|道具・用具;ギア||
+interfere|動詞|妨げる・干渉する|interfere with ～=～の邪魔をする|
+model|名詞|模型;型;手本||
+nod|動詞|うなずく||
+rise|動詞|上がる・増える;昇る||raise=上げる
+treatment|名詞|治療;扱い||
+upcoming|形容詞|近く行われる・今度の||
+welcome|形容詞|歓迎される;自由に～してよい|You're welcome to ～=自由に～してください|
+achievement|名詞|達成・業績||
+advertise|動詞|宣伝する||
+aim|動詞|目指す・ねらう|aim to ～=～することを目指す|
+development|名詞|発展・開発;成長||
+focused|形容詞|集中した・焦点を絞った||
+function|動詞|機能する・働く||
+graph|名詞|グラフ||
+hop|動詞|ぴょんと跳ぶ;(乗り物に)さっと乗る||
+hopefully|副詞|うまくいけば||
+ignore|動詞|無視する||
+incident|名詞|出来事・事件||accident=事故
+lasting|形容詞|長く続く||
+live|形容詞|生の・ライブの;生きている||
+near|形容詞|近い|in the near future=近いうちに|
+refuse|動詞|断る・拒む||
+sufficient|形容詞|十分な||efficient=効率的な
+sleep|動詞|眠る||
+waste|名詞|無駄;廃棄物||waist=腰
+arrange|動詞|手配する;並べる||
+reject|動詞|拒否する||
+tournament|名詞|トーナメント・大会||
+assistance|名詞|援助・手助け||

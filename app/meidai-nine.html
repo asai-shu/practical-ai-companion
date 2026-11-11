@@ -1,4 +1,4 @@
-<title>名大単語ナイン</title>
+<title>入試 英単語 ナイン</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
@@ -59,6 +59,11 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .settings summary span{font-weight:400;color:var(--muted);margin-left:10px;font-size:12px}
 .settings summary:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .setin{display:grid;gap:10px;padding:0 14px 14px}
+.settings .setin{padding-top:14px}
+.steph{font-size:15px;margin:0}
+.startbtn{justify-self:start}
+.btn.small{padding:6px 14px;font-size:13px;justify-self:start}
+.studybar{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
 .recbox{border:1px solid var(--line);border-radius:6px;background:var(--sheet);padding:14px 16px;display:grid;gap:10px}
 .recbox h2{font-size:14px;margin:0}
 .big{font-size:16px;font-weight:700;margin:0;line-height:1.8}
@@ -129,7 +134,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
 <div class="wrap">
   <header>
-    <h1 class="brand"><svg class="logo" viewBox="0 0 30 30" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="5" cy="5" rx="3" ry="4"/><ellipse cx="15" cy="5" rx="3" ry="4"/><ellipse cx="25" cy="5" rx="3" ry="4"/><ellipse cx="5" cy="15" rx="3" ry="4"/><ellipse cx="15" cy="15" rx="3" ry="4" class="on"/><ellipse cx="25" cy="15" rx="3" ry="4"/><ellipse cx="5" cy="25" rx="3" ry="4" class="on"/><ellipse cx="15" cy="25" rx="3" ry="4"/><ellipse cx="25" cy="25" rx="3" ry="4"/></g></svg><span><small id="h-sub">名古屋大学 2次試験（2020〜2024年度）頻出</small><span id="h-name">名大単語ナイン</span></span></h1>
+    <h1 class="brand"><svg class="logo" viewBox="0 0 30 30" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="5" cy="5" rx="3" ry="4"/><ellipse cx="15" cy="5" rx="3" ry="4"/><ellipse cx="25" cy="5" rx="3" ry="4"/><ellipse cx="5" cy="15" rx="3" ry="4"/><ellipse cx="15" cy="15" rx="3" ry="4" class="on"/><ellipse cx="25" cy="15" rx="3" ry="4"/><ellipse cx="5" cy="25" rx="3" ry="4" class="on"/><ellipse cx="15" cy="25" rx="3" ry="4"/><ellipse cx="25" cy="25" rx="3" ry="4"/></g></svg><span><small id="h-sub">名古屋大学 2次試験（2020〜2024年度）頻出</small><span id="h-name">入試 英単語 ナイン</span></span></h1>
     <div class="stats" aria-live="polite">
       <div><b id="s-done">0</b>問</div>
       <div><b id="s-rate">–</b>正答率</div>
@@ -153,7 +158,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <button class="exam start-exam" data-exam="kyotsu">共通テスト<small>無料版・613語</small></button>
       <button class="exam start-exam" data-exam="nagoya">名古屋大学 2次試験<small>大学特化版・895語</small></button>
     </div>
-    <p class="tip">パソコンでは、数字キー（1〜9）で選択肢を選び、Enterキーで答え合わせ・次の問題に進めます。</p>
   </section>
 
   <div class="tabs" role="tablist" aria-label="表示" id="tabs">
@@ -168,6 +172,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </div>
 
   <div id="v-quiz" class="view">
+  <div id="setup" class="view">
+  <h2 class="steph">学習の設定</h2>
   <div class="modes" role="group" aria-label="モード">
     <button class="mode" id="m-word" data-mode="word" aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
     <button class="mode" id="m-idiom" data-mode="idiom" aria-pressed="false">イディオム<small>熟語の意味を選ぶ</small></button>
@@ -175,8 +181,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="mode" id="m-affix" data-mode="affix" aria-pressed="false">接頭辞・接尾辞<small>形から働きを当てる</small></button>
   </div>
 
-  <details class="settings" id="settings">
-  <summary>出題の設定<span id="set-sum"></span></summary>
+  <div class="settings" id="settings">
   <div class="setin">
   <div class="filters" role="group" aria-label="出題するレベル" id="f-level">
     <span>レベル</span>
@@ -197,9 +202,18 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="chip" id="b-book" data-book="book" aria-pressed="false">単語帳だけ</button>
     <button class="chip" id="b-weak" data-book="weak" aria-pressed="false">苦手だけ</button>
   </div>
+  <div class="filters" id="f-weak">
+    <span>苦手</span>
+    <label class="chk"><input type="checkbox" id="weak-on" checked> 間違えた単語を「苦手」に自動で集める</label>
   </div>
-  </details>
+  </div>
+  </div>
+  <p class="tip" id="setup-msg" hidden></p>
+  <button class="btn startbtn" id="startbtn">学習を始める</button>
+  </div>
 
+  <div id="study" class="view" hidden>
+  <div class="studybar"><span id="study-sum"></span><button class="btn ghost small" id="pausebtn">中断する</button></div>
   <section class="sheet" aria-live="polite">
     <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span class="tag src" id="q-src">名大の入試</span><span id="q-exam">名大で27回 / 1年分</span></div>
     <p class="word" id="q-word">dolphin</p>
@@ -211,7 +225,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <button class="btn" id="check" disabled>答え合わせ</button>
       <button class="btn ghost" id="next" hidden>次の問題</button>
       <button class="btn ghost" id="hintbtn" hidden>語源ヒントを見る</button>
-      <button class="btn ghost" id="bookbtn" hidden>☆ 単語帳に入れる</button>
+      <button class="btn ghost" id="bookbtn" hidden>＋ ブックマーク</button>
       <span class="result" id="result"></span>
     </div>
     <div class="answer" id="answer" hidden>
@@ -226,6 +240,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     </div>
   </section>
   </div>
+  </div>
 
   <section id="v-list" class="view" hidden>
     <div class="listbar">
@@ -239,7 +254,9 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
         <option value="level">レベル順（易しい順）</option>
       </select>
       <label class="chk"><input type="checkbox" id="l-book"> 単語帳だけ</label>
+      <label class="chk"><input type="checkbox" id="l-mark"> ブックマークだけ</label>
     </div>
+    <button class="btn ghost small" id="l-addall" hidden>ブックマークをすべて単語帳に移す</button>
     <p class="tip" id="l-count"></p>
     <ul class="wlist" id="l-list"></ul>
   </section>
@@ -297,10 +314,11 @@ const KEY = "meidai-nine-v2";
 const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
 const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想", kyotsu:"共通テスト"};
 const EXAM = {
-  kyotsu: {name: "共テ単語ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [1,2,3,4]},
-  nagoya: {name: "名大単語ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2,3,4]},
+  kyotsu: {name: "入試 英単語 ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [1,2,3,4]},
+  nagoya: {name: "入試 英単語 ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2,3,4]},
 };
-let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false};
+let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}};
+let studying = false;
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
 const $ = id => document.getElementById(id);
@@ -334,6 +352,9 @@ function toggleBook(w) {
   if (i >= 0) b.splice(i, 1); else b.push(k);
   save();
 }
+const markList = () => (st.marks[st.exam] = st.marks[st.exam] || []);
+const inMark = w => markList().includes(wkey(w));
+function toggleMark(w) { const b = markList(), k = wkey(w), i = b.indexOf(k); if (i >= 0) b.splice(i, 1); else b.push(k); save(); }
 const weakList = () => (st.weak[st.exam] = st.weak[st.exam] || []);
 const keyOf = q => st.exam + "|" + st.mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "");
 function pool() {
@@ -469,15 +490,18 @@ function drawOptions(opts) {
     $("opts").appendChild(b);
   });
   $("check").disabled = true; $("check").hidden = false; $("next").hidden = true;
-  $("result").textContent = ""; $("result").className = "result"; $("answer").hidden = true; $("bookbtn").hidden = true;
+  $("result").textContent = ""; $("result").className = "result"; $("answer").hidden = true; showBookBtn();
 }
 function toggle(b) {
   if (answered) return;
   const t = b.dataset.t;
   if (picked.has(t)) picked.delete(t);
   else {
-    if (correct.length === 1) { picked.clear(); document.querySelectorAll(".opt").forEach(o => o.setAttribute("aria-pressed", "false")); }
-    else if (picked.size >= correct.length) return;
+    // 選べる数を超えたら、いちばん先に選んだものを外して選び直す
+    if (picked.size >= correct.length) {
+      const first = picked.values().next().value; picked.delete(first);
+      document.querySelectorAll(".opt").forEach(o => { if (o.dataset.t === first) o.setAttribute("aria-pressed", "false"); });
+    }
     picked.add(t);
   }
   b.setAttribute("aria-pressed", picked.has(t));
@@ -505,7 +529,7 @@ function check() {
   countToday();
   const ms = st.modeStats[st.exam + "|" + st.mode] = st.modeStats[st.exam + "|" + st.mode] || {done: 0, ok: 0};
   ms.done++; if (good) ms.ok++;
-  if (st.mode === "word" || st.mode === "ety") {
+  if (st.weakOn && (st.mode === "word" || st.mode === "ety")) {
     const wl = weakList(), wk = wkey(cur), i = wl.indexOf(wk);
     if (!good && i < 0) wl.push(wk);
     if (good && i >= 0 && (st.mastery[keyOf(cur)] || 0) >= 1) wl.splice(i, 1); // 苦手から外すのは2回続けて正解したとき
@@ -544,7 +568,7 @@ function check() {
 function showBookBtn() {
   const ok = st.mode === "word" || st.mode === "ety";
   $("bookbtn").hidden = !ok;
-  if (ok) $("bookbtn").textContent = inBook(cur) ? "★ 単語帳から外す" : "☆ 単語帳に入れる";
+  if (ok) $("bookbtn").textContent = inMark(cur) ? "✓ ブックマーク済み（外す）" : "＋ ブックマーク";
 }
 function answerAffix() {
   const a = cur.affix;
@@ -585,13 +609,23 @@ function syncControls() {
   document.querySelector(".wrap > .exams").hidden = starting;
   if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; return; }
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
-  $("set-sum").textContent = (st.mode === "idiom" || st.mode === "affix" ? "" : lvs) + (st.range === "book" ? "／単語帳だけ" : st.range === "weak" ? "／苦手だけ" : "");
+  const MODE = {word: "単語", idiom: "イディオム", ety: "語源で推測", affix: "接頭辞・接尾辞"};
+  $("study-sum").textContent = MODE[st.mode] + (st.mode === "idiom" || st.mode === "affix" ? "" : "／" + lvs) + (st.range === "book" ? "／単語帳だけ" : st.range === "weak" ? "／苦手だけ" : "");
+  $("setup").hidden = studying; $("study").hidden = !studying;
+  document.querySelector(".wrap > .exams").hidden = studying;
+  $("weak-on").checked = st.weakOn;
   $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec";
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", b.dataset.exam === st.exam));
 }
-function restart() { save(); syncControls(); buildQueue(); stats(); render(); }
+function restart() { $("setup-msg").hidden = true; save(); syncControls(); buildQueue(); stats(); render(); }
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => { st.mode = b.dataset.mode; restart(); });
-document.querySelectorAll(".exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; setExam(); restart(); });
+document.querySelectorAll(".exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; studying = false; setExam(); restart(); });
+$("startbtn").onclick = () => {
+  if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや範囲を変えてください。"; return; }
+  studying = true; restart(); window.scrollTo(0, 0);
+};
+$("pausebtn").onclick = () => { studying = false; syncControls(); stats(); window.scrollTo(0, 0); };
+$("weak-on").addEventListener("change", e => { st.weakOn = e.target.checked; save(); });
 document.querySelectorAll(".chip[data-lv]").forEach(c => c.onclick = () => {
   const lv = +c.dataset.lv, on = st.levels.includes(lv);
   if (on && st.levels.length === 1) return;
@@ -605,20 +639,12 @@ document.querySelectorAll(".chip[data-src]").forEach(c => c.onclick = () => {
 $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = true; };
 $("check").onclick = check; $("next").onclick = render;
 document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; st.seen = true; st.view = "quiz"; setExam(); restart(); });
-document.addEventListener("keydown", e => {
-  if (st.view !== "quiz" || !st.seen || e.ctrlKey || e.metaKey || e.altKey) return;
-  const t = e.target.tagName; if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
-  if (/^[1-9]$/.test(e.key)) { const o = $("opt" + (+e.key - 1)); if (o && !o.disabled) { o.click(); e.preventDefault(); } }
-  else if (e.key === "Enter") {
-    if (!$("check").hidden && !$("check").disabled) { $("check").click(); e.preventDefault(); }
-    else if (!$("next").hidden) { $("next").click(); e.preventDefault(); }
-  }
-});
 const POS_ORDER = {"名詞":1, "動詞":2, "形容詞":3, "副詞":4, "前置詞句":5};
 function renderList() {
   const q = $("l-q").value.trim().toLowerCase();
   const sort = $("l-sort").value;
-  let ws = WORDS.filter(w => (!$("l-book").checked || inBook(w)) &&
+  $("l-addall").hidden = !markList().length;
+  let ws = WORDS.filter(w => (!$("l-book").checked || inBook(w)) && (!$("l-mark").checked || inMark(w)) &&
     (!q || w.word.toLowerCase().includes(q) || w.meanings.some(m => m.ja.includes(q))));
   const by = {
     count: (a, b) => (b.exam_count || b.article_count || 0) - (a.exam_count || a.article_count || 0) || a.word.localeCompare(b.word),
@@ -627,7 +653,7 @@ function renderList() {
     level: (a, b) => a.level - b.level || a.word.localeCompare(b.word),
   }[sort];
   ws = ws.slice().sort(by);
-  $("l-count").textContent = ws.length + "語（単語帳：" + bookList().length + "語）";
+  $("l-count").textContent = ws.length + "語（単語帳：" + bookList().length + "語／ブックマーク：" + markList().length + "語）";
   const ul = $("l-list"); ul.innerHTML = "";
   ws.forEach(w => {
     const li = el("li");
@@ -638,7 +664,7 @@ function renderList() {
     li.appendChild(el("span", "w", w.word));
     const n = w.exam_count || w.article_count;
     li.appendChild(el("span", "cnt", n ? n + "回" : ""));
-    li.appendChild(el("span", "sub", w.pos + "・" + LVNAME[w.level] + (w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + SRC[w.source] : "")));
+    li.appendChild(el("span", "sub", w.pos + "・" + LVNAME[w.level] + (w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + SRC[w.source] : "") + (inMark(w) ? "・ブックマーク中" : "")));
     const m = el("span", "m", w.meanings.map(x => x.ja).join(" / "));
     m.style.gridColumn = "2 / 4";
     li.appendChild(m);
@@ -687,12 +713,13 @@ $("r-date").addEventListener("change", e => { st.examDate[st.exam] = e.target.va
 $("r-goal").addEventListener("change", e => { st.goal = +e.target.value; save(); stats(); });
 document.querySelectorAll(".chip[data-book]").forEach(c => c.onclick = () => {
   const want = c.dataset.book;
-  if (want === "book" && !bookList().length) { $("q-tip").hidden = false; $("q-tip").textContent = "単語帳がまだ空です。答え合わせのあとや単語一覧の☆から、単語を入れてください。"; return; }
-  if (want === "weak" && !weakList().length) { $("q-tip").hidden = false; $("q-tip").textContent = "苦手な単語はまだありません。間違えた単語が、ここに自動で集まります。"; return; }
+  if (want === "book" && !bookList().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "単語帳がまだ空です。「単語一覧・単語帳」の☆やブックマークから、単語を入れてください。"; return; }
+  if (want === "weak" && !weakList().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "苦手な単語はまだありません。間違えた単語が、ここに自動で集まります。"; return; }
   st.range = want; restart();
 });
-$("bookbtn").onclick = () => { toggleBook(cur); showBookBtn(); };
-["l-q", "l-sort", "l-book"].forEach(id => $(id).addEventListener(id === "l-q" ? "input" : "change", renderList));
+$("bookbtn").onclick = () => { toggleMark(cur); showBookBtn(); };
+$("l-addall").onclick = () => { markList().forEach(k => { if (!bookList().includes(k)) bookList().push(k); }); st.marks[st.exam] = []; $("l-mark").checked = false; save(); renderList(); };
+["l-q", "l-sort", "l-book", "l-mark"].forEach(id => $(id).addEventListener(id === "l-q" ? "input" : "change", renderList));
 const origSetExam = setExam;
 setExam = function () { origSetExam(); if ((st.range === "book" && !bookList().length) || (st.range === "weak" && !weakList().length)) st.range = "all"; if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); };
 setExam(); syncControls(); buildQueue(); stats(); render();

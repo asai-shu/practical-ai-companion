@@ -46,6 +46,15 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .wlist .sub{grid-column:2;font-size:12px;color:var(--muted)}
 .star-btn{font:inherit;font-size:18px;line-height:1;border:0;background:none;color:var(--drop);cursor:pointer;padding:4px;grid-row:span 2}
 .star-btn:focus-visible{outline:2px solid var(--drop)}
+.startbox{border:2px solid var(--drop);border-radius:6px;background:var(--sheet);padding:18px clamp(16px,4vw,28px)}
+.startbox h2{margin:0;font-size:20px}
+.startbox p{margin:0}
+.modelist{margin:0;padding-left:1.2em;display:grid;gap:4px}
+.settings{border:1px solid var(--line);border-radius:6px;background:var(--sheet)}
+.settings summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:14px}
+.settings summary span{font-weight:400;color:var(--muted);margin-left:10px;font-size:12px}
+.settings summary:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
+.setin{display:grid;gap:10px;padding:0 14px 14px}
 .recbox{border:1px solid var(--line);border-radius:6px;background:var(--sheet);padding:14px 16px;display:grid;gap:10px}
 .recbox h2{font-size:14px;margin:0}
 .big{font-size:16px;font-weight:700;margin:0;line-height:1.8}
@@ -126,7 +135,24 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     </div>
   </header>
 
-  <div class="tabs" role="tablist" aria-label="表示">
+  <section id="v-start" class="view startbox" hidden>
+    <h2>はじめに</h2>
+    <p>大学入試に「実際に出た英単語」を、9つの選択肢から意味をすべて選ぶクイズで覚えるアプリです。1つの単語が持つ複数の意味を、まとめて覚えられます。</p>
+    <ul class="modelist">
+      <li><b>単語</b>：意味が2つ以上ある単語は、正しい意味をすべて選びます</li>
+      <li><b>イディオム</b>：入試に出た熟語の意味を選びます</li>
+      <li><b>語源で推測</b>：単語の部品から、知らない単語の意味を当てる練習です</li>
+      <li><b>接頭辞・接尾辞</b>：単語の頭や語尾の形から、働きや品詞を当てます</li>
+    </ul>
+    <p>まず、どちらの単語から始めるか選んでください（あとから切り替えられます）。</p>
+    <div class="exams">
+      <button class="exam start-exam" data-exam="kyotsu">共通テスト<small>無料版・613語</small></button>
+      <button class="exam start-exam" data-exam="nagoya">名古屋大学 2次試験<small>大学特化版・895語</small></button>
+    </div>
+    <p class="tip">パソコンでは、数字キー（1〜9）で選択肢を選び、Enterキーで答え合わせ・次の問題に進めます。</p>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="表示" id="tabs">
     <button class="tab" id="t-quiz" data-view="quiz" role="tab" aria-selected="true">クイズ</button>
     <button class="tab" id="t-list" data-view="list" role="tab" aria-selected="false">単語一覧・単語帳</button>
     <button class="tab" id="t-rec" data-view="rec" role="tab" aria-selected="false">記録</button>
@@ -145,6 +171,9 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="mode" id="m-affix" data-mode="affix" aria-pressed="false">接頭辞・接尾辞<small>形から働きを当てる</small></button>
   </div>
 
+  <details class="settings" id="settings">
+  <summary>出題の設定<span id="set-sum"></span></summary>
+  <div class="setin">
   <div class="filters" role="group" aria-label="出題するレベル" id="f-level">
     <span>レベル</span>
     <button class="chip" id="lv1" data-lv="1" aria-pressed="false">基礎</button>
@@ -164,6 +193,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="chip" id="b-book" data-book="book" aria-pressed="false">単語帳だけ</button>
     <button class="chip" id="b-weak" data-book="weak" aria-pressed="false">苦手だけ</button>
   </div>
+  </div>
+  </details>
 
   <section class="sheet" aria-live="polite">
     <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span class="tag src" id="q-src">名大の入試</span><span id="q-exam">名大で27回 / 1年分</span></div>
@@ -265,7 +296,7 @@ const EXAM = {
   kyotsu: {name: "共テ単語ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [1,2,3,4]},
   nagoya: {name: "名大単語ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2,3,4]},
 };
-let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}};
+let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false};
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
 const $ = id => document.getElementById(id);
@@ -540,6 +571,12 @@ function syncControls() {
   $("f-book").hidden = !(st.mode === "word" || st.mode === "ety");
   document.querySelectorAll(".chip[data-book]").forEach(c => c.setAttribute("aria-pressed", c.dataset.book === st.range));
   document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === st.view));
+  const starting = !st.seen;
+  $("v-start").hidden = !starting; $("tabs").hidden = starting;
+  document.querySelector(".wrap > .exams").hidden = starting;
+  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; return; }
+  const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
+  $("set-sum").textContent = (st.mode === "idiom" || st.mode === "affix" ? "" : lvs) + (st.range === "book" ? "／単語帳だけ" : st.range === "weak" ? "／苦手だけ" : "");
   $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec";
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", b.dataset.exam === st.exam));
 }
@@ -558,6 +595,16 @@ document.querySelectorAll(".chip[data-src]").forEach(c => c.onclick = () => {
 });
 $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = true; };
 $("check").onclick = check; $("next").onclick = render;
+document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; st.seen = true; st.view = "quiz"; setExam(); restart(); });
+document.addEventListener("keydown", e => {
+  if (st.view !== "quiz" || !st.seen || e.ctrlKey || e.metaKey || e.altKey) return;
+  const t = e.target.tagName; if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  if (/^[1-9]$/.test(e.key)) { const o = $("opt" + (+e.key - 1)); if (o && !o.disabled) { o.click(); e.preventDefault(); } }
+  else if (e.key === "Enter") {
+    if (!$("check").hidden && !$("check").disabled) { $("check").click(); e.preventDefault(); }
+    else if (!$("next").hidden) { $("next").click(); e.preventDefault(); }
+  }
+});
 const POS_ORDER = {"名詞":1, "動詞":2, "形容詞":3, "副詞":4, "前置詞句":5};
 function renderList() {
   const q = $("l-q").value.trim().toLowerCase();

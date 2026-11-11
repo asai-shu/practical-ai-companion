@@ -29,6 +29,11 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .stats b{font-family:var(--f-num);font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:2px}
 .modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--ink);border:1px solid var(--ink);border-radius:6px;overflow:hidden}
 @media (max-width:560px){.modes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.exams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.exam{font:inherit;font-weight:700;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);cursor:pointer;text-align:left}
+.exam small{display:block;font-weight:400;font-size:11px;color:var(--muted)}
+.exam[aria-pressed="true"]{border:2px solid var(--drop);background:var(--drop-soft)}
+.exam:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .mode{font:inherit;font-weight:700;padding:10px 8px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
 .word mark{background:var(--drop-soft);color:var(--drop);border-bottom:3px solid var(--drop);padding:0 2px}
 .mode[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
@@ -86,13 +91,18 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
 <div class="wrap">
   <header>
-    <h1><small>名古屋大学 2次試験（2020〜2024年度）頻出</small>名大単語ナイン</h1>
+    <h1><small id="h-sub">名古屋大学 2次試験（2020〜2024年度）頻出</small><span id="h-name">名大単語ナイン</span></h1>
     <div class="stats" aria-live="polite">
       <div><b id="s-done">0</b>問</div>
       <div><b id="s-rate">–</b>正答率</div>
       <div><b id="s-master">0</b>/<span id="s-total">0</span> 習得</div>
     </div>
   </header>
+
+  <div class="exams" role="group" aria-label="試験">
+    <button class="exam" id="e-kyotsu" data-exam="kyotsu" aria-pressed="true">共通テスト<small>無料版</small></button>
+    <button class="exam" id="e-nagoya" data-exam="nagoya" aria-pressed="false">名古屋大学 2次試験<small>大学特化版</small></button>
+  </div>
 
   <div class="modes" role="group" aria-label="モード">
     <button class="mode" id="m-word" data-mode="word" aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
@@ -139,11 +149,14 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <ul id="a-cfs"></ul>
     </div>
   </section>
-  <p class="note">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
+  <p class="note" id="note-kyotsu">意味は辞書・単語帳を写さずに作成しています。出現回数は、大学入試センターが公開している共通テストの英語（リーディング・リスニング、2024〜2026年度の本試験・追再試験）を数えたものです。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
+  <p class="note" id="note-nagoya">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
 </div>
 
 <script>
-const WORDS = __DATA__;
+const NAGOYA_WORDS = __DATA__;
+const KYOTSU_WORDS = __KYOTSU__;
+let WORDS = NAGOYA_WORDS;
 const IDIOMS = __IDIOMS__;
 const AFFIXES = __AFFIXES__;
 // 接頭辞・接尾辞の問題：例の単語ごとに「働き」を問う問題と、接尾辞なら「品詞」を問う問題を作る
@@ -162,8 +175,12 @@ function affixSpan(a, w) {
 }
 const KEY = "meidai-nine-v2";
 const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
-const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想"};
-let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word"};
+const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想", kyotsu:"共通テスト"};
+const EXAM = {
+  kyotsu: {name: "共テ単語ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [1,2,3,4]},
+  nagoya: {name: "名大単語ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2,3,4]},
+};
+let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}};
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
 const $ = id => document.getElementById(id);
@@ -171,21 +188,30 @@ const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.f
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
 
 // 意味 → それを持つ英単語（不正解の選択肢の正体を表示するため）
-const OWNER = new Map();
-WORDS.forEach(w => w.meanings.forEach(m => { if (!OWNER.has(m.ja)) OWNER.set(m.ja, w.word); }));
-WORDS.forEach(w => (w.confusables || []).forEach(c => { if (!OWNER.has(c.ja)) OWNER.set(c.ja, c.en); }));
-// イディオム問題の材料：入試に出たイディオム＋単語データのイディオム
-const IDIOM_ITEMS = IDIOMS.map(x => ({en: x.en, ja: x.ja, src: "exam", year: x.year}))
-  .concat(WORDS.flatMap(w => w.idioms.map(i => ({en: i.en, ja: i.ja, src: w.source || "exam", word: w.word, level: w.level}))))
-  .filter((x, i, a) => a.findIndex(y => y.en === x.en) === i);
+let OWNER = new Map(), IDIOM_ITEMS = [];
+function setExam() {
+  WORDS = st.exam === "kyotsu" ? KYOTSU_WORDS : NAGOYA_WORDS;
+  OWNER = new Map();
+  WORDS.forEach(w => w.meanings.forEach(m => { if (!OWNER.has(m.ja)) OWNER.set(m.ja, w.word); }));
+  WORDS.forEach(w => (w.confusables || []).forEach(c => { if (!OWNER.has(c.ja)) OWNER.set(c.ja, c.en); }));
+  // イディオム問題の材料：（名大なら）入試に出たイディオム＋単語データのイディオム
+  IDIOM_ITEMS = (st.exam === "nagoya" ? IDIOMS.map(x => ({en: x.en, ja: x.ja, src: "exam", year: x.year})) : [])
+    .concat(WORDS.flatMap(w => w.idioms.map(i => ({en: i.en, ja: i.ja, src: w.source || "exam", word: w.word, level: w.level}))))
+    .filter((x, i, a) => a.findIndex(y => y.en === x.en) === i);
+  st.levels = st.levelsByExam[st.exam] || EXAM[st.exam].levels.slice();
+  $("h-name").textContent = EXAM[st.exam].name; $("h-sub").textContent = EXAM[st.exam].sub;
+  document.title = EXAM[st.exam].name;
+  $("note-kyotsu").hidden = st.exam !== "kyotsu"; $("note-nagoya").hidden = st.exam !== "nagoya";
+}
 
 let queue = [], cur = null, correct = [], picked = new Set(), answered = false, confShown = new Set(), fromOf = new Map();
 
-const keyOf = q => st.mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "");
+const keyOf = q => st.exam + "|" + st.mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "");
 function pool() {
   if (st.mode === "affix") return AFFIX_ITEMS;
-  if (st.mode === "idiom") return IDIOM_ITEMS.filter(x => st.sources.includes(x.src));
-  const base = WORDS.filter(w => st.levels.includes(w.level) && st.sources.includes(w.source || "exam"));
+  const srcOk = x => st.exam === "kyotsu" || st.sources.includes(x);
+  if (st.mode === "idiom") return IDIOM_ITEMS.filter(x => srcOk(x.src));
+  const base = WORDS.filter(w => st.levels.includes(w.level) && srcOk(w.source || "exam"));
   return st.mode === "ety" ? base.filter(w => w.etymology) : base;
 }
 function buildQueue() {
@@ -265,6 +291,7 @@ function render() {
   $("q-src").textContent = idiom && !cur.year ? "単語の関連表現" : SRC[src];
   $("q-src").className = "tag src" + (src === "predicted" ? " pred" : "");
   $("q-exam").textContent = idiom ? (cur.year ? "名大 " + cur.year + "年度に出題" : "「" + cur.word + "」の関連表現")
+    : src === "kyotsu" ? "共通テストで" + cur.exam_count + "回 / " + cur.exam_years + "年分"
     : src === "exam" ? "名大で" + cur.exam_count + "回 / " + cur.exam_years + "年分"
     : (src === "predicted" ? "最近の記事で" : "入試の出典記事で") + cur.article_count + "回 / " + cur.article_num + "本";
   $("q-ask").innerHTML = st.mode === "word" ? "正しい意味を <em>" + correct.length + "</em> つ選んでください" : "いちばん近い意味を <em>1</em> つ選んでください";
@@ -345,7 +372,8 @@ function check() {
     $("a-means").appendChild(listItem(cur.src === "exam" && cur.year ? "★" : "", cur.ja, cur.year ? "名大 " + cur.year + "年度" : ""));
   } else {
     const ex = (cur.source || "exam") === "exam";
-    $("a-mh").textContent = ex ? "この単語の意味（★＝名大で出た意味）" : "この単語の意味（◆＝記事で使われた意味）";
+    const srcNow = cur.source || "exam";
+    $("a-mh").textContent = srcNow === "kyotsu" ? "この単語の意味" : ex ? "この単語の意味（★＝名大で出た意味）" : "この単語の意味（◆＝記事で使われた意味）";
     cur.meanings.forEach(m => $("a-means").appendChild(listItem(m.in_exam ? "★" : (m.in_article ? "◆" : ""), m.ja, m.exam_count ? m.exam_count + "回" : "")));
   }
   const et = !idiom && cur.etymology;
@@ -386,14 +414,16 @@ function syncControls() {
   document.querySelectorAll(".chip[data-lv]").forEach(c => c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv)));
   document.querySelectorAll(".chip[data-src]").forEach(c => c.setAttribute("aria-pressed", st.sources.includes(c.dataset.src)));
   $("f-level").hidden = st.mode === "idiom" || st.mode === "affix";
-  $("f-src").hidden = st.mode === "affix";
+  $("f-src").hidden = st.mode === "affix" || st.exam === "kyotsu";
+  document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", b.dataset.exam === st.exam));
 }
 function restart() { save(); syncControls(); buildQueue(); stats(); render(); }
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => { st.mode = b.dataset.mode; restart(); });
+document.querySelectorAll(".exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; setExam(); restart(); });
 document.querySelectorAll(".chip[data-lv]").forEach(c => c.onclick = () => {
   const lv = +c.dataset.lv, on = st.levels.includes(lv);
   if (on && st.levels.length === 1) return;
-  st.levels = on ? st.levels.filter(x => x !== lv) : st.levels.concat(lv); restart();
+  st.levels = on ? st.levels.filter(x => x !== lv) : st.levels.concat(lv); st.levelsByExam[st.exam] = st.levels; restart();
 });
 document.querySelectorAll(".chip[data-src]").forEach(c => c.onclick = () => {
   const v = c.dataset.src, on = st.sources.includes(v);
@@ -402,5 +432,5 @@ document.querySelectorAll(".chip[data-src]").forEach(c => c.onclick = () => {
 });
 $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = true; };
 $("check").onclick = check; $("next").onclick = render;
-syncControls(); buildQueue(); stats(); render();
+setExam(); syncControls(); buildQueue(); stats(); render();
 </script>

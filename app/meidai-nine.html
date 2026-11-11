@@ -272,9 +272,18 @@ function pool() {
 function buildQueue() {
   queue = shuffle(pool().slice()).sort((a, b) => (st.mastery[keyOf(a)] || 0) - (st.mastery[keyOf(b)] || 0));
 }
+// 漢字・カタカナの2文字の並びが正解と重なる選択肢は、意味が近すぎるので出さない（例：「減らす」と「減少させる」）
+const core = t => { const s = t.replace(/[（(].*?[）)]|～|〜/g, ""); const out = new Set();
+  for (let i = 0; i < s.length - 1; i++) { const g = s.slice(i, i + 2); if (/^[\u4e00-\u9fff\u30a0-\u30ff]{2}$/.test(g)) out.add(g); }
+  return out; };
+function tooClose(m, own) {
+  const g = core(m);
+  for (const o of own) { const h = core(o); for (const x of g) if (h.has(x)) return true; }
+  return false;
+}
 function pickDistractors(own, n, conf, near, rest) {
   const out = [];
-  const add = m => { if (out.length < n && !own.has(m) && !out.includes(m)) out.push(m); };
+  const add = m => { if (out.length < n && !own.has(m) && !out.includes(m) && !tooClose(m, own)) out.push(m); };
   conf.forEach(add); confShown = new Set(out);
   near.forEach(add); rest.forEach(add);
   return out;

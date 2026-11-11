@@ -24,6 +24,10 @@ body{background:var(--paper);color:var(--ink);font-family:var(--f-ja);font-size:
 .wrap{max-width:760px;margin:0 auto;display:grid;gap:14px}
 header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px}
 h1{font-size:20px;margin:0;letter-spacing:.04em;text-wrap:balance}
+.brand{display:flex;gap:10px;align-items:center}
+.brand > span{display:block}
+.logo{width:34px;height:34px;flex:none;color:var(--drop)}
+.logo .on{fill:currentColor}
 h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.08em}
 .stats{display:flex;gap:16px;font-size:12px;color:var(--muted)}
 .stats b{font-family:var(--f-num);font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:2px}
@@ -125,7 +129,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
 <div class="wrap">
   <header>
-    <h1><small id="h-sub">名古屋大学 2次試験（2020〜2024年度）頻出</small><span id="h-name">名大単語ナイン</span></h1>
+    <h1 class="brand"><svg class="logo" viewBox="0 0 30 30" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="5" cy="5" rx="3" ry="4"/><ellipse cx="15" cy="5" rx="3" ry="4"/><ellipse cx="25" cy="5" rx="3" ry="4"/><ellipse cx="5" cy="15" rx="3" ry="4"/><ellipse cx="15" cy="15" rx="3" ry="4" class="on"/><ellipse cx="25" cy="15" rx="3" ry="4"/><ellipse cx="5" cy="25" rx="3" ry="4" class="on"/><ellipse cx="15" cy="25" rx="3" ry="4"/><ellipse cx="25" cy="25" rx="3" ry="4"/></g></svg><span><small id="h-sub">名古屋大学 2次試験（2020〜2024年度）頻出</small><span id="h-name">名大単語ナイン</span></span></h1>
     <div class="stats" aria-live="polite">
       <div><b id="s-done">0</b>問</div>
       <div><b id="s-rate">–</b>正答率</div>
@@ -354,7 +358,12 @@ function tooClose(m, own) {
 }
 function pickDistractors(own, n, conf, near, rest) {
   const out = [];
-  const add = m => { if (out.length < n && !own.has(m) && !out.includes(m) && !tooClose(m, own)) out.push(m); };
+  const usedOwner = new Set();
+  const add = m => {
+    if (out.length >= n || own.has(m) || out.includes(m) || tooClose(m, own)) return;
+    const o = OWNER.get(m); if (o && usedOwner.has(o)) return;  // 同じ単語の意味は1つまで
+    if (o) usedOwner.add(o); out.push(m);
+  };
   conf.forEach(add); confShown = new Set(out);
   near.forEach(add); rest.forEach(add);
   return out;

@@ -46,6 +46,14 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .wlist .sub{grid-column:2;font-size:12px;color:var(--muted)}
 .star-btn{font:inherit;font-size:18px;line-height:1;border:0;background:none;color:var(--drop);cursor:pointer;padding:4px;grid-row:span 2}
 .star-btn:focus-visible{outline:2px solid var(--drop)}
+.recbox{border:1px solid var(--line);border-radius:6px;background:var(--sheet);padding:14px 16px;display:grid;gap:10px}
+.recbox h2{font-size:14px;margin:0}
+.big{font-size:16px;font-weight:700;margin:0;line-height:1.8}
+.big b{font-family:var(--f-num);font-size:24px;color:var(--drop)}
+.bar{display:grid;grid-template-columns:7.5em minmax(0,1fr) 6.5em;gap:10px;align-items:center;font-size:13px}
+.bar .track{height:10px;border-radius:5px;background:var(--drop-soft);overflow:hidden}
+.bar .fill{height:100%;background:var(--drop)}
+.bar .num{white-space:nowrap;font-family:var(--f-num);font-variant-numeric:tabular-nums;color:var(--muted);text-align:right}
 .exams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .exam{font:inherit;font-weight:700;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);cursor:pointer;text-align:left}
 .exam small{display:block;font-weight:400;font-size:11px;color:var(--muted)}
@@ -113,12 +121,15 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <div><b id="s-done">0</b>問</div>
       <div><b id="s-rate">–</b>正答率</div>
       <div><b id="s-master">0</b>/<span id="s-total">0</span> 習得</div>
+      <div><b id="s-today">0</b>/<span id="s-goal">20</span> 今日</div>
+      <div><b id="s-streak">0</b>日 連続</div>
     </div>
   </header>
 
   <div class="tabs" role="tablist" aria-label="表示">
     <button class="tab" id="t-quiz" data-view="quiz" role="tab" aria-selected="true">クイズ</button>
     <button class="tab" id="t-list" data-view="list" role="tab" aria-selected="false">単語一覧・単語帳</button>
+    <button class="tab" id="t-rec" data-view="rec" role="tab" aria-selected="false">記録</button>
   </div>
 
   <div class="exams" role="group" aria-label="試験">
@@ -151,6 +162,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <span>範囲</span>
     <button class="chip" id="b-all" data-book="all" aria-pressed="true">すべて</button>
     <button class="chip" id="b-book" data-book="book" aria-pressed="false">単語帳だけ</button>
+    <button class="chip" id="b-weak" data-book="weak" aria-pressed="false">苦手だけ</button>
   </div>
 
   <section class="sheet" aria-live="polite">
@@ -196,6 +208,32 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <p class="tip" id="l-count"></p>
     <ul class="wlist" id="l-list"></ul>
   </section>
+  <section id="v-rec" class="view" hidden>
+    <div class="recbox">
+      <h2>試験までのカウントダウン</h2>
+      <div class="listbar">
+        <label for="r-date">試験日</label>
+        <input type="date" id="r-date">
+      </div>
+      <p id="r-count" class="big"></p>
+    </div>
+    <div class="recbox">
+      <h2>1日の目標</h2>
+      <div class="listbar">
+        <label for="r-goal">1日に解く問題数</label>
+        <select id="r-goal"><option>10</option><option selected>20</option><option>30</option><option>50</option><option>100</option></select>
+      </div>
+      <p class="tip">目標を達成した日が続くと「連続」の日数が増えます。</p>
+    </div>
+    <div class="recbox">
+      <h2>覚えた単語（2回続けて正解した単語）</h2>
+      <div id="r-bars"></div>
+    </div>
+    <div class="recbox">
+      <h2>モード別の記録</h2>
+      <div id="r-modes"></div>
+    </div>
+  </section>
   <p class="note" id="note-kyotsu">意味は辞書・単語帳を写さずに作成しています。出現回数は、大学入試センターが公開している共通テストの英語（リーディング・リスニング、2024〜2026年度の本試験・追再試験）を数えたものです。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
   <p class="note" id="note-nagoya">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
 </div>
@@ -227,7 +265,7 @@ const EXAM = {
   kyotsu: {name: "共テ単語ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [1,2,3,4]},
   nagoya: {name: "名大単語ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2,3,4]},
 };
-let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, bookOnly:false, view:"quiz"};
+let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}};
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
 const $ = id => document.getElementById(id);
@@ -261,12 +299,14 @@ function toggleBook(w) {
   if (i >= 0) b.splice(i, 1); else b.push(k);
   save();
 }
+const weakList = () => (st.weak[st.exam] = st.weak[st.exam] || []);
 const keyOf = q => st.exam + "|" + st.mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "");
 function pool() {
   if (st.mode === "affix") return AFFIX_ITEMS;
   const srcOk = x => st.exam === "kyotsu" || st.sources.includes(x);
   if (st.mode === "idiom") return IDIOM_ITEMS.filter(x => srcOk(x.src));
-  const base = WORDS.filter(w => st.levels.includes(w.level) && srcOk(w.source || "exam") && (!st.bookOnly || inBook(w)));
+  const base = WORDS.filter(w => st.levels.includes(w.level) && srcOk(w.source || "exam") &&
+    (st.range === "all" || (st.range === "book" ? inBook(w) : weakList().includes(wkey(w)))));
   return st.mode === "ety" ? base.filter(w => w.etymology) : base;
 }
 function buildQueue() {
@@ -422,6 +462,14 @@ function check() {
     if (f) b.querySelector(".txt").appendChild(el("span", "from", (correct.includes(t) ? "" : "← ") + f));
   });
   st.done++; if (good) st.ok++;
+  countToday();
+  const ms = st.modeStats[st.exam + "|" + st.mode] = st.modeStats[st.exam + "|" + st.mode] || {done: 0, ok: 0};
+  ms.done++; if (good) ms.ok++;
+  if (st.mode === "word" || st.mode === "ety") {
+    const wl = weakList(), wk = wkey(cur), i = wl.indexOf(wk);
+    if (!good && i < 0) wl.push(wk);
+    if (good && i >= 0 && (st.mastery[keyOf(cur)] || 0) >= 1) wl.splice(i, 1); // 苦手から外すのは2回続けて正解したとき
+  }
   const k = keyOf(cur); st.mastery[k] = good ? (st.mastery[k] || 0) + 1 : 0;
   if (!good) queue.splice(Math.min(3, queue.length), 0, cur);
   save(); stats();
@@ -474,6 +522,10 @@ function answerAffix() {
 }
 function stats() {
   $("s-done").textContent = st.done;
+  const today = ymd(new Date());
+  $("s-today").textContent = st.day === today ? st.today : 0; $("s-goal").textContent = st.goal;
+  const y = new Date(); y.setDate(y.getDate() - 1);
+  $("s-streak").textContent = (st.lastGoalDay === today || st.lastGoalDay === ymd(y)) ? st.streak : 0;
   $("s-rate").textContent = st.done ? Math.round(st.ok / st.done * 100) + "%" : "–";
   const p = pool();
   $("s-total").textContent = p.length;
@@ -486,9 +538,9 @@ function syncControls() {
   $("f-level").hidden = st.mode === "idiom" || st.mode === "affix";
   $("f-src").hidden = st.mode === "affix" || st.exam === "kyotsu";
   $("f-book").hidden = !(st.mode === "word" || st.mode === "ety");
-  document.querySelectorAll(".chip[data-book]").forEach(c => c.setAttribute("aria-pressed", (c.dataset.book === "book") === st.bookOnly));
+  document.querySelectorAll(".chip[data-book]").forEach(c => c.setAttribute("aria-pressed", c.dataset.book === st.range));
   document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === st.view));
-  $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list";
+  $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec";
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", b.dataset.exam === st.exam));
 }
 function restart() { save(); syncControls(); buildQueue(); stats(); render(); }
@@ -537,16 +589,57 @@ function renderList() {
     ul.appendChild(li);
   });
 }
-document.querySelectorAll(".tab").forEach(t => t.onclick = () => { st.view = t.dataset.view; save(); syncControls(); if (st.view === "list") renderList(); });
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => { st.view = t.dataset.view; save(); syncControls(); if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); });
+const ymd = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+function countToday() {
+  const today = ymd(new Date());
+  if (st.day !== today) { st.day = today; st.today = 0; }
+  st.today++;
+  if (st.today === st.goal && st.lastGoalDay !== today) {
+    const y = new Date(); y.setDate(y.getDate() - 1);
+    st.streak = st.lastGoalDay === ymd(y) ? st.streak + 1 : 1;
+    st.lastGoalDay = today;
+  }
+}
+function renderRec() {
+  const date = st.examDate[st.exam] || "";
+  $("r-date").value = date;
+  if (date) {
+    const days = Math.ceil((new Date(date + "T00:00:00") - new Date(ymd(new Date()) + "T00:00:00")) / 86400000);
+    const left = WORDS.filter(w => (st.mastery[st.exam + "|word|" + w.word + "|" + w.pos] || 0) < 2).length;
+    $("r-count").innerHTML = days > 0 ? "あと <b>" + days + "</b> 日　まだ覚えていない単語 " + left + " 語 → 1日 <b>" + Math.ceil(left / days) + "</b> 語ずつ"
+      : "試験日を過ぎています";
+  } else $("r-count").textContent = "試験日を入れると、残りの日数と1日に覚える語数の目安が出ます。";
+  $("r-goal").value = String(st.goal);
+  const bars = $("r-bars"); bars.innerHTML = "";
+  [1, 2, 3, 4].forEach(lv => {
+    const ws = WORDS.filter(w => w.level === lv); if (!ws.length) return;
+    const m = ws.filter(w => (st.mastery[st.exam + "|word|" + w.word + "|" + w.pos] || 0) >= 2).length;
+    const row = el("div", "bar"); row.appendChild(el("span", null, LVNAME[lv]));
+    const tr = el("div", "track"); const f = el("div", "fill"); f.style.width = (100 * m / ws.length) + "%"; tr.appendChild(f); row.appendChild(tr);
+    row.appendChild(el("span", "num", m + " / " + ws.length + "語")); bars.appendChild(row);
+  });
+  const mb = $("r-modes"); mb.innerHTML = "";
+  [["word", "単語"], ["idiom", "イディオム"], ["ety", "語源で推測"], ["affix", "接頭辞・接尾辞"]].forEach(([k, name]) => {
+    const s = st.modeStats[st.exam + "|" + k] || {done: 0, ok: 0};
+    const row = el("div", "bar"); row.appendChild(el("span", null, name));
+    const tr = el("div", "track"); const f = el("div", "fill"); f.style.width = (s.done ? 100 * s.ok / s.done : 0) + "%"; tr.appendChild(f); row.appendChild(tr);
+    row.appendChild(el("span", "num", s.done ? s.ok + " / " + s.done + "問" : "－")); mb.appendChild(row);
+  });
+}
+$("r-date").addEventListener("change", e => { st.examDate[st.exam] = e.target.value; save(); renderRec(); });
+$("r-goal").addEventListener("change", e => { st.goal = +e.target.value; save(); stats(); });
 document.querySelectorAll(".chip[data-book]").forEach(c => c.onclick = () => {
-  const want = c.dataset.book === "book";
-  if (want && !bookList().length) { $("q-tip").hidden = false; $("q-tip").textContent = "単語帳がまだ空です。答え合わせのあとや単語一覧の☆から、単語を入れてください。"; return; }
-  st.bookOnly = want; restart();
+  const want = c.dataset.book;
+  if (want === "book" && !bookList().length) { $("q-tip").hidden = false; $("q-tip").textContent = "単語帳がまだ空です。答え合わせのあとや単語一覧の☆から、単語を入れてください。"; return; }
+  if (want === "weak" && !weakList().length) { $("q-tip").hidden = false; $("q-tip").textContent = "苦手な単語はまだありません。間違えた単語が、ここに自動で集まります。"; return; }
+  st.range = want; restart();
 });
 $("bookbtn").onclick = () => { toggleBook(cur); showBookBtn(); };
 ["l-q", "l-sort", "l-book"].forEach(id => $(id).addEventListener(id === "l-q" ? "input" : "change", renderList));
 const origSetExam = setExam;
-setExam = function () { origSetExam(); if (st.bookOnly && !bookList().length) st.bookOnly = false; if (st.view === "list") renderList(); };
+setExam = function () { origSetExam(); if ((st.range === "book" && !bookList().length) || (st.range === "weak" && !weakList().length)) st.range = "all"; if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); };
 setExam(); syncControls(); buildQueue(); stats(); render();
 if (st.view === "list") renderList();
+if (st.view === "rec") renderRec();
 </script>

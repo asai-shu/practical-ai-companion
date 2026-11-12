@@ -6,6 +6,7 @@
 /* Layout: one answer sheet in the middle; word on top, 9 mark-sheet bubbles below, feedback slides under it */
 :root{
   --paper:#fbf9f8; --sheet:#ffffff; --ink:#1d2330; --muted:#6b6f7b; --line:#ecd9d6;
+  --lv1:#1f7a4d; --lv2:#2563a8; --lv3:#b8600a; --lv4:#7a3fb0;
   --drop:#d2554a;   /* マークシートの印刷色 */
   --drop-soft:#fbe9e6; --mark:#2b2f38; --ok:#1f7a4d; --ok-soft:#e3f3ea; --ng:#b3261e; --ng-soft:#fbe4e2;
   --f-word:"Newsreader", "Times New Roman", serif;
@@ -14,10 +15,10 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#16181d; --sheet:#1e2128; --ink:#eceef2; --muted:#9aa0ad; --line:#3a2f31;
-  --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}}
+  --lv1:#5cc792; --lv2:#7fb2f0; --lv3:#f0a860; --lv4:#c79bf0; --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#16181d; --sheet:#1e2128; --ink:#eceef2; --muted:#9aa0ad; --line:#3a2f31;
-  --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}
+  --lv1:#5cc792; --lv2:#7fb2f0; --lv3:#f0a860; --lv4:#c79bf0; --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-ja);font-size:15px;line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
@@ -106,7 +107,15 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   background-image:linear-gradient(var(--drop-soft),var(--drop-soft));background-size:100% 6px;background-repeat:no-repeat}
 .meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted);align-items:center}
 .tag{border:1px solid var(--line);border-radius:3px;padding:0 6px}
-.tag.lv{color:var(--drop);border-color:var(--drop)}
+.tag.lv{color:var(--c,var(--drop));border-color:var(--c,var(--drop));font-weight:700}
+[data-lv="1"]{--c:var(--lv1)} [data-lv="2"]{--c:var(--lv2)} [data-lv="3"]{--c:var(--lv3)} [data-lv="4"]{--c:var(--lv4)}
+.chip[data-lv]{border-color:var(--c);color:var(--c);font-weight:700}
+.chip[data-lv][aria-pressed="true"]{background:var(--c);border-color:var(--c);color:var(--sheet)}
+.lvtxt{color:var(--c);font-weight:700}
+.bar .fill[data-lv]{background:var(--c)}
+.modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
+.filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
+.listbar input[type=text]{flex:1 1 140px}
 .tag.src{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
 .tag.src.pred{background:transparent;color:var(--ink);border-style:dashed}
 .word{font-family:var(--f-word);font-size:clamp(40px,9vw,60px);font-weight:700;line-height:1.05;margin:0;overflow-wrap:anywhere}
@@ -160,8 +169,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <ul class="modelist">
       <li><b>単語</b>：意味が2つ以上ある単語は、正しい意味をすべて選びます</li>
       <li><b>イディオム</b>：入試に出た熟語の意味を選びます</li>
-      <li><b>語源で推測</b>：単語の部品から、知らない単語の意味を当てる練習です</li>
-      <li><b>接頭辞・接尾辞</b>：単語の頭や語尾の形から、働きや品詞を当てます</li>
+      <li><b>語源</b>：単語の中心になる部品（語根）の意味を、すべて選びます</li>
+      <li><b>接頭辞・接尾辞</b>：単語の頭や語尾に付く部品の働きを、すべて選びます</li>
     </ul>
     <p>まず、どちらの単語から始めるか選んでください（あとから切り替えられます）。</p>
     <div class="exams">
@@ -187,8 +196,13 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   <div class="modes" role="group" aria-label="モード">
     <button class="mode" id="m-word" data-mode="word" aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
     <button class="mode" id="m-idiom" data-mode="idiom" aria-pressed="false">イディオム<small>熟語の意味を選ぶ</small></button>
-    <button class="mode" id="m-ety" data-mode="ety" aria-pressed="false">語源で推測<small>部品から意味を当てる</small></button>
-    <button class="mode" id="m-affix" data-mode="affix" aria-pressed="false">接頭辞・接尾辞<small>形から働きを当てる</small></button>
+    <button class="mode" id="m-ety" data-mode="ety" aria-pressed="false">語源<small>部品の意味をすべて選ぶ</small></button>
+    <button class="mode" id="m-affix" data-mode="affix" aria-pressed="false">接頭辞・接尾辞<small>働きをすべて選ぶ</small></button>
+  </div>
+  <div class="modes decks" role="group" aria-label="まとめて復習">
+    <button class="mode" id="m-book" data-mode="book" aria-pressed="false">単語帳<small id="d-book">自分で集めた単語</small></button>
+    <button class="mode" id="m-weak" data-mode="weak" aria-pressed="false">苦手<small id="d-weak">間違えた問題</small></button>
+    <button class="mode" id="m-due" data-mode="due" aria-pressed="false">今日の復習<small id="d-due">忘れやすいころの問題</small></button>
   </div>
 
   <div class="settings" id="settings">
@@ -206,16 +220,13 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="chip" id="src-article" data-src="source_article" aria-pressed="true">入試の出典記事</button>
     <button class="chip" id="src-pred" data-src="predicted" aria-pressed="true">予想（最近の記事）</button>
   </div>
-  <div class="filters" role="group" aria-label="出題範囲" id="f-book">
-    <span>範囲</span>
-    <button class="chip" id="b-all" data-book="all" aria-pressed="true">すべて</button>
-    <button class="chip" id="b-book" data-book="book" aria-pressed="false">単語帳だけ</button>
-    <button class="chip" id="b-weak" data-book="weak" aria-pressed="false">苦手だけ</button>
-    <button class="chip" id="b-due" data-book="due" aria-pressed="false">今日の復習だけ</button>
+  <div class="filters" id="f-qbook" hidden>
+    <label for="q-book">出題する単語帳</label>
+    <select id="q-book"></select>
   </div>
   <div class="filters" id="f-weak">
     <span>苦手</span>
-    <label class="chk"><input type="checkbox" id="weak-on" checked> 間違えた単語を「苦手」に自動で集める</label>
+    <label class="chk"><input type="checkbox" id="weak-on" checked> 間違えた問題を「苦手」に自動で集める</label>
   </div>
   </div>
   </div>
@@ -265,10 +276,19 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
         <option value="pos">品詞順</option>
         <option value="level">レベル順（易しい順）</option>
       </select>
-      <label class="chk"><input type="checkbox" id="l-book"> 単語帳だけ</label>
+      <label class="chk"><input type="checkbox" id="l-book"> この単語帳だけ</label>
       <label class="chk"><input type="checkbox" id="l-mark"> ブックマークだけ</label>
     </div>
-    <button class="btn ghost small" id="l-addall" hidden>ブックマークをすべて単語帳に移す</button>
+    <div class="listbar" id="bk-bar">
+      <label for="bk-sel">単語帳</label>
+      <select id="bk-sel"></select>
+      <input id="bk-name" type="text" maxlength="20" placeholder="単語帳の名前" autocomplete="off" aria-label="単語帳の名前">
+      <button class="btn ghost small" id="bk-new">新しく作る</button>
+      <button class="btn ghost small" id="bk-ren">名前を変える</button>
+      <button class="btn ghost small" id="bk-del">この単語帳を消す</button>
+    </div>
+    <p class="tip" id="bk-msg">☆を押すと、上で選んでいる単語帳に入ります。</p>
+    <button class="btn ghost small" id="l-addall" hidden>ブックマークをすべてこの単語帳に移す</button>
     <p class="tip" id="l-count"></p>
     <ul class="wlist" id="l-list"></ul>
   </section>
@@ -325,6 +345,7 @@ const KYOTSU_WORDS = __KYOTSU__;
 let WORDS = NAGOYA_WORDS;
 const IDIOMS = __IDIOMS__;
 const AFFIXES = __AFFIXES__;
+const ROOTS = __ROOTS__;   // 語源モード：単語の中心になる部品（語根）。形は接頭辞・接尾辞と同じ
 // 接頭辞・接尾辞の問題：接辞1つにつき「働きをすべて選ぶ」問題と、接尾辞なら「つくる品詞をすべて選ぶ」問題を作る
 // データの形：{affix, type, senses: [{role: 働き, pos: 品詞, examples: [[単語, 意味], ...]}, ...]}
 const affixRoles = a => a.senses.map(x => x.role);
@@ -334,8 +355,14 @@ const AFFIX_ITEMS = AFFIXES.flatMap(a => {
   if (a.type === "suffix" && affixPos(a).length) items.push({kind: "pos", affix: a, w: a.affix});
   return items;
 });
+const ROOT_ITEMS = ROOTS.map(a => ({kind: "role", affix: a, w: a.affix}));
 function affixSpan(a, w) {
   const vs = a.affix.split("/").map(v => v.trim().replace(/-/g, ""));
+  if (a.type === "root") { // 語根は単語の途中にあるので、長い形から順に探す
+    const lw = w.toLowerCase();
+    for (const v of vs.slice().sort((x, y) => y.length - x.length)) { const i = lw.indexOf(v); if (i >= 0) return [i, i + v.length]; }
+    return [0, 0];
+  }
   for (const v of vs) {
     if (a.type === "prefix" && w.startsWith(v)) return [0, v.length];
     if (a.type === "suffix" && w.endsWith(v)) return [w.length - v.length, w.length];
@@ -346,13 +373,27 @@ const KEY = "meidai-nine-v2";
 const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
 const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想", kyotsu:"共通テスト"};
 const EXAM = {
-  kyotsu: {name: "入試 英単語 ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [1,2,3,4]},
-  nagoya: {name: "入試 英単語 ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2,3,4]},
+  kyotsu: {name: "入試 英単語 ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [2]},
+  nagoya: {name: "入試 英単語 ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2]},
 };
-let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
+let st = {v:0, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
 let studying = false;
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
+// 古い保存内容を今の形に直す（1回だけ）
+if ((st.v || 0) < 3) {
+  st.levelsByExam = {}; st.levels = [2];                       // レベルは最初は1つだけ選んだ状態にする
+  Object.keys(st.book || {}).forEach(ex => {                    // 単語帳1冊 → 複数の単語帳
+    if ((st.book[ex] || []).length && !(st.books[ex] || []).length) { st.books[ex] = [{id: "b1", name: "単語帳1", words: st.book[ex]}]; st.curBook[ex] = "b1"; }
+  });
+  Object.keys(st.weak || {}).forEach(ex => {                    // 苦手：「単語|品詞」→ 全モード共通のキー
+    st.weak[ex] = (st.weak[ex] || []).map(k => k.split("|").length === 2 ? ex + "|word|" + k : k);
+  });
+  const oldRange = st["range"];                                 // 以前の「範囲」の設定
+  st.pick = ["book", "weak", "due"].includes(oldRange) ? oldRange : (st.mode || "word");
+  st.v = 3;
+  save();
+}
 const $ = id => document.getElementById(id);
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -378,10 +419,18 @@ let solved = 0; // 今回の学習で解いた問題数
 let queue = [], cur = null, correct = [], picked = new Set(), answered = false, confShown = new Set(), fromOf = new Map();
 
 const wkey = w => w.word + "|" + w.pos;
-const bookList = () => (st.book[st.exam] = st.book[st.exam] || []);
+// ---- 単語帳（試験ごとに、いくつでも作れる）: st.books[試験] = [{id, name, words: ["単語|品詞", ...]}] ----
+const books = () => (st.books[st.exam] = st.books[st.exam] || []);
+const curBook = () => { const bs = books(); return bs.find(b => b.id === st.curBook[st.exam]) || bs[0] || null; };
+function ensureBook() { // 単語帳がまだ1つもなければ作る
+  let b = curBook();
+  if (!b) { b = {id: "b" + Date.now(), name: "単語帳1", words: []}; books().push(b); st.curBook[st.exam] = b.id; }
+  return b;
+}
+const bookList = () => { const b = curBook(); return b ? b.words : []; };
 const inBook = w => bookList().includes(wkey(w));
 function toggleBook(w) {
-  const b = bookList(), k = wkey(w), i = b.indexOf(k);
+  const b = ensureBook().words, k = wkey(w), i = b.indexOf(k);
   if (i >= 0) b.splice(i, 1); else b.push(k);
   save();
 }
@@ -389,15 +438,23 @@ const markList = () => (st.marks[st.exam] = st.marks[st.exam] || []);
 const inMark = w => markList().includes(wkey(w));
 function toggleMark(w) { const b = markList(), k = wkey(w), i = b.indexOf(k); if (i >= 0) b.splice(i, 1); else b.push(k); save(); }
 const weakList = () => (st.weak[st.exam] = st.weak[st.exam] || []);
-const keyOf = q => st.exam + "|" + st.mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "");
-function pool() {
-  if (st.mode === "affix") return st.range === "due" ? AFFIX_ITEMS.filter(isDue) : AFFIX_ITEMS;
+// 問題がどのモードのものか（単語帳・苦手・今日の復習では、いろいろなモードの問題がまざる）
+const modeOf = q => q.meanings ? "word" : q.affix ? (q.affix.type === "root" ? "ety" : "affix") : "idiom";
+const keyOf = q => st.exam + "|" + modeOf(q) + "|" + (q.meanings ? q.word : q.affix ? q.kind + ":" + q.w : q.en) + "|" + (q.pos || "");
+const itemsOf = mode => mode === "affix" ? AFFIX_ITEMS : mode === "ety" ? ROOT_ITEMS : mode === "idiom" ? IDIOM_ITEMS : WORDS;
+const allItems = () => ["word", "idiom", "ety", "affix"].flatMap(itemsOf);
+// 出題する問題の集まり。pick ＝ 設定画面で選んだボタン（word / idiom / ety / affix / book / weak / due）
+function pool(pick = st.pick) {
   const srcOk = x => st.exam === "kyotsu" || st.sources.includes(x);
-  if (st.mode === "idiom") return st.range === "due" ? IDIOM_ITEMS.filter(isDue) : IDIOM_ITEMS.filter(x => srcOk(x.src));
-  // 「今日の復習だけ」は、レベルや出題元の設定に関係なく、復習の日が来たものをすべて出す
-  const base = st.range === "due" ? WORDS.filter(isDue) : WORDS.filter(w => st.levels.includes(w.level) && srcOk(w.source || "exam") &&
-    (st.range === "all" || (st.range === "book" ? inBook(w) : st.range === "due" ? isDue(w) : weakList().includes(wkey(w)))));
-  return st.mode === "ety" ? base.filter(w => w.etymology) : base;
+  switch (pick) {
+    case "idiom": return IDIOM_ITEMS.filter(x => srcOk(x.src));
+    case "ety": return ROOT_ITEMS;
+    case "affix": return AFFIX_ITEMS;
+    case "book": return WORDS.filter(inBook);
+    case "weak": { const set = new Set(weakList()); return allItems().filter(q => set.has(keyOf(q))); }
+    case "due": return allItems().filter(isDue);
+    default: return WORDS.filter(w => st.levels.includes(w.level) && srcOk(w.source || "exam"));
+  }
 }
 // ---- 忘却曲線に沿った復習（間隔をあけた復習）----
 // 正解するたびに、次に復習するまでの間隔を 1日 → 3日 → 7日 → 14日 → 30日 → 60日 と延ばす。
@@ -413,12 +470,11 @@ function srsRecord(k, good) {
   const b = Math.min(e.b + 1, SRS_DAYS.length - 1);
   st.srs[k] = {b, d: addDays(SRS_DAYS[b])};
 }
-const MODES = [["word", "単語"], ["idiom", "イディオム"], ["ety", "語源で推測"], ["affix", "接頭辞・接尾辞"]];
+const MODES = [["word", "単語"], ["idiom", "イディオム"], ["ety", "語源"], ["affix", "接頭辞・接尾辞"]];
 const MODE_SHORT = {word: "単語", idiom: "熟語", ety: "語源", affix: "接辞"};
 // モードごとに、復習の日（次に復習する日）の一覧を返す。今のデータにない古い記録は数えない
 function dueDates(mode) {
-  const items = mode === "affix" ? AFFIX_ITEMS : mode === "idiom" ? IDIOM_ITEMS : mode === "ety" ? WORDS.filter(w => w.etymology) : WORDS;
-  return items.map(q => st.srs[st.exam + "|" + mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "")]).filter(Boolean).map(e => e.d);
+  return itemsOf(mode).map(q => st.srs[keyOf(q)]).filter(Boolean).map(e => e.d);
 }
 // from日後〜to日後に復習の日が来る数（from が 0 のときは、過ぎてしまった分も含める）
 function dueCount(mode, from, to) {
@@ -433,13 +489,10 @@ function fillDueBox(box) {
   const total = list.reduce((n, x) => n + x[2], 0);
   const h = el("h3"); h.innerHTML = "今日の復習 <b>" + total + "</b> 問"; box.appendChild(h);
   box.appendChild(el("p", null, "前に解いてから日がたち、忘れやすいころの問題です。今日のうちに解いておきましょう。"));
-  const row = el("div", "duebtns");
-  list.forEach(([k, name, n]) => {
-    const b = el("button", "btn small", name + " " + n + "問を復習する");
-    b.onclick = () => { st.mode = k; st.range = "due"; st.view = "quiz"; studying = true; solved = 0; restart(); window.scrollTo(0, 0); };
-    row.appendChild(b);
-  });
-  box.appendChild(row);
+  box.appendChild(el("p", null, list.map(([k, name, n]) => name + " " + n + "問").join("・")));
+  const b = el("button", "btn small", "今日の復習を始める");
+  b.onclick = () => { st.pick = "due"; st.view = "quiz"; studying = true; solved = 0; restart(); window.scrollTo(0, 0); };
+  box.appendChild(b);
 }
 function buildQueue() {
   // 復習の日が来たものを先に、そのあとは正解した回数の少ない順
@@ -468,8 +521,8 @@ function pickDistractors(own, n, conf, near, rest) {
 }
 function setupWordQuestion(w) {
   const ms = w.meanings.slice().sort((a, b) => (b.exam_count || 0) - (a.exam_count || 0) || (b.in_article ? 1 : 0) - (a.in_article ? 1 : 0));
-  const total = st.mode === "ety" ? 6 : 9;
-  correct = st.mode === "ety" ? [ms[0].ja] : ms.slice(0, Math.min(3, ms.length)).map(m => m.ja);
+  const total = 9;
+  correct = ms.slice(0, Math.min(3, ms.length)).map(m => m.ja);
   const conf = shuffle((w.confusables || []).map(c => c.ja)).slice(0, 2);
   const near = shuffle(WORDS.filter(x => x !== w && x.pos === w.pos && Math.abs(x.level - w.level) <= 1).flatMap(x => x.meanings.map(m => m.ja)));
   const rest = shuffle(WORDS.filter(x => x !== w).flatMap(x => x.meanings.map(m => m.ja)));
@@ -503,7 +556,7 @@ function setupAffixQuestion(q) {
     if (pa && pb) { if (ha !== hb) return false; const g = grams(pa); return [...grams(pb)].some(x => g.has(x)); }
     const g = grams(a); return [...grams(b)].some(x => g.has(x));
   };
-  const others = AFFIXES.filter(a => a !== q.affix);
+  const others = (q.affix.type === "root" ? ROOTS : AFFIXES).filter(a => a !== q.affix);
   const cand = shuffle(others.filter(a => a.type === q.affix.type)).concat(shuffle(others.filter(a => a.type !== q.affix.type)));
   const roles = [];
   fromOf = new Map();
@@ -532,13 +585,13 @@ function showHint(et) {
   h.hidden = false;
 }
 function render() {
-  if (!queue.length && st.range === "due" && studying) { buildQueue(); }
-  if (!queue.length && st.range === "due" && studying) { // 今日の復習をすべて終えた
-    studying = false; st.range = "all"; save(); syncControls(); buildQueue(); stats();
+  if (!queue.length && st.pick === "due" && studying) buildQueue();
+  if (!queue.length && st.pick === "due" && studying) { // 今日の復習をすべて終えた
+    studying = false; st.pick = "word"; save(); syncControls(); buildQueue(); stats();
     $("setup-msg").hidden = false; $("setup-msg").textContent = "今日の復習は終わりです。おつかれさまでした。";
     window.scrollTo(0, 0);
   }
-  if (!queue.length && studying && solved > 0 && st.range !== "due") { // この設定の問題を一通り解き終えた（同じ問題をくり返し出し続けない）
+  if (!queue.length && studying && solved > 0) { // この設定の問題を一通り解き終えた（同じ問題をくり返し出し続けない）
     studying = false; syncControls(); stats();
     $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定の問題を一通り解きました（" + solved + "問）。おつかれさまでした。もう一度始めると、覚えていない問題から順に出ます。";
     solved = 0; window.scrollTo(0, 0);
@@ -546,7 +599,8 @@ function render() {
   if (!queue.length) buildQueue();
   if (!queue.length) { $("q-word").textContent = "出題できる問題がありません"; $("opts").innerHTML = ""; return; }
   cur = queue.shift(); answered = false; picked.clear();
-  if (st.mode === "affix") { renderAffix(); return; }
+  st.mode = modeOf(cur);   // いま出している問題のモード
+  if (st.mode === "affix" || st.mode === "ety") { renderAffix(); return; }
   $("q-lv").parentElement.hidden = false; $("q-src").hidden = false;
   const idiom = st.mode === "idiom";
   const opts = idiom ? setupIdiomQuestion(cur) : setupWordQuestion(cur);
@@ -554,7 +608,7 @@ function render() {
   $("q-word").textContent = idiom ? cur.en : cur.word;
   $("q-word").className = "word" + (idiom ? " idiom" : "");
   $("q-pos").textContent = idiom ? "イディオム" : cur.pos;
-  $("q-lv").hidden = idiom; if (!idiom) $("q-lv").textContent = LVNAME[cur.level];
+  $("q-lv").hidden = idiom; if (!idiom) { $("q-lv").textContent = LVNAME[cur.level]; $("q-lv").dataset.lv = cur.level; }
   $("q-src").textContent = idiom && !cur.year ? "単語の関連表現" : SRC[src];
   $("q-src").className = "tag src" + (src === "predicted" ? " pred" : "");
   $("q-exam").textContent = idiom ? (cur.year ? "名大 " + cur.year + "年度に出題" : "「" + cur.word + "」の関連表現")
@@ -563,21 +617,20 @@ function render() {
     : (src === "predicted" ? "最近の記事で" : "入試の出典記事で") + cur.article_count + "回 / " + cur.article_num + "本";
   $("q-ask").innerHTML = st.mode === "word" ? "正しい意味を <em>" + correct.length + "</em> つ選んでください" : "いちばん近い意味を <em>1</em> つ選んでください";
   $("hint").hidden = true;
-  $("q-tip").hidden = st.mode !== "ety";
-  $("q-tip").textContent = "知らない単語でも大丈夫です。部品の意味をつなげて、意味を推測してみましょう。";
-  if (st.mode === "ety") showHint(cur.etymology);
+  $("q-tip").hidden = true;
   $("hintbtn").hidden = !(st.mode === "word" && cur.etymology);
   drawOptions(opts);
 }
 function renderAffix() {
   const opts = setupAffixQuestion(cur), a = cur.affix;
-  $("q-pos").textContent = a.type === "prefix" ? "接頭辞" : "接尾辞";
+  const root = a.type === "root";
+  $("q-pos").textContent = root ? "語根" : a.type === "prefix" ? "接頭辞" : "接尾辞";
   $("q-lv").hidden = true; $("q-src").hidden = true;
-  $("q-exam").textContent = a.type === "prefix" ? "単語の頭に付く部品" : "単語の語尾に付く部品";
+  $("q-exam").textContent = root ? "単語の中心になる部品" : a.type === "prefix" ? "単語の頭に付く部品" : "単語の語尾に付く部品";
   $("q-word").textContent = a.affix;
   $("q-word").className = "word idiom";
   const n = correct.length;
-  $("q-ask").innerHTML = (cur.kind === "pos" ? "この語尾が付くと、単語は何の品詞になる？ " : "この部品の働きは？ ") +
+  $("q-ask").innerHTML = (cur.kind === "pos" ? "この語尾が付くと、単語は何の品詞になる？ " : root ? "この部品の意味は？ " : "この部品の働きは？ ") +
     (n > 1 ? "正しいものを <em>" + n + "</em> つすべて選んでください" : "<em>1</em> つ選んでください");
   $("hint").hidden = true;
   const tip = $("q-tip"); tip.hidden = false; tip.innerHTML = ""; tip.appendChild(document.createTextNode("例："));
@@ -636,8 +689,8 @@ function check() {
   countToday();
   const ms = st.modeStats[st.exam + "|" + st.mode] = st.modeStats[st.exam + "|" + st.mode] || {done: 0, ok: 0};
   ms.done++; if (good) ms.ok++;
-  if (st.weakOn && (st.mode === "word" || st.mode === "ety")) {
-    const wl = weakList(), wk = wkey(cur), i = wl.indexOf(wk);
+  if (st.weakOn) {
+    const wl = weakList(), wk = keyOf(cur), i = wl.indexOf(wk);
     if (!good && i < 0) wl.push(wk);
     if (good && i >= 0 && (st.mastery[keyOf(cur)] || 0) >= 1) wl.splice(i, 1); // 苦手から外すのは2回続けて正解したとき
   }
@@ -649,7 +702,7 @@ function check() {
   $("result").className = "result " + (good ? "ok" : "ng");
   const idiom = st.mode === "idiom";
   $("a-means").innerHTML = "";
-  if (st.mode === "affix") { answerAffix(); return; }
+  if (st.mode === "affix" || st.mode === "ety") { answerAffix(); return; }
   $("a-eth").textContent = "語源"; $("a-idh").textContent = "イディオム";
   if (idiom) {
     $("a-mh").textContent = "このイディオムの意味";
@@ -674,13 +727,14 @@ function check() {
   $("answer").hidden = false; $("check").hidden = true; $("next").hidden = false; $("next").focus();
 }
 function showBookBtn() {
-  const ok = st.mode === "word" || st.mode === "ety";
+  const ok = st.mode === "word";
   $("bookbtn").hidden = !ok;
   if (ok) $("bookbtn").textContent = inMark(cur) ? "✓ ブックマーク済み（外す）" : "＋ ブックマーク";
 }
 function answerAffix() {
   const a = cur.affix;
-  $("a-mh").textContent = "「" + a.affix + "」の働きと例" + (a.senses.length > 1 ? "（働きが " + a.senses.length + " つあります）" : "");
+  const what = a.type === "root" ? "意味" : "働き";
+  $("a-mh").textContent = "「" + a.affix + "」の" + what + "と例" + (a.senses.length > 1 ? "（" + what + "が " + a.senses.length + " つあります）" : "");
   a.senses.forEach(x => {
     $("a-means").appendChild(listItem("●", x.role, x.pos && !x.role.includes(x.pos) ? x.pos : ""));
     x.examples.forEach(([w, ja]) => { const li = listItem("", "　" + ja, "", " "); li.querySelector(".en").textContent = ""; li.querySelector(".en").appendChild(markAffix(a, w)); $("a-means").appendChild(li); });
@@ -702,22 +756,29 @@ function stats() {
   $("s-total").textContent = p.length;
   $("s-master").textContent = p.filter(q => (st.mastery[keyOf(q)] || 0) >= 2).length;
 }
+const PICK_NAME = {word: "単語", idiom: "イディオム", ety: "語源", affix: "接頭辞・接尾辞", book: "単語帳", weak: "苦手", due: "今日の復習"};
 function syncControls() {
-  document.querySelectorAll(".mode").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === st.mode));
+  document.querySelectorAll(".mode").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === st.pick));
   document.querySelectorAll(".chip[data-lv]").forEach(c => c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv)));
   document.querySelectorAll(".chip[data-src]").forEach(c => c.setAttribute("aria-pressed", st.sources.includes(c.dataset.src)));
-  $("f-level").hidden = st.mode === "idiom" || st.mode === "affix";
-  $("f-src").hidden = st.mode === "affix" || st.exam === "kyotsu";
-  $("f-book").hidden = !(st.mode === "word" || st.mode === "ety");
-  document.querySelectorAll(".chip[data-book]").forEach(c => c.setAttribute("aria-pressed", c.dataset.book === st.range));
+  $("f-level").hidden = st.pick !== "word";
+  $("f-src").hidden = !(st.pick === "word" || st.pick === "idiom") || st.exam === "kyotsu";
+  // 単語帳・苦手・今日の復習のボタンに、今の数を出す
+  const cb = curBook();
+  $("d-book").textContent = cb ? "「" + cb.name + "」" + cb.words.length + "語" : "まだありません";
+  $("d-weak").textContent = pool("weak").length + "問";
+  $("d-due").textContent = pool("due").length + "問";
+  $("f-qbook").hidden = st.pick !== "book";
+  const qb = $("q-book"); qb.innerHTML = "";
+  books().forEach(b => { const o = el("option", null, b.name + "（" + b.words.length + "語）"); o.value = b.id; qb.appendChild(o); });
+  if (cb) qb.value = cb.id;
   document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === st.view));
   const starting = !st.seen;
   $("v-start").hidden = !starting; $("tabs").hidden = starting;
   document.querySelector(".wrap > .exams").hidden = starting;
   if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; return; }
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
-  const MODE = {word: "単語", idiom: "イディオム", ety: "語源で推測", affix: "接頭辞・接尾辞"};
-  $("study-sum").textContent = MODE[st.mode] + (st.mode === "idiom" || st.mode === "affix" ? "" : "／" + lvs) + (st.range === "book" ? "／単語帳だけ" : st.range === "weak" ? "／苦手だけ" : st.range === "due" ? "／今日の復習だけ" : "");
+  $("study-sum").textContent = PICK_NAME[st.pick] + (st.pick === "word" ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
   fillDueBox($("due-info"));
   $("setup").hidden = studying; $("study").hidden = !studying;
   document.querySelector(".wrap > .exams").hidden = studying;
@@ -726,10 +787,22 @@ function syncControls() {
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", b.dataset.exam === st.exam));
 }
 function restart() { $("setup-msg").hidden = true; save(); syncControls(); buildQueue(); stats(); render(); }
-document.querySelectorAll(".mode").forEach(b => b.onclick = () => { st.mode = b.dataset.mode; if (st.range === "due") st.range = "all"; restart(); });
+const setupMsg = t => { $("setup-msg").hidden = false; $("setup-msg").textContent = t; };
+document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
+  const want = b.dataset.mode;
+  if (want === "book") {
+    const full = books().find(x => x.words.length);
+    if (!full) { setupMsg("単語帳がまだ空です。「単語一覧・単語帳」の☆やブックマークから、単語を入れてください。"); return; }
+    if (!bookList().length) st.curBook[st.exam] = full.id;   // 選んでいる単語帳が空なら、中身のある単語帳に切り替える
+  }
+  if (want === "weak" && !pool("weak").length) { setupMsg("苦手な問題はまだありません。間違えた問題が、ここに自動で集まります。"); return; }
+  if (want === "due" && !pool("due").length) { setupMsg("今日復習する問題はありません。解いた問題は、1日後・3日後・7日後…と間隔をあけて、ここに出てきます。"); return; }
+  st.pick = want; restart();
+});
+$("q-book").addEventListener("change", e => { st.curBook[st.exam] = e.target.value; restart(); });
 document.querySelectorAll(".exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; studying = false; setExam(); restart(); });
 $("startbtn").onclick = () => {
-  if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや範囲を変えてください。"; return; }
+  if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや出題元を変えてください。"; return; }
   studying = true; solved = 0; restart(); window.scrollTo(0, 0);
 };
 $("pausebtn").onclick = () => { studying = false; syncControls(); stats(); window.scrollTo(0, 0); };
@@ -748,7 +821,36 @@ $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = tr
 $("check").onclick = check; $("next").onclick = render;
 document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; st.seen = true; st.view = "quiz"; setExam(); restart(); });
 const POS_ORDER = {"名詞":1, "動詞":2, "形容詞":3, "副詞":4, "前置詞句":5};
+function renderBooks() {
+  const sel = $("bk-sel"), bs = books(), cb = curBook(); sel.innerHTML = "";
+  if (!bs.length) sel.appendChild(el("option", null, "（まだありません）"));
+  bs.forEach(b => { const o = el("option", null, b.name + "（" + b.words.length + "語）"); o.value = b.id; sel.appendChild(o); });
+  if (cb) sel.value = cb.id;
+  sel.disabled = !bs.length; $("bk-ren").disabled = $("bk-del").disabled = !cb;
+  $("bk-del").textContent = "この単語帳を消す"; delArmed = false;
+}
+let delArmed = false;
+const bkMsg = t => { $("bk-msg").textContent = t; };
+$("bk-sel").addEventListener("change", e => { st.curBook[st.exam] = e.target.value; save(); renderList(); syncControls(); bkMsg("☆を押すと、上で選んでいる単語帳に入ります。"); });
+$("bk-new").onclick = () => {
+  const name = $("bk-name").value.trim() || "単語帳" + (books().length + 1);
+  const b = {id: "b" + Date.now(), name, words: []}; books().push(b); st.curBook[st.exam] = b.id; $("bk-name").value = "";
+  save(); renderList(); syncControls(); bkMsg("単語帳「" + name + "」を作りました。☆を押すと、この単語帳に入ります。");
+};
+$("bk-ren").onclick = () => {
+  const name = $("bk-name").value.trim(), b = curBook();
+  if (!b) return;
+  if (!name) { bkMsg("新しい名前を左の欄に入れてから、「名前を変える」を押してください。"); $("bk-name").focus(); return; }
+  b.name = name; $("bk-name").value = ""; save(); renderList(); syncControls(); bkMsg("名前を「" + name + "」に変えました。");
+};
+$("bk-del").onclick = () => {
+  const b = curBook(); if (!b) return;
+  if (!delArmed) { delArmed = true; $("bk-del").textContent = "本当に消す（もう一度押す）"; bkMsg("単語帳「" + b.name + "」（" + b.words.length + "語）を消します。消すと元に戻せません。"); return; }
+  st.books[st.exam] = books().filter(x => x !== b); st.curBook[st.exam] = (books()[0] || {}).id || "";
+  save(); renderList(); syncControls(); bkMsg("単語帳「" + b.name + "」を消しました。");
+};
 function renderList() {
+  renderBooks();
   const q = $("l-q").value.trim().toLowerCase();
   const sort = $("l-sort").value;
   $("l-addall").hidden = !markList().length;
@@ -761,7 +863,7 @@ function renderList() {
     level: (a, b) => a.level - b.level || a.word.localeCompare(b.word),
   }[sort];
   ws = ws.slice().sort(by);
-  $("l-count").textContent = ws.length + "語（単語帳：" + bookList().length + "語／ブックマーク：" + markList().length + "語）";
+  $("l-count").textContent = ws.length + "語（" + (curBook() ? "単語帳「" + curBook().name + "」" : "単語帳") + "：" + bookList().length + "語／ブックマーク：" + markList().length + "語）";
   const ul = $("l-list"); ul.innerHTML = "";
   ws.forEach(w => {
     const li = el("li");
@@ -772,7 +874,10 @@ function renderList() {
     li.appendChild(el("span", "w", w.word));
     const n = w.exam_count || w.article_count;
     li.appendChild(el("span", "cnt", n ? n + "回" : ""));
-    li.appendChild(el("span", "sub", w.pos + "・" + LVNAME[w.level] + (w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + SRC[w.source] : "") + (inMark(w) ? "・ブックマーク中" : "")));
+    const sub = el("span", "sub", w.pos + "・");
+    const lv = el("span", "lvtxt", LVNAME[w.level]); lv.dataset.lv = w.level; sub.appendChild(lv);
+    sub.appendChild(document.createTextNode((w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + SRC[w.source] : "") + (inMark(w) ? "・ブックマーク中" : "")));
+    li.appendChild(sub);
     const m = el("span", "m", w.meanings.map(x => x.ja).join(" / "));
     m.style.gridColumn = "2 / 4";
     li.appendChild(m);
@@ -834,12 +939,12 @@ function renderRec() {
   [1, 2, 3, 4].forEach(lv => {
     const ws = WORDS.filter(w => w.level === lv); if (!ws.length) return;
     const m = ws.filter(w => (st.mastery[st.exam + "|word|" + w.word + "|" + w.pos] || 0) >= 2).length;
-    const row = el("div", "bar"); row.appendChild(el("span", null, LVNAME[lv]));
-    const tr = el("div", "track"); const f = el("div", "fill"); f.style.width = (100 * m / ws.length) + "%"; tr.appendChild(f); row.appendChild(tr);
+    const row = el("div", "bar"); const nm = el("span", "lvtxt", LVNAME[lv]); nm.dataset.lv = lv; row.appendChild(nm);
+    const tr = el("div", "track"); const f = el("div", "fill"); f.dataset.lv = lv; f.style.width = (100 * m / ws.length) + "%"; tr.appendChild(f); row.appendChild(tr);
     row.appendChild(el("span", "num", m + " / " + ws.length + "語")); bars.appendChild(row);
   });
   const mb = $("r-modes"); mb.innerHTML = "";
-  [["word", "単語"], ["idiom", "イディオム"], ["ety", "語源で推測"], ["affix", "接頭辞・接尾辞"]].forEach(([k, name]) => {
+  MODES.forEach(([k, name]) => {
     const s = st.modeStats[st.exam + "|" + k] || {done: 0, ok: 0};
     const row = el("div", "bar"); row.appendChild(el("span", null, name));
     const tr = el("div", "track"); const f = el("div", "fill"); f.style.width = (s.done ? 100 * s.ok / s.done : 0) + "%"; tr.appendChild(f); row.appendChild(tr);
@@ -848,18 +953,11 @@ function renderRec() {
 }
 $("r-date").addEventListener("change", e => { st.examDate[st.exam] = e.target.value === autoDate() ? "" : e.target.value; save(); renderRec(); });
 $("r-goal").addEventListener("change", e => { st.goal = +e.target.value; save(); stats(); });
-document.querySelectorAll(".chip[data-book]").forEach(c => c.onclick = () => {
-  const want = c.dataset.book;
-  if (want === "book" && !bookList().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "単語帳がまだ空です。「単語一覧・単語帳」の☆やブックマークから、単語を入れてください。"; return; }
-  if (want === "due" && !dueCount(st.mode, 0, 0)) { $("setup-msg").hidden = false; $("setup-msg").textContent = "今日復習する単語はありません。解いた単語は、1日後・3日後・7日後…と間隔をあけて、ここに出てきます。"; return; }
-  if (want === "weak" && !weakList().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "苦手な単語はまだありません。間違えた単語が、ここに自動で集まります。"; return; }
-  st.range = want; restart();
-});
 $("bookbtn").onclick = () => { toggleMark(cur); showBookBtn(); };
-$("l-addall").onclick = () => { markList().forEach(k => { if (!bookList().includes(k)) bookList().push(k); }); st.marks[st.exam] = []; $("l-mark").checked = false; save(); renderList(); };
+$("l-addall").onclick = () => { const bw = ensureBook().words; markList().forEach(k => { if (!bw.includes(k)) bw.push(k); }); st.marks[st.exam] = []; $("l-mark").checked = false; save(); renderList(); };
 ["l-q", "l-sort", "l-book", "l-mark"].forEach(id => $(id).addEventListener(id === "l-q" ? "input" : "change", renderList));
 const origSetExam = setExam;
-setExam = function () { origSetExam(); if ((st.range === "book" && !bookList().length) || (st.range === "weak" && !weakList().length) || (st.range === "due" && !dueCount(st.mode, 0, 0))) st.range = "all"; if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); };
+setExam = function () { origSetExam(); if (["book", "weak", "due"].includes(st.pick) && !pool().length) st.pick = "word"; if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); };
 setExam(); syncControls(); buildQueue(); stats(); render();
 if (st.view === "list") renderList();
 if (st.view === "rec") renderRec();

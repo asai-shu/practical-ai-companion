@@ -17,6 +17,7 @@
 /* Layout: one answer sheet in the middle; word on top, 9 mark-sheet bubbles below, feedback slides under it */
 :root{
   --paper:#fbf9f8; --sheet:#ffffff; --ink:#1d2330; --muted:#6b6f7b; --line:#ecd9d6;
+  --lv1:#1f7a4d; --lv2:#2563a8; --lv3:#b8600a; --lv4:#7a3fb0;
   --drop:#d2554a;   /* マークシートの印刷色 */
   --drop-soft:#fbe9e6; --mark:#2b2f38; --ok:#1f7a4d; --ok-soft:#e3f3ea; --ng:#b3261e; --ng-soft:#fbe4e2;
   --f-word:"Newsreader", "Times New Roman", serif;
@@ -25,10 +26,10 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#16181d; --sheet:#1e2128; --ink:#eceef2; --muted:#9aa0ad; --line:#3a2f31;
-  --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}}
+  --lv1:#5cc792; --lv2:#7fb2f0; --lv3:#f0a860; --lv4:#c79bf0; --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#16181d; --sheet:#1e2128; --ink:#eceef2; --muted:#9aa0ad; --line:#3a2f31;
-  --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}
+  --lv1:#5cc792; --lv2:#7fb2f0; --lv3:#f0a860; --lv4:#c79bf0; --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-ja);font-size:15px;line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
@@ -117,7 +118,15 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   background-image:linear-gradient(var(--drop-soft),var(--drop-soft));background-size:100% 6px;background-repeat:no-repeat}
 .meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted);align-items:center}
 .tag{border:1px solid var(--line);border-radius:3px;padding:0 6px}
-.tag.lv{color:var(--drop);border-color:var(--drop)}
+.tag.lv{color:var(--c,var(--drop));border-color:var(--c,var(--drop));font-weight:700}
+[data-lv="1"]{--c:var(--lv1)} [data-lv="2"]{--c:var(--lv2)} [data-lv="3"]{--c:var(--lv3)} [data-lv="4"]{--c:var(--lv4)}
+.chip[data-lv]{border-color:var(--c);color:var(--c);font-weight:700}
+.chip[data-lv][aria-pressed="true"]{background:var(--c);border-color:var(--c);color:var(--sheet)}
+.lvtxt{color:var(--c);font-weight:700}
+.bar .fill[data-lv]{background:var(--c)}
+.modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
+.filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
+.listbar input[type=text]{flex:1 1 140px}
 .tag.src{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
 .tag.src.pred{background:transparent;color:var(--ink);border-style:dashed}
 .word{font-family:var(--f-word);font-size:clamp(40px,9vw,60px);font-weight:700;line-height:1.05;margin:0;overflow-wrap:anywhere}
@@ -174,8 +183,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <ul class="modelist">
       <li><b>単語</b>：意味が2つ以上ある単語は、正しい意味をすべて選びます</li>
       <li><b>イディオム</b>：入試に出た熟語の意味を選びます</li>
-      <li><b>語源で推測</b>：単語の部品から、知らない単語の意味を当てる練習です</li>
-      <li><b>接頭辞・接尾辞</b>：単語の頭や語尾の形から、働きや品詞を当てます</li>
+      <li><b>語源</b>：単語の中心になる部品（語根）の意味を、すべて選びます</li>
+      <li><b>接頭辞・接尾辞</b>：単語の頭や語尾に付く部品の働きを、すべて選びます</li>
     </ul>
     <p>まず、どちらの単語から始めるか選んでください（あとから切り替えられます）。</p>
     <div class="exams">
@@ -201,8 +210,13 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   <div class="modes" role="group" aria-label="モード">
     <button class="mode" id="m-word" data-mode="word" aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
     <button class="mode" id="m-idiom" data-mode="idiom" aria-pressed="false">イディオム<small>熟語の意味を選ぶ</small></button>
-    <button class="mode" id="m-ety" data-mode="ety" aria-pressed="false">語源で推測<small>部品から意味を当てる</small></button>
-    <button class="mode" id="m-affix" data-mode="affix" aria-pressed="false">接頭辞・接尾辞<small>形から働きを当てる</small></button>
+    <button class="mode" id="m-ety" data-mode="ety" aria-pressed="false">語源<small>部品の意味をすべて選ぶ</small></button>
+    <button class="mode" id="m-affix" data-mode="affix" aria-pressed="false">接頭辞・接尾辞<small>働きをすべて選ぶ</small></button>
+  </div>
+  <div class="modes decks" role="group" aria-label="まとめて復習">
+    <button class="mode" id="m-book" data-mode="book" aria-pressed="false">単語帳<small id="d-book">自分で集めた単語</small></button>
+    <button class="mode" id="m-weak" data-mode="weak" aria-pressed="false">苦手<small id="d-weak">間違えた問題</small></button>
+    <button class="mode" id="m-due" data-mode="due" aria-pressed="false">今日の復習<small id="d-due">忘れやすいころの問題</small></button>
   </div>
 
   <div class="settings" id="settings">
@@ -220,16 +234,13 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="chip" id="src-article" data-src="source_article" aria-pressed="true">入試の出典記事</button>
     <button class="chip" id="src-pred" data-src="predicted" aria-pressed="true">予想（最近の記事）</button>
   </div>
-  <div class="filters" role="group" aria-label="出題範囲" id="f-book">
-    <span>範囲</span>
-    <button class="chip" id="b-all" data-book="all" aria-pressed="true">すべて</button>
-    <button class="chip" id="b-book" data-book="book" aria-pressed="false">単語帳だけ</button>
-    <button class="chip" id="b-weak" data-book="weak" aria-pressed="false">苦手だけ</button>
-    <button class="chip" id="b-due" data-book="due" aria-pressed="false">今日の復習だけ</button>
+  <div class="filters" id="f-qbook" hidden>
+    <label for="q-book">出題する単語帳</label>
+    <select id="q-book"></select>
   </div>
   <div class="filters" id="f-weak">
     <span>苦手</span>
-    <label class="chk"><input type="checkbox" id="weak-on" checked> 間違えた単語を「苦手」に自動で集める</label>
+    <label class="chk"><input type="checkbox" id="weak-on" checked> 間違えた問題を「苦手」に自動で集める</label>
   </div>
   </div>
   </div>
@@ -279,10 +290,19 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
         <option value="pos">品詞順</option>
         <option value="level">レベル順（易しい順）</option>
       </select>
-      <label class="chk"><input type="checkbox" id="l-book"> 単語帳だけ</label>
+      <label class="chk"><input type="checkbox" id="l-book"> この単語帳だけ</label>
       <label class="chk"><input type="checkbox" id="l-mark"> ブックマークだけ</label>
     </div>
-    <button class="btn ghost small" id="l-addall" hidden>ブックマークをすべて単語帳に移す</button>
+    <div class="listbar" id="bk-bar">
+      <label for="bk-sel">単語帳</label>
+      <select id="bk-sel"></select>
+      <input id="bk-name" type="text" maxlength="20" placeholder="単語帳の名前" autocomplete="off" aria-label="単語帳の名前">
+      <button class="btn ghost small" id="bk-new">新しく作る</button>
+      <button class="btn ghost small" id="bk-ren">名前を変える</button>
+      <button class="btn ghost small" id="bk-del">この単語帳を消す</button>
+    </div>
+    <p class="tip" id="bk-msg">☆を押すと、上で選んでいる単語帳に入ります。</p>
+    <button class="btn ghost small" id="l-addall" hidden>ブックマークをすべてこの単語帳に移す</button>
     <p class="tip" id="l-count"></p>
     <ul class="wlist" id="l-list"></ul>
   </section>
@@ -339,6 +359,7 @@ const KYOTSU_WORDS = [{"word": "take", "pos": "動詞", "level": 1, "exam_count"
 let WORDS = NAGOYA_WORDS;
 const IDIOMS = [{"en": "back to the drawing board", "ja": "一からやり直しだ", "year": 2020}, {"en": "come across as ～", "ja": "～という印象を与える", "year": 2020}, {"en": "come up with ～", "ja": "～を思いつく", "year": 2020}, {"en": "figure out ～", "ja": "～を理解する・解き明かす", "year": 2020}, {"en": "crowd out ～", "ja": "～を押しのける・締め出す", "year": 2020}, {"en": "on the one hand ～, on the other hand ～", "ja": "一方では～、他方では～", "year": 2020}, {"en": "give birth to ～", "ja": "～を産む", "year": 2020}, {"en": "at the expense of ～", "ja": "～を犠牲にして", "year": 2020}, {"en": "lay the foundations of ～", "ja": "～の基礎を築く", "year": 2020}, {"en": "have the future in one's bones", "ja": "未来を確信している", "year": 2021}, {"en": "get out of hand", "ja": "手に負えなくなる", "year": 2021}, {"en": "a closed book", "ja": "まったく分からないもの", "year": 2021}, {"en": "broaden one's horizons", "ja": "視野を広げる", "year": 2021}, {"en": "take a rain check", "ja": "またの機会にする", "year": 2021}, {"en": "look before you leap", "ja": "よく考えてから行動せよ", "year": 2021}, {"en": "to make a long story short", "ja": "手短に言えば", "year": 2021}, {"en": "value for money", "ja": "払ったお金に見合う価値", "year": 2021}, {"en": "look after ～", "ja": "～の世話をする", "year": 2021}, {"en": "spring into action", "ja": "すぐに行動を起こす", "year": 2022}, {"en": "a rule of thumb", "ja": "経験に基づく目安", "year": 2022}, {"en": "toss and turn", "ja": "寝返りを打つ・眠れない", "year": 2022}, {"en": "have something to do with ～", "ja": "～と関係がある", "year": 2022}, {"en": "win the day", "ja": "勝利を収める", "year": 2022}, {"en": "I'm all ears.", "ja": "ぜひ聞かせて。", "year": 2022}, {"en": "just between you and me", "ja": "ここだけの話だが", "year": 2022}, {"en": "catch on", "ja": "人気が出る・広まる", "year": 2022}, {"en": "too good to be true", "ja": "話がうますぎる", "year": 2022}, {"en": "Is there a catch?", "ja": "何か裏があるのか？", "year": 2022}, {"en": "hit a dead end", "ja": "行き詰まる", "year": 2022}, {"en": "make sense", "ja": "筋が通っている", "year": 2023}, {"en": "make a living", "ja": "生計を立てる", "year": 2023}, {"en": "hold true", "ja": "当てはまる", "year": 2023}, {"en": "in pursuit of ～", "ja": "～を求めて", "year": 2023}, {"en": "have hollow legs", "ja": "いくらでも食べられる", "year": 2023}, {"en": "Hold on a second!", "ja": "ちょっと待って！", "year": 2023}, {"en": "give up on ～", "ja": "～をやめる・あきらめる", "year": 2023}, {"en": "You've lost me.", "ja": "話についていけないよ。", "year": 2023}, {"en": "go on about ～", "ja": "～についてくどくど話す", "year": 2023}, {"en": "first things first", "ja": "まずは大事なことから", "year": 2023}, {"en": "talk about ～ behind one's back", "ja": "～の陰口を言う", "year": 2023}, {"en": "take advantage of ～", "ja": "～を利用する", "year": 2024}, {"en": "it turns out that ～", "ja": "～だと分かる", "year": 2024}, {"en": "stand in the way of ～", "ja": "～の妨げになる", "year": 2024}, {"en": "be on the receiving end of ～", "ja": "～を受ける側にいる", "year": 2024}, {"en": "pay it forward", "ja": "受けた親切を別の人に回す", "year": 2024}, {"en": "spill over", "ja": "(影響が)ほかにも広がる", "year": 2024}, {"en": "it's hardly a mystery", "ja": "分かりきったことだ", "year": 2024}, {"en": "stand out", "ja": "目立つ", "year": 2024}, {"en": "make out ～", "ja": "～を見分ける", "year": 2024}, {"en": "go back and forth", "ja": "迷う・行ったり来たりする", "year": 2024}, {"en": "I haven't been around so long.", "ja": "私はまだ若い。", "year": 2024}];
 const AFFIXES = [{"affix": "un-", "type": "prefix", "senses": [{"role": "否定（～でない）", "pos": null, "examples": [["unfamiliar", "よく知らない"], ["unexpected", "予期しない"], ["unprecedented", "前例のない"], ["unaffordable", "高すぎて買えない"]]}, {"role": "逆の動作（元に戻す）", "pos": null, "examples": [["uncover", "明らかにする（覆いを取る）"], ["unlock", "鍵を開ける"], ["undo", "元に戻す"], ["unfold", "広げる"], ["unpack", "荷をほどく"]]}]}, {"affix": "in- / im- / il- / ir-", "type": "prefix", "senses": [{"role": "否定（～でない）", "pos": null, "examples": [["inconsequential", "取るに足らない"], ["impolite", "失礼な"], ["irrelevant", "無関係な"], ["insensitive", "無神経な"], ["indefinitely", "無期限に"]]}, {"role": "中へ・中に", "pos": null, "examples": [["include", "含む"], ["insert", "差し込む"], ["inhabit", "住む"], ["import", "輸入する"], ["immigrate", "(他国から)移住してくる"]]}]}, {"affix": "dis-", "type": "prefix", "senses": [{"role": "反対・分離（～しない・ばらばらに）", "pos": null, "examples": [["disassemble", "分解する"], ["disbelief", "信じられない気持ち"], ["disrupt", "乱す"], ["displace", "取って代わる・追い出す"]]}]}, {"affix": "re-", "type": "prefix", "senses": [{"role": "再び・元へ", "pos": null, "examples": [["rewrite", "書き直す"], ["rethink", "考え直す"], ["revise", "修正する"], ["redirect", "向け直す"], ["reinforce", "強める"]]}, {"role": "後ろへ・反対に", "pos": null, "examples": [["retreat", "退却する"], ["reverse", "逆にする"], ["resist", "抵抗する"], ["reject", "拒絶する"], ["recede", "後退する"]]}]}, {"affix": "pre-", "type": "prefix", "senses": [{"role": "前に・前もって", "pos": null, "examples": [["prerequisite", "前提条件"], ["prehistoric", "先史時代の"], ["precede", "先行する"], ["predict", "予測する"]]}]}, {"affix": "inter-", "type": "prefix", "senses": [{"role": "～の間で・相互に", "pos": null, "examples": [["interaction", "交流・相互作用"], ["interweave", "織り交ぜる"], ["intersection", "交わるところ"], ["interwar", "戦間期の"]]}]}, {"affix": "trans-", "type": "prefix", "senses": [{"role": "越えて・向こうへ", "pos": null, "examples": [["transfusion", "輸血"], ["transient", "一時的な"], ["transport", "輸送する"], ["transmit", "送る"], ["transatlantic", "大西洋横断の"]]}, {"role": "別の状態に変えて", "pos": null, "examples": [["transformative", "変革をもたらす"], ["translate", "翻訳する"], ["transform", "変形させる"], ["transition", "移り変わり"]]}]}, {"affix": "sub-", "type": "prefix", "senses": [{"role": "下に・あとに", "pos": null, "examples": [["subsequent", "その後の"], ["subjective", "主観的な"], ["subscriber", "登録者"], ["substantial", "かなりの"]]}]}, {"affix": "over-", "type": "prefix", "senses": [{"role": "過度に", "pos": null, "examples": [["overrate", "過大評価する"], ["oversleep", "寝過ごす"], ["overwork", "働きすぎる"], ["overcrowded", "混みすぎた"]]}, {"role": "上に・越えて", "pos": null, "examples": [["overflow", "あふれる"], ["overlay", "上にかぶせる"], ["overcome", "乗り越える"], ["overseas", "海外へ"]]}]}, {"affix": "under-", "type": "prefix", "senses": [{"role": "不足して", "pos": null, "examples": [["underestimate", "過小評価する"], ["undervalue", "低く評価する"], ["underdeveloped", "発達が不十分な"]]}, {"role": "下に", "pos": null, "examples": [["underpin", "下から支える"], ["underground", "地下の"], ["underline", "下線を引く"], ["underlie", "根底にある"]]}]}, {"affix": "co- / com- / con-", "type": "prefix", "senses": [{"role": "一緒に", "pos": null, "examples": [["cooperative", "協力的な"], ["cohesion", "まとまり"], ["converge", "集まる"], ["coincide", "同時に起こる"], ["combine", "結びつける"]]}, {"role": "意味を強める（すっかり）", "pos": null, "examples": [["complete", "完全な"], ["conclude", "結論づける"], ["confirm", "確認する"], ["convince", "納得させる"]]}]}, {"affix": "multi-", "type": "prefix", "senses": [{"role": "多くの", "pos": null, "examples": [["multidisciplinary", "学際的な"], ["multiple", "多数の"], ["multivalent", "多様な意味を持つ"]]}]}, {"affix": "micro-", "type": "prefix", "senses": [{"role": "小さい", "pos": null, "examples": [["microscope", "顕微鏡"], ["microorganism", "微生物"], ["microbe", "微生物"]]}]}, {"affix": "en- / em-", "type": "prefix", "senses": [{"role": "～にする", "pos": null, "examples": [["empower", "力を与える"], ["enhance", "高める"], ["enlarge", "拡大する"], ["enrich", "豊かにする"], ["enable", "可能にする"]]}, {"role": "中に入れる", "pos": null, "examples": [["encircle", "取り囲む"], ["encapsulate", "要約する（カプセルに入れる）"], ["enclose", "囲む・同封する"], ["embed", "埋め込む"]]}]}, {"affix": "de-", "type": "prefix", "senses": [{"role": "下へ・悪く", "pos": null, "examples": [["decrease", "減る"], ["descend", "降りる"], ["decline", "衰える・断る"], ["degrade", "質を落とす"]]}, {"role": "取り除く・離す", "pos": null, "examples": [["deforestation", "森林破壊"], ["detach", "切り離す"], ["dehydrate", "水分を取り除く"], ["defrost", "解凍する"]]}, {"role": "意味を強める（すっかり）", "pos": null, "examples": [["declare", "宣言する"], ["demonstrate", "実証する"], ["deliberate", "熟慮した・故意の"]]}]}, {"affix": "-tion / -sion", "type": "suffix", "senses": [{"role": "名詞をつくる（～すること）", "pos": "名詞", "examples": [["acceleration", "加速"], ["perception", "認識"], ["collision", "衝突"], ["excavation", "発掘"], ["humiliation", "屈辱"]]}]}, {"affix": "-ment", "type": "suffix", "senses": [{"role": "名詞をつくる（～すること・もの）", "pos": "名詞", "examples": [["advancement", "進歩"], ["contentment", "満足"], ["environment", "環境"], ["accomplishment", "達成"]]}]}, {"affix": "-ness", "type": "suffix", "senses": [{"role": "名詞をつくる（～な状態）", "pos": "名詞", "examples": [["weightlessness", "無重力感"], ["drowsiness", "眠気"], ["deafness", "耳が聞こえないこと"], ["narrowness", "視野の狭さ"]]}]}, {"affix": "-ity / -ty", "type": "suffix", "senses": [{"role": "名詞をつくる（～な性質）", "pos": "名詞", "examples": [["generosity", "寛大さ"], ["fertility", "出生率"], ["visibility", "視界"], ["sociability", "社交性"], ["complexity", "複雑さ"], ["novelty", "目新しさ"], ["cruelty", "残酷さ"], ["certainty", "確実さ"], ["poverty", "貧困"], ["loyalty", "忠誠"]]}]}, {"affix": "-ance / -ence", "type": "suffix", "senses": [{"role": "名詞をつくる（～すること・状態）", "pos": "名詞", "examples": [["ambivalence", "相反する感情"], ["eloquence", "雄弁"], ["prevalence", "広まり"], ["ignorance", "無知"]]}]}, {"affix": "-er / -or", "type": "suffix", "senses": [{"role": "人を表す（～する人）", "pos": "名詞", "examples": [["performer", "行う人"], ["donor", "提供者"], ["orator", "演説家"], ["manufacturer", "製造業者"], ["researcher", "研究者"]]}, {"role": "ものを表す（～する道具・機械）", "pos": "名詞", "examples": [["printer", "印刷機"], ["container", "容器"], ["elevator", "エレベーター"], ["indicator", "指標"], ["generator", "発電機"]]}]}, {"affix": "-ist", "type": "suffix", "senses": [{"role": "人を表す（～の専門家・主義の人）", "pos": "名詞", "examples": [["archaeologist", "考古学者"], ["biologist", "生物学者"], ["scientist", "科学者"], ["conservationist", "自然保護活動家"]]}]}, {"affix": "-ize / -ise", "type": "suffix", "senses": [{"role": "動詞をつくる（～にする）", "pos": "動詞", "examples": [["specialize", "専門に扱う"], ["recognize", "認める"], ["jeopardise", "危うくする"], ["generalise", "一般化する"]]}]}, {"affix": "-ify", "type": "suffix", "senses": [{"role": "動詞をつくる（～にする）", "pos": "動詞", "examples": [["identify", "識別する"], ["justify", "正当化する"], ["typify", "典型である"], ["verify", "確かめる"]]}]}, {"affix": "-en", "type": "suffix", "senses": [{"role": "動詞をつくる（～にする）", "pos": "動詞", "examples": [["brighten", "明るくする"], ["deepen", "深める"], ["worsen", "悪化させる"], ["broaden", "広げる"]]}, {"role": "形容詞をつくる（～でできた）", "pos": "形容詞", "examples": [["wooden", "木製の"], ["golden", "金の"], ["woolen", "羊毛の"]]}]}, {"affix": "-ate", "type": "suffix", "senses": [{"role": "動詞をつくる（～にする）", "pos": "動詞", "examples": [["accelerate", "加速する"], ["accumulate", "蓄積する"], ["allocate", "割り当てる"], ["manipulate", "操作する"]]}, {"role": "形容詞をつくる（～の性質がある）", "pos": "形容詞", "examples": [["accurate", "正確な"], ["passionate", "情熱的な"], ["fortunate", "幸運な"], ["moderate", "適度な"], ["adequate", "十分な"]]}]}, {"affix": "-able / -ible", "type": "suffix", "senses": [{"role": "形容詞をつくる（～できる）", "pos": "形容詞", "examples": [["sustainable", "持続可能な"], ["recyclable", "再利用できる"], ["vulnerable", "傷つきやすい"], ["predictable", "予測できる"]]}]}, {"affix": "-less", "type": "suffix", "senses": [{"role": "形容詞をつくる（～がない）", "pos": "形容詞", "examples": [["frictionless", "摩擦のない"], ["regardless", "～に関係なく"], ["limitless", "無限の"]]}]}, {"affix": "-ful", "type": "suffix", "senses": [{"role": "形容詞をつくる（～に満ちた）", "pos": "形容詞", "examples": [["successful", "成功した"], ["meaningful", "意味のある"], ["fruitful", "実りの多い"]]}, {"role": "名詞をつくる（～1杯の量）", "pos": "名詞", "examples": [["handful", "ひと握り"], ["spoonful", "スプーン1杯"], ["mouthful", "ひと口"]]}]}, {"affix": "-ous", "type": "suffix", "senses": [{"role": "形容詞をつくる（～の性質がある）", "pos": "形容詞", "examples": [["anonymous", "匿名の"], ["contagious", "伝染する"], ["malicious", "悪意のある"], ["nutritious", "栄養のある"], ["precipitous", "急激な"]]}]}, {"affix": "-ive", "type": "suffix", "senses": [{"role": "形容詞をつくる（～の性質がある）", "pos": "形容詞", "examples": [["immersive", "没入感のある"], ["imaginative", "想像力に富んだ"], ["distinctive", "特徴的な"], ["successive", "連続する"]]}, {"role": "名詞をつくる（～する人・もの）", "pos": "名詞", "examples": [["representative", "代表者"], ["alternative", "代わりのもの"], ["executive", "重役"], ["initiative", "主導権"]]}]}, {"affix": "-al / -ial", "type": "suffix", "senses": [{"role": "形容詞をつくる（～の）", "pos": "形容詞", "examples": [["perpetual", "永久の"], ["crucial", "決定的な"], ["continental", "大陸の"], ["seasonal", "季節の"]]}, {"role": "名詞をつくる（～すること）", "pos": "名詞", "examples": [["arrival", "到着"], ["proposal", "提案"], ["survival", "生存"], ["removal", "除去"], ["approval", "承認"]]}]}, {"affix": "-ic", "type": "suffix", "senses": [{"role": "形容詞をつくる（～の・～的な）", "pos": "形容詞", "examples": [["iconic", "象徴的な"], ["catastrophic", "壊滅的な"], ["algorithmic", "アルゴリズムの"], ["dynamic", "活気のある"]]}]}, {"affix": "-ly", "type": "suffix", "senses": [{"role": "副詞をつくる（～に）", "pos": "副詞", "examples": [["deliberately", "わざと"], ["presumably", "おそらく"], ["approximately", "およそ"], ["mercifully", "ありがたいことに"]]}, {"role": "形容詞をつくる（～らしい）", "pos": "形容詞", "examples": [["friendly", "親しみやすい"], ["costly", "高価な"], ["timely", "時宜を得た"], ["orderly", "整然とした"], ["elderly", "年配の"]]}]}, {"affix": "-hood", "type": "suffix", "senses": [{"role": "名詞をつくる（～の時期・状態）", "pos": "名詞", "examples": [["adulthood", "成人期"], ["childhood", "子ども時代"], ["neighborhood", "近所"]]}]}, {"affix": "mis-", "type": "prefix", "senses": [{"role": "誤って", "pos": null, "examples": [["misunderstand", "誤解する"], ["mislead", "誤った方向に導く"], ["misuse", "誤用する"], ["misinterpret", "誤って解釈する"], ["misfortune", "不運"]]}]}, {"affix": "non-", "type": "prefix", "senses": [{"role": "否定（～でない）", "pos": null, "examples": [["nonverbal", "言葉によらない"], ["nonprofit", "非営利の"], ["nonfiction", "ノンフィクション"], ["nonexistent", "存在しない"]]}]}, {"affix": "anti-", "type": "prefix", "senses": [{"role": "反対・対抗して", "pos": null, "examples": [["antibiotic", "抗生物質"], ["antisocial", "反社会的な"], ["antibody", "抗体"], ["antiwar", "反戦の"]]}]}, {"affix": "counter-", "type": "prefix", "senses": [{"role": "逆の・対抗して", "pos": null, "examples": [["counterpart", "対応する相手"], ["counterattack", "反撃"], ["counterproductive", "逆効果の"], ["counterargument", "反論"]]}]}, {"affix": "ex-", "type": "prefix", "senses": [{"role": "外へ", "pos": null, "examples": [["export", "輸出する"], ["exclude", "除外する"], ["expand", "広げる"], ["extract", "抽出する"], ["exhale", "息を吐く"]]}]}, {"affix": "extra-", "type": "prefix", "senses": [{"role": "～の範囲を超えた", "pos": null, "examples": [["extraordinary", "並外れた"], ["extracurricular", "課外の"], ["extraterrestrial", "地球外の"]]}]}, {"affix": "fore-", "type": "prefix", "senses": [{"role": "前に・前もって", "pos": null, "examples": [["foresee", "予見する"], ["forecast", "予報する"], ["forehead", "額"], ["foremost", "第一の"]]}]}, {"affix": "post-", "type": "prefix", "senses": [{"role": "あとに・後の", "pos": null, "examples": [["postwar", "戦後の"], ["postpone", "延期する"], ["postgraduate", "大学院の"], ["postscript", "追伸"]]}]}, {"affix": "pro-", "type": "prefix", "senses": [{"role": "前へ", "pos": null, "examples": [["promote", "促進する"], ["proceed", "進む"], ["progress", "進歩"], ["prolong", "延長する"]]}]}, {"affix": "out-", "type": "prefix", "senses": [{"role": "～よりまさって", "pos": null, "examples": [["outnumber", "数でまさる"], ["outperform", "しのぐ"], ["outweigh", "上回る"], ["outlive", "より長生きする"]]}, {"role": "外へ", "pos": null, "examples": [["outbreak", "発生"], ["outlet", "出口"], ["output", "出力"], ["outcome", "結果"]]}]}, {"affix": "super-", "type": "prefix", "senses": [{"role": "上に・超えて", "pos": null, "examples": [["supernatural", "超自然の"], ["superficial", "表面的な"], ["supervise", "監督する"], ["superpower", "超大国"]]}]}, {"affix": "hyper-", "type": "prefix", "senses": [{"role": "過度に・上に", "pos": null, "examples": [["hyperactive", "過度に活発な"], ["hypersensitive", "過敏な"], ["hypertension", "高血圧"]]}]}, {"affix": "semi-", "type": "prefix", "senses": [{"role": "半分の", "pos": null, "examples": [["semiconductor", "半導体"], ["semicircle", "半円"], ["semifinal", "準決勝"], ["semiannual", "半年ごとの"]]}]}, {"affix": "uni- / mono-", "type": "prefix", "senses": [{"role": "1つの", "pos": null, "examples": [["uniform", "制服・均一の"], ["unify", "統一する"], ["monopoly", "独占"], ["monotonous", "単調な"], ["monolingual", "1言語だけを話す"]]}]}, {"affix": "bi-", "type": "prefix", "senses": [{"role": "2つの", "pos": null, "examples": [["bilingual", "2言語を話す"], ["bicycle", "自転車"], ["biannual", "年2回の"], ["bilateral", "二国間の"]]}]}, {"affix": "tri-", "type": "prefix", "senses": [{"role": "3つの", "pos": null, "examples": [["triangle", "三角形"], ["tricycle", "三輪車"], ["triple", "3倍の"], ["trilogy", "三部作"]]}]}, {"affix": "auto-", "type": "prefix", "senses": [{"role": "自分で・自動の", "pos": null, "examples": [["automatic", "自動の"], ["autobiography", "自伝"], ["autonomy", "自治・自律"], ["automobile", "自動車"]]}]}, {"affix": "tele-", "type": "prefix", "senses": [{"role": "遠くへ", "pos": null, "examples": [["telescope", "望遠鏡"], ["telecommunication", "遠距離通信"], ["telepathy", "テレパシー"], ["telework", "在宅勤務"]]}]}, {"affix": "bio-", "type": "prefix", "senses": [{"role": "生命の", "pos": null, "examples": [["biodiversity", "生物多様性"], ["biography", "伝記"], ["biosphere", "生物圏"], ["biotechnology", "生物工学"]]}]}, {"affix": "geo-", "type": "prefix", "senses": [{"role": "地球・土地の", "pos": null, "examples": [["geography", "地理"], ["geometry", "幾何学"], ["geothermal", "地熱の"], ["geopolitics", "地政学"]]}]}, {"affix": "psycho-", "type": "prefix", "senses": [{"role": "心・精神の", "pos": null, "examples": [["psychoanalysis", "精神分析"], ["psychological", "心理的な"], ["psychotherapy", "心理療法"]]}]}, {"affix": "photo-", "type": "prefix", "senses": [{"role": "光の", "pos": null, "examples": [["photograph", "写真"], ["photosynthesis", "光合成"], ["photon", "光子"]]}]}, {"affix": "hydro-", "type": "prefix", "senses": [{"role": "水の", "pos": null, "examples": [["hydrogen", "水素"], ["hydroelectric", "水力発電の"], ["hydropower", "水力"]]}]}, {"affix": "thermo-", "type": "prefix", "senses": [{"role": "熱の", "pos": null, "examples": [["thermometer", "温度計"], ["thermostat", "温度を一定に保つ装置"], ["thermodynamics", "熱力学"]]}]}, {"affix": "mal-", "type": "prefix", "senses": [{"role": "悪い", "pos": null, "examples": [["malfunction", "故障"], ["malnutrition", "栄養失調"], ["maltreat", "虐待する"]]}]}, {"affix": "bene-", "type": "prefix", "senses": [{"role": "良い", "pos": null, "examples": [["benefit", "利益"], ["beneficial", "有益な"], ["benevolent", "慈悲深い"], ["benefactor", "恩人"]]}]}, {"affix": "circum-", "type": "prefix", "senses": [{"role": "周りに", "pos": null, "examples": [["circumstance", "状況"], ["circumference", "円周"], ["circumvent", "回避する"]]}]}, {"affix": "mid-", "type": "prefix", "senses": [{"role": "中間の", "pos": null, "examples": [["midnight", "真夜中"], ["midterm", "中間の"], ["midway", "中途で"], ["midst", "真ん中"]]}]}, {"affix": "-ship", "type": "suffix", "senses": [{"role": "名詞をつくる（～の関係・立場）", "pos": "名詞", "examples": [["friendship", "友情"], ["leadership", "指導力"], ["relationship", "関係"], ["citizenship", "市民権"], ["scholarship", "奨学金"]]}]}, {"affix": "-ism", "type": "suffix", "senses": [{"role": "名詞をつくる（～主義・考え方）", "pos": "名詞", "examples": [["optimism", "楽観主義"], ["criticism", "批判"], ["capitalism", "資本主義"], ["racism", "人種差別"], ["skepticism", "懐疑"]]}]}, {"affix": "-dom", "type": "suffix", "senses": [{"role": "名詞をつくる（～の状態・領域）", "pos": "名詞", "examples": [["freedom", "自由"], ["wisdom", "知恵"], ["kingdom", "王国"], ["boredom", "退屈"]]}]}, {"affix": "-logy", "type": "suffix", "senses": [{"role": "名詞をつくる（～学）", "pos": "名詞", "examples": [["biology", "生物学"], ["psychology", "心理学"], ["ecology", "生態学"], ["technology", "科学技術"], ["geology", "地質学"]]}]}, {"affix": "-ics", "type": "suffix", "senses": [{"role": "名詞をつくる（～学）", "pos": "名詞", "examples": [["economics", "経済学"], ["physics", "物理学"], ["linguistics", "言語学"], ["ethics", "倫理"], ["statistics", "統計"]]}]}, {"affix": "-cy", "type": "suffix", "senses": [{"role": "名詞をつくる（～な性質・状態）", "pos": "名詞", "examples": [["accuracy", "正確さ"], ["privacy", "プライバシー"], ["efficiency", "効率"], ["democracy", "民主主義"], ["frequency", "頻度"]]}]}, {"affix": "-th", "type": "suffix", "senses": [{"role": "名詞をつくる（～さ）", "pos": "名詞", "examples": [["length", "長さ"], ["depth", "深さ"], ["width", "幅"], ["strength", "強さ"], ["warmth", "暖かさ"]]}]}, {"affix": "-ure", "type": "suffix", "senses": [{"role": "名詞をつくる（～すること・結果）", "pos": "名詞", "examples": [["failure", "失敗"], ["pressure", "圧力"], ["exposure", "さらされること"], ["departure", "出発"], ["closure", "閉鎖"]]}]}, {"affix": "-age", "type": "suffix", "senses": [{"role": "名詞をつくる（～の量・行為）", "pos": "名詞", "examples": [["shortage", "不足"], ["storage", "貯蔵"], ["percentage", "割合"], ["usage", "使い方"], ["coverage", "報道・適用範囲"]]}]}, {"affix": "-ee", "type": "suffix", "senses": [{"role": "人を表す（～される人）", "pos": "名詞", "examples": [["employee", "従業員"], ["trainee", "研修生"], ["interviewee", "面接を受ける人"], ["refugee", "難民"]]}]}, {"affix": "-ian", "type": "suffix", "senses": [{"role": "人を表す（～に関わる人）", "pos": "名詞", "examples": [["musician", "音楽家"], ["historian", "歴史家"], ["politician", "政治家"], ["vegetarian", "菜食主義者"], ["librarian", "司書"]]}]}, {"affix": "-ary / -ory", "type": "suffix", "senses": [{"role": "形容詞をつくる（～に関する）", "pos": "形容詞", "examples": [["necessary", "必要な"], ["temporary", "一時的な"], ["voluntary", "自発的な"], ["compulsory", "義務的な"], ["contradictory", "矛盾した"]]}, {"role": "名詞をつくる（～の場所・もの）", "pos": "名詞", "examples": [["library", "図書館"], ["dictionary", "辞書"], ["laboratory", "実験室"], ["factory", "工場"], ["territory", "領土"]]}]}, {"affix": "-ant / -ent", "type": "suffix", "senses": [{"role": "形容詞をつくる（～している）", "pos": "形容詞", "examples": [["significant", "重要な"], ["dominant", "支配的な"], ["reluctant", "気が進まない"], ["persistent", "粘り強い"], ["sufficient", "十分な"]]}, {"role": "人を表す（～する人）", "pos": "名詞", "examples": [["assistant", "助手"], ["applicant", "応募者"], ["resident", "住民"], ["consultant", "顧問"], ["inhabitant", "住民"]]}]}, {"affix": "-ish", "type": "suffix", "senses": [{"role": "形容詞をつくる（～っぽい）", "pos": "形容詞", "examples": [["childish", "子どもっぽい"], ["selfish", "自分勝手な"], ["foolish", "愚かな"], ["feverish", "熱っぽい"]]}]}, {"affix": "-like", "type": "suffix", "senses": [{"role": "形容詞をつくる（～のような）", "pos": "形容詞", "examples": [["childlike", "子どものような"], ["lifelike", "生きているような"], ["humanlike", "人間のような"], ["dreamlike", "夢のような"]]}]}, {"affix": "-some", "type": "suffix", "senses": [{"role": "形容詞をつくる（～を引き起こす）", "pos": "形容詞", "examples": [["troublesome", "やっかいな"], ["tiresome", "うんざりする"], ["burdensome", "負担の大きい"], ["worrisome", "心配な"]]}]}, {"affix": "-proof", "type": "suffix", "senses": [{"role": "形容詞をつくる（～を防ぐ）", "pos": "形容詞", "examples": [["waterproof", "防水の"], ["fireproof", "耐火の"], ["soundproof", "防音の"], ["bulletproof", "防弾の"]]}]}, {"affix": "-wise", "type": "suffix", "senses": [{"role": "副詞をつくる（～のように・～の点で）", "pos": "副詞", "examples": [["otherwise", "さもなければ"], ["likewise", "同様に"], ["clockwise", "時計回りに"]]}]}, {"affix": "-ward", "type": "suffix", "senses": [{"role": "方向を表す（～の方へ）", "pos": null, "examples": [["forward", "前へ"], ["backward", "後ろへ"], ["upward", "上へ"], ["outward", "外へ"], ["afterward", "その後で"]]}]}, {"affix": "-fold", "type": "suffix", "senses": [{"role": "倍数を表す（～倍）", "pos": null, "examples": [["twofold", "2倍の"], ["tenfold", "10倍の"], ["manifold", "多様な"]]}]}, {"affix": "ad- / ac- / ap- / as- / at-", "type": "prefix", "senses": [{"role": "～へ・～に向かって", "pos": null, "examples": [["adapt", "適応させる"], ["adhere", "くっつく"], ["accustom", "慣れさせる"], ["appoint", "任命する"], ["assemble", "集める・組み立てる"], ["attain", "達成する"]]}]}, {"affix": "intro-", "type": "prefix", "senses": [{"role": "中へ・中に", "pos": null, "examples": [["introduce", "紹介する・導入する"], ["introvert", "内向的な人"], ["introspection", "内省"]]}]}, {"affix": "ob- / op-", "type": "prefix", "senses": [{"role": "反対して・向かって", "pos": null, "examples": [["obstacle", "障害"], ["obstruct", "妨げる"], ["oppose", "反対する"], ["opponent", "対戦相手"]]}]}, {"affix": "contra-", "type": "prefix", "senses": [{"role": "反対・対抗して", "pos": null, "examples": [["contrary", "反対の"], ["contrast", "対照"], ["contradict", "矛盾する"]]}]}, {"affix": "retro-", "type": "prefix", "senses": [{"role": "後ろへ・過去へ", "pos": null, "examples": [["retrospect", "回顧"], ["retroactive", "さかのぼって有効な"], ["retrograde", "後退する"]]}]}, {"affix": "ultra-", "type": "prefix", "senses": [{"role": "極端に・超えて", "pos": null, "examples": [["ultraviolet", "紫外線の"], ["ultrasound", "超音波"], ["ultramodern", "超現代的な"]]}]}, {"affix": "cent-", "type": "prefix", "senses": [{"role": "100の", "pos": null, "examples": [["century", "世紀"], ["centimeter", "センチメートル"], ["centennial", "100周年の"], ["centigrade", "摂氏の"]]}]}, {"affix": "dec-", "type": "prefix", "senses": [{"role": "10の", "pos": null, "examples": [["decade", "10年間"], ["decimal", "小数の・10進法の"], ["decathlon", "十種競技"]]}]}, {"affix": "di- / du-", "type": "prefix", "senses": [{"role": "2つの", "pos": null, "examples": [["dilemma", "板ばさみ"], ["dioxide", "二酸化物"], ["duplicate", "複製する"], ["dual", "二重の"], ["duet", "二重唱"]]}]}, {"affix": "poly-", "type": "prefix", "senses": [{"role": "多くの", "pos": null, "examples": [["polygon", "多角形"], ["polyglot", "多言語を話す人"], ["polymer", "重合体(ポリマー)"]]}]}, {"affix": "macro-", "type": "prefix", "senses": [{"role": "大きい", "pos": null, "examples": [["macroeconomics", "マクロ経済学"], ["macroscopic", "巨視的な"], ["macrocosm", "大宇宙"]]}]}, {"affix": "mini-", "type": "prefix", "senses": [{"role": "小さい", "pos": null, "examples": [["minimize", "最小限にする"], ["miniature", "小型の"], ["minimum", "最小限"], ["minimal", "最小の"]]}]}, {"affix": "equi-", "type": "prefix", "senses": [{"role": "等しい", "pos": null, "examples": [["equivalent", "同等の"], ["equilibrium", "均衡"], ["equidistant", "等距離の"], ["equinox", "春分・秋分"]]}]}, {"affix": "hypo-", "type": "prefix", "senses": [{"role": "不足して・下に", "pos": null, "examples": [["hypothesis", "仮説"], ["hypothermia", "低体温症"], ["hypotension", "低血圧"]]}]}, {"affix": "ab-", "type": "prefix", "senses": [{"role": "離れて", "pos": null, "examples": [["abnormal", "異常な"], ["absent", "不在の"], ["abstract", "抽象的な"], ["abduct", "誘拐する"], ["abstain", "控える"]]}]}, {"affix": "se-", "type": "prefix", "senses": [{"role": "離れて", "pos": null, "examples": [["separate", "分ける"], ["secure", "安全な"], ["seclude", "引き離す"], ["segregate", "隔離する"]]}]}, {"affix": "homo-", "type": "prefix", "senses": [{"role": "同じ", "pos": null, "examples": [["homogeneous", "同質の"], ["homonym", "同音異義語"], ["homophone", "同音語"]]}]}, {"affix": "sym- / syn-", "type": "prefix", "senses": [{"role": "一緒に・同時に", "pos": null, "examples": [["sympathy", "同情"], ["symphony", "交響曲"], ["symmetry", "対称"], ["synchronize", "同時に起こる"], ["synthesis", "合成"]]}]}, {"affix": "per-", "type": "prefix", "senses": [{"role": "完全に・通して", "pos": null, "examples": [["perfect", "完全な"], ["persist", "持続する"], ["permanent", "永久の"], ["pervade", "行き渡る"], ["persuade", "説得する"]]}]}, {"affix": "pseudo-", "type": "prefix", "senses": [{"role": "偽の", "pos": null, "examples": [["pseudonym", "ペンネーム"], ["pseudoscience", "疑似科学"]]}]}, {"affix": "ambi- / amphi-", "type": "prefix", "senses": [{"role": "両方の", "pos": null, "examples": [["ambiguous", "あいまいな"], ["ambivalent", "相反する感情を持つ"], ["amphibian", "両生類"]]}]}, {"affix": "-y", "type": "suffix", "senses": [{"role": "形容詞をつくる（～の多い）", "pos": "形容詞", "examples": [["cloudy", "曇った"], ["noisy", "騒がしい"], ["greedy", "欲深い"], ["wealthy", "裕福な"], ["risky", "危険な"]]}, {"role": "名詞をつくる（～すること）", "pos": "名詞", "examples": [["discovery", "発見"], ["delivery", "配達"], ["recovery", "回復"], ["inquiry", "問い合わせ"], ["difficulty", "困難"]]}]}, {"affix": "-tude", "type": "suffix", "senses": [{"role": "名詞をつくる（～な性質・状態）", "pos": "名詞", "examples": [["attitude", "態度"], ["gratitude", "感謝"], ["magnitude", "大きさ"], ["solitude", "孤独"], ["aptitude", "適性"]]}]}, {"affix": "-let", "type": "suffix", "senses": [{"role": "小さいものを表す（小さな～）", "pos": "名詞", "examples": [["booklet", "小冊子"], ["leaflet", "ちらし"], ["droplet", "小さなしずく"], ["piglet", "子ブタ"]]}]}, {"affix": "-logue", "type": "suffix", "senses": [{"role": "言葉・話を表す（～の話）", "pos": "名詞", "examples": [["dialogue", "対話"], ["monologue", "独白"], ["prologue", "序章"], ["catalogue", "目録"]]}]}, {"affix": "ante-", "type": "prefix", "senses": [{"role": "前に・前もって", "pos": null, "examples": [["antecedent", "先行するもの"], ["anteroom", "控えの間"]]}]}, {"affix": "vice-", "type": "prefix", "senses": [{"role": "副・代理の", "pos": null, "examples": [["vice-president", "副大統領"], ["vice-chairman", "副議長"], ["viceroy", "総督"]]}]}, {"affix": "-mony", "type": "suffix", "senses": [{"role": "名詞をつくる（～の状態・行為）", "pos": "名詞", "examples": [["testimony", "証言"], ["ceremony", "儀式"], ["harmony", "調和"]]}]}];
+const ROOTS = [{"affix": "spect / spec", "type": "root", "senses": [{"role": "見る", "pos": null, "examples": [["inspect", "検査する"], ["prospect", "見通し"], ["spectator", "観客"], ["perspective", "視点"], ["spectacle", "壮観"]]}]}, {"affix": "vis / vid", "type": "root", "senses": [{"role": "見る", "pos": null, "examples": [["visible", "目に見える"], ["vision", "視力・展望"], ["evidence", "証拠"], ["revise", "修正する"], ["supervise", "監督する"]]}]}, {"affix": "aud", "type": "root", "senses": [{"role": "聞く", "pos": null, "examples": [["audience", "聴衆"], ["audible", "聞こえる"], ["auditorium", "講堂"], ["audition", "オーディション"]]}]}, {"affix": "dict", "type": "root", "senses": [{"role": "言う", "pos": null, "examples": [["predict", "予測する"], ["contradict", "矛盾する"], ["dictate", "書き取らせる・命令する"], ["verdict", "評決"], ["dictionary", "辞書"]]}]}, {"affix": "voc / vok", "type": "root", "senses": [{"role": "声・呼ぶ", "pos": null, "examples": [["vocal", "声の"], ["advocate", "主張する・支持者"], ["vocabulary", "語彙"], ["evoke", "呼び起こす"], ["provoke", "怒らせる・引き起こす"]]}]}, {"affix": "scrib / script", "type": "root", "senses": [{"role": "書く", "pos": null, "examples": [["describe", "描写する"], ["prescribe", "処方する"], ["subscribe", "定期購読する"], ["manuscript", "原稿"], ["inscription", "碑文"]]}]}, {"affix": "graph / gram", "type": "root", "senses": [{"role": "書く・描く", "pos": null, "examples": [["photograph", "写真"], ["paragraph", "段落"], ["autograph", "サイン"], ["diagram", "図"], ["telegram", "電報"]]}]}, {"affix": "log", "type": "root", "senses": [{"role": "言葉・話", "pos": null, "examples": [["dialogue", "対話"], ["apology", "謝罪"], ["logic", "論理"], ["monologue", "独白"]]}, {"role": "学問", "pos": null, "examples": [["biology", "生物学"], ["psychology", "心理学"], ["geology", "地質学"], ["ecology", "生態学"]]}]}, {"affix": "lingu", "type": "root", "senses": [{"role": "言語", "pos": null, "examples": [["linguistics", "言語学"], ["bilingual", "2言語を話す"], ["multilingual", "多言語の"]]}]}, {"affix": "liter", "type": "root", "senses": [{"role": "文字", "pos": null, "examples": [["literature", "文学"], ["literate", "読み書きができる"], ["literal", "文字どおりの"], ["literacy", "読み書きの能力"]]}]}, {"affix": "nom / nym", "type": "root", "senses": [{"role": "名前", "pos": null, "examples": [["nominate", "指名する"], ["anonymous", "匿名の"], ["synonym", "同義語"], ["nominal", "名目上の"]]}]}, {"affix": "port", "type": "root", "senses": [{"role": "運ぶ", "pos": null, "examples": [["transport", "輸送する"], ["export", "輸出する"], ["portable", "持ち運びできる"], ["support", "支える"]]}, {"role": "港・門", "pos": null, "examples": [["airport", "空港"], ["port", "港"], ["portal", "入り口"], ["passport", "パスポート"]]}]}, {"affix": "fer", "type": "root", "senses": [{"role": "運ぶ", "pos": null, "examples": [["transfer", "移す"], ["refer", "言及する"], ["offer", "提供する"], ["ferry", "フェリー"]]}, {"role": "生む・耐える", "pos": null, "examples": [["suffer", "苦しむ"], ["fertile", "肥沃な"], ["conifer", "針葉樹"]]}]}, {"affix": "lat", "type": "root", "senses": [{"role": "運ぶ", "pos": null, "examples": [["translate", "翻訳する"], ["relate", "関連づける"], ["collate", "照合する"]]}]}, {"affix": "mit / miss", "type": "root", "senses": [{"role": "送る", "pos": null, "examples": [["transmit", "送る"], ["submit", "提出する"], ["emit", "放出する"], ["mission", "使命"], ["dismiss", "解散させる・退ける"], ["admit", "認める"]]}]}, {"affix": "ject", "type": "root", "senses": [{"role": "投げる", "pos": null, "examples": [["reject", "拒絶する"], ["inject", "注射する"], ["project", "計画・投影する"], ["eject", "追い出す"], ["object", "反対する"]]}]}, {"affix": "tract", "type": "root", "senses": [{"role": "引く", "pos": null, "examples": [["attract", "引きつける"], ["extract", "抽出する"], ["distract", "気をそらす"], ["contract", "契約・縮む"], ["subtract", "引く"], ["tractor", "トラクター"]]}]}, {"affix": "duc / duct", "type": "root", "senses": [{"role": "導く", "pos": null, "examples": [["conduct", "行う・導く"], ["educate", "教育する"], ["introduce", "導入する"], ["reduce", "減らす"], ["induce", "誘発する"], ["produce", "生産する"]]}]}, {"affix": "pel / puls", "type": "root", "senses": [{"role": "押す・駆り立てる", "pos": null, "examples": [["compel", "強いる"], ["expel", "追放する"], ["propel", "推進する"], ["impulse", "衝動"], ["repel", "追い払う"]]}]}, {"affix": "press", "type": "root", "senses": [{"role": "押す", "pos": null, "examples": [["pressure", "圧力"], ["compress", "圧縮する"], ["depress", "落ち込ませる"], ["express", "表現する"], ["suppress", "抑える"], ["impress", "印象づける"]]}]}, {"affix": "pos / pon", "type": "root", "senses": [{"role": "置く", "pos": null, "examples": [["position", "位置"], ["deposit", "預ける"], ["compose", "構成する"], ["postpone", "延期する"], ["opponent", "対戦相手"], ["expose", "さらす"]]}]}, {"affix": "struct", "type": "root", "senses": [{"role": "建てる・積む", "pos": null, "examples": [["structure", "構造"], ["construct", "建設する"], ["destruction", "破壊"], ["instruct", "指示する"], ["infrastructure", "社会基盤"]]}]}, {"affix": "fac / fact / fect", "type": "root", "senses": [{"role": "作る・行う", "pos": null, "examples": [["factory", "工場"], ["manufacture", "製造する"], ["effect", "効果"], ["affect", "影響する"], ["facilitate", "容易にする"], ["defect", "欠陥"]]}]}, {"affix": "form", "type": "root", "senses": [{"role": "形", "pos": null, "examples": [["transform", "変形させる"], ["uniform", "制服・均一の"], ["reform", "改革する"], ["formula", "公式"], ["conform", "従う"]]}]}, {"affix": "mov / mot / mob", "type": "root", "senses": [{"role": "動く", "pos": null, "examples": [["remove", "取り除く"], ["motion", "動き"], ["promote", "促進する"], ["mobile", "移動できる"], ["emotion", "感情"], ["motive", "動機"]]}]}, {"affix": "ced / ceed / cess", "type": "root", "senses": [{"role": "進む・行く", "pos": null, "examples": [["proceed", "進む"], ["exceed", "超える"], ["precede", "先行する"], ["access", "接近・利用"], ["process", "過程"], ["succeed", "成功する・継ぐ"]]}, {"role": "譲る", "pos": null, "examples": [["concede", "認める・譲る"], ["concession", "譲歩"]]}]}, {"affix": "grad / gress", "type": "root", "senses": [{"role": "歩む・段階", "pos": null, "examples": [["gradual", "徐々の"], ["graduate", "卒業する"], ["progress", "進歩"], ["aggressive", "攻撃的な"], ["degrade", "質を落とす"]]}]}, {"affix": "ven / vent", "type": "root", "senses": [{"role": "来る", "pos": null, "examples": [["convene", "集まる"], ["prevent", "防ぐ"], ["event", "出来事"], ["invent", "発明する"], ["intervene", "介入する"], ["avenue", "大通り"]]}]}, {"affix": "cur / curs", "type": "root", "senses": [{"role": "走る・流れる", "pos": null, "examples": [["current", "現在の・流れ"], ["occur", "起こる"], ["recur", "再発する"], ["currency", "通貨"], ["excursion", "遠足"]]}, {"role": "注意・世話", "pos": null, "examples": [["cure", "治す"], ["secure", "安全な"], ["accurate", "正確な"], ["curious", "好奇心の強い"], ["curator", "学芸員"]]}]}, {"affix": "sequ / secu", "type": "root", "senses": [{"role": "続く", "pos": null, "examples": [["sequence", "連続"], ["consequence", "結果"], ["subsequent", "その後の"], ["consecutive", "連続した"], ["sequel", "続編"]]}]}, {"affix": "sta / sist / stit", "type": "root", "senses": [{"role": "立つ", "pos": null, "examples": [["stable", "安定した"], ["status", "地位"], ["assist", "助ける"], ["resist", "抵抗する"], ["constitute", "構成する"], ["institute", "設立する・機関"]]}]}, {"affix": "sed / sid / sess", "type": "root", "senses": [{"role": "座る", "pos": null, "examples": [["sedentary", "座りがちな"], ["reside", "住む"], ["president", "大統領"], ["session", "会期・集まり"], ["subside", "おさまる"]]}]}, {"affix": "ten / tain / tin", "type": "root", "senses": [{"role": "保つ", "pos": null, "examples": [["maintain", "維持する"], ["contain", "含む"], ["retain", "保持する"], ["tenant", "賃借人"], ["continue", "続ける"], ["sustain", "持続させる"]]}]}, {"affix": "cap / cept / ceive", "type": "root", "senses": [{"role": "取る・つかむ", "pos": null, "examples": [["capture", "捕らえる"], ["accept", "受け入れる"], ["receive", "受け取る"], ["perceive", "認識する"], ["capable", "能力がある"], ["concept", "概念"]]}]}, {"affix": "capit", "type": "root", "senses": [{"role": "頭", "pos": null, "examples": [["capital", "首都・資本"], ["capitalism", "資本主義"], ["capitalize", "大文字で書く"], ["decapitate", "首をはねる"]]}]}, {"affix": "man / manu", "type": "root", "senses": [{"role": "手", "pos": null, "examples": [["manual", "手の・説明書"], ["manufacture", "製造する"], ["manipulate", "操作する"], ["manuscript", "原稿"], ["manage", "管理する"]]}]}, {"affix": "ped / pod", "type": "root", "senses": [{"role": "足", "pos": null, "examples": [["pedestrian", "歩行者"], ["pedal", "ペダル"], ["expedition", "遠征"], ["tripod", "三脚"], ["impede", "妨げる"]]}]}, {"affix": "corp", "type": "root", "senses": [{"role": "体", "pos": null, "examples": [["corporate", "法人の"], ["corpse", "死体"], ["incorporate", "組み入れる"], ["corporation", "企業"]]}]}, {"affix": "cord / cour", "type": "root", "senses": [{"role": "心", "pos": null, "examples": [["courage", "勇気"], ["cordial", "心からの"], ["accord", "一致"], ["encourage", "励ます"], ["discord", "不一致"]]}]}, {"affix": "anim", "type": "root", "senses": [{"role": "生命・心", "pos": null, "examples": [["animal", "動物"], ["animate", "生気を与える"], ["unanimous", "全員一致の"], ["animation", "アニメーション・活気"]]}]}, {"affix": "psych", "type": "root", "senses": [{"role": "心・精神", "pos": null, "examples": [["psychology", "心理学"], ["psychiatry", "精神医学"], ["psychic", "心霊の"]]}]}, {"affix": "ment", "type": "root", "senses": [{"role": "心", "pos": null, "examples": [["mental", "精神の"], ["mention", "言及する"], ["mentality", "考え方"], ["demented", "正気でない"]]}]}, {"affix": "sens / sent", "type": "root", "senses": [{"role": "感じる", "pos": null, "examples": [["sensitive", "敏感な"], ["sensation", "感覚"], ["sentiment", "感情"], ["consent", "同意する"], ["resent", "憤る"], ["sensible", "分別のある"]]}]}, {"affix": "path", "type": "root", "senses": [{"role": "感情", "pos": null, "examples": [["sympathy", "同情"], ["empathy", "共感"], ["apathy", "無関心"], ["antipathy", "反感"]]}, {"role": "病気・苦しみ", "pos": null, "examples": [["pathology", "病理学"], ["pathogen", "病原体"], ["psychopath", "精神病質者"]]}]}, {"affix": "phil", "type": "root", "senses": [{"role": "愛する", "pos": null, "examples": [["philosophy", "哲学"], ["philanthropy", "慈善活動"], ["philharmonic", "音楽を愛する"]]}]}, {"affix": "cred", "type": "root", "senses": [{"role": "信じる", "pos": null, "examples": [["credit", "信用"], ["credible", "信用できる"], ["incredible", "信じられない"], ["credential", "資格証明"], ["credulous", "信じやすい"]]}]}, {"affix": "fid", "type": "root", "senses": [{"role": "信頼", "pos": null, "examples": [["confident", "自信のある"], ["confide", "打ち明ける"], ["fidelity", "忠実"]]}]}, {"affix": "sci", "type": "root", "senses": [{"role": "知る", "pos": null, "examples": [["science", "科学"], ["conscious", "意識している"], ["conscience", "良心"], ["unconscious", "無意識の"]]}]}, {"affix": "cogn", "type": "root", "senses": [{"role": "知る", "pos": null, "examples": [["recognize", "認める"], ["cognitive", "認知の"], ["incognito", "身元を隠して"], ["cognition", "認知"]]}]}, {"affix": "memor", "type": "root", "senses": [{"role": "記憶", "pos": null, "examples": [["memory", "記憶"], ["memorial", "記念の"], ["memorize", "暗記する"], ["commemorate", "記念する"], ["memorable", "記憶に残る"]]}]}, {"affix": "doc / doct", "type": "root", "senses": [{"role": "教える", "pos": null, "examples": [["doctor", "医者・博士"], ["doctrine", "教義"], ["document", "文書"], ["docile", "従順な"]]}]}, {"affix": "gen", "type": "root", "senses": [{"role": "生む・生まれ", "pos": null, "examples": [["generate", "生み出す"], ["gene", "遺伝子"], ["genetic", "遺伝の"], ["genesis", "起源"], ["generation", "世代"]]}, {"role": "種類", "pos": null, "examples": [["gender", "性"], ["genre", "ジャンル"], ["general", "全般の"], ["generic", "一般的な"]]}]}, {"affix": "nat", "type": "root", "senses": [{"role": "生まれる", "pos": null, "examples": [["native", "生まれた土地の"], ["nature", "自然・性質"], ["nation", "国家"], ["innate", "生まれつきの"], ["natal", "出生の"]]}]}, {"affix": "viv / vit", "type": "root", "senses": [{"role": "生きる・命", "pos": null, "examples": [["survive", "生き残る"], ["vivid", "鮮やかな"], ["vital", "不可欠な"], ["revive", "生き返らせる"], ["vitamin", "ビタミン"]]}]}, {"affix": "bio", "type": "root", "senses": [{"role": "生命", "pos": null, "examples": [["biology", "生物学"], ["biography", "伝記"], ["antibiotic", "抗生物質"], ["symbiosis", "共生"]]}]}, {"affix": "mort", "type": "root", "senses": [{"role": "死", "pos": null, "examples": [["mortal", "死ぬ運命の"], ["immortal", "不死の"], ["mortality", "死亡率"], ["mortgage", "住宅ローン"]]}]}, {"affix": "cid / cis", "type": "root", "senses": [{"role": "切る", "pos": null, "examples": [["decide", "決める"], ["precise", "正確な"], ["concise", "簡潔な"], ["scissors", "はさみ"], ["incision", "切開"]]}, {"role": "殺す", "pos": null, "examples": [["suicide", "自殺"], ["pesticide", "殺虫剤"], ["homicide", "殺人"], ["genocide", "大量虐殺"]]}]}, {"affix": "sect", "type": "root", "senses": [{"role": "切る", "pos": null, "examples": [["section", "部分"], ["insect", "昆虫"], ["intersect", "交差する"], ["dissect", "解剖する"], ["sector", "部門"]]}]}, {"affix": "rupt", "type": "root", "senses": [{"role": "破る", "pos": null, "examples": [["interrupt", "さえぎる"], ["erupt", "噴火する"], ["disrupt", "混乱させる"], ["bankrupt", "破産した"], ["corrupt", "腐敗した"], ["abrupt", "突然の"]]}]}, {"affix": "frag / fract", "type": "root", "senses": [{"role": "壊す", "pos": null, "examples": [["fragile", "壊れやすい"], ["fragment", "破片"], ["fraction", "一部・分数"], ["fracture", "骨折"]]}]}, {"affix": "clud / clus / clos", "type": "root", "senses": [{"role": "閉じる", "pos": null, "examples": [["include", "含む"], ["exclude", "除外する"], ["conclude", "結論づける"], ["enclose", "囲む"], ["exclusive", "独占的な"], ["disclose", "明らかにする"]]}]}, {"affix": "solv / solu", "type": "root", "senses": [{"role": "解く・ゆるめる", "pos": null, "examples": [["solve", "解く"], ["dissolve", "溶かす"], ["resolve", "解決する"], ["solution", "解決策・溶液"], ["absolute", "絶対的な"]]}]}, {"affix": "tend / tens / tent", "type": "root", "senses": [{"role": "伸ばす・向ける", "pos": null, "examples": [["extend", "伸ばす"], ["tension", "緊張"], ["attend", "出席する・注意を向ける"], ["intend", "意図する"], ["tendency", "傾向"], ["pretend", "ふりをする"]]}]}, {"affix": "flect / flex", "type": "root", "senses": [{"role": "曲げる", "pos": null, "examples": [["reflect", "反射する・熟考する"], ["flexible", "柔軟な"], ["deflect", "そらす"], ["reflex", "反射作用"]]}]}, {"affix": "tort", "type": "root", "senses": [{"role": "ねじる", "pos": null, "examples": [["distort", "ゆがめる"], ["torture", "拷問"], ["extort", "ゆすり取る"], ["contort", "ねじ曲げる"]]}]}, {"affix": "vert / vers", "type": "root", "senses": [{"role": "向きを変える・回る", "pos": null, "examples": [["convert", "変換する"], ["reverse", "逆にする"], ["diverse", "多様な"], ["version", "版"], ["advertise", "宣伝する"], ["universe", "宇宙"]]}]}, {"affix": "volv / volu", "type": "root", "senses": [{"role": "回る・巻く", "pos": null, "examples": [["revolve", "回転する"], ["evolve", "進化する"], ["involve", "巻き込む"], ["volume", "巻・量"], ["revolution", "革命・回転"]]}]}, {"affix": "flu", "type": "root", "senses": [{"role": "流れる", "pos": null, "examples": [["fluid", "流体"], ["fluent", "流ちょうな"], ["influence", "影響"], ["influenza", "インフルエンザ"], ["affluent", "裕福な"], ["fluctuate", "変動する"]]}]}, {"affix": "pend / pens", "type": "root", "senses": [{"role": "つるす・ぶら下がる", "pos": null, "examples": [["depend", "頼る"], ["suspend", "つるす・一時停止する"], ["pendulum", "振り子"], ["appendix", "付録"]]}, {"role": "重さを量る・支払う", "pos": null, "examples": [["expense", "費用"], ["compensate", "補償する"], ["pension", "年金"], ["expend", "費やす"], ["dispense", "分配する"]]}]}, {"affix": "plic / ply / plex", "type": "root", "senses": [{"role": "折る・重ねる", "pos": null, "examples": [["complicated", "複雑な"], ["apply", "当てはめる・申し込む"], ["imply", "ほのめかす"], ["complex", "複雑な"], ["duplicate", "複製する"], ["multiply", "増やす"]]}]}, {"affix": "sign", "type": "root", "senses": [{"role": "しるし", "pos": null, "examples": [["signal", "合図"], ["signature", "署名"], ["significant", "重要な"], ["designate", "指定する"], ["assign", "割り当てる"], ["resign", "辞職する"]]}]}, {"affix": "test", "type": "root", "senses": [{"role": "証言する・証明する", "pos": null, "examples": [["testify", "証言する"], ["testimony", "証言"], ["protest", "抗議する"], ["contest", "競争・争う"], ["attest", "証明する"]]}]}, {"affix": "prob / prov", "type": "root", "senses": [{"role": "試す・証明する", "pos": null, "examples": [["prove", "証明する"], ["probe", "探る"], ["approve", "承認する"], ["probable", "ありそうな"], ["probation", "試用期間"]]}]}, {"affix": "quir / quest / quis", "type": "root", "senses": [{"role": "求める・尋ねる", "pos": null, "examples": [["require", "必要とする"], ["inquire", "尋ねる"], ["request", "頼む"], ["acquire", "獲得する"], ["conquest", "征服"], ["exquisite", "非常に美しい"]]}]}, {"affix": "claim / clam", "type": "root", "senses": [{"role": "叫ぶ", "pos": null, "examples": [["exclaim", "叫ぶ"], ["proclaim", "宣言する"], ["acclaim", "称賛する"], ["clamor", "騒ぎ"], ["reclaim", "取り戻す"]]}]}, {"affix": "nounce / nunci", "type": "root", "senses": [{"role": "知らせる", "pos": null, "examples": [["announce", "発表する"], ["pronounce", "発音する"], ["denounce", "非難する"], ["renounce", "放棄する"], ["pronunciation", "発音"]]}]}, {"affix": "jud / jur / jus", "type": "root", "senses": [{"role": "法・正しい", "pos": null, "examples": [["judge", "裁判官・判断する"], ["jury", "陪審"], ["justice", "正義"], ["justify", "正当化する"], ["prejudice", "偏見"], ["injury", "けが・損害"]]}]}, {"affix": "leg", "type": "root", "senses": [{"role": "法", "pos": null, "examples": [["legal", "法律の"], ["legislate", "法律を制定する"], ["legitimate", "合法の"], ["illegal", "違法の"]]}, {"role": "読む・選ぶ", "pos": null, "examples": [["legible", "読みやすい"], ["legend", "伝説"], ["elegant", "上品な"]]}]}, {"affix": "reg / rect", "type": "root", "senses": [{"role": "まっすぐ・正しい・支配する", "pos": null, "examples": [["regular", "規則的な"], ["regulate", "規制する"], ["correct", "正しい"], ["direct", "直接の・指導する"], ["region", "地域"], ["erect", "直立した"]]}]}, {"affix": "norm", "type": "root", "senses": [{"role": "基準", "pos": null, "examples": [["normal", "普通の"], ["enormous", "巨大な"], ["abnormal", "異常な"], ["norm", "規範"]]}]}, {"affix": "domin", "type": "root", "senses": [{"role": "支配する", "pos": null, "examples": [["dominate", "支配する"], ["dominant", "支配的な"], ["dominion", "支配権"], ["predominant", "優勢な"]]}]}, {"affix": "popul / publ", "type": "root", "senses": [{"role": "人々", "pos": null, "examples": [["population", "人口"], ["popular", "人気のある"], ["public", "公共の"], ["publish", "出版する"], ["republic", "共和国"]]}]}, {"affix": "dem", "type": "root", "senses": [{"role": "人々", "pos": null, "examples": [["democracy", "民主主義"], ["epidemic", "流行病"], ["demographic", "人口統計の"], ["pandemic", "世界的流行病"]]}]}, {"affix": "greg", "type": "root", "senses": [{"role": "群れ・集まり", "pos": null, "examples": [["congregate", "集まる"], ["segregate", "隔離する"], ["aggregate", "総計"], ["gregarious", "社交的な"]]}]}, {"affix": "soci", "type": "root", "senses": [{"role": "仲間・社会", "pos": null, "examples": [["society", "社会"], ["social", "社会の"], ["associate", "関連づける・仲間"], ["sociology", "社会学"]]}]}, {"affix": "host / hosp", "type": "root", "senses": [{"role": "客・もてなす", "pos": null, "examples": [["hospital", "病院"], ["hospitality", "もてなし"], ["host", "主人"], ["hostel", "簡易宿泊所"]]}]}, {"affix": "priv", "type": "root", "senses": [{"role": "個人の", "pos": null, "examples": [["private", "個人の"], ["privacy", "プライバシー"], ["privilege", "特権"]]}, {"role": "奪う", "pos": null, "examples": [["deprive", "奪う"], ["deprivation", "欠乏"]]}]}, {"affix": "serv", "type": "root", "senses": [{"role": "仕える", "pos": null, "examples": [["serve", "仕える"], ["service", "奉仕"], ["servant", "使用人"], ["deserve", "値する"]]}, {"role": "保つ・守る", "pos": null, "examples": [["preserve", "保存する"], ["conserve", "保護する"], ["reserve", "取っておく"], ["observe", "観察する・守る"]]}]}, {"affix": "val / vail", "type": "root", "senses": [{"role": "価値", "pos": null, "examples": [["value", "価値"], ["evaluate", "評価する"], ["valid", "有効な"], ["equivalent", "同等の"]]}, {"role": "力・強い", "pos": null, "examples": [["prevail", "普及する・勝つ"], ["available", "利用できる"], ["valor", "勇気"]]}]}, {"affix": "fort / forc", "type": "root", "senses": [{"role": "強い", "pos": null, "examples": [["effort", "努力"], ["comfort", "快適さ・慰める"], ["fortify", "強化する"], ["enforce", "施行する"], ["reinforce", "強める"], ["fortress", "要塞"]]}]}, {"affix": "vinc / vict", "type": "root", "senses": [{"role": "勝つ", "pos": null, "examples": [["victory", "勝利"], ["convince", "納得させる"], ["victor", "勝者"], ["invincible", "無敵の"], ["convict", "有罪を宣告する"]]}]}, {"affix": "pot / poss", "type": "root", "senses": [{"role": "力がある・できる", "pos": null, "examples": [["potential", "潜在的な"], ["possible", "可能な"], ["possess", "所有する"], ["potent", "強力な"]]}]}, {"affix": "magn", "type": "root", "senses": [{"role": "大きい", "pos": null, "examples": [["magnify", "拡大する"], ["magnificent", "壮大な"], ["magnitude", "大きさ"], ["magnate", "有力者"]]}]}, {"affix": "min", "type": "root", "senses": [{"role": "小さい", "pos": null, "examples": [["minor", "小さいほうの"], ["minute", "微小な・分"], ["diminish", "減らす"], ["minimum", "最小限"], ["minority", "少数派"]]}]}, {"affix": "medi", "type": "root", "senses": [{"role": "中間", "pos": null, "examples": [["medium", "中間の・媒体"], ["mediate", "仲介する"], ["intermediate", "中級の"], ["medieval", "中世の"], ["immediate", "即座の"], ["Mediterranean", "地中海の"]]}]}, {"affix": "fin", "type": "root", "senses": [{"role": "終わり・限界", "pos": null, "examples": [["final", "最後の"], ["finish", "終える"], ["define", "定義する"], ["infinite", "無限の"], ["confine", "閉じ込める"], ["refine", "洗練する"]]}]}, {"affix": "termin", "type": "root", "senses": [{"role": "終わり・境界", "pos": null, "examples": [["terminal", "終点・末期の"], ["terminate", "終わらせる"], ["determine", "決定する"], ["exterminate", "絶滅させる"]]}]}, {"affix": "prim / prin", "type": "root", "senses": [{"role": "第一の", "pos": null, "examples": [["primary", "第一の"], ["primitive", "原始的な"], ["prime", "最も重要な"], ["principle", "原理"], ["principal", "主要な・校長"]]}]}, {"affix": "nov", "type": "root", "senses": [{"role": "新しい", "pos": null, "examples": [["novel", "小説・目新しい"], ["innovate", "革新する"], ["renovate", "改装する"], ["novice", "初心者"], ["novelty", "目新しさ"]]}]}, {"affix": "chron", "type": "root", "senses": [{"role": "時", "pos": null, "examples": [["chronic", "慢性の"], ["chronological", "年代順の"], ["synchronize", "同時に起こる"], ["chronicle", "年代記"]]}]}, {"affix": "tempor", "type": "root", "senses": [{"role": "時", "pos": null, "examples": [["temporary", "一時的な"], ["contemporary", "同時代の・現代の"], ["temporal", "時間の"]]}]}, {"affix": "ann / enn", "type": "root", "senses": [{"role": "年", "pos": null, "examples": [["annual", "毎年の"], ["anniversary", "記念日"], ["centennial", "100周年の"], ["millennium", "千年間"], ["perennial", "永続する"]]}]}, {"affix": "dur", "type": "root", "senses": [{"role": "続く・固い", "pos": null, "examples": [["during", "～の間"], ["endure", "耐える"], ["durable", "長持ちする"], ["duration", "持続期間"]]}]}, {"affix": "loc", "type": "root", "senses": [{"role": "場所", "pos": null, "examples": [["local", "地元の"], ["locate", "位置を突き止める"], ["allocate", "割り当てる"], ["relocate", "移転する"]]}]}, {"affix": "terr", "type": "root", "senses": [{"role": "土地", "pos": null, "examples": [["territory", "領土"], ["terrain", "地形"], ["terrestrial", "陸上の・地球の"], ["Mediterranean", "地中海の"]]}, {"role": "恐れ", "pos": null, "examples": [["terror", "恐怖"], ["terrible", "ひどい"], ["terrify", "怖がらせる"]]}]}, {"affix": "aqu", "type": "root", "senses": [{"role": "水", "pos": null, "examples": [["aquarium", "水族館"], ["aquatic", "水生の"], ["aqueduct", "水道橋"]]}]}, {"affix": "hydr", "type": "root", "senses": [{"role": "水", "pos": null, "examples": [["hydrogen", "水素"], ["dehydrate", "水分を取り除く"], ["hydrant", "消火栓"], ["hydroelectric", "水力発電の"]]}]}, {"affix": "sol", "type": "root", "senses": [{"role": "太陽", "pos": null, "examples": [["solar", "太陽の"], ["solstice", "夏至・冬至"], ["parasol", "日傘"]]}, {"role": "1つ・ひとり", "pos": null, "examples": [["sole", "唯一の"], ["solitary", "ひとりの"], ["solo", "独奏"], ["solitude", "孤独"]]}]}, {"affix": "luc / lum", "type": "root", "senses": [{"role": "光", "pos": null, "examples": [["illuminate", "照らす"], ["lucid", "明快な"], ["luminous", "光る"], ["translucent", "半透明の"], ["elucidate", "明らかにする"]]}]}, {"affix": "phon", "type": "root", "senses": [{"role": "音", "pos": null, "examples": [["telephone", "電話"], ["symphony", "交響曲"], ["microphone", "マイク"], ["phonetic", "音声の"]]}]}, {"affix": "therm", "type": "root", "senses": [{"role": "熱", "pos": null, "examples": [["thermometer", "温度計"], ["thermal", "熱の"], ["geothermal", "地熱の"], ["hypothermia", "低体温症"]]}]}, {"affix": "urb", "type": "root", "senses": [{"role": "都市", "pos": null, "examples": [["urban", "都市の"], ["suburb", "郊外"], ["urbanize", "都市化する"]]}]}, {"affix": "migr", "type": "root", "senses": [{"role": "移る", "pos": null, "examples": [["migrate", "移住する"], ["immigrant", "(他国からの)移民"], ["emigrate", "(他国へ)移住する"], ["migratory", "移動性の"]]}]}, {"affix": "labor", "type": "root", "senses": [{"role": "働く", "pos": null, "examples": [["labor", "労働"], ["laboratory", "実験室"], ["collaborate", "協力する"], ["elaborate", "念入りな"]]}]}, {"affix": "techn", "type": "root", "senses": [{"role": "技術", "pos": null, "examples": [["technology", "科学技術"], ["technique", "技法"], ["technical", "技術的な"]]}]}, {"affix": "tact / tang", "type": "root", "senses": [{"role": "触れる", "pos": null, "examples": [["contact", "接触"], ["intact", "無傷の"], ["tangible", "触れられる・明白な"], ["tactile", "触覚の"], ["tangent", "接線"]]}]}, {"affix": "vac / van / void", "type": "root", "senses": [{"role": "空の", "pos": null, "examples": [["vacant", "空いている"], ["vacuum", "真空"], ["vanish", "消える"], ["evacuate", "避難させる"], ["avoid", "避ける"], ["vacation", "休暇"]]}]}, {"affix": "ple / plen", "type": "root", "senses": [{"role": "満たす", "pos": null, "examples": [["complete", "完全な"], ["plenty", "たくさん"], ["supplement", "補足"], ["deplete", "使い果たす"], ["implement", "実行する"]]}]}, {"affix": "cre / cresc", "type": "root", "senses": [{"role": "増える・育つ", "pos": null, "examples": [["increase", "増える"], ["decrease", "減る"], ["create", "創造する"], ["crescent", "三日月"], ["recreation", "気晴らし"]]}]}, {"affix": "alt", "type": "root", "senses": [{"role": "高い", "pos": null, "examples": [["altitude", "高度"], ["alto", "アルト"], ["exalt", "高める"]]}, {"role": "他の", "pos": null, "examples": [["alter", "変える"], ["alternative", "代わりのもの"], ["alternate", "交互の"]]}]}, {"affix": "equ", "type": "root", "senses": [{"role": "等しい", "pos": null, "examples": [["equal", "等しい"], ["equation", "方程式"], ["equator", "赤道"], ["adequate", "十分な"], ["equity", "公平"]]}]}, {"affix": "simil / simul", "type": "root", "senses": [{"role": "似た・同時", "pos": null, "examples": [["similar", "似ている"], ["simulate", "模擬実験する"], ["simultaneous", "同時の"], ["assimilate", "同化する"]]}]}, {"affix": "var", "type": "root", "senses": [{"role": "変わる", "pos": null, "examples": [["vary", "変わる"], ["various", "さまざまな"], ["variable", "変わりやすい"], ["variation", "変動"], ["variety", "多様性"]]}]}, {"affix": "mut", "type": "root", "senses": [{"role": "変わる", "pos": null, "examples": [["mutation", "突然変異"], ["mutual", "相互の"], ["commute", "通勤する"], ["immutable", "不変の"]]}]}, {"affix": "liber", "type": "root", "senses": [{"role": "自由", "pos": null, "examples": [["liberty", "自由"], ["liberal", "自由主義の"], ["liberate", "解放する"]]}]}, {"affix": "don / dot", "type": "root", "senses": [{"role": "与える", "pos": null, "examples": [["donate", "寄付する"], ["donor", "提供者"], ["pardon", "許す"], ["anecdote", "逸話"], ["antidote", "解毒剤"]]}]}, {"affix": "grat", "type": "root", "senses": [{"role": "喜び・感謝", "pos": null, "examples": [["grateful", "感謝している"], ["gratitude", "感謝"], ["congratulate", "祝う"], ["gratify", "喜ばせる"]]}]}, {"affix": "spir / pir", "type": "root", "senses": [{"role": "息をする", "pos": null, "examples": [["inspire", "鼓舞する"], ["respiration", "呼吸"], ["expire", "期限が切れる"], ["aspire", "熱望する"], ["spirit", "精神"], ["conspire", "共謀する"]]}]}, {"affix": "medic / med", "type": "root", "senses": [{"role": "治す", "pos": null, "examples": [["medicine", "薬・医学"], ["medical", "医学の"], ["medication", "薬物治療"], ["remedy", "治療法"]]}]}];   // 語源モード：単語の中心になる部品（語根）。形は接頭辞・接尾辞と同じ
 // 接頭辞・接尾辞の問題：接辞1つにつき「働きをすべて選ぶ」問題と、接尾辞なら「つくる品詞をすべて選ぶ」問題を作る
 // データの形：{affix, type, senses: [{role: 働き, pos: 品詞, examples: [[単語, 意味], ...]}, ...]}
 const affixRoles = a => a.senses.map(x => x.role);
@@ -348,8 +369,14 @@ const AFFIX_ITEMS = AFFIXES.flatMap(a => {
   if (a.type === "suffix" && affixPos(a).length) items.push({kind: "pos", affix: a, w: a.affix});
   return items;
 });
+const ROOT_ITEMS = ROOTS.map(a => ({kind: "role", affix: a, w: a.affix}));
 function affixSpan(a, w) {
   const vs = a.affix.split("/").map(v => v.trim().replace(/-/g, ""));
+  if (a.type === "root") { // 語根は単語の途中にあるので、長い形から順に探す
+    const lw = w.toLowerCase();
+    for (const v of vs.slice().sort((x, y) => y.length - x.length)) { const i = lw.indexOf(v); if (i >= 0) return [i, i + v.length]; }
+    return [0, 0];
+  }
   for (const v of vs) {
     if (a.type === "prefix" && w.startsWith(v)) return [0, v.length];
     if (a.type === "suffix" && w.endsWith(v)) return [w.length - v.length, w.length];
@@ -360,13 +387,27 @@ const KEY = "meidai-nine-v2";
 const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
 const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想", kyotsu:"共通テスト"};
 const EXAM = {
-  kyotsu: {name: "入試 英単語 ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [1,2,3,4]},
-  nagoya: {name: "入試 英単語 ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2,3,4]},
+  kyotsu: {name: "入試 英単語 ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [2]},
+  nagoya: {name: "入試 英単語 ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2]},
 };
-let st = {done:0, ok:0, mastery:{}, levels:[2,3,4], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
+let st = {v:0, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
 let studying = false;
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
+// 古い保存内容を今の形に直す（1回だけ）
+if ((st.v || 0) < 3) {
+  st.levelsByExam = {}; st.levels = [2];                       // レベルは最初は1つだけ選んだ状態にする
+  Object.keys(st.book || {}).forEach(ex => {                    // 単語帳1冊 → 複数の単語帳
+    if ((st.book[ex] || []).length && !(st.books[ex] || []).length) { st.books[ex] = [{id: "b1", name: "単語帳1", words: st.book[ex]}]; st.curBook[ex] = "b1"; }
+  });
+  Object.keys(st.weak || {}).forEach(ex => {                    // 苦手：「単語|品詞」→ 全モード共通のキー
+    st.weak[ex] = (st.weak[ex] || []).map(k => k.split("|").length === 2 ? ex + "|word|" + k : k);
+  });
+  const oldRange = st["range"];                                 // 以前の「範囲」の設定
+  st.pick = ["book", "weak", "due"].includes(oldRange) ? oldRange : (st.mode || "word");
+  st.v = 3;
+  save();
+}
 const $ = id => document.getElementById(id);
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -392,10 +433,18 @@ let solved = 0; // 今回の学習で解いた問題数
 let queue = [], cur = null, correct = [], picked = new Set(), answered = false, confShown = new Set(), fromOf = new Map();
 
 const wkey = w => w.word + "|" + w.pos;
-const bookList = () => (st.book[st.exam] = st.book[st.exam] || []);
+// ---- 単語帳（試験ごとに、いくつでも作れる）: st.books[試験] = [{id, name, words: ["単語|品詞", ...]}] ----
+const books = () => (st.books[st.exam] = st.books[st.exam] || []);
+const curBook = () => { const bs = books(); return bs.find(b => b.id === st.curBook[st.exam]) || bs[0] || null; };
+function ensureBook() { // 単語帳がまだ1つもなければ作る
+  let b = curBook();
+  if (!b) { b = {id: "b" + Date.now(), name: "単語帳1", words: []}; books().push(b); st.curBook[st.exam] = b.id; }
+  return b;
+}
+const bookList = () => { const b = curBook(); return b ? b.words : []; };
 const inBook = w => bookList().includes(wkey(w));
 function toggleBook(w) {
-  const b = bookList(), k = wkey(w), i = b.indexOf(k);
+  const b = ensureBook().words, k = wkey(w), i = b.indexOf(k);
   if (i >= 0) b.splice(i, 1); else b.push(k);
   save();
 }
@@ -403,15 +452,23 @@ const markList = () => (st.marks[st.exam] = st.marks[st.exam] || []);
 const inMark = w => markList().includes(wkey(w));
 function toggleMark(w) { const b = markList(), k = wkey(w), i = b.indexOf(k); if (i >= 0) b.splice(i, 1); else b.push(k); save(); }
 const weakList = () => (st.weak[st.exam] = st.weak[st.exam] || []);
-const keyOf = q => st.exam + "|" + st.mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "");
-function pool() {
-  if (st.mode === "affix") return st.range === "due" ? AFFIX_ITEMS.filter(isDue) : AFFIX_ITEMS;
+// 問題がどのモードのものか（単語帳・苦手・今日の復習では、いろいろなモードの問題がまざる）
+const modeOf = q => q.meanings ? "word" : q.affix ? (q.affix.type === "root" ? "ety" : "affix") : "idiom";
+const keyOf = q => st.exam + "|" + modeOf(q) + "|" + (q.meanings ? q.word : q.affix ? q.kind + ":" + q.w : q.en) + "|" + (q.pos || "");
+const itemsOf = mode => mode === "affix" ? AFFIX_ITEMS : mode === "ety" ? ROOT_ITEMS : mode === "idiom" ? IDIOM_ITEMS : WORDS;
+const allItems = () => ["word", "idiom", "ety", "affix"].flatMap(itemsOf);
+// 出題する問題の集まり。pick ＝ 設定画面で選んだボタン（word / idiom / ety / affix / book / weak / due）
+function pool(pick = st.pick) {
   const srcOk = x => st.exam === "kyotsu" || st.sources.includes(x);
-  if (st.mode === "idiom") return st.range === "due" ? IDIOM_ITEMS.filter(isDue) : IDIOM_ITEMS.filter(x => srcOk(x.src));
-  // 「今日の復習だけ」は、レベルや出題元の設定に関係なく、復習の日が来たものをすべて出す
-  const base = st.range === "due" ? WORDS.filter(isDue) : WORDS.filter(w => st.levels.includes(w.level) && srcOk(w.source || "exam") &&
-    (st.range === "all" || (st.range === "book" ? inBook(w) : st.range === "due" ? isDue(w) : weakList().includes(wkey(w)))));
-  return st.mode === "ety" ? base.filter(w => w.etymology) : base;
+  switch (pick) {
+    case "idiom": return IDIOM_ITEMS.filter(x => srcOk(x.src));
+    case "ety": return ROOT_ITEMS;
+    case "affix": return AFFIX_ITEMS;
+    case "book": return WORDS.filter(inBook);
+    case "weak": { const set = new Set(weakList()); return allItems().filter(q => set.has(keyOf(q))); }
+    case "due": return allItems().filter(isDue);
+    default: return WORDS.filter(w => st.levels.includes(w.level) && srcOk(w.source || "exam"));
+  }
 }
 // ---- 忘却曲線に沿った復習（間隔をあけた復習）----
 // 正解するたびに、次に復習するまでの間隔を 1日 → 3日 → 7日 → 14日 → 30日 → 60日 と延ばす。
@@ -427,12 +484,11 @@ function srsRecord(k, good) {
   const b = Math.min(e.b + 1, SRS_DAYS.length - 1);
   st.srs[k] = {b, d: addDays(SRS_DAYS[b])};
 }
-const MODES = [["word", "単語"], ["idiom", "イディオム"], ["ety", "語源で推測"], ["affix", "接頭辞・接尾辞"]];
+const MODES = [["word", "単語"], ["idiom", "イディオム"], ["ety", "語源"], ["affix", "接頭辞・接尾辞"]];
 const MODE_SHORT = {word: "単語", idiom: "熟語", ety: "語源", affix: "接辞"};
 // モードごとに、復習の日（次に復習する日）の一覧を返す。今のデータにない古い記録は数えない
 function dueDates(mode) {
-  const items = mode === "affix" ? AFFIX_ITEMS : mode === "idiom" ? IDIOM_ITEMS : mode === "ety" ? WORDS.filter(w => w.etymology) : WORDS;
-  return items.map(q => st.srs[st.exam + "|" + mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "")]).filter(Boolean).map(e => e.d);
+  return itemsOf(mode).map(q => st.srs[keyOf(q)]).filter(Boolean).map(e => e.d);
 }
 // from日後〜to日後に復習の日が来る数（from が 0 のときは、過ぎてしまった分も含める）
 function dueCount(mode, from, to) {
@@ -447,13 +503,10 @@ function fillDueBox(box) {
   const total = list.reduce((n, x) => n + x[2], 0);
   const h = el("h3"); h.innerHTML = "今日の復習 <b>" + total + "</b> 問"; box.appendChild(h);
   box.appendChild(el("p", null, "前に解いてから日がたち、忘れやすいころの問題です。今日のうちに解いておきましょう。"));
-  const row = el("div", "duebtns");
-  list.forEach(([k, name, n]) => {
-    const b = el("button", "btn small", name + " " + n + "問を復習する");
-    b.onclick = () => { st.mode = k; st.range = "due"; st.view = "quiz"; studying = true; solved = 0; restart(); window.scrollTo(0, 0); };
-    row.appendChild(b);
-  });
-  box.appendChild(row);
+  box.appendChild(el("p", null, list.map(([k, name, n]) => name + " " + n + "問").join("・")));
+  const b = el("button", "btn small", "今日の復習を始める");
+  b.onclick = () => { st.pick = "due"; st.view = "quiz"; studying = true; solved = 0; restart(); window.scrollTo(0, 0); };
+  box.appendChild(b);
 }
 function buildQueue() {
   // 復習の日が来たものを先に、そのあとは正解した回数の少ない順
@@ -482,8 +535,8 @@ function pickDistractors(own, n, conf, near, rest) {
 }
 function setupWordQuestion(w) {
   const ms = w.meanings.slice().sort((a, b) => (b.exam_count || 0) - (a.exam_count || 0) || (b.in_article ? 1 : 0) - (a.in_article ? 1 : 0));
-  const total = st.mode === "ety" ? 6 : 9;
-  correct = st.mode === "ety" ? [ms[0].ja] : ms.slice(0, Math.min(3, ms.length)).map(m => m.ja);
+  const total = 9;
+  correct = ms.slice(0, Math.min(3, ms.length)).map(m => m.ja);
   const conf = shuffle((w.confusables || []).map(c => c.ja)).slice(0, 2);
   const near = shuffle(WORDS.filter(x => x !== w && x.pos === w.pos && Math.abs(x.level - w.level) <= 1).flatMap(x => x.meanings.map(m => m.ja)));
   const rest = shuffle(WORDS.filter(x => x !== w).flatMap(x => x.meanings.map(m => m.ja)));
@@ -517,7 +570,7 @@ function setupAffixQuestion(q) {
     if (pa && pb) { if (ha !== hb) return false; const g = grams(pa); return [...grams(pb)].some(x => g.has(x)); }
     const g = grams(a); return [...grams(b)].some(x => g.has(x));
   };
-  const others = AFFIXES.filter(a => a !== q.affix);
+  const others = (q.affix.type === "root" ? ROOTS : AFFIXES).filter(a => a !== q.affix);
   const cand = shuffle(others.filter(a => a.type === q.affix.type)).concat(shuffle(others.filter(a => a.type !== q.affix.type)));
   const roles = [];
   fromOf = new Map();
@@ -546,13 +599,13 @@ function showHint(et) {
   h.hidden = false;
 }
 function render() {
-  if (!queue.length && st.range === "due" && studying) { buildQueue(); }
-  if (!queue.length && st.range === "due" && studying) { // 今日の復習をすべて終えた
-    studying = false; st.range = "all"; save(); syncControls(); buildQueue(); stats();
+  if (!queue.length && st.pick === "due" && studying) buildQueue();
+  if (!queue.length && st.pick === "due" && studying) { // 今日の復習をすべて終えた
+    studying = false; st.pick = "word"; save(); syncControls(); buildQueue(); stats();
     $("setup-msg").hidden = false; $("setup-msg").textContent = "今日の復習は終わりです。おつかれさまでした。";
     window.scrollTo(0, 0);
   }
-  if (!queue.length && studying && solved > 0 && st.range !== "due") { // この設定の問題を一通り解き終えた（同じ問題をくり返し出し続けない）
+  if (!queue.length && studying && solved > 0) { // この設定の問題を一通り解き終えた（同じ問題をくり返し出し続けない）
     studying = false; syncControls(); stats();
     $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定の問題を一通り解きました（" + solved + "問）。おつかれさまでした。もう一度始めると、覚えていない問題から順に出ます。";
     solved = 0; window.scrollTo(0, 0);
@@ -560,7 +613,8 @@ function render() {
   if (!queue.length) buildQueue();
   if (!queue.length) { $("q-word").textContent = "出題できる問題がありません"; $("opts").innerHTML = ""; return; }
   cur = queue.shift(); answered = false; picked.clear();
-  if (st.mode === "affix") { renderAffix(); return; }
+  st.mode = modeOf(cur);   // いま出している問題のモード
+  if (st.mode === "affix" || st.mode === "ety") { renderAffix(); return; }
   $("q-lv").parentElement.hidden = false; $("q-src").hidden = false;
   const idiom = st.mode === "idiom";
   const opts = idiom ? setupIdiomQuestion(cur) : setupWordQuestion(cur);
@@ -568,7 +622,7 @@ function render() {
   $("q-word").textContent = idiom ? cur.en : cur.word;
   $("q-word").className = "word" + (idiom ? " idiom" : "");
   $("q-pos").textContent = idiom ? "イディオム" : cur.pos;
-  $("q-lv").hidden = idiom; if (!idiom) $("q-lv").textContent = LVNAME[cur.level];
+  $("q-lv").hidden = idiom; if (!idiom) { $("q-lv").textContent = LVNAME[cur.level]; $("q-lv").dataset.lv = cur.level; }
   $("q-src").textContent = idiom && !cur.year ? "単語の関連表現" : SRC[src];
   $("q-src").className = "tag src" + (src === "predicted" ? " pred" : "");
   $("q-exam").textContent = idiom ? (cur.year ? "名大 " + cur.year + "年度に出題" : "「" + cur.word + "」の関連表現")
@@ -577,21 +631,20 @@ function render() {
     : (src === "predicted" ? "最近の記事で" : "入試の出典記事で") + cur.article_count + "回 / " + cur.article_num + "本";
   $("q-ask").innerHTML = st.mode === "word" ? "正しい意味を <em>" + correct.length + "</em> つ選んでください" : "いちばん近い意味を <em>1</em> つ選んでください";
   $("hint").hidden = true;
-  $("q-tip").hidden = st.mode !== "ety";
-  $("q-tip").textContent = "知らない単語でも大丈夫です。部品の意味をつなげて、意味を推測してみましょう。";
-  if (st.mode === "ety") showHint(cur.etymology);
+  $("q-tip").hidden = true;
   $("hintbtn").hidden = !(st.mode === "word" && cur.etymology);
   drawOptions(opts);
 }
 function renderAffix() {
   const opts = setupAffixQuestion(cur), a = cur.affix;
-  $("q-pos").textContent = a.type === "prefix" ? "接頭辞" : "接尾辞";
+  const root = a.type === "root";
+  $("q-pos").textContent = root ? "語根" : a.type === "prefix" ? "接頭辞" : "接尾辞";
   $("q-lv").hidden = true; $("q-src").hidden = true;
-  $("q-exam").textContent = a.type === "prefix" ? "単語の頭に付く部品" : "単語の語尾に付く部品";
+  $("q-exam").textContent = root ? "単語の中心になる部品" : a.type === "prefix" ? "単語の頭に付く部品" : "単語の語尾に付く部品";
   $("q-word").textContent = a.affix;
   $("q-word").className = "word idiom";
   const n = correct.length;
-  $("q-ask").innerHTML = (cur.kind === "pos" ? "この語尾が付くと、単語は何の品詞になる？ " : "この部品の働きは？ ") +
+  $("q-ask").innerHTML = (cur.kind === "pos" ? "この語尾が付くと、単語は何の品詞になる？ " : root ? "この部品の意味は？ " : "この部品の働きは？ ") +
     (n > 1 ? "正しいものを <em>" + n + "</em> つすべて選んでください" : "<em>1</em> つ選んでください");
   $("hint").hidden = true;
   const tip = $("q-tip"); tip.hidden = false; tip.innerHTML = ""; tip.appendChild(document.createTextNode("例："));
@@ -650,8 +703,8 @@ function check() {
   countToday();
   const ms = st.modeStats[st.exam + "|" + st.mode] = st.modeStats[st.exam + "|" + st.mode] || {done: 0, ok: 0};
   ms.done++; if (good) ms.ok++;
-  if (st.weakOn && (st.mode === "word" || st.mode === "ety")) {
-    const wl = weakList(), wk = wkey(cur), i = wl.indexOf(wk);
+  if (st.weakOn) {
+    const wl = weakList(), wk = keyOf(cur), i = wl.indexOf(wk);
     if (!good && i < 0) wl.push(wk);
     if (good && i >= 0 && (st.mastery[keyOf(cur)] || 0) >= 1) wl.splice(i, 1); // 苦手から外すのは2回続けて正解したとき
   }
@@ -663,7 +716,7 @@ function check() {
   $("result").className = "result " + (good ? "ok" : "ng");
   const idiom = st.mode === "idiom";
   $("a-means").innerHTML = "";
-  if (st.mode === "affix") { answerAffix(); return; }
+  if (st.mode === "affix" || st.mode === "ety") { answerAffix(); return; }
   $("a-eth").textContent = "語源"; $("a-idh").textContent = "イディオム";
   if (idiom) {
     $("a-mh").textContent = "このイディオムの意味";
@@ -688,13 +741,14 @@ function check() {
   $("answer").hidden = false; $("check").hidden = true; $("next").hidden = false; $("next").focus();
 }
 function showBookBtn() {
-  const ok = st.mode === "word" || st.mode === "ety";
+  const ok = st.mode === "word";
   $("bookbtn").hidden = !ok;
   if (ok) $("bookbtn").textContent = inMark(cur) ? "✓ ブックマーク済み（外す）" : "＋ ブックマーク";
 }
 function answerAffix() {
   const a = cur.affix;
-  $("a-mh").textContent = "「" + a.affix + "」の働きと例" + (a.senses.length > 1 ? "（働きが " + a.senses.length + " つあります）" : "");
+  const what = a.type === "root" ? "意味" : "働き";
+  $("a-mh").textContent = "「" + a.affix + "」の" + what + "と例" + (a.senses.length > 1 ? "（" + what + "が " + a.senses.length + " つあります）" : "");
   a.senses.forEach(x => {
     $("a-means").appendChild(listItem("●", x.role, x.pos && !x.role.includes(x.pos) ? x.pos : ""));
     x.examples.forEach(([w, ja]) => { const li = listItem("", "　" + ja, "", " "); li.querySelector(".en").textContent = ""; li.querySelector(".en").appendChild(markAffix(a, w)); $("a-means").appendChild(li); });
@@ -716,22 +770,29 @@ function stats() {
   $("s-total").textContent = p.length;
   $("s-master").textContent = p.filter(q => (st.mastery[keyOf(q)] || 0) >= 2).length;
 }
+const PICK_NAME = {word: "単語", idiom: "イディオム", ety: "語源", affix: "接頭辞・接尾辞", book: "単語帳", weak: "苦手", due: "今日の復習"};
 function syncControls() {
-  document.querySelectorAll(".mode").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === st.mode));
+  document.querySelectorAll(".mode").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === st.pick));
   document.querySelectorAll(".chip[data-lv]").forEach(c => c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv)));
   document.querySelectorAll(".chip[data-src]").forEach(c => c.setAttribute("aria-pressed", st.sources.includes(c.dataset.src)));
-  $("f-level").hidden = st.mode === "idiom" || st.mode === "affix";
-  $("f-src").hidden = st.mode === "affix" || st.exam === "kyotsu";
-  $("f-book").hidden = !(st.mode === "word" || st.mode === "ety");
-  document.querySelectorAll(".chip[data-book]").forEach(c => c.setAttribute("aria-pressed", c.dataset.book === st.range));
+  $("f-level").hidden = st.pick !== "word";
+  $("f-src").hidden = !(st.pick === "word" || st.pick === "idiom") || st.exam === "kyotsu";
+  // 単語帳・苦手・今日の復習のボタンに、今の数を出す
+  const cb = curBook();
+  $("d-book").textContent = cb ? "「" + cb.name + "」" + cb.words.length + "語" : "まだありません";
+  $("d-weak").textContent = pool("weak").length + "問";
+  $("d-due").textContent = pool("due").length + "問";
+  $("f-qbook").hidden = st.pick !== "book";
+  const qb = $("q-book"); qb.innerHTML = "";
+  books().forEach(b => { const o = el("option", null, b.name + "（" + b.words.length + "語）"); o.value = b.id; qb.appendChild(o); });
+  if (cb) qb.value = cb.id;
   document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === st.view));
   const starting = !st.seen;
   $("v-start").hidden = !starting; $("tabs").hidden = starting;
   document.querySelector(".wrap > .exams").hidden = starting;
   if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; return; }
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
-  const MODE = {word: "単語", idiom: "イディオム", ety: "語源で推測", affix: "接頭辞・接尾辞"};
-  $("study-sum").textContent = MODE[st.mode] + (st.mode === "idiom" || st.mode === "affix" ? "" : "／" + lvs) + (st.range === "book" ? "／単語帳だけ" : st.range === "weak" ? "／苦手だけ" : st.range === "due" ? "／今日の復習だけ" : "");
+  $("study-sum").textContent = PICK_NAME[st.pick] + (st.pick === "word" ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
   fillDueBox($("due-info"));
   $("setup").hidden = studying; $("study").hidden = !studying;
   document.querySelector(".wrap > .exams").hidden = studying;
@@ -740,10 +801,22 @@ function syncControls() {
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", b.dataset.exam === st.exam));
 }
 function restart() { $("setup-msg").hidden = true; save(); syncControls(); buildQueue(); stats(); render(); }
-document.querySelectorAll(".mode").forEach(b => b.onclick = () => { st.mode = b.dataset.mode; if (st.range === "due") st.range = "all"; restart(); });
+const setupMsg = t => { $("setup-msg").hidden = false; $("setup-msg").textContent = t; };
+document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
+  const want = b.dataset.mode;
+  if (want === "book") {
+    const full = books().find(x => x.words.length);
+    if (!full) { setupMsg("単語帳がまだ空です。「単語一覧・単語帳」の☆やブックマークから、単語を入れてください。"); return; }
+    if (!bookList().length) st.curBook[st.exam] = full.id;   // 選んでいる単語帳が空なら、中身のある単語帳に切り替える
+  }
+  if (want === "weak" && !pool("weak").length) { setupMsg("苦手な問題はまだありません。間違えた問題が、ここに自動で集まります。"); return; }
+  if (want === "due" && !pool("due").length) { setupMsg("今日復習する問題はありません。解いた問題は、1日後・3日後・7日後…と間隔をあけて、ここに出てきます。"); return; }
+  st.pick = want; restart();
+});
+$("q-book").addEventListener("change", e => { st.curBook[st.exam] = e.target.value; restart(); });
 document.querySelectorAll(".exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; studying = false; setExam(); restart(); });
 $("startbtn").onclick = () => {
-  if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや範囲を変えてください。"; return; }
+  if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや出題元を変えてください。"; return; }
   studying = true; solved = 0; restart(); window.scrollTo(0, 0);
 };
 $("pausebtn").onclick = () => { studying = false; syncControls(); stats(); window.scrollTo(0, 0); };
@@ -762,7 +835,36 @@ $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = tr
 $("check").onclick = check; $("next").onclick = render;
 document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; st.seen = true; st.view = "quiz"; setExam(); restart(); });
 const POS_ORDER = {"名詞":1, "動詞":2, "形容詞":3, "副詞":4, "前置詞句":5};
+function renderBooks() {
+  const sel = $("bk-sel"), bs = books(), cb = curBook(); sel.innerHTML = "";
+  if (!bs.length) sel.appendChild(el("option", null, "（まだありません）"));
+  bs.forEach(b => { const o = el("option", null, b.name + "（" + b.words.length + "語）"); o.value = b.id; sel.appendChild(o); });
+  if (cb) sel.value = cb.id;
+  sel.disabled = !bs.length; $("bk-ren").disabled = $("bk-del").disabled = !cb;
+  $("bk-del").textContent = "この単語帳を消す"; delArmed = false;
+}
+let delArmed = false;
+const bkMsg = t => { $("bk-msg").textContent = t; };
+$("bk-sel").addEventListener("change", e => { st.curBook[st.exam] = e.target.value; save(); renderList(); syncControls(); bkMsg("☆を押すと、上で選んでいる単語帳に入ります。"); });
+$("bk-new").onclick = () => {
+  const name = $("bk-name").value.trim() || "単語帳" + (books().length + 1);
+  const b = {id: "b" + Date.now(), name, words: []}; books().push(b); st.curBook[st.exam] = b.id; $("bk-name").value = "";
+  save(); renderList(); syncControls(); bkMsg("単語帳「" + name + "」を作りました。☆を押すと、この単語帳に入ります。");
+};
+$("bk-ren").onclick = () => {
+  const name = $("bk-name").value.trim(), b = curBook();
+  if (!b) return;
+  if (!name) { bkMsg("新しい名前を左の欄に入れてから、「名前を変える」を押してください。"); $("bk-name").focus(); return; }
+  b.name = name; $("bk-name").value = ""; save(); renderList(); syncControls(); bkMsg("名前を「" + name + "」に変えました。");
+};
+$("bk-del").onclick = () => {
+  const b = curBook(); if (!b) return;
+  if (!delArmed) { delArmed = true; $("bk-del").textContent = "本当に消す（もう一度押す）"; bkMsg("単語帳「" + b.name + "」（" + b.words.length + "語）を消します。消すと元に戻せません。"); return; }
+  st.books[st.exam] = books().filter(x => x !== b); st.curBook[st.exam] = (books()[0] || {}).id || "";
+  save(); renderList(); syncControls(); bkMsg("単語帳「" + b.name + "」を消しました。");
+};
 function renderList() {
+  renderBooks();
   const q = $("l-q").value.trim().toLowerCase();
   const sort = $("l-sort").value;
   $("l-addall").hidden = !markList().length;
@@ -775,7 +877,7 @@ function renderList() {
     level: (a, b) => a.level - b.level || a.word.localeCompare(b.word),
   }[sort];
   ws = ws.slice().sort(by);
-  $("l-count").textContent = ws.length + "語（単語帳：" + bookList().length + "語／ブックマーク：" + markList().length + "語）";
+  $("l-count").textContent = ws.length + "語（" + (curBook() ? "単語帳「" + curBook().name + "」" : "単語帳") + "：" + bookList().length + "語／ブックマーク：" + markList().length + "語）";
   const ul = $("l-list"); ul.innerHTML = "";
   ws.forEach(w => {
     const li = el("li");
@@ -786,7 +888,10 @@ function renderList() {
     li.appendChild(el("span", "w", w.word));
     const n = w.exam_count || w.article_count;
     li.appendChild(el("span", "cnt", n ? n + "回" : ""));
-    li.appendChild(el("span", "sub", w.pos + "・" + LVNAME[w.level] + (w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + SRC[w.source] : "") + (inMark(w) ? "・ブックマーク中" : "")));
+    const sub = el("span", "sub", w.pos + "・");
+    const lv = el("span", "lvtxt", LVNAME[w.level]); lv.dataset.lv = w.level; sub.appendChild(lv);
+    sub.appendChild(document.createTextNode((w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + SRC[w.source] : "") + (inMark(w) ? "・ブックマーク中" : "")));
+    li.appendChild(sub);
     const m = el("span", "m", w.meanings.map(x => x.ja).join(" / "));
     m.style.gridColumn = "2 / 4";
     li.appendChild(m);
@@ -848,12 +953,12 @@ function renderRec() {
   [1, 2, 3, 4].forEach(lv => {
     const ws = WORDS.filter(w => w.level === lv); if (!ws.length) return;
     const m = ws.filter(w => (st.mastery[st.exam + "|word|" + w.word + "|" + w.pos] || 0) >= 2).length;
-    const row = el("div", "bar"); row.appendChild(el("span", null, LVNAME[lv]));
-    const tr = el("div", "track"); const f = el("div", "fill"); f.style.width = (100 * m / ws.length) + "%"; tr.appendChild(f); row.appendChild(tr);
+    const row = el("div", "bar"); const nm = el("span", "lvtxt", LVNAME[lv]); nm.dataset.lv = lv; row.appendChild(nm);
+    const tr = el("div", "track"); const f = el("div", "fill"); f.dataset.lv = lv; f.style.width = (100 * m / ws.length) + "%"; tr.appendChild(f); row.appendChild(tr);
     row.appendChild(el("span", "num", m + " / " + ws.length + "語")); bars.appendChild(row);
   });
   const mb = $("r-modes"); mb.innerHTML = "";
-  [["word", "単語"], ["idiom", "イディオム"], ["ety", "語源で推測"], ["affix", "接頭辞・接尾辞"]].forEach(([k, name]) => {
+  MODES.forEach(([k, name]) => {
     const s = st.modeStats[st.exam + "|" + k] || {done: 0, ok: 0};
     const row = el("div", "bar"); row.appendChild(el("span", null, name));
     const tr = el("div", "track"); const f = el("div", "fill"); f.style.width = (s.done ? 100 * s.ok / s.done : 0) + "%"; tr.appendChild(f); row.appendChild(tr);
@@ -862,18 +967,11 @@ function renderRec() {
 }
 $("r-date").addEventListener("change", e => { st.examDate[st.exam] = e.target.value === autoDate() ? "" : e.target.value; save(); renderRec(); });
 $("r-goal").addEventListener("change", e => { st.goal = +e.target.value; save(); stats(); });
-document.querySelectorAll(".chip[data-book]").forEach(c => c.onclick = () => {
-  const want = c.dataset.book;
-  if (want === "book" && !bookList().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "単語帳がまだ空です。「単語一覧・単語帳」の☆やブックマークから、単語を入れてください。"; return; }
-  if (want === "due" && !dueCount(st.mode, 0, 0)) { $("setup-msg").hidden = false; $("setup-msg").textContent = "今日復習する単語はありません。解いた単語は、1日後・3日後・7日後…と間隔をあけて、ここに出てきます。"; return; }
-  if (want === "weak" && !weakList().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "苦手な単語はまだありません。間違えた単語が、ここに自動で集まります。"; return; }
-  st.range = want; restart();
-});
 $("bookbtn").onclick = () => { toggleMark(cur); showBookBtn(); };
-$("l-addall").onclick = () => { markList().forEach(k => { if (!bookList().includes(k)) bookList().push(k); }); st.marks[st.exam] = []; $("l-mark").checked = false; save(); renderList(); };
+$("l-addall").onclick = () => { const bw = ensureBook().words; markList().forEach(k => { if (!bw.includes(k)) bw.push(k); }); st.marks[st.exam] = []; $("l-mark").checked = false; save(); renderList(); };
 ["l-q", "l-sort", "l-book", "l-mark"].forEach(id => $(id).addEventListener(id === "l-q" ? "input" : "change", renderList));
 const origSetExam = setExam;
-setExam = function () { origSetExam(); if ((st.range === "book" && !bookList().length) || (st.range === "weak" && !weakList().length) || (st.range === "due" && !dueCount(st.mode, 0, 0))) st.range = "all"; if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); };
+setExam = function () { origSetExam(); if (["book", "weak", "due"].includes(st.pick) && !pool().length) st.pick = "word"; if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); };
 setExam(); syncControls(); buildQueue(); stats(); render();
 if (st.view === "list") renderList();
 if (st.view === "rec") renderRec();

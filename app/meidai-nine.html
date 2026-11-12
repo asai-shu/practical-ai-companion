@@ -113,6 +113,12 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .chip[data-lv][aria-pressed="true"]{background:var(--c);border-color:var(--c);color:var(--sheet)}
 .lvtxt{color:var(--c);font-weight:700}
 .bar .fill[data-lv]{background:var(--c)}
+.help{border:1px solid var(--line);border-radius:6px;background:var(--sheet);font-size:13px}
+.help summary{cursor:pointer;padding:8px 12px;font-weight:700;color:var(--drop)}
+.help summary:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
+.help dl{margin:0;padding:0 12px 10px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px}
+.help dt{font-weight:700;white-space:nowrap}
+.help dd{margin:0;color:var(--muted)}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -172,10 +178,15 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <li><b>語源</b>：単語の中心になる部品（語根）の意味を、すべて選びます</li>
       <li><b>接頭辞・接尾辞</b>：単語の頭や語尾に付く部品の働きを、すべて選びます</li>
     </ul>
-    <p>まず、どちらの単語から始めるか選んでください（あとから切り替えられます）。</p>
+    <div class="filters">
+      <label for="u-sel0">志望校</label>
+      <select id="u-sel0" class="usel"></select>
+      <span>あとからいつでも変えられます</span>
+    </div>
+    <p>どちらの単語から始めますか（これも、あとから切り替えられます）。</p>
     <div class="exams">
-      <button class="exam start-exam" data-exam="kyotsu">共通テスト<small>無料版・611語</small></button>
-      <button class="exam start-exam" data-exam="nagoya">名古屋大学 2次試験<small>大学特化版・893語</small></button>
+      <button class="exam start-exam" data-exam="kyotsu">共通テスト<small id="s0-kyotsu">無料版</small></button>
+      <button class="exam start-exam" data-exam="univ"><span class="u-name">志望校</span><small class="u-sub">大学特化版</small></button>
     </div>
   </section>
 
@@ -187,11 +198,30 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
   <div class="exams" role="group" aria-label="試験">
     <button class="exam" id="e-kyotsu" data-exam="kyotsu" aria-pressed="true">共通テスト<small>無料版</small></button>
-    <button class="exam" id="e-nagoya" data-exam="nagoya" aria-pressed="false">名古屋大学 2次試験<small>大学特化版</small></button>
+    <button class="exam" id="e-univ" data-exam="univ" aria-pressed="false"><span class="u-name">志望校</span><small class="u-sub">大学特化版</small></button>
+  </div>
+  <div class="filters" id="u-row">
+    <label for="u-sel">志望校</label>
+    <select id="u-sel" class="usel"></select>
+    <span>いつでも変えられます</span>
   </div>
 
   <div id="v-quiz" class="view">
   <div id="setup" class="view">
+  <details class="help" id="help-quiz">
+    <summary>？ 使い方</summary>
+    <dl>
+      <dt>単語</dt><dd>英単語の意味を、9つの中からすべて選ぶ</dd>
+      <dt>イディオム</dt><dd>熟語の意味を1つ選ぶ</dd>
+      <dt>語源</dt><dd>単語の中心の部品（spect＝見る など）の意味を選ぶ</dd>
+      <dt>接頭辞・接尾辞</dt><dd>頭や語尾の部品（re-、-tion など）の働きを選ぶ</dd>
+      <dt>単語帳</dt><dd>自分で☆を付けて集めた単語だけを出す</dd>
+      <dt>苦手</dt><dd>間違えた問題だけを出す。2回続けて正解すると外れる</dd>
+      <dt>今日の復習</dt><dd>前に解いて、ちょうど忘れやすいころになった問題を出す</dd>
+      <dt>レベル</dt><dd>単語の難しさ。出したいものを選ぶ（いくつでも）</dd>
+      <dt class="uonly">出題元</dt><dd class="uonly">入試＝過去問に出た単語。出典記事＝過去問の元になった記事に出てくる単語。予想＝これから出そうな最近の記事の単語</dd>
+    </dl>
+  </details>
   <h2 class="steph">学習の設定</h2>
   <div class="modes" role="group" aria-label="モード">
     <button class="mode" id="m-word" data-mode="word" aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
@@ -216,7 +246,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </div>
   <div class="filters" role="group" aria-label="出題元" id="f-src">
     <span>出題元</span>
-    <button class="chip" id="src-exam" data-src="exam" aria-pressed="true">名大の入試</button>
+    <button class="chip" id="src-exam" data-src="exam" aria-pressed="true">入試</button>
     <button class="chip" id="src-article" data-src="source_article" aria-pressed="true">入試の出典記事</button>
     <button class="chip" id="src-pred" data-src="predicted" aria-pressed="true">予想（最近の記事）</button>
   </div>
@@ -237,8 +267,19 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
   <div id="study" class="view" hidden>
   <div class="studybar"><span id="study-sum"></span><button class="btn ghost small" id="pausebtn">中断する</button></div>
+  <details class="help" id="help-study">
+    <summary>？ 記号とボタンの意味</summary>
+    <dl>
+      <dt>← 単語</dt><dd>答え合わせのあと、不正解の選択肢がどの単語の意味だったかを示す</dd>
+      <dt>点線の枠</dt><dd>選ばなかった正解</dd>
+      <dt class="uonly">★</dt><dd class="uonly">その大学の入試で、実際に使われた意味</dd>
+      <dt>ブックマーク</dt><dd>気になった単語に印を付ける。あとで単語帳に移せる</dd>
+      <dt>語源ヒント</dt><dd>単語を部品に分けて見せる</dd>
+      <dt>中断する</dt><dd>設定の画面に戻る。記録は残る</dd>
+    </dl>
+  </details>
   <section class="sheet" aria-live="polite">
-    <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span class="tag src" id="q-src">名大の入試</span><span id="q-exam">名大で27回 / 1年分</span></div>
+    <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span class="tag src" id="q-src"></span><span id="q-exam"></span></div>
     <p class="word" id="q-word">dolphin</p>
     <div class="hint" id="hint" hidden></div>
     <p class="tip" id="q-tip" hidden></p>
@@ -266,6 +307,15 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </div>
 
   <section id="v-list" class="view" hidden>
+    <details class="help" id="help-list">
+      <summary>？ 使い方</summary>
+      <dl>
+        <dt>☆</dt><dd>押すと、下で選んでいる単語帳に入る。もう一度押すと外れる</dd>
+        <dt>単語帳</dt><dd>何冊でも作れる。クイズの「単語帳」で、その単語だけを練習できる</dd>
+        <dt>ブックマーク</dt><dd>問題の途中で印を付けた単語。まとめて単語帳に移せる</dd>
+        <dt>回数</dt><dd>その試験の英文に出てきた回数</dd>
+      </dl>
+    </details>
     <div class="listbar">
       <label for="l-q" class="sr">検索</label>
       <input id="l-q" type="search" placeholder="英語・日本語で検索" autocomplete="off">
@@ -293,6 +343,15 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <ul class="wlist" id="l-list"></ul>
   </section>
   <section id="v-rec" class="view" hidden>
+    <details class="help" id="help-rec">
+      <summary>？ 使い方</summary>
+      <dl>
+        <dt>習得</dt><dd>2回続けて正解した問題の数</dd>
+        <dt>今日</dt><dd>今日解いた問題数 ／ 1日の目標</dd>
+        <dt>連続</dt><dd>1日の目標を達成した日が続いている日数</dd>
+        <dt>復習の予定</dt><dd>解いた問題は、1・3・7・14・30・60日後にもう一度出る</dd>
+      </dl>
+    </details>
     <div class="recbox">
       <h2>これまでの記録</h2>
       <div class="stats">
@@ -335,8 +394,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <div id="r-modes"></div>
     </div>
   </section>
-  <p class="note" id="note-kyotsu">意味は辞書・単語帳を写さずに作成しています。まぎらわしい選択肢を避けるために、英語の類義語辞書 WordNet（Princeton University）を参照しています。出現回数は、大学入試センターが公開している共通テストの英語（リーディング・リスニング、2024〜2026年度の本試験・追再試験）を数えたものです。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
-  <p class="note" id="note-nagoya">意味は辞書・単語帳を写さずに作成しています。まぎらわしい選択肢を避けるために、英語の類義語辞書 WordNet（Princeton University）を参照しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
+  <p class="note" id="note"></p>
 </div>
 
 <script>
@@ -373,12 +431,22 @@ function affixSpan(a, w) {
 }
 const KEY = "meidai-nine-v2";
 const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
-const SRC = {exam:"名大の入試", source_article:"入試の出典記事", predicted:"予想", kyotsu:"共通テスト"};
-const EXAM = {
-  kyotsu: {name: "入試 英単語 ナイン", sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", levels: [2]},
-  nagoya: {name: "入試 英単語 ナイン", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", levels: [2]},
+// ---- 大学の一覧 ----
+// 大学を足すときは、その大学の単語データとイディオムを埋め込んで、ここに1つ足す。
+// 番号（nagoya など）は保存した記録のキーに使うので、あとから変えないこと。
+const UNIVS = {
+  nagoya: {name: "名古屋大学", short: "名大", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", words: NAGOYA_WORDS, idioms: IDIOMS,
+    date: {name: "名古屋大学 前期日程（1日目）", dates: ["2027-02-25"]},
+    note: "出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。"},
 };
-let st = {v:0, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
+const KYOTSU = {sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", date: {name: "共通テスト（本試験1日目）", dates: ["2027-01-16"]},
+  note: "出現回数は、大学入試センターが公開している共通テストの英語（リーディング・リスニング、2024〜2026年度の本試験・追再試験）を数えたものです。"};
+const APP_NAME = "入試 英単語 ナイン";
+const NOTE_HEAD = "意味は辞書・単語帳を写さずに作成しています。まぎらわしい選択肢を避けるために、英語の類義語辞書 WordNet（Princeton University）を参照しています。", NOTE_TAIL = "レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。";
+const exInfo = () => UNIVS[st.exam] || KYOTSU;                 // いま選んでいる試験の情報
+const uShort = () => (UNIVS[st.exam] || {}).short || "";       // 「名大」など
+const srcName = k => k === "exam" ? uShort() + "の入試" : ({source_article: "入試の出典記事", predicted: "予想", kyotsu: "共通テスト"})[k];
+let st = {v:0, univ:"", help:{}, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
 let studying = false;
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
@@ -396,6 +464,13 @@ if ((st.v || 0) < 3) {
   st.v = 3;
   save();
 }
+if (st.v < 4) {                                                   // 志望校：これまで使っていた人は名古屋大学を選んだ状態にする
+  if (!st.univ && st.seen) st.univ = "nagoya";
+  st.v = 4; save();
+}
+if (st.exam !== "kyotsu" && !UNIVS[st.exam]) st.exam = "kyotsu";  // データのない大学が保存されていたら、共通テストに戻す
+if (st.univ && !UNIVS[st.univ]) st.univ = "";
+if (st.exam !== "kyotsu") st.univ = st.exam;
 const $ = id => document.getElementById(id);
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -403,20 +478,22 @@ const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls)
 // 意味 → それを持つ英単語（不正解の選択肢の正体を表示するため）
 let OWNER = new Map(), OWNERS = new Map(), IDIOM_ITEMS = [];
 function setExam() {
-  WORDS = st.exam === "kyotsu" ? KYOTSU_WORDS : NAGOYA_WORDS;
+  WORDS = UNIVS[st.exam] ? UNIVS[st.exam].words : KYOTSU_WORDS;
   OWNER = new Map();
   WORDS.forEach(w => w.meanings.forEach(m => { if (!OWNER.has(m.ja)) OWNER.set(m.ja, w.word); }));
   OWNERS = new Map();   // 意味 → その意味を持つ単語すべて（小文字）
   WORDS.forEach(w => w.meanings.forEach(m => { if (!OWNERS.has(m.ja)) OWNERS.set(m.ja, new Set()); OWNERS.get(m.ja).add(w.word.toLowerCase()); }));
   WORDS.forEach(w => (w.confusables || []).forEach(c => { if (!OWNER.has(c.ja)) OWNER.set(c.ja, c.en); }));
-  // イディオム問題の材料：（名大なら）入試に出たイディオム＋単語データのイディオム
-  IDIOM_ITEMS = (st.exam === "nagoya" ? IDIOMS.map(x => ({en: x.en, ja: x.ja, src: "exam", year: x.year})) : [])
+  // イディオム問題の材料：（大学版なら）入試に出たイディオム＋単語データのイディオム
+  IDIOM_ITEMS = (UNIVS[st.exam] ? UNIVS[st.exam].idioms.map(x => ({en: x.en, ja: x.ja, src: "exam", year: x.year})) : [])
     .concat(WORDS.flatMap(w => w.idioms.map(i => ({en: i.en, ja: i.ja, src: w.source || "exam", word: w.word, level: w.level}))))
     .filter((x, i, a) => a.findIndex(y => y.en === x.en) === i);
-  st.levels = st.levelsByExam[st.exam] || EXAM[st.exam].levels.slice();
-  $("h-name").textContent = EXAM[st.exam].name; $("h-sub").textContent = EXAM[st.exam].sub;
-  document.title = EXAM[st.exam].name;
-  $("note-kyotsu").hidden = st.exam !== "kyotsu"; $("note-nagoya").hidden = st.exam !== "nagoya";
+  st.levels = st.levelsByExam[st.exam] || [2];
+  $("h-name").textContent = APP_NAME; $("h-sub").textContent = exInfo().sub;
+  document.title = APP_NAME;
+  $("note").textContent = NOTE_HEAD + exInfo().note + NOTE_TAIL;
+  $("src-exam").textContent = srcName("exam");
+  document.querySelectorAll(".uonly").forEach(e => e.hidden = !UNIVS[st.exam]);
 }
 
 let solved = 0; // 今回の学習で解いた問題数
@@ -627,11 +704,11 @@ function render() {
   $("q-word").className = "word" + (idiom ? " idiom" : "");
   $("q-pos").textContent = idiom ? "イディオム" : cur.pos;
   $("q-lv").hidden = idiom; if (!idiom) { $("q-lv").textContent = LVNAME[cur.level]; $("q-lv").dataset.lv = cur.level; }
-  $("q-src").textContent = idiom && !cur.year ? "単語の関連表現" : SRC[src];
+  $("q-src").textContent = idiom && !cur.year ? "単語の関連表現" : srcName(src);
   $("q-src").className = "tag src" + (src === "predicted" ? " pred" : "");
-  $("q-exam").textContent = idiom ? (cur.year ? "名大 " + cur.year + "年度に出題" : "「" + cur.word + "」の関連表現")
+  $("q-exam").textContent = idiom ? (cur.year ? uShort() + " " + cur.year + "年度に出題" : "「" + cur.word + "」の関連表現")
     : src === "kyotsu" ? "共通テストで" + cur.exam_count + "回 / " + cur.exam_years + "年分"
-    : src === "exam" ? "名大で" + cur.exam_count + "回 / " + cur.exam_years + "年分"
+    : src === "exam" ? uShort() + "で" + cur.exam_count + "回 / " + cur.exam_years + "年分"
     : (src === "predicted" ? "最近の記事で" : "入試の出典記事で") + cur.article_count + "回 / " + cur.article_num + "本";
   $("q-ask").innerHTML = st.mode === "word" ? "正しい意味を <em>" + correct.length + "</em> つ選んでください" : "いちばん近い意味を <em>1</em> つ選んでください";
   $("hint").hidden = true;
@@ -728,11 +805,11 @@ function check() {
   $("a-eth").textContent = "語源"; $("a-idh").textContent = "イディオム";
   if (idiom) {
     $("a-mh").textContent = "このイディオムの意味";
-    $("a-means").appendChild(listItem(cur.src === "exam" && cur.year ? "★" : "", cur.ja, cur.year ? "名大 " + cur.year + "年度" : ""));
+    $("a-means").appendChild(listItem(cur.src === "exam" && cur.year ? "★" : "", cur.ja, cur.year ? uShort() + " " + cur.year + "年度" : ""));
   } else {
     const ex = (cur.source || "exam") === "exam";
     const srcNow = cur.source || "exam";
-    $("a-mh").textContent = srcNow === "kyotsu" ? "この単語の意味" : ex ? "この単語の意味（★＝名大で出た意味）" : "この単語の意味（◆＝記事で使われた意味）";
+    $("a-mh").textContent = srcNow === "kyotsu" ? "この単語の意味" : ex ? "この単語の意味（★＝" + uShort() + "で出た意味）" : "この単語の意味（◆＝記事で使われた意味）";
     cur.meanings.forEach(m => $("a-means").appendChild(listItem(m.in_exam ? "★" : (m.in_article ? "◆" : ""), m.ja, m.exam_count ? m.exam_count + "回" : "")));
   }
   const et = !idiom && cur.etymology;
@@ -798,7 +875,7 @@ function syncControls() {
   const starting = !st.seen;
   $("v-start").hidden = !starting; $("tabs").hidden = starting;
   document.querySelector(".wrap > .exams").hidden = starting;
-  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; return; }
+  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; $("u-row").hidden = true; syncUniv(); return; }
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
   $("study-sum").textContent = PICK_NAME[st.pick] + (st.pick === "word" ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
   fillDueBox($("due-info"));
@@ -806,8 +883,34 @@ function syncControls() {
   document.querySelector(".wrap > .exams").hidden = studying;
   $("weak-on").checked = st.weakOn;
   $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec";
-  document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", b.dataset.exam === st.exam));
+  document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", (b.dataset.exam === "kyotsu") === (st.exam === "kyotsu")));
+  $("u-row").hidden = starting || studying;
+  syncUniv();
 }
+// 志望校の選択欄と、大学版のボタンの表示をそろえる
+function syncUniv() {
+  document.querySelectorAll(".usel").forEach(sel => {
+    sel.innerHTML = "";
+    const none = el("option", null, "（まだ選んでいません）"); none.value = ""; sel.appendChild(none);
+    Object.keys(UNIVS).forEach(id => { const o = el("option", null, UNIVS[id].name); o.value = id; sel.appendChild(o); });
+    const soon = el("option", null, "ほかの大学は準備中です"); soon.disabled = true; sel.appendChild(soon);
+    sel.value = st.univ || "";
+  });
+  const u = UNIVS[st.univ];
+  document.querySelectorAll(".u-name").forEach(e => e.textContent = u ? u.name + " 2次試験" : "志望校の単語");
+  document.querySelectorAll(".u-sub").forEach(e => e.textContent = u ? "大学特化版・" + u.words.length + "語" : "上で志望校を選んでください");
+  $("s0-kyotsu").textContent = "無料版・" + KYOTSU_WORDS.length + "語";
+}
+document.querySelectorAll(".usel").forEach(sel => sel.addEventListener("change", e => {
+  st.univ = e.target.value;
+  if (st.seen) { st.exam = st.univ || "kyotsu"; studying = false; setExam(); restart(); }   // 選んだ大学にすぐ切り替える
+  else { save(); syncUniv(); }
+}));
+// 使い方：一度閉じたら、次からは閉じたままにする
+document.querySelectorAll("details.help").forEach(d => {
+  d.open = d.id !== "help-study" && !st.help[d.id];
+  d.querySelector("summary").addEventListener("click", () => { if (d.open && !st.help[d.id]) { st.help[d.id] = 1; save(); } });   // 開いているものを押した＝閉じた
+});
 function restart() { $("setup-msg").hidden = true; save(); syncControls(); buildQueue(); stats(); render(); }
 const setupMsg = t => { $("setup-msg").hidden = false; $("setup-msg").textContent = t; };
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
@@ -822,7 +925,15 @@ document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
   st.pick = want; restart();
 });
 $("q-book").addEventListener("change", e => { st.curBook[st.exam] = e.target.value; restart(); });
-document.querySelectorAll(".exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; studying = false; setExam(); restart(); });
+// 試験の切り替え。大学版のボタンは、選んである志望校に切り替える
+function pickExam(want) {
+  if (want === "univ") {
+    if (!UNIVS[st.univ]) { const sel = $(st.seen ? "u-sel" : "u-sel0"); sel.focus(); if (st.seen) setupMsg("先に、上の「志望校」で大学を選んでください。"); return false; }
+    want = st.univ;
+  }
+  st.exam = want; return true;
+}
+document.querySelectorAll(".exam:not(.start-exam)").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; studying = false; setExam(); restart(); });
 $("startbtn").onclick = () => {
   if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや出題元を変えてください。"; return; }
   studying = true; solved = 0; restart(); window.scrollTo(0, 0);
@@ -841,7 +952,7 @@ document.querySelectorAll(".chip[data-src]").forEach(c => c.onclick = () => {
 });
 $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = true; };
 $("check").onclick = check; $("next").onclick = render;
-document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; st.seen = true; st.view = "quiz"; setExam(); restart(); });
+document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; st.seen = true; st.view = "quiz"; setExam(); restart(); });
 const POS_ORDER = {"名詞":1, "動詞":2, "形容詞":3, "副詞":4, "前置詞句":5};
 function renderBooks() {
   const sel = $("bk-sel"), bs = books(), cb = curBook(); sel.innerHTML = "";
@@ -898,7 +1009,7 @@ function renderList() {
     li.appendChild(el("span", "cnt", n ? n + "回" : ""));
     const sub = el("span", "sub", w.pos + "・");
     const lv = el("span", "lvtxt", LVNAME[w.level]); lv.dataset.lv = w.level; sub.appendChild(lv);
-    sub.appendChild(document.createTextNode((w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + SRC[w.source] : "") + (inMark(w) ? "・ブックマーク中" : "")));
+    sub.appendChild(document.createTextNode((w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + srcName(w.source) : "") + (inMark(w) ? "・ブックマーク中" : "")));
     li.appendChild(sub);
     const m = el("span", "m", w.meanings.map(x => x.ja).join(" / "));
     m.style.gridColumn = "2 / 4";
@@ -919,18 +1030,15 @@ function countToday() {
   }
 }
 // 試験日は自動で入れる（記録の画面で、自分で変えることもできる）
-const EXAM_DATES = {
-  kyotsu: {name: "共通テスト（本試験1日目）", dates: ["2027-01-16"]},
-  nagoya: {name: "名古屋大学 前期日程（1日目）", dates: ["2027-02-25"]},
-};
-function autoDate() { const t = ymd(new Date()); return (EXAM_DATES[st.exam].dates.find(d => d >= t)) || ""; }
+// （日付は大学の一覧 UNIVS と KYOTSU に書いてある。毎年、次の年度の日付を足すこと）
+function autoDate() { const t = ymd(new Date()); return (exInfo().date.dates.find(d => d >= t)) || ""; }
 function renderRec() {
   const auto = autoDate();
   const date = st.examDate[st.exam] || auto;
   $("r-date").value = date;
   const jp = d => { const [y, m, dd] = d.split("-"); return y + "年" + (+m) + "月" + (+dd) + "日"; };
-  $("r-auto").textContent = !auto ? "" : date === auto ? EXAM_DATES[st.exam].name + "の " + jp(auto) + " を自動で入れています。別の日にしたいときは、上で変えられます。"
-    : "自分で入れた日付を使っています。" + EXAM_DATES[st.exam].name + "は " + jp(auto) + " です。";
+  $("r-auto").textContent = !auto ? "" : date === auto ? exInfo().date.name + "の " + jp(auto) + " を自動で入れています。別の日にしたいときは、上で変えられます。"
+    : "自分で入れた日付を使っています。" + exInfo().date.name + "は " + jp(auto) + " です。";
   if (date) {
     const days = Math.ceil((new Date(date + "T00:00:00") - new Date(ymd(new Date()) + "T00:00:00")) / 86400000);
     const left = WORDS.filter(w => (st.mastery[st.exam + "|word|" + w.word + "|" + w.pos] || 0) < 2).length;

@@ -1,4 +1,4 @@
--- 入試 英単語 ナイン：ログインと学習記録の保存用のテーブル（まだどのプロジェクトにも適用していない）
+-- 入試 英単語 ナイン：ログインと学習記録の保存用のテーブル（2026-11-12 に Supabase プロジェクト nyushi-eitango-nine = ullpwyqbabphwkcpqash へ適用済み）
 -- 方針：ニックネーム＋パスキー。メールアドレスや本名は保存しない。
 
 create table if not exists public.app_users (

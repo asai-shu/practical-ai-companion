@@ -29,7 +29,7 @@ h1{font-size:20px;margin:0;letter-spacing:.04em;text-wrap:balance}
 .logo{width:34px;height:34px;flex:none;color:var(--drop)}
 .logo .on{fill:currentColor}
 h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.08em}
-.stats{display:flex;gap:16px;font-size:12px;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:12px;color:var(--muted)}
 .stats b{font-family:var(--f-num);font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:2px}
 .modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--ink);border:1px solid var(--ink);border-radius:6px;overflow:hidden}
 @media (max-width:560px){.modes{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -135,13 +135,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 <div class="wrap">
   <header>
     <h1 class="brand"><svg class="logo" viewBox="0 0 30 30" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="5" cy="5" rx="3" ry="4"/><ellipse cx="15" cy="5" rx="3" ry="4"/><ellipse cx="25" cy="5" rx="3" ry="4"/><ellipse cx="5" cy="15" rx="3" ry="4"/><ellipse cx="15" cy="15" rx="3" ry="4" class="on"/><ellipse cx="25" cy="15" rx="3" ry="4"/><ellipse cx="5" cy="25" rx="3" ry="4" class="on"/><ellipse cx="15" cy="25" rx="3" ry="4"/><ellipse cx="25" cy="25" rx="3" ry="4"/></g></svg><span><small id="h-sub">名古屋大学 2次試験（2020〜2024年度）頻出</small><span id="h-name">入試 英単語 ナイン</span></span></h1>
-    <div class="stats" aria-live="polite">
-      <div><b id="s-done">0</b>問</div>
-      <div><b id="s-rate">–</b>正答率</div>
-      <div><b id="s-master">0</b>/<span id="s-total">0</span> 習得</div>
-      <div><b id="s-today">0</b>/<span id="s-goal">20</span> 今日</div>
-      <div><b id="s-streak">0</b>日 連続</div>
-    </div>
   </header>
 
   <section id="v-start" class="view startbox" hidden>
@@ -262,11 +255,22 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </section>
   <section id="v-rec" class="view" hidden>
     <div class="recbox">
+      <h2>これまでの記録</h2>
+      <div class="stats">
+      <div><b id="s-done">0</b>問</div>
+      <div><b id="s-rate">–</b>正答率</div>
+      <div><b id="s-master">0</b>/<span id="s-total">0</span> 習得</div>
+      <div><b id="s-today">0</b>/<span id="s-goal">20</span> 今日</div>
+      <div><b id="s-streak">0</b>日 連続</div>
+    </div>
+    </div>
+    <div class="recbox">
       <h2>試験までのカウントダウン</h2>
       <div class="listbar">
         <label for="r-date">試験日</label>
         <input type="date" id="r-date">
       </div>
+      <p class="tip" id="r-auto"></p>
       <p id="r-count" class="big"></p>
     </div>
     <div class="recbox">
@@ -685,9 +689,19 @@ function countToday() {
     st.lastGoalDay = today;
   }
 }
+// 試験日は自動で入れる（記録の画面で、自分で変えることもできる）
+const EXAM_DATES = {
+  kyotsu: {name: "共通テスト（本試験1日目）", dates: ["2027-01-16"]},
+  nagoya: {name: "名古屋大学 前期日程（1日目）", dates: ["2027-02-25"]},
+};
+function autoDate() { const t = ymd(new Date()); return (EXAM_DATES[st.exam].dates.find(d => d >= t)) || ""; }
 function renderRec() {
-  const date = st.examDate[st.exam] || "";
+  const auto = autoDate();
+  const date = st.examDate[st.exam] || auto;
   $("r-date").value = date;
+  const jp = d => { const [y, m, dd] = d.split("-"); return y + "年" + (+m) + "月" + (+dd) + "日"; };
+  $("r-auto").textContent = !auto ? "" : date === auto ? EXAM_DATES[st.exam].name + "の " + jp(auto) + " を自動で入れています。別の日にしたいときは、上で変えられます。"
+    : "自分で入れた日付を使っています。" + EXAM_DATES[st.exam].name + "は " + jp(auto) + " です。";
   if (date) {
     const days = Math.ceil((new Date(date + "T00:00:00") - new Date(ymd(new Date()) + "T00:00:00")) / 86400000);
     const left = WORDS.filter(w => (st.mastery[st.exam + "|word|" + w.word + "|" + w.pos] || 0) < 2).length;
@@ -711,7 +725,7 @@ function renderRec() {
     row.appendChild(el("span", "num", s.done ? s.ok + " / " + s.done + "問" : "－")); mb.appendChild(row);
   });
 }
-$("r-date").addEventListener("change", e => { st.examDate[st.exam] = e.target.value; save(); renderRec(); });
+$("r-date").addEventListener("change", e => { st.examDate[st.exam] = e.target.value === autoDate() ? "" : e.target.value; save(); renderRec(); });
 $("r-goal").addEventListener("change", e => { st.goal = +e.target.value; save(); stats(); });
 document.querySelectorAll(".chip[data-book]").forEach(c => c.onclick = () => {
   const want = c.dataset.book;

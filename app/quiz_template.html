@@ -93,6 +93,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .exam[aria-pressed="true"]{border:2px solid var(--drop);background:var(--drop-soft)}
 .exam:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .mode{font:inherit;font-weight:700;padding:10px 8px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.tip .ex{font-family:var(--f-word);font-size:18px;color:var(--ink);white-space:nowrap}
+.tip mark,.answer mark{background:var(--drop-soft);color:var(--drop);padding:0 1px}
 .word mark{background:var(--drop-soft);color:var(--drop);border-bottom:3px solid var(--drop);padding:0 2px}
 .mode[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
 .mode small{display:block;font-weight:400;font-size:11px;opacity:.75}
@@ -323,13 +325,15 @@ const KYOTSU_WORDS = __KYOTSU__;
 let WORDS = NAGOYA_WORDS;
 const IDIOMS = __IDIOMS__;
 const AFFIXES = __AFFIXES__;
-// 接頭辞・接尾辞の問題：例の単語ごとに「働き」を問う問題と、接尾辞なら「品詞」を問う問題を作る
-// （品詞を問う問題は同じ形のくり返しになるので、接尾辞1つにつき1問だけにする）
-const AFFIX_ITEMS = AFFIXES.flatMap(a => a.examples.flatMap(([w, ja], i) => {
-  const items = [{kind: "role", affix: a, w, ja}];
-  if (a.pos && i === 0) items.push({kind: "pos", affix: a, w, ja});
+// 接頭辞・接尾辞の問題：接辞1つにつき「働きをすべて選ぶ」問題と、接尾辞なら「つくる品詞をすべて選ぶ」問題を作る
+// データの形：{affix, type, senses: [{role: 働き, pos: 品詞, examples: [[単語, 意味], ...]}, ...]}
+const affixRoles = a => a.senses.map(x => x.role);
+const affixPos = a => [...new Set(a.senses.map(x => x.pos).filter(Boolean))];
+const AFFIX_ITEMS = AFFIXES.flatMap(a => {
+  const items = [{kind: "role", affix: a, w: a.affix}];
+  if (a.type === "suffix" && affixPos(a).length) items.push({kind: "pos", affix: a, w: a.affix});
   return items;
-}));
+});
 function affixSpan(a, w) {
   const vs = a.affix.split("/").map(v => v.trim().replace(/-/g, ""));
   for (const v of vs) {
@@ -486,14 +490,11 @@ function setupIdiomQuestion(q) {
 function setupAffixQuestion(q) {
   confShown = new Set();
   if (q.kind === "pos") {
-    correct = [q.affix.pos];
-    const opts = ["名詞", "動詞", "形容詞", "副詞"];
+    correct = affixPos(q.affix);
     fromOf = new Map();
-    return opts;
+    return ["名詞", "動詞", "形容詞", "副詞"];
   }
-  correct = [q.affix.role];
-  const same = shuffle(AFFIXES.filter(a => a.type === q.affix.type && a.role !== q.affix.role));
-  const other = shuffle(AFFIXES.filter(a => a.type !== q.affix.type));
+  correct = affixRoles(q.affix);
   // 正解と意味が近すぎる働きは選択肢に出さない（例：「～すること」と「～すること・もの」）
   const split = r => { const m = r.match(/^(.*?)（(.*)）$/); return m ? [m[1], m[2]] : [r, ""]; };
   const grams = t => { const g = new Set(); t.split(/[・～（）]/).forEach(x => { for (let i = 0; i + 1 < x.length; i++) g.add(x.slice(i, i + 2)); }); return g; };
@@ -502,19 +503,28 @@ function setupAffixQuestion(q) {
     if (pa && pb) { if (ha !== hb) return false; const g = grams(pa); return [...grams(pb)].some(x => g.has(x)); }
     const g = grams(a); return [...grams(b)].some(x => g.has(x));
   };
+  const others = AFFIXES.filter(a => a !== q.affix);
+  const cand = shuffle(others.filter(a => a.type === q.affix.type)).concat(shuffle(others.filter(a => a.type !== q.affix.type)));
   const roles = [];
-  same.concat(other).forEach(a => { if (roles.length < 8 && !roles.includes(a.role) && a.role !== q.affix.role && !close(a.role, q.affix.role)) roles.push(a.role); });
-  const opts = shuffle(correct.concat(roles));
-  fromOf = new Map(opts.map(r => [r, (AFFIXES.find(a => a.role === r) || {}).affix || ""]));
-  fromOf.set(q.affix.role, q.affix.affix);
-  return opts;
+  fromOf = new Map();
+  cand.forEach(a => shuffle(affixRoles(a)).forEach(r => {
+    if (roles.length >= 9 - correct.length || roles.includes(r) || correct.some(c => c === r || close(c, r))) return;
+    roles.push(r); fromOf.set(r, a.affix);
+  }));
+  return shuffle(correct.concat(roles));
 }
-function showAffixWord(q) {
-  const [s, e] = affixSpan(q.affix, q.w);
-  const box = $("q-word"); box.innerHTML = "";
-  box.appendChild(document.createTextNode(q.w.slice(0, s)));
-  box.appendChild(el("mark", null, q.w.slice(s, e)));
-  box.appendChild(document.createTextNode(q.w.slice(e)));
+// 問題に出す例の単語：働きごとに1語ずつ、足りなければ最大4語まで足す
+function affixSamples(a) {
+  const picks = a.senses.map(x => shuffle(x.examples.slice())[0]);
+  const rest = shuffle(a.senses.flatMap(x => x.examples).filter(e => !picks.includes(e)));
+  return shuffle(picks.concat(rest.slice(0, Math.max(0, 4 - picks.length))));
+}
+function markAffix(a, w) {
+  const [s0, e0] = affixSpan(a, w), f = document.createDocumentFragment();
+  f.appendChild(document.createTextNode(w.slice(0, s0)));
+  f.appendChild(el("mark", null, w.slice(s0, e0)));
+  f.appendChild(document.createTextNode(w.slice(e0)));
+  return f;
 }
 function showHint(et) {
   const h = $("hint"); h.innerHTML = ""; h.appendChild(el("span", "lbl", "語源"));
@@ -560,15 +570,18 @@ function render() {
   drawOptions(opts);
 }
 function renderAffix() {
-  const opts = setupAffixQuestion(cur);
-  $("q-pos").textContent = cur.affix.type === "prefix" ? "接頭辞" : "接尾辞";
+  const opts = setupAffixQuestion(cur), a = cur.affix;
+  $("q-pos").textContent = a.type === "prefix" ? "接頭辞" : "接尾辞";
   $("q-lv").hidden = true; $("q-src").hidden = true;
-  $("q-exam").textContent = "色の付いた部分：" + cur.affix.affix;
-  showAffixWord(cur);
-  $("q-word").className = "word";
-  $("q-ask").innerHTML = cur.kind === "pos" ? "形から考えると、この単語の品詞は？ <em>1</em> つ選んでください" : "色の付いた部分の働きは？ <em>1</em> つ選んでください";
-  $("hint").hidden = true; $("q-tip").hidden = false;
-  $("q-tip").textContent = cur.kind === "pos" ? "意味が分からなくても、語尾の形で品詞を見分けられます。" : "単語を知らなくても、頭や語尾の部品から意味の方向がつかめます。";
+  $("q-exam").textContent = a.type === "prefix" ? "単語の頭に付く部品" : "単語の語尾に付く部品";
+  $("q-word").textContent = a.affix;
+  $("q-word").className = "word idiom";
+  const n = correct.length;
+  $("q-ask").innerHTML = (cur.kind === "pos" ? "この語尾が付くと、単語は何の品詞になる？ " : "この部品の働きは？ ") +
+    (n > 1 ? "正しいものを <em>" + n + "</em> つすべて選んでください" : "<em>1</em> つ選んでください");
+  $("hint").hidden = true;
+  const tip = $("q-tip"); tip.hidden = false; tip.innerHTML = ""; tip.appendChild(document.createTextNode("例："));
+  affixSamples(a).forEach(([w], i) => { if (i) tip.appendChild(document.createTextNode("　")); const sp = el("span", "ex"); sp.appendChild(markAffix(a, w)); tip.appendChild(sp); });
   $("hintbtn").hidden = true;
   drawOptions(opts);
 }
@@ -667,14 +680,13 @@ function showBookBtn() {
 }
 function answerAffix() {
   const a = cur.affix;
-  $("a-mh").textContent = "この単語";
-  $("a-means").appendChild(listItem("", "　" + cur.ja + (a.pos ? "（" + a.pos + "）" : ""), "", cur.w));
-  $("a-eth").hidden = $("a-ety").hidden = false;
-  $("a-eth").textContent = "「" + a.affix + "」の働き";
-  $("a-ety").textContent = a.role;
-  $("a-idh").hidden = false; $("a-idh").textContent = "ほかの例";
-  $("a-ids").innerHTML = "";
-  a.examples.filter(([w]) => w !== cur.w).forEach(([w, ja]) => $("a-ids").appendChild(listItem("", "　" + ja, "", w)));
+  $("a-mh").textContent = "「" + a.affix + "」の働きと例" + (a.senses.length > 1 ? "（働きが " + a.senses.length + " つあります）" : "");
+  a.senses.forEach(x => {
+    $("a-means").appendChild(listItem("●", x.role, x.pos && !x.role.includes(x.pos) ? x.pos : ""));
+    x.examples.forEach(([w, ja]) => { const li = listItem("", "　" + ja, "", " "); li.querySelector(".en").textContent = ""; li.querySelector(".en").appendChild(markAffix(a, w)); $("a-means").appendChild(li); });
+  });
+  $("a-eth").hidden = $("a-ety").hidden = true;
+  $("a-idh").hidden = true; $("a-ids").innerHTML = "";
   $("a-cfh").hidden = true; $("a-cfs").innerHTML = "";
   $("hintbtn").hidden = true;
   $("answer").hidden = false; $("check").hidden = true; $("next").hidden = false; $("next").focus();

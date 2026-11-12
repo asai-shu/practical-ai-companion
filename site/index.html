@@ -153,7 +153,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .btn.ghost{background:transparent;color:var(--ink)}
 .result{font-weight:700}
 .result.ok{color:var(--ok)} .result.ng{color:var(--ng)}
-.answer{border-top:1px dashed var(--line);padding-top:14px;display:grid;gap:10px}
+.answer{border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding:14px 0;display:grid;gap:10px}
 .answer h2{font-size:13px;margin:0;color:var(--muted);letter-spacing:.08em}
 .answer ul{margin:0;padding-left:0;list-style:none;display:grid;gap:4px}
 .answer li{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
@@ -258,13 +258,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <p class="tip" id="q-tip" hidden></p>
     <p class="ask" id="q-ask">正しい意味を <em>1</em> つ選んでください</p>
     <div class="grid" id="opts"></div>
-    <div class="actions">
-      <button class="btn" id="check" disabled>答え合わせ</button>
-      <button class="btn ghost" id="next" hidden>次の問題</button>
-      <button class="btn ghost" id="hintbtn" hidden>語源ヒントを見る</button>
-      <button class="btn ghost" id="bookbtn" hidden>＋ ブックマーク</button>
-      <span class="result" id="result"></span>
-    </div>
     <div class="answer" id="answer" hidden>
       <h2 id="a-mh">この単語の意味</h2>
       <ul id="a-means"></ul>
@@ -274,6 +267,13 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <ul id="a-ids"></ul>
       <h2 id="a-cfh">まぎらわしい単語</h2>
       <ul id="a-cfs"></ul>
+    </div>
+    <div class="actions">
+      <button class="btn" id="check" disabled>答え合わせ</button>
+      <button class="btn ghost" id="next" hidden>次の問題</button>
+      <button class="btn ghost" id="hintbtn" hidden>語源ヒントを見る</button>
+      <button class="btn ghost" id="bookbtn" hidden>＋ ブックマーク</button>
+      <span class="result" id="result"></span>
     </div>
   </section>
   </div>
@@ -515,6 +515,8 @@ function buildQueue() {
 // 漢字・カタカナの2文字の並びが正解と重なる選択肢は、意味が近すぎるので出さない（例：「減らす」と「減少させる」）
 const core = t => { const s = t.replace(/[（(].*?[）)]|～|〜/g, ""); const out = new Set();
   for (let i = 0; i < s.length - 1; i++) { const g = s.slice(i, i + 2); if (/^[\u4e00-\u9fff\u30a0-\u30ff]{2}$/.test(g)) out.add(g); }
+  // 漢字1文字の重なりも見る（「一定の」と「一貫した」など）。どの意味にもよく出る字は除く
+  for (const c of s) if (/[\u4e00-\u9fff]/.test(c) && !"的性化者人物事方".includes(c)) out.add(c);
   return out; };
 function tooClose(m, own) {
   const g = core(m);
@@ -593,9 +595,15 @@ function markAffix(a, w) {
   f.appendChild(document.createTextNode(w.slice(e0)));
   return f;
 }
+// 部品の意味。語尾の部品に意味が書かれていないときは、その単語の品詞から「形容詞をつくる語尾」のように補う
+function partJa(et, i, w) {
+  const x = et.parts[i];
+  if (x.ja) return x.ja;
+  return i === et.parts.length - 1 && i > 0 && w && ["名詞", "動詞", "形容詞", "副詞"].includes(w.pos) ? w.pos + "をつくる語尾" : "";
+}
 function showHint(et) {
   const h = $("hint"); h.innerHTML = ""; h.appendChild(el("span", "lbl", "語源"));
-  et.parts.forEach(p => { const e = el("span", "part"); e.appendChild(el("b", null, p.part)); e.appendChild(el("span", null, p.ja ? " ＝" + p.ja : "")); h.appendChild(e); });
+  et.parts.forEach((p, i) => { const ja = partJa(et, i, cur); const e = el("span", "part"); e.appendChild(el("b", null, p.part)); e.appendChild(el("span", null, ja ? " ＝" + ja : "")); h.appendChild(e); });
   h.hidden = false;
 }
 function render() {
@@ -652,12 +660,15 @@ function renderAffix() {
   $("hintbtn").hidden = true;
   drawOptions(opts);
 }
+// 「～することになっている(be supposed to)」のように、カッコの中に英語が入っている意味は、
+// 答えの単語がそのまま見えてしまうので、答え合わせの前は隠す（答え合わせのあとに全部見せる）
+const hideEn = t => t.replace(/\s*[（(][^（()）]*[A-Za-z]{2,}[^（()）]*[）)]/g, "").trim() || t;
 function drawOptions(opts) {
   $("opts").innerHTML = "";
   opts.forEach((t, i) => {
     const b = el("button", "opt"); b.id = "opt" + i; b.setAttribute("aria-pressed", "false"); b.dataset.t = t;
     b.appendChild(el("span", "bub", String(i + 1)));
-    const tx = el("span", "txt"); tx.appendChild(el("span", null, t)); b.appendChild(tx);
+    const tx = el("span", "txt"); tx.appendChild(el("span", "lab", hideEn(t))); b.appendChild(tx);
     b.onclick = () => toggle(b);
     $("opts").appendChild(b);
   });
@@ -694,6 +705,7 @@ function check() {
   const good = correct.every(c => picked.has(c));
   document.querySelectorAll(".opt").forEach(b => {
     b.disabled = true; const t = b.dataset.t;
+    b.querySelector(".lab").textContent = t;
     if (picked.has(t)) b.classList.add(correct.includes(t) ? "ok" : "ng");
     else if (correct.includes(t)) b.classList.add("miss");
     const f = fromOf.get(t);
@@ -729,7 +741,7 @@ function check() {
   }
   const et = !idiom && cur.etymology;
   $("a-eth").hidden = $("a-ety").hidden = !et;
-  if (et) { showHint(et); $("a-ety").textContent = et.explain; }
+  if (et) { $("a-ety").textContent = et.parts.map((x, i) => { const ja = partJa(et, i, cur); return x.part + (ja ? "（" + ja + "）" : ""); }).join(" ＋ ") + "　：　" + et.explain; }
   const ids = idiom ? [] : cur.idioms;
   $("a-ids").innerHTML = ""; $("a-idh").hidden = !ids.length;
   ids.forEach(x => $("a-ids").appendChild(listItem("", "　" + x.ja, "", x.en)));

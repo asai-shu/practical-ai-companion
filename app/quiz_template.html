@@ -335,8 +335,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <div id="r-modes"></div>
     </div>
   </section>
-  <p class="note" id="note-kyotsu">意味は辞書・単語帳を写さずに作成しています。出現回数は、大学入試センターが公開している共通テストの英語（リーディング・リスニング、2024〜2026年度の本試験・追再試験）を数えたものです。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
-  <p class="note" id="note-nagoya">意味は辞書・単語帳を写さずに作成しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
+  <p class="note" id="note-kyotsu">意味は辞書・単語帳を写さずに作成しています。まぎらわしい選択肢を避けるために、英語の類義語辞書 WordNet（Princeton University）を参照しています。出現回数は、大学入試センターが公開している共通テストの英語（リーディング・リスニング、2024〜2026年度の本試験・追再試験）を数えたものです。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
+  <p class="note" id="note-nagoya">意味は辞書・単語帳を写さずに作成しています。まぎらわしい選択肢を避けるために、英語の類義語辞書 WordNet（Princeton University）を参照しています。出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。</p>
 </div>
 
 <script>
@@ -345,6 +345,8 @@ const KYOTSU_WORDS = __KYOTSU__;
 let WORDS = NAGOYA_WORDS;
 const IDIOMS = __IDIOMS__;
 const AFFIXES = __AFFIXES__;
+const NEAR = __NEAR__;       // 英単語 → 意味の近い英単語（類義語辞書 WordNet から作った）
+const NEAR_JA = __NEARJA__;  // 意味の近い日本語のグループ（自分で書いたもの）
 const ROOTS = __ROOTS__;   // 語源モード：単語の中心になる部品（語根）。形は接頭辞・接尾辞と同じ
 // 接頭辞・接尾辞の問題：接辞1つにつき「働きをすべて選ぶ」問題と、接尾辞なら「つくる品詞をすべて選ぶ」問題を作る
 // データの形：{affix, type, senses: [{role: 働き, pos: 品詞, examples: [[単語, 意味], ...]}, ...]}
@@ -399,11 +401,13 @@ const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.f
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
 
 // 意味 → それを持つ英単語（不正解の選択肢の正体を表示するため）
-let OWNER = new Map(), IDIOM_ITEMS = [];
+let OWNER = new Map(), OWNERS = new Map(), IDIOM_ITEMS = [];
 function setExam() {
   WORDS = st.exam === "kyotsu" ? KYOTSU_WORDS : NAGOYA_WORDS;
   OWNER = new Map();
   WORDS.forEach(w => w.meanings.forEach(m => { if (!OWNER.has(m.ja)) OWNER.set(m.ja, w.word); }));
+  OWNERS = new Map();   // 意味 → その意味を持つ単語すべて（小文字）
+  WORDS.forEach(w => w.meanings.forEach(m => { if (!OWNERS.has(m.ja)) OWNERS.set(m.ja, new Set()); OWNERS.get(m.ja).add(w.word.toLowerCase()); }));
   WORDS.forEach(w => (w.confusables || []).forEach(c => { if (!OWNER.has(c.ja)) OWNER.set(c.ja, c.en); }));
   // イディオム問題の材料：（名大なら）入試に出たイディオム＋単語データのイディオム
   IDIOM_ITEMS = (st.exam === "nagoya" ? IDIOMS.map(x => ({en: x.en, ja: x.ja, src: "exam", year: x.year})) : [])
@@ -504,16 +508,22 @@ const core = t => { const s = t.replace(/[（(].*?[）)]|～|〜/g, ""); const o
   // 漢字1文字の重なりも見る（「一定の」と「一貫した」など）。どの意味にもよく出る字は除く
   for (const c of s) if (/[\u4e00-\u9fff]/.test(c) && !"的性化者人物事方".includes(c)) out.add(c);
   return out; };
+// 日本語の類義語グループ：正解と同じグループの言葉を含む意味は、選択肢に出さない（「維持する」と「保つ」など）
+const jaGroups = t => NEAR_JA.map((g, i) => g.some(x => t.includes(x)) ? i : -1).filter(i => i >= 0);
 function tooClose(m, own) {
+  const mg = jaGroups(m);
+  if (mg.length) for (const o of own) { const og = jaGroups(o); if (mg.some(i => og.includes(i))) return true; }
   const g = core(m);
   for (const o of own) { const h = core(o); for (const x of g) if (h.has(x)) return true; }
   return false;
 }
-function pickDistractors(own, n, conf, near, rest) {
+function pickDistractors(own, n, conf, near, rest, nearWords) {
   const out = [];
   const usedOwner = new Set();
   const add = m => {
     if (out.length >= n || own.has(m) || out.includes(m) || tooClose(m, own)) return;
+    // 正解の単語と意味の近い単語（類義語）の意味は出さない
+    if (nearWords && [...(OWNERS.get(m) || [])].some(x => nearWords.has(x))) return;
     const o = OWNER.get(m); if (o && usedOwner.has(o)) return;  // 同じ単語の意味は1つまで
     if (o) usedOwner.add(o); out.push(m);
   };
@@ -528,7 +538,7 @@ function setupWordQuestion(w) {
   const conf = shuffle((w.confusables || []).map(c => c.ja)).slice(0, 2);
   const near = shuffle(WORDS.filter(x => x !== w && x.pos === w.pos && Math.abs(x.level - w.level) <= 1).flatMap(x => x.meanings.map(m => m.ja)));
   const rest = shuffle(WORDS.filter(x => x !== w).flatMap(x => x.meanings.map(m => m.ja)));
-  const opts = shuffle(correct.concat(pickDistractors(new Set(w.meanings.map(m => m.ja)), total - correct.length, conf, near, rest)));
+  const opts = shuffle(correct.concat(pickDistractors(new Set(w.meanings.map(m => m.ja)), total - correct.length, conf, near, rest, new Set(NEAR[w.word] || []))));
   fromOf = new Map(opts.map(t => [t, correct.includes(t) ? w.word : (OWNER.get(t) || "")]));
   // まぎらわしい単語の意味は、その単語名を表示する
   (w.confusables || []).forEach(c => { if (fromOf.has(c.ja) && !correct.includes(c.ja)) fromOf.set(c.ja, c.en); });

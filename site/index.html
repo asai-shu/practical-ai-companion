@@ -124,10 +124,12 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .chip[data-lv][aria-pressed="true"]{background:var(--c);border-color:var(--c);color:var(--sheet)}
 .lvtxt{color:var(--c);font-weight:700}
 .bar .fill[data-lv]{background:var(--c)}
-.help{border:1px solid var(--line);border-radius:6px;background:var(--sheet);font-size:13px}
-.help summary{cursor:pointer;padding:8px 12px;font-weight:700;color:var(--drop)}
-.help summary:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
-.help dl{margin:0;padding:0 12px 10px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px}
+.help{border:1px solid var(--line);border-radius:6px;background:var(--sheet);font-size:13px;padding:12px 0;gap:8px}
+.help h2{font-size:13px;margin:0;padding:0 12px;color:var(--drop)}
+.help .btn{margin-left:12px}
+.helpbtn{font:inherit;font-size:13px;font-weight:700;margin-left:auto;padding:8px 6px;border:0;background:none;color:var(--drop);cursor:pointer}
+.helpbtn:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
+.help dl{margin:0;padding:0 12px 4px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px}
 .help dt{font-weight:700;white-space:nowrap}
 .help dd{margin:0;color:var(--muted)}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -186,44 +188,21 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   <section id="v-start" class="view startbox" hidden>
     <h2>はじめに</h2>
     <p>大学入試に「実際に出た英単語」を、9つの選択肢から意味をすべて選ぶクイズで覚えるアプリです。1つの単語が持つ複数の意味を、まとめて覚えられます。</p>
-    <ul class="modelist">
-      <li><b>単語</b>：意味が2つ以上ある単語は、正しい意味をすべて選びます</li>
-      <li><b>イディオム</b>：入試に出た熟語の意味を選びます</li>
-      <li><b>語源</b>：単語の中心になる部品（語根）の意味を、すべて選びます</li>
-      <li><b>接頭辞・接尾辞</b>：単語の頭や語尾に付く部品の働きを、すべて選びます</li>
-    </ul>
+    <p>下に、各機能の短い説明があります。あとからは、右上の「？ 使い方」でいつでも見られます。</p>
     <div class="filters">
-      <label for="u-sel0">志望校</label>
+      <label for="u-sel0">選択中の大学</label>
       <select id="u-sel0" class="usel"></select>
       <span>あとからいつでも変えられます</span>
     </div>
     <p>どちらの単語から始めますか（これも、あとから切り替えられます）。</p>
     <div class="exams">
       <button class="exam start-exam" data-exam="kyotsu">共通テスト<small id="s0-kyotsu">無料版</small></button>
-      <button class="exam start-exam" data-exam="univ"><span class="u-name">志望校</span><small class="u-sub">大学特化版</small></button>
+      <button class="exam start-exam" data-exam="univ"><span class="u-name">大学の単語</span><small class="u-sub">大学特化版</small></button>
     </div>
   </section>
 
-  <div class="tabs" role="tablist" aria-label="表示" id="tabs">
-    <button class="tab" id="t-quiz" data-view="quiz" role="tab" aria-selected="true">クイズ</button>
-    <button class="tab" id="t-list" data-view="list" role="tab" aria-selected="false">単語一覧・単語帳</button>
-    <button class="tab" id="t-rec" data-view="rec" role="tab" aria-selected="false">記録</button>
-  </div>
-
-  <div class="exams" role="group" aria-label="試験">
-    <button class="exam" id="e-kyotsu" data-exam="kyotsu" aria-pressed="true">共通テスト<small>無料版</small></button>
-    <button class="exam" id="e-univ" data-exam="univ" aria-pressed="false"><span class="u-name">志望校</span><small class="u-sub">大学特化版</small></button>
-  </div>
-  <div class="filters" id="u-row">
-    <label for="u-sel">志望校</label>
-    <select id="u-sel" class="usel"></select>
-    <span>いつでも変えられます</span>
-  </div>
-
-  <div id="v-quiz" class="view">
-  <div id="setup" class="view">
-  <details class="help" id="help-quiz">
-    <summary>？ 使い方</summary>
+  <section id="v-help" class="view help" hidden>
+    <h2>クイズ</h2>
     <dl>
       <dt>単語</dt><dd>英単語の意味を、9つの中からすべて選ぶ</dd>
       <dt>イディオム</dt><dd>熟語の意味を1つ選ぶ</dd>
@@ -235,7 +214,51 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <dt>レベル</dt><dd>単語の難しさ。出したいものを選ぶ（いくつでも）</dd>
       <dt class="uonly">出題元</dt><dd class="uonly">入試＝過去問に出た単語。出典記事＝過去問の元になった記事に出てくる単語。予想＝これから出そうな最近の記事の単語</dd>
     </dl>
-  </details>
+    <h2>問題の途中</h2>
+    <dl>
+      <dt>← 単語</dt><dd>答え合わせのあと、不正解の選択肢がどの単語の意味だったかを示す</dd>
+      <dt>点線の枠</dt><dd>選ばなかった正解</dd>
+      <dt class="uonly">★</dt><dd class="uonly">その大学の入試で、実際に使われた意味</dd>
+      <dt>ブックマーク</dt><dd>気になった単語に印を付ける。あとで単語帳に移せる</dd>
+      <dt>語源ヒント</dt><dd>単語を部品に分けて見せる</dd>
+      <dt>中断する</dt><dd>設定の画面に戻る。記録は残る</dd>
+    </dl>
+    <h2>単語一覧・単語帳</h2>
+    <dl>
+      <dt>☆</dt><dd>押すと、下で選んでいる単語帳に入る。もう一度押すと外れる</dd>
+      <dt>単語帳</dt><dd>何冊でも作れる。クイズの「単語帳」で、その単語だけを練習できる</dd>
+      <dt>ブックマーク</dt><dd>問題の途中で印を付けた単語。まとめて単語帳に移せる</dd>
+      <dt>回数</dt><dd>その試験の英文に出てきた回数</dd>
+    </dl>
+    <h2>記録</h2>
+    <dl>
+      <dt>習得</dt><dd>2回続けて正解した問題の数</dd>
+      <dt>今日</dt><dd>今日解いた問題数 ／ 1日の目標</dd>
+      <dt>連続</dt><dd>1日の目標を達成した日が続いている日数</dd>
+      <dt>復習の予定</dt><dd>解いた問題は、1・3・7・14・30・60日後にもう一度出る</dd>
+    </dl>
+    <button class="btn ghost small" id="helpclose">閉じる</button>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="表示" id="tabs">
+    <button class="tab" id="t-quiz" data-view="quiz" role="tab" aria-selected="true">クイズ</button>
+    <button class="tab" id="t-list" data-view="list" role="tab" aria-selected="false">単語一覧・単語帳</button>
+    <button class="tab" id="t-rec" data-view="rec" role="tab" aria-selected="false">記録</button>
+    <button class="helpbtn" id="helpbtn" aria-expanded="false">？ 使い方</button>
+  </div>
+
+  <div class="exams" role="group" aria-label="試験">
+    <button class="exam" id="e-kyotsu" data-exam="kyotsu" aria-pressed="true">共通テスト<small>無料版</small></button>
+    <button class="exam" id="e-univ" data-exam="univ" aria-pressed="false"><span class="u-name">大学の単語</span><small class="u-sub">大学特化版</small></button>
+  </div>
+  <div class="filters" id="u-row">
+    <label for="u-sel">選択中の大学</label>
+    <select id="u-sel" class="usel"></select>
+    <span>いつでも変えられます</span>
+  </div>
+
+  <div id="v-quiz" class="view">
+  <div id="setup" class="view">
   <h2 class="steph">学習の設定</h2>
   <div class="modes" role="group" aria-label="モード">
     <button class="mode" id="m-word" data-mode="word" aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
@@ -281,17 +304,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
   <div id="study" class="view" hidden>
   <div class="studybar"><span id="study-sum"></span><button class="btn ghost small" id="pausebtn">中断する</button></div>
-  <details class="help" id="help-study">
-    <summary>？ 記号とボタンの意味</summary>
-    <dl>
-      <dt>← 単語</dt><dd>答え合わせのあと、不正解の選択肢がどの単語の意味だったかを示す</dd>
-      <dt>点線の枠</dt><dd>選ばなかった正解</dd>
-      <dt class="uonly">★</dt><dd class="uonly">その大学の入試で、実際に使われた意味</dd>
-      <dt>ブックマーク</dt><dd>気になった単語に印を付ける。あとで単語帳に移せる</dd>
-      <dt>語源ヒント</dt><dd>単語を部品に分けて見せる</dd>
-      <dt>中断する</dt><dd>設定の画面に戻る。記録は残る</dd>
-    </dl>
-  </details>
   <section class="sheet" aria-live="polite">
     <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span class="tag src" id="q-src"></span><span id="q-exam"></span></div>
     <p class="word" id="q-word">dolphin</p>
@@ -321,15 +333,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </div>
 
   <section id="v-list" class="view" hidden>
-    <details class="help" id="help-list">
-      <summary>？ 使い方</summary>
-      <dl>
-        <dt>☆</dt><dd>押すと、下で選んでいる単語帳に入る。もう一度押すと外れる</dd>
-        <dt>単語帳</dt><dd>何冊でも作れる。クイズの「単語帳」で、その単語だけを練習できる</dd>
-        <dt>ブックマーク</dt><dd>問題の途中で印を付けた単語。まとめて単語帳に移せる</dd>
-        <dt>回数</dt><dd>その試験の英文に出てきた回数</dd>
-      </dl>
-    </details>
     <div class="listbar">
       <label for="l-q" class="sr">検索</label>
       <input id="l-q" type="search" placeholder="英語・日本語で検索" autocomplete="off">
@@ -357,15 +360,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <ul class="wlist" id="l-list"></ul>
   </section>
   <section id="v-rec" class="view" hidden>
-    <details class="help" id="help-rec">
-      <summary>？ 使い方</summary>
-      <dl>
-        <dt>習得</dt><dd>2回続けて正解した問題の数</dd>
-        <dt>今日</dt><dd>今日解いた問題数 ／ 1日の目標</dd>
-        <dt>連続</dt><dd>1日の目標を達成した日が続いている日数</dd>
-        <dt>復習の予定</dt><dd>解いた問題は、1・3・7・14・30・60日後にもう一度出る</dd>
-      </dl>
-    </details>
     <div class="recbox">
       <h2>これまでの記録</h2>
       <div class="stats">
@@ -460,7 +454,7 @@ const NOTE_HEAD = "意味は辞書・単語帳を写さずに作成していま�
 const exInfo = () => UNIVS[st.exam] || KYOTSU;                 // いま選んでいる試験の情報
 const uShort = () => (UNIVS[st.exam] || {}).short || "";       // 「名大」など
 const srcName = k => k === "exam" ? uShort() + "の入試" : ({source_article: "入試の出典記事", predicted: "予想", kyotsu: "共通テスト"})[k];
-let st = {v:0, univ:"", help:{}, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
+let st = {v:0, univ:"", pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
 let studying = false;
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
@@ -478,7 +472,7 @@ if ((st.v || 0) < 3) {
   st.v = 3;
   save();
 }
-if (st.v < 4) {                                                   // 志望校：これまで使っていた人は名古屋大学を選んだ状態にする
+if (st.v < 4) {                                                   // 大学：これまで使っていた人は名古屋大学を選んだ状態にする
   if (!st.univ && st.seen) st.univ = "nagoya";
   st.v = 4; save();
 }
@@ -887,6 +881,8 @@ function syncControls() {
   if (cb) qb.value = cb.id;
   document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === st.view));
   const starting = !st.seen;
+  $("v-help").hidden = !(starting || helpOpen); $("helpclose").hidden = starting;
+  $("helpbtn").setAttribute("aria-expanded", helpOpen);
   $("v-start").hidden = !starting; $("tabs").hidden = starting;
   document.querySelector(".wrap > .exams").hidden = starting;
   if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; $("u-row").hidden = true; syncUniv(); return; }
@@ -901,7 +897,7 @@ function syncControls() {
   $("u-row").hidden = starting || studying;
   syncUniv();
 }
-// 志望校の選択欄と、大学版のボタンの表示をそろえる
+// 大学の選択欄と、大学版のボタンの表示をそろえる
 function syncUniv() {
   document.querySelectorAll(".usel").forEach(sel => {
     sel.innerHTML = "";
@@ -911,8 +907,8 @@ function syncUniv() {
     sel.value = st.univ || "";
   });
   const u = UNIVS[st.univ];
-  document.querySelectorAll(".u-name").forEach(e => e.textContent = u ? u.name + " 2次試験" : "志望校の単語");
-  document.querySelectorAll(".u-sub").forEach(e => e.textContent = u ? "大学特化版・" + u.words.length + "語" : "上で志望校を選んでください");
+  document.querySelectorAll(".u-name").forEach(e => e.textContent = u ? u.name + " 2次試験" : "大学の単語");
+  document.querySelectorAll(".u-sub").forEach(e => e.textContent = u ? "大学特化版・" + u.words.length + "語" : "先に大学を選んでください");
   $("s0-kyotsu").textContent = "無料版・" + KYOTSU_WORDS.length + "語";
 }
 document.querySelectorAll(".usel").forEach(sel => sel.addEventListener("change", e => {
@@ -920,11 +916,10 @@ document.querySelectorAll(".usel").forEach(sel => sel.addEventListener("change",
   if (st.seen) { st.exam = st.univ || "kyotsu"; studying = false; setExam(); restart(); }   // 選んだ大学にすぐ切り替える
   else { save(); syncUniv(); }
 }));
-// 使い方：一度閉じたら、次からは閉じたままにする
-document.querySelectorAll("details.help").forEach(d => {
-  d.open = d.id !== "help-study" && !st.help[d.id];
-  d.querySelector("summary").addEventListener("click", () => { if (d.open && !st.help[d.id]) { st.help[d.id] = 1; save(); } });   // 開いているものを押した＝閉じた
-});
+// 使い方：はじめの画面では最初から見せる。そのあとは「？ 使い方」を押したときだけ見せる
+let helpOpen = false;
+$("helpbtn").onclick = () => { helpOpen = !helpOpen; syncControls(); if (helpOpen) window.scrollTo(0, 0); };
+$("helpclose").onclick = () => { helpOpen = false; syncControls(); };
 function restart() { $("setup-msg").hidden = true; save(); syncControls(); buildQueue(); stats(); render(); }
 const setupMsg = t => { $("setup-msg").hidden = false; $("setup-msg").textContent = t; };
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
@@ -939,10 +934,10 @@ document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
   st.pick = want; restart();
 });
 $("q-book").addEventListener("change", e => { st.curBook[st.exam] = e.target.value; restart(); });
-// 試験の切り替え。大学版のボタンは、選んである志望校に切り替える
+// 試験の切り替え。大学版のボタンは、選択中の大学に切り替える
 function pickExam(want) {
   if (want === "univ") {
-    if (!UNIVS[st.univ]) { const sel = $(st.seen ? "u-sel" : "u-sel0"); sel.focus(); if (st.seen) setupMsg("先に、上の「志望校」で大学を選んでください。"); return false; }
+    if (!UNIVS[st.univ]) { const sel = $(st.seen ? "u-sel" : "u-sel0"); sel.focus(); if (st.seen) setupMsg("先に、すぐ下の「選択中の大学」で大学を選んでください。"); return false; }
     want = st.univ;
   }
   st.exam = want; return true;

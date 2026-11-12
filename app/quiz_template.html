@@ -324,9 +324,10 @@ let WORDS = NAGOYA_WORDS;
 const IDIOMS = __IDIOMS__;
 const AFFIXES = __AFFIXES__;
 // 接頭辞・接尾辞の問題：例の単語ごとに「働き」を問う問題と、接尾辞なら「品詞」を問う問題を作る
-const AFFIX_ITEMS = AFFIXES.flatMap(a => a.examples.flatMap(([w, ja]) => {
+// （品詞を問う問題は同じ形のくり返しになるので、接尾辞1つにつき1問だけにする）
+const AFFIX_ITEMS = AFFIXES.flatMap(a => a.examples.flatMap(([w, ja], i) => {
   const items = [{kind: "role", affix: a, w, ja}];
-  if (a.pos) items.push({kind: "pos", affix: a, w, ja});
+  if (a.pos && i === 0) items.push({kind: "pos", affix: a, w, ja});
   return items;
 }));
 function affixSpan(a, w) {
@@ -369,6 +370,7 @@ function setExam() {
   $("note-kyotsu").hidden = st.exam !== "kyotsu"; $("note-nagoya").hidden = st.exam !== "nagoya";
 }
 
+let solved = 0; // 今回の学習で解いた問題数
 let queue = [], cur = null, correct = [], picked = new Set(), answered = false, confShown = new Set(), fromOf = new Map();
 
 const wkey = w => w.word + "|" + w.pos;
@@ -430,7 +432,7 @@ function fillDueBox(box) {
   const row = el("div", "duebtns");
   list.forEach(([k, name, n]) => {
     const b = el("button", "btn small", name + " " + n + "問を復習する");
-    b.onclick = () => { st.mode = k; st.range = "due"; st.view = "quiz"; studying = true; restart(); window.scrollTo(0, 0); };
+    b.onclick = () => { st.mode = k; st.range = "due"; st.view = "quiz"; studying = true; solved = 0; restart(); window.scrollTo(0, 0); };
     row.appendChild(b);
   });
   box.appendChild(row);
@@ -492,8 +494,16 @@ function setupAffixQuestion(q) {
   correct = [q.affix.role];
   const same = shuffle(AFFIXES.filter(a => a.type === q.affix.type && a.role !== q.affix.role));
   const other = shuffle(AFFIXES.filter(a => a.type !== q.affix.type));
+  // 正解と意味が近すぎる働きは選択肢に出さない（例：「～すること」と「～すること・もの」）
+  const split = r => { const m = r.match(/^(.*?)（(.*)）$/); return m ? [m[1], m[2]] : [r, ""]; };
+  const grams = t => { const g = new Set(); t.split(/[・～（）]/).forEach(x => { for (let i = 0; i + 1 < x.length; i++) g.add(x.slice(i, i + 2)); }); return g; };
+  const close = (a, b) => {
+    const [ha, pa] = split(a), [hb, pb] = split(b);
+    if (pa && pb) { if (ha !== hb) return false; const g = grams(pa); return [...grams(pb)].some(x => g.has(x)); }
+    const g = grams(a); return [...grams(b)].some(x => g.has(x));
+  };
   const roles = [];
-  same.concat(other).forEach(a => { if (roles.length < 5 && !roles.includes(a.role) && a.role !== q.affix.role) roles.push(a.role); });
+  same.concat(other).forEach(a => { if (roles.length < 8 && !roles.includes(a.role) && a.role !== q.affix.role && !close(a.role, q.affix.role)) roles.push(a.role); });
   const opts = shuffle(correct.concat(roles));
   fromOf = new Map(opts.map(r => [r, (AFFIXES.find(a => a.role === r) || {}).affix || ""]));
   fromOf.set(q.affix.role, q.affix.affix);
@@ -512,12 +522,18 @@ function showHint(et) {
   h.hidden = false;
 }
 function render() {
-  if (!queue.length) buildQueue();
+  if (!queue.length && st.range === "due" && studying) { buildQueue(); }
   if (!queue.length && st.range === "due" && studying) { // 今日の復習をすべて終えた
     studying = false; st.range = "all"; save(); syncControls(); buildQueue(); stats();
     $("setup-msg").hidden = false; $("setup-msg").textContent = "今日の復習は終わりです。おつかれさまでした。";
     window.scrollTo(0, 0);
   }
+  if (!queue.length && studying && solved > 0 && st.range !== "due") { // この設定の問題を一通り解き終えた（同じ問題をくり返し出し続けない）
+    studying = false; syncControls(); stats();
+    $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定の問題を一通り解きました（" + solved + "問）。おつかれさまでした。もう一度始めると、覚えていない問題から順に出ます。";
+    solved = 0; window.scrollTo(0, 0);
+  }
+  if (!queue.length) buildQueue();
   if (!queue.length) { $("q-word").textContent = "出題できる問題がありません"; $("opts").innerHTML = ""; return; }
   cur = queue.shift(); answered = false; picked.clear();
   if (st.mode === "affix") { renderAffix(); return; }
@@ -603,7 +619,7 @@ function check() {
     const f = fromOf.get(t);
     if (f) b.querySelector(".txt").appendChild(el("span", "from", (correct.includes(t) ? "" : "← ") + f));
   });
-  st.done++; if (good) st.ok++;
+  st.done++; if (good) st.ok++; solved++;
   countToday();
   const ms = st.modeStats[st.exam + "|" + st.mode] = st.modeStats[st.exam + "|" + st.mode] || {done: 0, ok: 0};
   ms.done++; if (good) ms.ok++;
@@ -702,7 +718,7 @@ document.querySelectorAll(".mode").forEach(b => b.onclick = () => { st.mode = b.
 document.querySelectorAll(".exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; studying = false; setExam(); restart(); });
 $("startbtn").onclick = () => {
   if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや範囲を変えてください。"; return; }
-  studying = true; restart(); window.scrollTo(0, 0);
+  studying = true; solved = 0; restart(); window.scrollTo(0, 0);
 };
 $("pausebtn").onclick = () => { studying = false; syncControls(); stats(); window.scrollTo(0, 0); };
 $("weak-on").addEventListener("change", e => { st.weakOn = e.target.checked; save(); });

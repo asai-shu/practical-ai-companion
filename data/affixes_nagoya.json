@@ -510,8 +510,8 @@
     "製造業者"
    ],
    [
-    "subscriber",
-    "登録者"
+    "researcher",
+    "研究者"
    ]
   ]
  },
@@ -614,7 +614,7 @@
  {
   "affix": "-ate",
   "type": "suffix",
-  "role": "動詞をつくる（～させる）",
+  "role": "動詞をつくる（～にする）",
   "pos": "動詞",
   "examples": [
    [
@@ -654,8 +654,8 @@
     "傷つきやすい"
    ],
    [
-    "unaffordable",
-    "高すぎて買えない"
+    "predictable",
+    "予測できる"
    ]
   ]
  },
@@ -814,8 +814,8 @@
     "おそらく"
    ],
    [
-    "indefinitely",
-    "無期限に"
+    "approximately",
+    "およそ"
    ],
    [
     "mercifully",
@@ -840,6 +840,1178 @@
    [
     "neighborhood",
     "近所"
+   ]
+  ]
+ },
+ {
+  "affix": "mis-",
+  "type": "prefix",
+  "role": "誤って",
+  "pos": null,
+  "examples": [
+   [
+    "misunderstand",
+    "誤解する"
+   ],
+   [
+    "mislead",
+    "誤った方向に導く"
+   ],
+   [
+    "misuse",
+    "誤用する"
+   ],
+   [
+    "misinterpret",
+    "誤って解釈する"
+   ],
+   [
+    "misfortune",
+    "不運"
+   ]
+  ]
+ },
+ {
+  "affix": "non-",
+  "type": "prefix",
+  "role": "否定（～でない）",
+  "pos": null,
+  "examples": [
+   [
+    "nonverbal",
+    "言葉によらない"
+   ],
+   [
+    "nonprofit",
+    "非営利の"
+   ],
+   [
+    "nonfiction",
+    "ノンフィクション"
+   ],
+   [
+    "nonexistent",
+    "存在しない"
+   ]
+  ]
+ },
+ {
+  "affix": "anti-",
+  "type": "prefix",
+  "role": "反対・対抗して",
+  "pos": null,
+  "examples": [
+   [
+    "antibiotic",
+    "抗生物質"
+   ],
+   [
+    "antisocial",
+    "反社会的な"
+   ],
+   [
+    "antibody",
+    "抗体"
+   ],
+   [
+    "antiwar",
+    "反戦の"
+   ]
+  ]
+ },
+ {
+  "affix": "counter-",
+  "type": "prefix",
+  "role": "逆の・対抗して",
+  "pos": null,
+  "examples": [
+   [
+    "counterpart",
+    "対応する相手"
+   ],
+   [
+    "counterattack",
+    "反撃"
+   ],
+   [
+    "counterproductive",
+    "逆効果の"
+   ],
+   [
+    "counterargument",
+    "反論"
+   ]
+  ]
+ },
+ {
+  "affix": "ex-",
+  "type": "prefix",
+  "role": "外へ",
+  "pos": null,
+  "examples": [
+   [
+    "export",
+    "輸出する"
+   ],
+   [
+    "exclude",
+    "除外する"
+   ],
+   [
+    "expand",
+    "広げる"
+   ],
+   [
+    "extract",
+    "抽出する"
+   ],
+   [
+    "exhale",
+    "息を吐く"
+   ]
+  ]
+ },
+ {
+  "affix": "extra-",
+  "type": "prefix",
+  "role": "～の範囲を超えた",
+  "pos": null,
+  "examples": [
+   [
+    "extraordinary",
+    "並外れた"
+   ],
+   [
+    "extracurricular",
+    "課外の"
+   ],
+   [
+    "extraterrestrial",
+    "地球外の"
+   ]
+  ]
+ },
+ {
+  "affix": "fore-",
+  "type": "prefix",
+  "role": "前に・前もって",
+  "pos": null,
+  "examples": [
+   [
+    "foresee",
+    "予見する"
+   ],
+   [
+    "forecast",
+    "予報する"
+   ],
+   [
+    "forehead",
+    "額"
+   ],
+   [
+    "foremost",
+    "第一の"
+   ]
+  ]
+ },
+ {
+  "affix": "post-",
+  "type": "prefix",
+  "role": "あとに・後の",
+  "pos": null,
+  "examples": [
+   [
+    "postwar",
+    "戦後の"
+   ],
+   [
+    "postpone",
+    "延期する"
+   ],
+   [
+    "postgraduate",
+    "大学院の"
+   ],
+   [
+    "postscript",
+    "追伸"
+   ]
+  ]
+ },
+ {
+  "affix": "pro-",
+  "type": "prefix",
+  "role": "前へ・賛成して",
+  "pos": null,
+  "examples": [
+   [
+    "promote",
+    "促進する"
+   ],
+   [
+    "proceed",
+    "進む"
+   ],
+   [
+    "progress",
+    "進歩"
+   ],
+   [
+    "prolong",
+    "延長する"
+   ]
+  ]
+ },
+ {
+  "affix": "out-",
+  "type": "prefix",
+  "role": "～よりまさって",
+  "pos": null,
+  "examples": [
+   [
+    "outnumber",
+    "数でまさる"
+   ],
+   [
+    "outperform",
+    "しのぐ"
+   ],
+   [
+    "outweigh",
+    "上回る"
+   ],
+   [
+    "outlive",
+    "より長生きする"
+   ]
+  ]
+ },
+ {
+  "affix": "super-",
+  "type": "prefix",
+  "role": "上に・超えて",
+  "pos": null,
+  "examples": [
+   [
+    "supernatural",
+    "超自然の"
+   ],
+   [
+    "superficial",
+    "表面的な"
+   ],
+   [
+    "supervise",
+    "監督する"
+   ],
+   [
+    "superpower",
+    "超大国"
+   ]
+  ]
+ },
+ {
+  "affix": "hyper-",
+  "type": "prefix",
+  "role": "過度に・上に",
+  "pos": null,
+  "examples": [
+   [
+    "hyperactive",
+    "過度に活発な"
+   ],
+   [
+    "hypersensitive",
+    "過敏な"
+   ],
+   [
+    "hypertension",
+    "高血圧"
+   ]
+  ]
+ },
+ {
+  "affix": "semi-",
+  "type": "prefix",
+  "role": "半分の",
+  "pos": null,
+  "examples": [
+   [
+    "semiconductor",
+    "半導体"
+   ],
+   [
+    "semicircle",
+    "半円"
+   ],
+   [
+    "semifinal",
+    "準決勝"
+   ],
+   [
+    "semiannual",
+    "半年ごとの"
+   ]
+  ]
+ },
+ {
+  "affix": "uni- / mono-",
+  "type": "prefix",
+  "role": "1つの",
+  "pos": null,
+  "examples": [
+   [
+    "uniform",
+    "制服・均一の"
+   ],
+   [
+    "unify",
+    "統一する"
+   ],
+   [
+    "monopoly",
+    "独占"
+   ],
+   [
+    "monotonous",
+    "単調な"
+   ],
+   [
+    "monolingual",
+    "1言語だけを話す"
+   ]
+  ]
+ },
+ {
+  "affix": "bi-",
+  "type": "prefix",
+  "role": "2つの",
+  "pos": null,
+  "examples": [
+   [
+    "bilingual",
+    "2言語を話す"
+   ],
+   [
+    "bicycle",
+    "自転車"
+   ],
+   [
+    "biannual",
+    "年2回の"
+   ],
+   [
+    "bilateral",
+    "二国間の"
+   ]
+  ]
+ },
+ {
+  "affix": "tri-",
+  "type": "prefix",
+  "role": "3つの",
+  "pos": null,
+  "examples": [
+   [
+    "triangle",
+    "三角形"
+   ],
+   [
+    "tricycle",
+    "三輪車"
+   ],
+   [
+    "triple",
+    "3倍の"
+   ],
+   [
+    "trilogy",
+    "三部作"
+   ]
+  ]
+ },
+ {
+  "affix": "auto-",
+  "type": "prefix",
+  "role": "自分で・自動の",
+  "pos": null,
+  "examples": [
+   [
+    "automatic",
+    "自動の"
+   ],
+   [
+    "autobiography",
+    "自伝"
+   ],
+   [
+    "autonomy",
+    "自治・自律"
+   ],
+   [
+    "automobile",
+    "自動車"
+   ]
+  ]
+ },
+ {
+  "affix": "tele-",
+  "type": "prefix",
+  "role": "遠くへ",
+  "pos": null,
+  "examples": [
+   [
+    "telescope",
+    "望遠鏡"
+   ],
+   [
+    "telecommunication",
+    "遠距離通信"
+   ],
+   [
+    "telepathy",
+    "テレパシー"
+   ],
+   [
+    "telework",
+    "在宅勤務"
+   ]
+  ]
+ },
+ {
+  "affix": "bio-",
+  "type": "prefix",
+  "role": "生命の",
+  "pos": null,
+  "examples": [
+   [
+    "biodiversity",
+    "生物多様性"
+   ],
+   [
+    "biography",
+    "伝記"
+   ],
+   [
+    "biosphere",
+    "生物圏"
+   ],
+   [
+    "biotechnology",
+    "生物工学"
+   ]
+  ]
+ },
+ {
+  "affix": "geo-",
+  "type": "prefix",
+  "role": "地球・土地の",
+  "pos": null,
+  "examples": [
+   [
+    "geography",
+    "地理"
+   ],
+   [
+    "geometry",
+    "幾何学"
+   ],
+   [
+    "geothermal",
+    "地熱の"
+   ],
+   [
+    "geopolitics",
+    "地政学"
+   ]
+  ]
+ },
+ {
+  "affix": "psycho-",
+  "type": "prefix",
+  "role": "心・精神の",
+  "pos": null,
+  "examples": [
+   [
+    "psychoanalysis",
+    "精神分析"
+   ],
+   [
+    "psychological",
+    "心理的な"
+   ],
+   [
+    "psychotherapy",
+    "心理療法"
+   ]
+  ]
+ },
+ {
+  "affix": "photo-",
+  "type": "prefix",
+  "role": "光の",
+  "pos": null,
+  "examples": [
+   [
+    "photograph",
+    "写真"
+   ],
+   [
+    "photosynthesis",
+    "光合成"
+   ],
+   [
+    "photon",
+    "光子"
+   ]
+  ]
+ },
+ {
+  "affix": "hydro-",
+  "type": "prefix",
+  "role": "水の",
+  "pos": null,
+  "examples": [
+   [
+    "hydrogen",
+    "水素"
+   ],
+   [
+    "hydroelectric",
+    "水力発電の"
+   ],
+   [
+    "hydropower",
+    "水力"
+   ]
+  ]
+ },
+ {
+  "affix": "thermo-",
+  "type": "prefix",
+  "role": "熱の",
+  "pos": null,
+  "examples": [
+   [
+    "thermometer",
+    "温度計"
+   ],
+   [
+    "thermostat",
+    "温度を一定に保つ装置"
+   ],
+   [
+    "thermodynamics",
+    "熱力学"
+   ]
+  ]
+ },
+ {
+  "affix": "mal-",
+  "type": "prefix",
+  "role": "悪い",
+  "pos": null,
+  "examples": [
+   [
+    "malfunction",
+    "故障"
+   ],
+   [
+    "malnutrition",
+    "栄養失調"
+   ],
+   [
+    "maltreat",
+    "虐待する"
+   ]
+  ]
+ },
+ {
+  "affix": "bene-",
+  "type": "prefix",
+  "role": "良い",
+  "pos": null,
+  "examples": [
+   [
+    "benefit",
+    "利益"
+   ],
+   [
+    "beneficial",
+    "有益な"
+   ],
+   [
+    "benevolent",
+    "慈悲深い"
+   ],
+   [
+    "benefactor",
+    "恩人"
+   ]
+  ]
+ },
+ {
+  "affix": "circum-",
+  "type": "prefix",
+  "role": "周りに",
+  "pos": null,
+  "examples": [
+   [
+    "circumstance",
+    "状況"
+   ],
+   [
+    "circumference",
+    "円周"
+   ],
+   [
+    "circumvent",
+    "回避する"
+   ]
+  ]
+ },
+ {
+  "affix": "mid-",
+  "type": "prefix",
+  "role": "中間の",
+  "pos": null,
+  "examples": [
+   [
+    "midnight",
+    "真夜中"
+   ],
+   [
+    "midterm",
+    "中間の"
+   ],
+   [
+    "midway",
+    "中途で"
+   ],
+   [
+    "midst",
+    "真ん中"
+   ]
+  ]
+ },
+ {
+  "affix": "-ship",
+  "type": "suffix",
+  "role": "名詞をつくる（～の関係・立場）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "friendship",
+    "友情"
+   ],
+   [
+    "leadership",
+    "指導力"
+   ],
+   [
+    "relationship",
+    "関係"
+   ],
+   [
+    "citizenship",
+    "市民権"
+   ],
+   [
+    "scholarship",
+    "奨学金"
+   ]
+  ]
+ },
+ {
+  "affix": "-ism",
+  "type": "suffix",
+  "role": "名詞をつくる（～主義・考え方）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "optimism",
+    "楽観主義"
+   ],
+   [
+    "criticism",
+    "批判"
+   ],
+   [
+    "capitalism",
+    "資本主義"
+   ],
+   [
+    "racism",
+    "人種差別"
+   ],
+   [
+    "skepticism",
+    "懐疑"
+   ]
+  ]
+ },
+ {
+  "affix": "-dom",
+  "type": "suffix",
+  "role": "名詞をつくる（～の状態・領域）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "freedom",
+    "自由"
+   ],
+   [
+    "wisdom",
+    "知恵"
+   ],
+   [
+    "kingdom",
+    "王国"
+   ],
+   [
+    "boredom",
+    "退屈"
+   ]
+  ]
+ },
+ {
+  "affix": "-logy",
+  "type": "suffix",
+  "role": "名詞をつくる（～学）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "biology",
+    "生物学"
+   ],
+   [
+    "psychology",
+    "心理学"
+   ],
+   [
+    "ecology",
+    "生態学"
+   ],
+   [
+    "technology",
+    "科学技術"
+   ],
+   [
+    "geology",
+    "地質学"
+   ]
+  ]
+ },
+ {
+  "affix": "-ics",
+  "type": "suffix",
+  "role": "名詞をつくる（～学）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "economics",
+    "経済学"
+   ],
+   [
+    "physics",
+    "物理学"
+   ],
+   [
+    "linguistics",
+    "言語学"
+   ],
+   [
+    "ethics",
+    "倫理"
+   ],
+   [
+    "statistics",
+    "統計"
+   ]
+  ]
+ },
+ {
+  "affix": "-cy",
+  "type": "suffix",
+  "role": "名詞をつくる（～な性質・状態）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "accuracy",
+    "正確さ"
+   ],
+   [
+    "privacy",
+    "プライバシー"
+   ],
+   [
+    "efficiency",
+    "効率"
+   ],
+   [
+    "democracy",
+    "民主主義"
+   ],
+   [
+    "frequency",
+    "頻度"
+   ]
+  ]
+ },
+ {
+  "affix": "-th",
+  "type": "suffix",
+  "role": "名詞をつくる（～さ）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "length",
+    "長さ"
+   ],
+   [
+    "depth",
+    "深さ"
+   ],
+   [
+    "width",
+    "幅"
+   ],
+   [
+    "strength",
+    "強さ"
+   ],
+   [
+    "warmth",
+    "暖かさ"
+   ]
+  ]
+ },
+ {
+  "affix": "-ure",
+  "type": "suffix",
+  "role": "名詞をつくる（～すること・結果）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "failure",
+    "失敗"
+   ],
+   [
+    "pressure",
+    "圧力"
+   ],
+   [
+    "exposure",
+    "さらされること"
+   ],
+   [
+    "departure",
+    "出発"
+   ],
+   [
+    "closure",
+    "閉鎖"
+   ]
+  ]
+ },
+ {
+  "affix": "-age",
+  "type": "suffix",
+  "role": "名詞をつくる（～の量・行為）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "shortage",
+    "不足"
+   ],
+   [
+    "storage",
+    "貯蔵"
+   ],
+   [
+    "percentage",
+    "割合"
+   ],
+   [
+    "usage",
+    "使い方"
+   ],
+   [
+    "coverage",
+    "報道・適用範囲"
+   ]
+  ]
+ },
+ {
+  "affix": "-ee",
+  "type": "suffix",
+  "role": "人を表す（～される人）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "employee",
+    "従業員"
+   ],
+   [
+    "trainee",
+    "研修生"
+   ],
+   [
+    "interviewee",
+    "面接を受ける人"
+   ],
+   [
+    "refugee",
+    "難民"
+   ]
+  ]
+ },
+ {
+  "affix": "-ian",
+  "type": "suffix",
+  "role": "人を表す（～に関わる人）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "musician",
+    "音楽家"
+   ],
+   [
+    "historian",
+    "歴史家"
+   ],
+   [
+    "politician",
+    "政治家"
+   ],
+   [
+    "vegetarian",
+    "菜食主義者"
+   ],
+   [
+    "librarian",
+    "司書"
+   ]
+  ]
+ },
+ {
+  "affix": "-ary / -ory",
+  "type": "suffix",
+  "role": "形容詞をつくる（～に関する）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "necessary",
+    "必要な"
+   ],
+   [
+    "temporary",
+    "一時的な"
+   ],
+   [
+    "voluntary",
+    "自発的な"
+   ],
+   [
+    "compulsory",
+    "義務的な"
+   ],
+   [
+    "contradictory",
+    "矛盾した"
+   ]
+  ]
+ },
+ {
+  "affix": "-ant / -ent",
+  "type": "suffix",
+  "role": "形容詞をつくる（～している）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "significant",
+    "重要な"
+   ],
+   [
+    "dominant",
+    "支配的な"
+   ],
+   [
+    "reluctant",
+    "気が進まない"
+   ],
+   [
+    "persistent",
+    "粘り強い"
+   ],
+   [
+    "sufficient",
+    "十分な"
+   ]
+  ]
+ },
+ {
+  "affix": "-ish",
+  "type": "suffix",
+  "role": "形容詞をつくる（～っぽい）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "childish",
+    "子どもっぽい"
+   ],
+   [
+    "selfish",
+    "自分勝手な"
+   ],
+   [
+    "foolish",
+    "愚かな"
+   ],
+   [
+    "feverish",
+    "熱っぽい"
+   ]
+  ]
+ },
+ {
+  "affix": "-like",
+  "type": "suffix",
+  "role": "形容詞をつくる（～のような）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "childlike",
+    "子どものような"
+   ],
+   [
+    "lifelike",
+    "生きているような"
+   ],
+   [
+    "humanlike",
+    "人間のような"
+   ],
+   [
+    "dreamlike",
+    "夢のような"
+   ]
+  ]
+ },
+ {
+  "affix": "-some",
+  "type": "suffix",
+  "role": "形容詞をつくる（～を引き起こす）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "troublesome",
+    "やっかいな"
+   ],
+   [
+    "tiresome",
+    "うんざりする"
+   ],
+   [
+    "burdensome",
+    "負担の大きい"
+   ],
+   [
+    "worrisome",
+    "心配な"
+   ]
+  ]
+ },
+ {
+  "affix": "-proof",
+  "type": "suffix",
+  "role": "形容詞をつくる（～を防ぐ）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "waterproof",
+    "防水の"
+   ],
+   [
+    "fireproof",
+    "耐火の"
+   ],
+   [
+    "soundproof",
+    "防音の"
+   ],
+   [
+    "bulletproof",
+    "防弾の"
+   ]
+  ]
+ },
+ {
+  "affix": "-wise",
+  "type": "suffix",
+  "role": "副詞をつくる（～のように・～の点で）",
+  "pos": "副詞",
+  "examples": [
+   [
+    "otherwise",
+    "さもなければ"
+   ],
+   [
+    "likewise",
+    "同様に"
+   ],
+   [
+    "clockwise",
+    "時計回りに"
+   ]
+  ]
+ },
+ {
+  "affix": "-ward",
+  "type": "suffix",
+  "role": "方向を表す（～の方へ）",
+  "pos": null,
+  "examples": [
+   [
+    "forward",
+    "前へ"
+   ],
+   [
+    "backward",
+    "後ろへ"
+   ],
+   [
+    "upward",
+    "上へ"
+   ],
+   [
+    "outward",
+    "外へ"
+   ],
+   [
+    "afterward",
+    "その後で"
+   ]
+  ]
+ },
+ {
+  "affix": "-fold",
+  "type": "suffix",
+  "role": "倍数を表す（～倍）",
+  "pos": null,
+  "examples": [
+   [
+    "twofold",
+    "2倍の"
+   ],
+   [
+    "tenfold",
+    "10倍の"
+   ],
+   [
+    "manifold",
+    "多様な"
    ]
   ]
  }

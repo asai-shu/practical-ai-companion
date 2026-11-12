@@ -79,6 +79,21 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .recbox h2{font-size:14px;margin:0}
 .big{font-size:16px;font-weight:700;margin:0;line-height:1.8}
 .big b{font-family:var(--f-num);font-size:24px;color:var(--drop)}
+.duebox{border:2px solid var(--drop);background:var(--drop-soft);border-radius:6px;padding:12px 14px;display:grid;gap:8px}
+.duebox h3{margin:0;font-size:15px}
+.duebox h3 b{font-family:var(--f-num);font-size:22px;color:var(--drop);margin:0 2px}
+.duebox p{margin:0;font-size:13px}
+.duebtns{display:flex;flex-wrap:wrap;gap:8px}
+.duetable{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.duetable th,.duetable td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.duetable th:first-child,.duetable td:first-child{text-align:left}
+.duetable thead th{font-size:11px;color:var(--muted);font-weight:500}
+.duetable td{font-family:var(--f-num)}
+.duetable td.zero{color:var(--muted);opacity:.55}
+.duetable tr.now td,.duetable tr.now th{background:var(--drop-soft);font-weight:700}
+.duetable tr.now td:last-child{color:var(--drop);font-size:16px}
+.duetable td:last-child,.duetable th:last-child{font-weight:700}
+.duetable small{color:var(--muted);font-weight:400;margin-left:4px}
 .bar{display:grid;grid-template-columns:7.5em minmax(0,1fr) 6.5em;gap:10px;align-items:center;font-size:13px}
 .bar .track{height:10px;border-radius:5px;background:var(--drop-soft);overflow:hidden}
 .bar .fill{height:100%;background:var(--drop)}
@@ -216,7 +231,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </div>
   </div>
   </div>
-  <p class="tip" id="due-info"></p>
+  <div class="duebox" id="due-info" hidden></div>
   <p class="tip" id="setup-msg" hidden></p>
   <button class="btn startbtn" id="startbtn">学習を始める</button>
   </div>
@@ -291,7 +306,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     </div>
     <div class="recbox">
       <h2>復習の予定</h2>
-      <p id="r-due" class="big"></p>
+      <div class="duebox" id="r-today" hidden></div>
+      <table class="duetable" id="r-due"></table>
       <p class="tip">人は覚えたことを、時間がたつにつれて忘れていきます（忘却曲線）。忘れかけたころに復習すると記憶が長持ちするので、正解するたびに、次の復習までの間隔を 1日 → 3日 → 7日 → 14日 → 30日 → 60日 と延ばしていきます。間違えた問題は、次の日にもう一度出ます。</p>
     </div>
     <div class="recbox">
@@ -383,9 +399,9 @@ function toggleMark(w) { const b = markList(), k = wkey(w), i = b.indexOf(k); if
 const weakList = () => (st.weak[st.exam] = st.weak[st.exam] || []);
 const keyOf = q => st.exam + "|" + st.mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "");
 function pool() {
-  if (st.mode === "affix") return AFFIX_ITEMS;
+  if (st.mode === "affix") return st.range === "due" ? AFFIX_ITEMS.filter(isDue) : AFFIX_ITEMS;
   const srcOk = x => st.exam === "kyotsu" || st.sources.includes(x);
-  if (st.mode === "idiom") return IDIOM_ITEMS.filter(x => srcOk(x.src));
+  if (st.mode === "idiom") return st.range === "due" ? IDIOM_ITEMS.filter(isDue) : IDIOM_ITEMS.filter(x => srcOk(x.src));
   // 「今日の復習だけ」は、レベルや出題元の設定に関係なく、復習の日が来たものをすべて出す
   const base = st.range === "due" ? WORDS.filter(isDue) : WORDS.filter(w => st.levels.includes(w.level) && srcOk(w.source || "exam") &&
     (st.range === "all" || (st.range === "book" ? inBook(w) : st.range === "due" ? isDue(w) : weakList().includes(wkey(w)))));
@@ -405,9 +421,33 @@ function srsRecord(k, good) {
   const b = Math.min(e.b + 1, SRS_DAYS.length - 1);
   st.srs[k] = {b, d: addDays(SRS_DAYS[b])};
 }
-function dueCount(days) { // 今の試験・今のモードで、days日後までに復習の日が来る数
-  const lim = addDays(days || 0), pre = st.exam + "|" + st.mode + "|";
-  return Object.keys(st.srs).filter(k => k.startsWith(pre) && st.srs[k].d <= lim).length;
+const MODES = [["word", "単語"], ["idiom", "イディオム"], ["ety", "語源で推測"], ["affix", "接頭辞・接尾辞"]];
+const MODE_SHORT = {word: "単語", idiom: "熟語", ety: "語源", affix: "接辞"};
+// モードごとに、復習の日（次に復習する日）の一覧を返す。今のデータにない古い記録は数えない
+function dueDates(mode) {
+  const items = mode === "affix" ? AFFIX_ITEMS : mode === "idiom" ? IDIOM_ITEMS : mode === "ety" ? WORDS.filter(w => w.etymology) : WORDS;
+  return items.map(q => st.srs[st.exam + "|" + mode + "|" + (q.word || q.en || q.kind + ":" + q.w) + "|" + (q.pos || "")]).filter(Boolean).map(e => e.d);
+}
+// from日後〜to日後に復習の日が来る数（from が 0 のときは、過ぎてしまった分も含める）
+function dueCount(mode, from, to) {
+  const a = from ? addDays(from) : "", b = addDays(to);
+  return dueDates(mode).filter(d => d >= a && d <= b).length;
+}
+// 「今日の復習」の目立つ箱を作る（設定画面と記録の画面で使う）
+function fillDueBox(box) {
+  const list = MODES.map(([k, name]) => [k, name, dueCount(k, 0, 0)]).filter(x => x[2]);
+  box.hidden = !list.length; box.innerHTML = "";
+  if (!list.length) return;
+  const total = list.reduce((n, x) => n + x[2], 0);
+  const h = el("h3"); h.innerHTML = "今日の復習 <b>" + total + "</b> 問"; box.appendChild(h);
+  box.appendChild(el("p", null, "前に解いてから日がたち、忘れやすいころの問題です。今日のうちに解いておきましょう。"));
+  const row = el("div", "duebtns");
+  list.forEach(([k, name, n]) => {
+    const b = el("button", "btn small", name + " " + n + "問を復習する");
+    b.onclick = () => { st.mode = k; st.range = "due"; st.view = "quiz"; studying = true; restart(); window.scrollTo(0, 0); };
+    row.appendChild(b);
+  });
+  box.appendChild(row);
 }
 function buildQueue() {
   // 復習の日が来たものを先に、そのあとは正解した回数の少ない順
@@ -664,8 +704,7 @@ function syncControls() {
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
   const MODE = {word: "単語", idiom: "イディオム", ety: "語源で推測", affix: "接頭辞・接尾辞"};
   $("study-sum").textContent = MODE[st.mode] + (st.mode === "idiom" || st.mode === "affix" ? "" : "／" + lvs) + (st.range === "book" ? "／単語帳だけ" : st.range === "weak" ? "／苦手だけ" : st.range === "due" ? "／今日の復習だけ" : "");
-  const dn = dueCount(0);
-  $("due-info").textContent = dn ? "今日の復習：" + dn + " 問（前に解いてから日がたち、忘れやすいころの問題です。学習を始めると最初に出ます）" : "";
+  fillDueBox($("due-info"));
   $("setup").hidden = studying; $("study").hidden = !studying;
   document.querySelector(".wrap > .exams").hidden = studying;
   $("weak-on").checked = st.weakOn;
@@ -673,7 +712,7 @@ function syncControls() {
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", b.dataset.exam === st.exam));
 }
 function restart() { $("setup-msg").hidden = true; save(); syncControls(); buildQueue(); stats(); render(); }
-document.querySelectorAll(".mode").forEach(b => b.onclick = () => { st.mode = b.dataset.mode; restart(); });
+document.querySelectorAll(".mode").forEach(b => b.onclick = () => { st.mode = b.dataset.mode; if (st.range === "due") st.range = "all"; restart(); });
 document.querySelectorAll(".exam").forEach(b => b.onclick = () => { st.exam = b.dataset.exam; studying = false; setExam(); restart(); });
 $("startbtn").onclick = () => {
   if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや範囲を変えてください。"; return; }
@@ -757,8 +796,25 @@ function renderRec() {
     $("r-count").innerHTML = days > 0 ? "あと <b>" + days + "</b> 日　まだ覚えていない単語 " + left + " 語 → 1日 <b>" + Math.ceil(left / days) + "</b> 語ずつ"
       : "試験日を過ぎています";
   } else $("r-count").textContent = "試験日を入れると、残りの日数と1日に覚える語数の目安が出ます。";
-  const MODE_JA = {word: "単語", idiom: "イディオム", ety: "語源で推測", affix: "接頭辞・接尾辞"};
-  $("r-due").innerHTML = "今日 <b>" + dueCount(0) + "</b> 問　明日まで " + dueCount(1) + " 問　7日以内 " + dueCount(7) + " 問<br><small>（今選んでいるモード「" + MODE_JA[st.mode] + "」の数）</small>";
+  fillDueBox($("r-today"));
+  // 今日から7日後までの復習の予定を、日ごと・モードごとに表にする
+  const tb = $("r-due"); tb.innerHTML = "";
+  const hr = el("tr"); hr.appendChild(el("th", null, "日"));
+  MODES.forEach(([k]) => hr.appendChild(el("th", null, MODE_SHORT[k]))); hr.appendChild(el("th", null, "合計"));
+  const thd = el("thead"); thd.appendChild(hr); tb.appendChild(thd);
+  const body = el("tbody"); tb.appendChild(body);
+  const WD = "日月火水木金土";
+  for (let n = 0; n <= 7; n++) {
+    const d = new Date(); d.setDate(d.getDate() + n);
+    const tr = el("tr"), th = el("th", null, n === 0 ? "今日" : n === 1 ? "明日" : n + "日後");
+    th.appendChild(el("small", null, (d.getMonth() + 1) + "/" + d.getDate() + "(" + WD[d.getDay()] + ")"));
+    tr.appendChild(th);
+    let sum = 0;
+    MODES.forEach(([k]) => { const c = dueCount(k, n, n); sum += c; tr.appendChild(el("td", c ? null : "zero", String(c))); });
+    tr.appendChild(el("td", sum ? null : "zero", String(sum)));
+    if (n === 0 && sum) tr.className = "now";
+    body.appendChild(tr);
+  }
   $("r-goal").value = String(st.goal);
   const bars = $("r-bars"); bars.innerHTML = "";
   [1, 2, 3, 4].forEach(lv => {
@@ -781,7 +837,7 @@ $("r-goal").addEventListener("change", e => { st.goal = +e.target.value; save();
 document.querySelectorAll(".chip[data-book]").forEach(c => c.onclick = () => {
   const want = c.dataset.book;
   if (want === "book" && !bookList().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "単語帳がまだ空です。「単語一覧・単語帳」の☆やブックマークから、単語を入れてください。"; return; }
-  if (want === "due" && !WORDS.some(isDue)) { $("setup-msg").hidden = false; $("setup-msg").textContent = "今日復習する単語はありません。解いた単語は、1日後・3日後・7日後…と間隔をあけて、ここに出てきます。"; return; }
+  if (want === "due" && !dueCount(st.mode, 0, 0)) { $("setup-msg").hidden = false; $("setup-msg").textContent = "今日復習する単語はありません。解いた単語は、1日後・3日後・7日後…と間隔をあけて、ここに出てきます。"; return; }
   if (want === "weak" && !weakList().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "苦手な単語はまだありません。間違えた単語が、ここに自動で集まります。"; return; }
   st.range = want; restart();
 });
@@ -789,7 +845,7 @@ $("bookbtn").onclick = () => { toggleMark(cur); showBookBtn(); };
 $("l-addall").onclick = () => { markList().forEach(k => { if (!bookList().includes(k)) bookList().push(k); }); st.marks[st.exam] = []; $("l-mark").checked = false; save(); renderList(); };
 ["l-q", "l-sort", "l-book", "l-mark"].forEach(id => $(id).addEventListener(id === "l-q" ? "input" : "change", renderList));
 const origSetExam = setExam;
-setExam = function () { origSetExam(); if ((st.range === "book" && !bookList().length) || (st.range === "weak" && !weakList().length) || (st.range === "due" && !WORDS.some(isDue))) st.range = "all"; if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); };
+setExam = function () { origSetExam(); if ((st.range === "book" && !bookList().length) || (st.range === "weak" && !weakList().length) || (st.range === "due" && !dueCount(st.mode, 0, 0))) st.range = "all"; if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); };
 setExam(); syncControls(); buildQueue(); stats(); render();
 if (st.view === "list") renderList();
 if (st.view === "rec") renderRec();

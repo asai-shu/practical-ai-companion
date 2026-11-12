@@ -436,7 +436,7 @@
   ]
  },
  {
-  "affix": "-ity",
+  "affix": "-ity / -ty",
   "type": "suffix",
   "role": "名詞をつくる（～な性質）",
   "pos": "名詞",
@@ -460,6 +460,26 @@
    [
     "complexity",
     "複雑さ"
+   ],
+   [
+    "novelty",
+    "目新しさ"
+   ],
+   [
+    "cruelty",
+    "残酷さ"
+   ],
+   [
+    "certainty",
+    "確実さ"
+   ],
+   [
+    "poverty",
+    "貧困"
+   ],
+   [
+    "loyalty",
+    "忠誠"
    ]
   ]
  },
@@ -2012,6 +2032,618 @@
    [
     "manifold",
     "多様な"
+   ]
+  ]
+ },
+ {
+  "affix": "ad- / ac- / ap- / as- / at-",
+  "type": "prefix",
+  "role": "～へ・～に向かって",
+  "pos": null,
+  "examples": [
+   [
+    "adapt",
+    "適応させる"
+   ],
+   [
+    "adhere",
+    "くっつく"
+   ],
+   [
+    "accustom",
+    "慣れさせる"
+   ],
+   [
+    "appoint",
+    "任命する"
+   ],
+   [
+    "assemble",
+    "集める・組み立てる"
+   ],
+   [
+    "attain",
+    "達成する"
+   ]
+  ]
+ },
+ {
+  "affix": "in- / im-",
+  "type": "prefix",
+  "role": "中へ・中に",
+  "pos": null,
+  "examples": [
+   [
+    "include",
+    "含む"
+   ],
+   [
+    "insert",
+    "差し込む"
+   ],
+   [
+    "inhabit",
+    "住む"
+   ],
+   [
+    "import",
+    "輸入する"
+   ],
+   [
+    "immigrate",
+    "(他国から)移住してくる"
+   ]
+  ]
+ },
+ {
+  "affix": "intro-",
+  "type": "prefix",
+  "role": "中へ・中に",
+  "pos": null,
+  "examples": [
+   [
+    "introduce",
+    "紹介する・導入する"
+   ],
+   [
+    "introvert",
+    "内向的な人"
+   ],
+   [
+    "introspection",
+    "内省"
+   ]
+  ]
+ },
+ {
+  "affix": "ob- / op-",
+  "type": "prefix",
+  "role": "反対して・向かって",
+  "pos": null,
+  "examples": [
+   [
+    "obstacle",
+    "障害"
+   ],
+   [
+    "obstruct",
+    "妨げる"
+   ],
+   [
+    "oppose",
+    "反対する"
+   ],
+   [
+    "opponent",
+    "対戦相手"
+   ]
+  ]
+ },
+ {
+  "affix": "contra-",
+  "type": "prefix",
+  "role": "反対・対抗して",
+  "pos": null,
+  "examples": [
+   [
+    "contrary",
+    "反対の"
+   ],
+   [
+    "contrast",
+    "対照"
+   ],
+   [
+    "contradict",
+    "矛盾する"
+   ]
+  ]
+ },
+ {
+  "affix": "retro-",
+  "type": "prefix",
+  "role": "後ろへ・過去へ",
+  "pos": null,
+  "examples": [
+   [
+    "retrospect",
+    "回顧"
+   ],
+   [
+    "retroactive",
+    "さかのぼって有効な"
+   ],
+   [
+    "retrograde",
+    "後退する"
+   ]
+  ]
+ },
+ {
+  "affix": "ultra-",
+  "type": "prefix",
+  "role": "極端に・超えて",
+  "pos": null,
+  "examples": [
+   [
+    "ultraviolet",
+    "紫外線の"
+   ],
+   [
+    "ultrasound",
+    "超音波"
+   ],
+   [
+    "ultramodern",
+    "超現代的な"
+   ]
+  ]
+ },
+ {
+  "affix": "cent-",
+  "type": "prefix",
+  "role": "100の",
+  "pos": null,
+  "examples": [
+   [
+    "century",
+    "世紀"
+   ],
+   [
+    "centimeter",
+    "センチメートル"
+   ],
+   [
+    "centennial",
+    "100周年の"
+   ],
+   [
+    "centigrade",
+    "摂氏の"
+   ]
+  ]
+ },
+ {
+  "affix": "dec-",
+  "type": "prefix",
+  "role": "10の",
+  "pos": null,
+  "examples": [
+   [
+    "decade",
+    "10年間"
+   ],
+   [
+    "decimal",
+    "小数の・10進法の"
+   ],
+   [
+    "decathlon",
+    "十種競技"
+   ]
+  ]
+ },
+ {
+  "affix": "di- / du-",
+  "type": "prefix",
+  "role": "2つの",
+  "pos": null,
+  "examples": [
+   [
+    "dilemma",
+    "板ばさみ"
+   ],
+   [
+    "dioxide",
+    "二酸化物"
+   ],
+   [
+    "duplicate",
+    "複製する"
+   ],
+   [
+    "dual",
+    "二重の"
+   ],
+   [
+    "duet",
+    "二重唱"
+   ]
+  ]
+ },
+ {
+  "affix": "poly-",
+  "type": "prefix",
+  "role": "多くの",
+  "pos": null,
+  "examples": [
+   [
+    "polygon",
+    "多角形"
+   ],
+   [
+    "polyglot",
+    "多言語を話す人"
+   ],
+   [
+    "polymer",
+    "重合体(ポリマー)"
+   ]
+  ]
+ },
+ {
+  "affix": "macro-",
+  "type": "prefix",
+  "role": "大きい",
+  "pos": null,
+  "examples": [
+   [
+    "macroeconomics",
+    "マクロ経済学"
+   ],
+   [
+    "macroscopic",
+    "巨視的な"
+   ],
+   [
+    "macrocosm",
+    "大宇宙"
+   ]
+  ]
+ },
+ {
+  "affix": "mini-",
+  "type": "prefix",
+  "role": "小さい",
+  "pos": null,
+  "examples": [
+   [
+    "minimize",
+    "最小限にする"
+   ],
+   [
+    "miniature",
+    "小型の"
+   ],
+   [
+    "minimum",
+    "最小限"
+   ],
+   [
+    "minimal",
+    "最小の"
+   ]
+  ]
+ },
+ {
+  "affix": "equi-",
+  "type": "prefix",
+  "role": "等しい",
+  "pos": null,
+  "examples": [
+   [
+    "equivalent",
+    "同等の"
+   ],
+   [
+    "equilibrium",
+    "均衡"
+   ],
+   [
+    "equidistant",
+    "等距離の"
+   ],
+   [
+    "equinox",
+    "春分・秋分"
+   ]
+  ]
+ },
+ {
+  "affix": "hypo-",
+  "type": "prefix",
+  "role": "不足して・下に",
+  "pos": null,
+  "examples": [
+   [
+    "hypothesis",
+    "仮説"
+   ],
+   [
+    "hypothermia",
+    "低体温症"
+   ],
+   [
+    "hypotension",
+    "低血圧"
+   ]
+  ]
+ },
+ {
+  "affix": "ab-",
+  "type": "prefix",
+  "role": "離れて",
+  "pos": null,
+  "examples": [
+   [
+    "abnormal",
+    "異常な"
+   ],
+   [
+    "absent",
+    "不在の"
+   ],
+   [
+    "abstract",
+    "抽象的な"
+   ],
+   [
+    "abduct",
+    "誘拐する"
+   ],
+   [
+    "abstain",
+    "控える"
+   ]
+  ]
+ },
+ {
+  "affix": "se-",
+  "type": "prefix",
+  "role": "離れて",
+  "pos": null,
+  "examples": [
+   [
+    "separate",
+    "分ける"
+   ],
+   [
+    "secure",
+    "安全な"
+   ],
+   [
+    "seclude",
+    "引き離す"
+   ],
+   [
+    "segregate",
+    "隔離する"
+   ]
+  ]
+ },
+ {
+  "affix": "homo-",
+  "type": "prefix",
+  "role": "同じ",
+  "pos": null,
+  "examples": [
+   [
+    "homogeneous",
+    "同質の"
+   ],
+   [
+    "homonym",
+    "同音異義語"
+   ],
+   [
+    "homophone",
+    "同音語"
+   ]
+  ]
+ },
+ {
+  "affix": "sym- / syn-",
+  "type": "prefix",
+  "role": "一緒に・同時に",
+  "pos": null,
+  "examples": [
+   [
+    "sympathy",
+    "同情"
+   ],
+   [
+    "symphony",
+    "交響曲"
+   ],
+   [
+    "symmetry",
+    "対称"
+   ],
+   [
+    "synchronize",
+    "同時に起こる"
+   ],
+   [
+    "synthesis",
+    "合成"
+   ]
+  ]
+ },
+ {
+  "affix": "per-",
+  "type": "prefix",
+  "role": "完全に・通して",
+  "pos": null,
+  "examples": [
+   [
+    "perfect",
+    "完全な"
+   ],
+   [
+    "persist",
+    "持続する"
+   ],
+   [
+    "permanent",
+    "永久の"
+   ],
+   [
+    "pervade",
+    "行き渡る"
+   ],
+   [
+    "persuade",
+    "説得する"
+   ]
+  ]
+ },
+ {
+  "affix": "pseudo-",
+  "type": "prefix",
+  "role": "偽の",
+  "pos": null,
+  "examples": [
+   [
+    "pseudonym",
+    "ペンネーム"
+   ],
+   [
+    "pseudoscience",
+    "疑似科学"
+   ]
+  ]
+ },
+ {
+  "affix": "ambi- / amphi-",
+  "type": "prefix",
+  "role": "両方の",
+  "pos": null,
+  "examples": [
+   [
+    "ambiguous",
+    "あいまいな"
+   ],
+   [
+    "ambivalent",
+    "相反する感情を持つ"
+   ],
+   [
+    "amphibian",
+    "両生類"
+   ]
+  ]
+ },
+ {
+  "affix": "-y",
+  "type": "suffix",
+  "role": "形容詞をつくる（～の多い）",
+  "pos": "形容詞",
+  "examples": [
+   [
+    "cloudy",
+    "曇った"
+   ],
+   [
+    "noisy",
+    "騒がしい"
+   ],
+   [
+    "greedy",
+    "欲深い"
+   ],
+   [
+    "wealthy",
+    "裕福な"
+   ],
+   [
+    "risky",
+    "危険な"
+   ]
+  ]
+ },
+ {
+  "affix": "-tude",
+  "type": "suffix",
+  "role": "名詞をつくる（～な性質・状態）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "attitude",
+    "態度"
+   ],
+   [
+    "gratitude",
+    "感謝"
+   ],
+   [
+    "magnitude",
+    "大きさ"
+   ],
+   [
+    "solitude",
+    "孤独"
+   ],
+   [
+    "aptitude",
+    "適性"
+   ]
+  ]
+ },
+ {
+  "affix": "-let",
+  "type": "suffix",
+  "role": "小さいものを表す（小さな～）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "booklet",
+    "小冊子"
+   ],
+   [
+    "leaflet",
+    "ちらし"
+   ],
+   [
+    "droplet",
+    "小さなしずく"
+   ],
+   [
+    "piglet",
+    "子ブタ"
+   ]
+  ]
+ },
+ {
+  "affix": "-logue",
+  "type": "suffix",
+  "role": "言葉・話を表す（～の話）",
+  "pos": "名詞",
+  "examples": [
+   [
+    "dialogue",
+    "対話"
+   ],
+   [
+    "monologue",
+    "独白"
+   ],
+   [
+    "prologue",
+    "序章"
+   ],
+   [
+    "catalogue",
+    "目録"
    ]
   ]
  }

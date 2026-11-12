@@ -497,8 +497,10 @@ function toggle(b) {
   const t = b.dataset.t;
   if (picked.has(t)) picked.delete(t);
   else {
-    // 選べる数を超えたら、いちばん先に選んだものを外して選び直す
+    // 1つ選ぶ問題は、別の選択肢をタップすれば入れ替わる。
+    // 2つ以上選ぶ問題は、選んだものをタップして外してから選び直す。
     if (picked.size >= correct.length) {
+      if (correct.length > 1) return;
       const first = picked.values().next().value; picked.delete(first);
       document.querySelectorAll(".opt").forEach(o => { if (o.dataset.t === first) o.setAttribute("aria-pressed", "false"); });
     }

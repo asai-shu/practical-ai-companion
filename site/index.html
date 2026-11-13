@@ -201,7 +201,16 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .add-btn{font:inherit;font-size:13px;font-weight:700;border:2px solid var(--ink);border-radius:999px;background:var(--sheet);color:var(--ink);padding:2px 10px;cursor:pointer;grid-row:span 2}
 .add-btn:disabled{border-color:var(--line);color:var(--muted);cursor:default}
 .addbox{border:2px solid var(--ink);border-radius:6px;background:var(--sheet);padding:12px;display:grid;gap:8px}
-.addbox label{font-size:13px;font-weight:700}
+.addbox .addhead{margin:0;font-size:13px;font-weight:700}
+.wlink{font:inherit;text-align:left;border:0;background:none;color:inherit;padding:0;cursor:pointer;display:contents}
+.wlist li.tap{cursor:pointer}
+.wlist li.tap:hover{background:var(--drop-soft)}
+.wlist li .go{color:var(--muted);font-size:14px}
+.wdetail h2{margin:0;font-family:var(--f-word);font-size:clamp(36px,9vw,52px);line-height:1.1;overflow-wrap:anywhere}
+.wdetail h3{margin:0;font-size:13px;color:var(--muted);letter-spacing:.06em}
+.wdetail section{display:grid;gap:6px}
+.wdetail ul{margin:0;padding:0;list-style:none;display:grid;gap:4px}
+.wdetail .facts{font-size:13px;color:var(--muted);display:grid;gap:2px}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -445,6 +454,11 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <ul class="wlist" id="l-list"></ul>
   </section>
 
+  <section id="v-word" class="view" hidden>
+    <button class="btn ghost small" id="wd-back">← 戻る</button>
+    <article class="sheet wdetail" id="wd"></article>
+  </section>
+
   <section id="v-books" class="view" hidden>
     <button class="btn ghost small" id="bk-back">← 単語一覧に戻る</button>
     <h2 class="steph">単語帳の編集</h2>
@@ -460,9 +474,20 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <button class="btn ghost small" id="l-addall" hidden>ブックマークをすべてこの単語帳に移す</button>
     </div>
     <div class="addbox" id="bk-addbox" hidden>
-      <label for="bk-add">単語を一覧から選んで「＋ 追加」を押してください（英語・日本語でしぼれます）</label>
-      <div class="sugwrap"><input id="bk-add" type="search" placeholder="例：benefit、利益" autocomplete="off"></div>
+      <p class="addhead">単語を一覧から選んで「＋ 追加」を押してください。検索・並べ替え・しぼりこみは単語一覧と同じです。</p>
+      <div class="listbar">
+        <div class="sugwrap"><input id="bk-add" type="search" placeholder="例：benefit、利益" autocomplete="off" aria-label="追加する単語を検索"></div>
+        <select id="bk-add-sort" aria-label="並べ替え">
+        <option value="count">出た回数の多い順</option>
+        <option value="alpha">アルファベット順</option>
+        <option value="pos">品詞順</option>
+        <option value="level">レベル順（易しい順）</option>
+        </select>
+        <button class="lftoggle" id="af-toggle" aria-expanded="false" aria-controls="af">しぼりこみ <span aria-hidden="true">▾</span></button>
+      </div>
+      <div class="lfilter" id="af" hidden></div>
       <p class="tip" id="bk-add-msg"></p>
+      <p class="tip" id="bk-add-count"></p>
       <ul class="wlist addlist" id="bk-addlist"></ul>
       <button class="btn ghost small" id="bk-addmore" hidden>もっと見る</button>
       <button class="btn small" id="bk-addclose">追加を終える</button>
@@ -1011,12 +1036,12 @@ function syncControls() {
   const qb = $("q-book"); qb.innerHTML = "";
   books().forEach(b => { const o = el("option", null, b.name + "（" + b.words.length + "語）"); o.value = b.id; qb.appendChild(o); });
   if (cb) qb.value = cb.id;
-  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === (st.view === "books" ? "list" : st.view)));
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === (st.view === "books" || st.view === "word" ? "list" : st.view)));
   const starting = !st.seen;
   $("v-help").hidden = !(starting || st.view === "help");
   $("v-start").hidden = !starting; $("tabs").hidden = starting;
   document.querySelector(".wrap > .exams").hidden = starting;
-  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = $("v-books").hidden = true; $("u-row").hidden = $("src-row").hidden = $("src-multi-row").hidden = true; syncUniv(); return; }
+  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = $("v-books").hidden = $("v-word").hidden = true; $("u-row").hidden = $("src-row").hidden = $("src-multi-row").hidden = true; syncUniv(); return; }
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
   const srcLbl = UNIVS[st.exam] && (st.pick === "word" || st.pick === "idiom") ? ["exam", "source_article", "predicted"].filter(k => st.srcs.includes(k)).map(k => ({exam: "過去問", source_article: "出典記事", predicted: "予想"})[k]).join("・") + "／" : "";
   $("study-sum").textContent = srcLbl + PICK_NAME[st.pick] + (LV_PICKS.includes(st.pick) ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
@@ -1024,9 +1049,9 @@ function syncControls() {
   $("setup").hidden = studying; $("study").hidden = !studying;
   document.querySelector(".wrap > .exams").hidden = studying;
   $("weak-on").checked = st.weakOn;
-  $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec"; $("v-books").hidden = st.view !== "books";
+  $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec"; $("v-books").hidden = st.view !== "books"; $("v-word").hidden = st.view !== "word";
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", (b.dataset.exam === "kyotsu") === (st.exam === "kyotsu")));
-  const onHelp = st.view === "help" || st.view === "books";
+  const onHelp = st.view === "help" || st.view === "books" || st.view === "word";
   document.querySelector(".wrap > .exams").hidden = starting || studying || onHelp;
   $("u-row").hidden = starting || studying || onHelp;
   $("src-row").hidden = $("src-multi-row").hidden = starting || studying || st.view !== "quiz" || st.exam === "kyotsu";
@@ -1124,15 +1149,43 @@ $("goal-go").onclick = () => { $("goalbox").hidden = true; $("mainactions").hidd
 document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; st.seen = true; st.view = "quiz"; setExam(); restart(); });
 const POS_ORDER = {"名詞":1, "動詞":2, "形容詞":3, "副詞":4, "前置詞句":5};
 // ---- 単語一覧のしぼりこみ（同じ段の中はどれか1つに当てはまればよい。段どうしは全部に当てはまるもの） ----
-const LF = {src: [], lv: [], pos: [], flag: []};
+const LF = {src: [], lv: [], pos: [], flag: []};   // 単語一覧のしぼりこみ
+const AF = {src: [], lv: [], pos: [], flag: []};   // 単語帳に追加するときのしぼりこみ
+// 追加の箱のしぼりこみ欄は、単語一覧のものを写して作る（中身は同じ。ボタンのしるしだけ data-af に変える）
+(() => {
+  const af = $("af"); af.innerHTML = $("lf").innerHTML;
+  af.querySelectorAll("[data-lf]").forEach(c => { c.dataset.af = c.dataset.lf; c.removeAttribute("data-lf"); });
+  af.querySelector("#lf-src-row").id = "af-src-row"; af.querySelector("#lf-clear").id = "af-clear";
+})();
 const MAIN_POS = ["名詞", "動詞", "形容詞", "副詞"];
 const inWeakW = w => weakList().includes(st.exam + "|word|" + wkey(w));
-function lfOk(w) {
-  if (LF.src.length && UNIVS[st.exam] && !LF.src.includes(w.source || "exam")) return false;
-  if (LF.lv.length && !LF.lv.includes(String(w.level))) return false;
-  if (LF.pos.length && !LF.pos.includes(MAIN_POS.includes(w.pos) ? w.pos : "other")) return false;
-  if (LF.flag.length && !LF.flag.some(f => f === "book" ? inBook(w) : f === "mark" ? inMark(w) : inWeakW(w))) return false;
+function lfOk(w, F) {
+  if (!F || !F.src) F = LF;   // filter(lfOk) のように呼ばれても、単語一覧のしぼりこみを使う
+  if (F.src.length && UNIVS[st.exam] && !F.src.includes(w.source || "exam")) return false;
+  if (F.lv.length && !F.lv.includes(String(w.level))) return false;
+  if (F.pos.length && !F.pos.includes(MAIN_POS.includes(w.pos) ? w.pos : "other")) return false;
+  if (F.flag.length && !F.flag.some(f => f === "book" ? inBook(w) : f === "mark" ? inMark(w) : inWeakW(w))) return false;
   return true;
+}
+// しぼりこみ欄の見た目（押されているか・数・解除ボタン）を状態に合わせる
+function syncFilter(F, attr, panel, toggle, clear, srcRow) {
+  panel.querySelectorAll(".chip[data-" + attr + "]").forEach(c => c.setAttribute("aria-pressed", F[c.dataset[attr]].includes(c.dataset.v)));
+  srcRow.hidden = !UNIVS[st.exam];
+  const nOn = Object.values(F).reduce((n, g) => n + g.length, 0);
+  clear.hidden = !nOn;
+  toggle.firstChild.textContent = "しぼりこみ" + (nOn ? "（" + nOn + "）" : "") + " ";
+  toggle.classList.toggle("on", nOn > 0);
+}
+// 並べ替え（単語一覧と追加の箱で共通）
+function sortWords(ws, key) {
+  const cnt = w => w.exam_count || w.article_count || 0;
+  const by = {
+    count: (a, b) => cnt(b) - cnt(a) || a.word.localeCompare(b.word),
+    alpha: (a, b) => a.word.localeCompare(b.word),
+    pos: (a, b) => (POS_ORDER[a.pos] || 9) - (POS_ORDER[b.pos] || 9) || a.word.localeCompare(b.word),
+    level: (a, b) => a.level - b.level || a.word.localeCompare(b.word),
+  }[key];
+  return ws.slice().sort(by);
 }
 document.querySelectorAll(".chip[data-lf]").forEach(c => c.onclick = () => {
   const g = LF[c.dataset.lf], v = c.dataset.v, i = g.indexOf(v);
@@ -1141,25 +1194,21 @@ document.querySelectorAll(".chip[data-lf]").forEach(c => c.onclick = () => {
 });
 $("lf-toggle").onclick = () => { const open = $("lf").hidden; $("lf").hidden = !open; $("lf-toggle").setAttribute("aria-expanded", open); };
 $("lf-clear").onclick = () => { Object.values(LF).forEach(g => g.length = 0); renderList(); };
+document.querySelectorAll(".chip[data-af]").forEach(c => c.onclick = () => {
+  const g = AF[c.dataset.af], v = c.dataset.v, i = g.indexOf(v);
+  if (i >= 0) g.splice(i, 1); else g.push(v);
+  addShown = 40; renderAddList();
+});
+$("af-toggle").onclick = () => { const open = $("af").hidden; $("af").hidden = !open; $("af-toggle").setAttribute("aria-expanded", open); };
+$("af-clear").onclick = () => { Object.values(AF).forEach(g => g.length = 0); addShown = 40; renderAddList(); };
 function renderList() {
-  document.querySelectorAll(".chip[data-lf]").forEach(c => c.setAttribute("aria-pressed", LF[c.dataset.lf].includes(c.dataset.v)));
-  $("lf-src-row").hidden = !UNIVS[st.exam];
-  $("lf-clear").hidden = !Object.values(LF).some(g => g.length);
+  syncFilter(LF, "lf", $("lf"), $("lf-toggle"), $("lf-clear"), $("lf-src-row"));
   const cb = curBook();
   $("bk-cur").textContent = books().length ? "単語帳 " + books().length + "冊（選択中：「" + cb.name + "」" + cb.words.length + "語）" : "単語帳はまだありません";
-  const nOn = Object.values(LF).reduce((n, g) => n + g.length, 0);
-  $("lf-toggle").firstChild.textContent = "しぼりこみ" + (nOn ? "（" + nOn + "）" : "") + " ";
-  $("lf-toggle").classList.toggle("on", nOn > 0);
   const q = $("l-q").value.trim().toLowerCase();
   const sort = $("l-sort").value;
   let ws = WORDS.filter(w => lfOk(w) && (!q || w.word.toLowerCase().includes(q) || w.meanings.some(m => m.ja.includes(q))));
-  const by = {
-    count: (a, b) => (b.exam_count || b.article_count || 0) - (a.exam_count || a.article_count || 0) || a.word.localeCompare(b.word),
-    alpha: (a, b) => a.word.localeCompare(b.word),
-    pos: (a, b) => (POS_ORDER[a.pos] || 9) - (POS_ORDER[b.pos] || 9) || a.word.localeCompare(b.word),
-    level: (a, b) => a.level - b.level || a.word.localeCompare(b.word),
-  }[sort];
-  ws = ws.slice().sort(by);
+  ws = sortWords(ws, sort);
   $("l-count").textContent = ws.length + "語" + (ws.length !== WORDS.length ? "（全" + WORDS.length + "語のうち）" : "");
   const ul = $("l-list"); ul.innerHTML = "";
   ws.forEach(w => ul.appendChild(wordRow(w, "star")));
@@ -1181,7 +1230,11 @@ function wordRow(w, kind) {
   }
   li.appendChild(el("span", "w", w.word));
   const n = w.exam_count || w.article_count;
-  li.appendChild(el("span", "cnt", n ? n + "回" : ""));
+  li.appendChild(el("span", "cnt", (n ? n + "回 " : "") + "›"));
+  // ☆や外すボタン以外のところを押すと、その単語の詳しいページへ
+  li.classList.add("tap"); li.tabIndex = 0; li.setAttribute("role", "button"); li.setAttribute("aria-label", w.word + "の詳しい情報を見る");
+  li.addEventListener("click", e => { if (!e.target.closest("button")) openWord(w); });
+  li.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target === li) { e.preventDefault(); openWord(w); } });
   const sub = el("span", "sub", w.pos + "・");
   const lv = el("span", "lvtxt", LVNAME[w.level]); lv.dataset.lv = w.level; sub.appendChild(lv);
   sub.appendChild(document.createTextNode((w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + srcName(w.source) : "") + (kind === "star" && inBook(w) ? "・単語帳" : "") + (inWeakW(w) ? "・苦手" : "")));
@@ -1191,6 +1244,68 @@ function wordRow(w, kind) {
   li.appendChild(m);
   return li;
 }
+// ---- 単語の詳しいページ（単語一覧などで単語を押すと開く） ----
+let wdBack = "list", wdScroll = 0;
+function openWord(w, from) {
+  wdBack = from || st.view; wdScroll = window.scrollY;
+  st.view = "word"; syncControls(); renderWord(w); window.scrollTo(0, 0);
+}
+function renderWord(w) {
+  const box = $("wd"); box.innerHTML = "";
+  const src = w.source || "exam";
+  const meta = el("div", "meta");
+  meta.appendChild(el("span", "tag", w.pos));
+  const lv = el("span", "tag lv", LVNAME[w.level]); lv.dataset.lv = w.level; meta.appendChild(lv);
+  const sr = el("span", "tag src" + (src === "predicted" ? " pred" : ""), srcName(src)); meta.appendChild(sr);
+  meta.appendChild(el("span", null, src === "kyotsu" ? "共通テストで" + w.exam_count + "回 / " + w.exam_years + "年分"
+    : src === "exam" ? uShort() + "で" + w.exam_count + "回 / " + w.exam_years + "年分"
+    : (src === "predicted" ? "最近の記事で" : "入試の出典記事で") + w.article_count + "回 / " + w.article_num + "本"));
+  box.appendChild(meta);
+  box.appendChild(el("h2", null, w.word));
+  const mk = el("button", "btn ghost small", inMark(w) ? "★ ブックマーク中（外す）" : "☆ ブックマークする");
+  mk.setAttribute("aria-pressed", inMark(w));
+  mk.onclick = () => { toggleMark(w); renderWord(w); };
+  box.appendChild(mk);
+  const sec = (title, node) => { const s = el("section"); s.appendChild(el("h3", null, title)); s.appendChild(node); box.appendChild(s); };
+  // 意味
+  const ex = src === "exam";
+  const ms = el("ul");
+  w.meanings.forEach(m => ms.appendChild(listItem(m.in_exam ? "★" : (m.in_article ? "◆" : ""), m.ja, m.exam_count ? m.exam_count + "回" : "")));
+  sec(src === "kyotsu" ? "意味" : ex ? "意味（★＝" + uShort() + "で出た意味）" : "意味（◆＝記事で使われた意味）", ms);
+  // 語源
+  if (w.etymology) {
+    const et = w.etymology, d = el("div");
+    const parts = el("div", "hint"); parts.appendChild(el("span", "lbl", "部品"));
+    et.parts.forEach((x, i) => { const ja = partJa(et, i, w); const e = el("span", "part"); e.appendChild(el("b", null, x.part)); e.appendChild(el("span", null, ja ? " ＝" + ja : "")); parts.appendChild(e); });
+    d.appendChild(parts); d.appendChild(el("p", "tip", et.explain));
+    sec("語源", d);
+  }
+  // イディオム・まぎらわしい単語
+  if (w.idioms.length) { const u = el("ul"); w.idioms.forEach(x => u.appendChild(listItem("", "　" + x.ja, "", x.en))); sec("イディオム", u); }
+  if ((w.confusables || []).length) {
+    const u = el("ul");
+    w.confusables.forEach(x => {
+      const li = listItem("", "　" + x.ja, "", x.en);
+      const other = WORDS.find(y => y.word === x.en);   // データにある単語なら、その単語のページへ
+      if (other) { li.classList.add("tap"); li.onclick = () => renderWord(other); li.appendChild(el("span", "go", "›")); }
+      u.appendChild(li);
+    });
+    sec("まぎらわしい単語", u);
+  }
+  // 自分の記録
+  const k = st.exam + "|word|" + wkey(w), sr2 = st.srs[k], inBooks = books().filter(b => b.words.includes(wkey(w))).map(b => "「" + b.name + "」");
+  const facts = el("div", "facts");
+  facts.appendChild(el("span", null, "連続正解：" + (st.mastery[k] || 0) + "回" + ((st.mastery[k] || 0) >= 2 ? "（習得）" : "")));
+  facts.appendChild(el("span", null, "次の復習：" + (sr2 ? (sr2.d <= ymd(new Date()) ? (sr2.d < ymd(new Date()) ? "⚠ " + daysBetween(sr2.d, ymd(new Date())) + "日遅れ" : "今日") : sr2.d.replace(/^(\d+)-(\d+)-(\d+)$/, (a, y, m, d) => (+m) + "月" + (+d) + "日")) : "まだ解いていません")));
+  facts.appendChild(el("span", null, "苦手：" + (inWeakW(w) ? "はい" : "いいえ")));
+  facts.appendChild(el("span", null, "入っている単語帳：" + (inBooks.length ? inBooks.join("・") : "なし")));
+  sec("あなたの記録", facts);
+}
+$("wd-back").onclick = () => {
+  st.view = wdBack; syncControls();
+  if (st.view === "list") renderList(); else if (st.view === "books") renderBooks();
+  window.scrollTo(0, wdScroll);
+};
 // ---- 単語帳の編集（専用のページ） ----
 let editing = "", delArmed = "";
 const bkMsg = (t, err) => { const m = $("bk-msg"); m.textContent = (err ? "⚠ " : "") + t; m.className = err ? "msg err" : "tip"; };
@@ -1373,7 +1488,7 @@ function attachSuggest(input, box, getItems, onPick, note) {
     if (e.key === "ArrowDown") { active = Math.min(active + 1, items.length - 1); draw(); e.preventDefault(); }
     else if (e.key === "ArrowUp") { active = Math.max(active - 1, 0); draw(); e.preventDefault(); }
     else if (e.key === "Enter" && active >= 0) { pick(active); e.preventDefault(); }
-    else if (e.key === "Escape") close();
+    else if (e.key === "Escape") { close(); e.preventDefault(); }   // 候補を閉じるだけ（打った文字は消さない）
   });
   return {close};
 }
@@ -1384,7 +1499,10 @@ attachSuggest($("l-q"), $("l-q-sug"), q => suggestWords(q, WORDS), w => { $("l-q
 let addShown = 40;
 function renderAddList() {
   const q = $("bk-add").value.trim().toLowerCase(), b = curBook();
-  const ws = q ? suggestWords(q, WORDS, Infinity) : WORDS.slice().sort((x, y) => (y.exam_count || y.article_count || 0) - (x.exam_count || x.article_count || 0) || x.word.localeCompare(y.word));
+  syncFilter(AF, "af", $("af"), $("af-toggle"), $("af-clear"), $("af-src-row"));
+  const hit = q ? suggestWords(q, WORDS, Infinity) : WORDS;
+  const ws = sortWords(hit.filter(w => lfOk(w, AF)), $("bk-add-sort").value);
+  $("bk-add-count").textContent = ws.length + "語" + (ws.length !== WORDS.length ? "（全" + WORDS.length + "語のうち）" : "");
   const ul = $("bk-addlist"); ul.innerHTML = "";
   ws.slice(0, addShown).forEach(w => {
     const li = el("li"), has = !!b && b.words.includes(wkey(w));
@@ -1401,7 +1519,7 @@ function renderAddList() {
     const m = el("span", "m", w.meanings.map(x => x.ja).join(" / ")); m.style.gridColumn = "2 / 4"; li.appendChild(m);
     ul.appendChild(li);
   });
-  if (!ws.length) ul.appendChild(el("li", null, "「" + q + "」に当てはまる単語はありません。"));
+  if (!ws.length) ul.appendChild(el("li", null, "この条件に当てはまる単語はありません。"));
   $("bk-addmore").hidden = ws.length <= addShown;
   $("bk-addmore").textContent = "もっと見る（あと" + (ws.length - addShown) + "語）";
 }
@@ -1409,10 +1527,12 @@ $("bk-addbtn").onclick = () => { $("bk-addbox").hidden = false; $("bk-addbtn").h
 $("bk-addclose").onclick = () => { $("bk-addbox").hidden = true; $("bk-addbtn").hidden = false; };
 $("bk-add").addEventListener("input", () => { addShown = 40; renderAddList(); });
 $("bk-addmore").onclick = () => { addShown += 40; renderAddList(); };
+$("bk-add-sort").addEventListener("change", () => { addShown = 40; renderAddList(); });
 // 単語帳の中を検索
 $("bk-find").addEventListener("input", () => renderBooks());
 const origSetExam = setExam;
 setExam = function () { origSetExam(); if (["book", "weak", "due"].includes(st.pick) && !pool().length) st.pick = "word"; if (st.view === "list") renderList(); if (st.view === "books") renderBooks(); if (st.view === "rec") renderRec(); };
+if (st.view === "word") st.view = "list";   // 詳しいページのまま閉じたら、次は単語一覧から
 setExam(); syncControls(); buildQueue(); stats(); render();
 if (st.view === "list") renderList();
 if (st.view === "books") renderBooks();

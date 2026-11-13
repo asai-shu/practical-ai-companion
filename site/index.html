@@ -162,6 +162,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .notes summary{cursor:pointer;padding:4px 0}
 .notes summary:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .notes .note{margin-top:4px}
+.goalbox{border:3px solid var(--ok);background:var(--ok-soft);border-radius:6px;padding:12px 14px;display:grid;gap:10px}
+.goalbox p{margin:0}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -217,7 +219,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
   <section id="v-start" class="view startbox" hidden>
     <h2>はじめに</h2>
-    <p>大学入試に「実際に出た英単語」を、9つの選択肢から意味をすべて選ぶクイズで覚えるアプリです。1つの単語が持つ複数の意味を、まとめて覚えられます。</p>
+    <p>大学入試に「実際に出た英単語」を、9つの選択肢から意味をすべて選ぶ演習で覚えるアプリです。1つの単語が持つ複数の意味を、まとめて覚えられます。</p>
     <p>下に、各機能の短い説明があります。あとからは「使い方」のタブでいつでも見られます。</p>
     <div class="filters">
       <label for="u-sel0">選択中の大学</label>
@@ -232,14 +234,14 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </section>
 
   <div class="tabs" role="tablist" aria-label="表示" id="tabs">
-    <button class="tab" id="t-quiz" data-view="quiz" role="tab" aria-selected="true">クイズ</button>
+    <button class="tab" id="t-quiz" data-view="quiz" role="tab" aria-selected="true">演習</button>
     <button class="tab" id="t-list" data-view="list" role="tab" aria-selected="false">単語一覧・単語帳</button>
     <button class="tab" id="t-rec" data-view="rec" role="tab" aria-selected="false">記録</button>
     <button class="tab" id="t-help" data-view="help" role="tab" aria-selected="false">使い方</button>
   </div>
 
   <section id="v-help" class="view help" hidden>
-    <h2>クイズ</h2>
+    <h2>演習</h2>
     <dl>
       <dt>単語</dt><dd>英単語の意味を、9つの選択肢から選びます。意味が2つ以上ある単語は、すべて選んでください。</dd>
       <dt>イディオム</dt><dd>熟語（いくつかの単語で1つの意味になる表現）の意味を、1つ選びます。</dd>
@@ -261,12 +263,12 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <dt class="uonly">★</dt><dd class="uonly">その大学の入試で、実際に使われた意味です。</dd>
       <dt>ブックマーク</dt><dd>気になった単語に印を付けます。あとでまとめて単語帳に移せます。</dd>
       <dt>語源ヒント</dt><dd>単語を部品に分けて、それぞれの意味を見せます。</dd>
-      <dt>中断する</dt><dd>設定の画面に戻ります。それまでの記録は残ります。</dd>
+      <dt>終了する</dt><dd>演習を終えて、設定の画面に戻ります。それまでの記録は残ります。</dd>
     </dl>
     <h2>単語一覧・単語帳</h2>
     <dl>
       <dt>☆</dt><dd>押すと、選んでいる単語帳に単語が入ります。もう一度押すと外れます。</dd>
-      <dt>単語帳</dt><dd>何冊でも作れます。クイズの「単語帳」で、その単語だけを練習できます。</dd>
+      <dt>単語帳</dt><dd>何冊でも作れます。演習の「単語帳」で、その単語だけを練習できます。</dd>
       <dt>ブックマーク</dt><dd>問題の途中で印を付けた単語です。まとめて単語帳に移せます。</dd>
       <dt>回数</dt><dd>その試験の英文に、その単語が出てきた回数です。</dd>
     </dl>
@@ -337,7 +339,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </div>
 
   <div id="study" class="view" hidden>
-  <div class="studybar"><span id="study-sum"></span><button class="btn ghost small" id="pausebtn">中断する</button></div>
+  <div class="studybar"><span id="study-sum"></span><button class="btn ghost small" id="pausebtn">終了する</button></div>
   <section class="sheet" aria-live="polite">
     <div class="meta"><span class="tag" id="q-pos">名詞</span><span class="tag lv" id="q-lv">標準</span><span class="tag src" id="q-src"></span><span id="q-exam"></span></div>
     <p class="word" id="q-word">dolphin</p>
@@ -355,7 +357,11 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <h2 id="a-cfh">まぎらわしい単語</h2>
       <ul id="a-cfs"></ul>
     </div>
-    <div class="actions">
+    <div class="goalbox" id="goalbox" hidden>
+      <p><b>🎉 今日の目標 <span id="goal-n"></span>問を達成しました。</b><br>ここで終了しますか？</p>
+      <div class="actions"><button class="btn" id="goal-end">終了する</button><button class="btn ghost" id="goal-go">続ける</button></div>
+    </div>
+    <div class="actions" id="mainactions">
       <button class="btn" id="check" disabled>答え合わせ</button>
       <button class="btn ghost" id="next" hidden>次の問題</button>
       <button class="btn ghost" id="hintbtn" hidden>語源ヒントを見る</button>
@@ -736,6 +742,7 @@ function showHint(et) {
   h.hidden = false;
 }
 function render() {
+  $("goalbox").hidden = true; $("mainactions").hidden = false;
   if (!queue.length && st.pick === "due" && studying) buildQueue();
   if (!queue.length && st.pick === "due" && studying) { // 今日の復習をすべて終えた
     studying = false; st.pick = "word"; save(); syncControls(); buildQueue(); stats();
@@ -842,7 +849,7 @@ function check() {
     if (f) b.querySelector(".txt").appendChild(el("span", "from", (correct.includes(t) ? "" : "← ") + f));
   });
   st.done++; if (good) st.ok++; solved++;
-  countToday();
+  goalJust = false; countToday();
   const ms = st.modeStats[st.exam + "|" + st.mode] = st.modeStats[st.exam + "|" + st.mode] || {done: 0, ok: 0};
   ms.done++; if (good) ms.ok++;
   if (st.weakOn) {
@@ -1025,7 +1032,17 @@ $("multi-src").onclick = () => {
 };
 document.querySelectorAll(".srcbtn").forEach(c => c.onclick = () => { st.srcs = pickOne(st.srcs, c.dataset.src, st.multiSrc); if (["book", "weak", "due"].includes(st.pick)) st.pick = "word"; restart(); });
 $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = true; };
-$("check").onclick = check; $("next").onclick = render;
+$("check").onclick = () => {
+  check();
+  if (goalJust) {   // 目標に届いたら、次の問題へ進む前に、終了するか聞く
+    $("goal-n").textContent = st.goal; $("goalbox").hidden = false; $("mainactions").hidden = true;
+    $("goalbox").scrollIntoView({block: "center"}); $("goal-end").focus();
+  }
+};
+// 次の問題は、ページのいちばん上から見せる
+$("next").onclick = () => { render(); window.scrollTo(0, 0); };
+$("goal-end").onclick = () => { $("goalbox").hidden = true; $("mainactions").hidden = false; $("pausebtn").click(); };
+$("goal-go").onclick = () => { $("goalbox").hidden = true; $("mainactions").hidden = false; render(); window.scrollTo(0, 0); };
 document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; st.seen = true; st.view = "quiz"; setExam(); restart(); });
 const POS_ORDER = {"名詞":1, "動詞":2, "形容詞":3, "副詞":4, "前置詞句":5};
 function renderBooks() {
@@ -1093,10 +1110,12 @@ function renderList() {
 }
 document.querySelectorAll(".tab").forEach(t => t.onclick = () => { st.view = t.dataset.view; save(); syncControls(); if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); window.scrollTo(0, 0); });   // 別のページを開いたら、いちばん上から見せる
 const ymd = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+let goalJust = false;
 function countToday() {
   const today = ymd(new Date());
   if (st.day !== today) { st.day = today; st.today = 0; }
   st.today++;
+  if (st.today === st.goal) goalJust = true;   // ちょうど1日の目標に届いた（答え合わせのあとに、終了するか聞く）
   if (st.today === st.goal && st.lastGoalDay !== today) {
     const y = new Date(); y.setDate(y.getDate() - 1);
     st.streak = st.lastGoalDay === ymd(y) ? st.streak + 1 : 1;

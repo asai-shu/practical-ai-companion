@@ -164,6 +164,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .notes .note{margin-top:4px}
 .goalbox{border:3px solid var(--ok);background:var(--ok-soft);border-radius:6px;padding:12px 14px;display:grid;gap:10px}
 .goalbox p{margin:0}
+.linkbtn{font:inherit;font-size:13px;justify-self:start;padding:4px 0;border:0;background:none;color:var(--muted);text-decoration:underline;cursor:pointer}
+.linkbtn:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -275,7 +277,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <h2>記録</h2>
     <dl>
       <dt>習得</dt><dd>2回続けて正解した問題の数です。</dd>
-      <dt>今日</dt><dd>今日解いた問題の数と、1日の目標です。</dd>
+      <dt>今日</dt><dd>今日解いた問題の数と、1日の目標です。目標は、最初は試験日までに覚えきれる「おすすめ」の数です。</dd>
       <dt>連続</dt><dd>1日の目標を達成した日が、何日続いているかです。</dd>
       <dt>復習の予定</dt><dd>解いた問題は、1・3・7・14・30・60日後にもう一度出ます。今日解いた問題は、明日から復習に出ます。</dd>
       <dt>⚠ 遅れ</dt><dd>復習の日を過ぎてしまった問題です。忘れかけているので、早めに解いてください。</dd>
@@ -360,6 +362,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <div class="goalbox" id="goalbox" hidden>
       <p><b>🎉 今日の目標 <span id="goal-n"></span>問を達成しました。</b><br>ここで終了しますか？</p>
       <div class="actions"><button class="btn" id="goal-end">終了する</button><button class="btn ghost" id="goal-go">続ける</button></div>
+      <button class="linkbtn" id="goal-never">今後表示しない</button>
     </div>
     <div class="actions" id="mainactions">
       <button class="btn" id="check" disabled>答え合わせ</button>
@@ -429,9 +432,10 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <h2>1日の目標</h2>
       <div class="listbar">
         <label for="r-goal">1日に解く問題数</label>
-        <select id="r-goal"><option>10</option><option selected>20</option><option>30</option><option>50</option><option>100</option></select>
+        <select id="r-goal"><option value="auto">おすすめ</option><option>10</option><option>20</option><option>30</option><option>50</option><option>100</option></select>
       </div>
-      <p class="tip">目標を達成した日が続くと「連続」の日数が増えます。</p>
+      <p class="tip">「おすすめ」は、上の「1日〇語ずつ」と同じ数です。覚えた単語が増えると、毎日変わります。目標を達成した日が続くと「連続」の日数が増えます。</p>
+      <label class="chk"><input type="checkbox" id="r-ask"> 目標に届いたら「ここで終了しますか？」と聞く</label>
     </div>
     <div class="recbox">
       <h2>覚えた単語（2回続けて正解した単語）</h2>
@@ -495,7 +499,7 @@ const NOTE_HEAD = "意味は辞書・単語帳を写さずに作成していま�
 const exInfo = () => UNIVS[st.exam] || KYOTSU;                 // いま選んでいる試験の情報
 const uShort = () => (UNIVS[st.exam] || {}).short || "";       // 「名大」など
 const srcName = k => k === "exam" ? uShort() + "の入試" : ({source_article: "入試の出典記事", predicted: "予想", kyotsu: "共通テスト"})[k];
-let st = {v:0, univ:"", srcs:["exam"], multiSrc:false, multiLv:false, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
+let st = {v:0, goalAuto:true, goalAsk:true, univ:"", srcs:["exam"], multiSrc:false, multiLv:false, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
 let studying = false;
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
@@ -521,6 +525,7 @@ if (st.exam !== "kyotsu" && !UNIVS[st.exam]) st.exam = "kyotsu";  // データ�
 if (st.univ && !UNIVS[st.univ]) st.univ = "";
 if (st.exam !== "kyotsu") st.univ = st.exam;
 if (st.v < 6) { st.srcs = ["exam"]; st.multiSrc = false; st.multiLv = false; st.v = 6; save(); }   // 出題元・レベルは、ふだんは1つだけ選ぶ（「複数選択」で複数）
+if (st.v < 7) { st.goalAuto = true; st.goalAsk = true; st.v = 7; save(); }   // 1日の目標は、最初は「おすすめ」（試験日までに覚えきれる語数）
 const $ = id => document.getElementById(id);
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -911,7 +916,7 @@ function answerAffix() {
 function stats() {
   $("s-done").textContent = st.done;
   const today = ymd(new Date());
-  $("s-today").textContent = st.day === today ? st.today : 0; $("s-goal").textContent = st.goal;
+  $("s-today").textContent = st.day === today ? st.today : 0; $("s-goal").textContent = goalNow();
   const y = new Date(); y.setDate(y.getDate() - 1);
   $("s-streak").textContent = (st.lastGoalDay === today || st.lastGoalDay === ymd(y)) ? st.streak : 0;
   $("s-rate").textContent = st.done ? Math.round(st.ok / st.done * 100) + "%" : "–";
@@ -1035,13 +1040,14 @@ $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = tr
 $("check").onclick = () => {
   check();
   if (goalJust) {   // 目標に届いたら、次の問題へ進む前に、終了するか聞く
-    $("goal-n").textContent = st.goal; $("goalbox").hidden = false; $("mainactions").hidden = true;
+    $("goal-n").textContent = goalNow(); $("goalbox").hidden = false; $("mainactions").hidden = true;
     $("goalbox").scrollIntoView({block: "center"}); $("goal-end").focus();
   }
 };
 // 次の問題は、ページのいちばん上から見せる
 $("next").onclick = () => { render(); window.scrollTo(0, 0); };
 $("goal-end").onclick = () => { $("goalbox").hidden = true; $("mainactions").hidden = false; $("pausebtn").click(); };
+$("goal-never").onclick = () => { st.goalAsk = false; save(); $("goal-go").click(); };   // 記録の「1日の目標」で、また表示するようにできる
 $("goal-go").onclick = () => { $("goalbox").hidden = true; $("mainactions").hidden = false; render(); window.scrollTo(0, 0); };
 document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; st.seen = true; st.view = "quiz"; setExam(); restart(); });
 const POS_ORDER = {"名詞":1, "動詞":2, "形容詞":3, "副詞":4, "前置詞句":5};
@@ -1110,13 +1116,18 @@ function renderList() {
 }
 document.querySelectorAll(".tab").forEach(t => t.onclick = () => { st.view = t.dataset.view; save(); syncControls(); if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); window.scrollTo(0, 0); });   // 別のページを開いたら、いちばん上から見せる
 const ymd = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+// 試験日までに、まだ覚えていない単語を覚えきるための1日の語数（試験日がなければ 20）
+function examDays() { const d = st.examDate[st.exam] || autoDate(); return d ? Math.ceil((new Date(d + "T00:00:00") - new Date(ymd(new Date()) + "T00:00:00")) / 86400000) : 0; }
+function leftWords() { return WORDS.filter(w => (st.mastery[st.exam + "|word|" + w.word + "|" + w.pos] || 0) < 2).length; }
+function recGoal() { const d = examDays(), l = leftWords(); return d > 0 && l > 0 ? Math.max(1, Math.ceil(l / d)) : 20; }
+const goalNow = () => st.goalAuto ? recGoal() : st.goal;
 let goalJust = false;
 function countToday() {
   const today = ymd(new Date());
   if (st.day !== today) { st.day = today; st.today = 0; }
   st.today++;
-  if (st.today === st.goal) goalJust = true;   // ちょうど1日の目標に届いた（答え合わせのあとに、終了するか聞く）
-  if (st.today === st.goal && st.lastGoalDay !== today) {
+  if (st.today === goalNow() && st.goalAsk) goalJust = true;   // ちょうど1日の目標に届いた（答え合わせのあとに、終了するか聞く）
+  if (st.today === goalNow() && st.lastGoalDay !== today) {
     const y = new Date(); y.setDate(y.getDate() - 1);
     st.streak = st.lastGoalDay === ymd(y) ? st.streak + 1 : 1;
     st.lastGoalDay = today;
@@ -1133,8 +1144,7 @@ function renderRec() {
   $("r-auto").textContent = !auto ? "" : date === auto ? exInfo().date.name + "の " + jp(auto) + " を自動で入れています。別の日にしたいときは、上で変えられます。"
     : "自分で入れた日付を使っています。" + exInfo().date.name + "は " + jp(auto) + " です。";
   if (date) {
-    const days = Math.ceil((new Date(date + "T00:00:00") - new Date(ymd(new Date()) + "T00:00:00")) / 86400000);
-    const left = WORDS.filter(w => (st.mastery[st.exam + "|word|" + w.word + "|" + w.pos] || 0) < 2).length;
+    const days = examDays(), left = leftWords();
     $("r-count").innerHTML = days > 0 ? "あと <b>" + days + "</b> 日　まだ覚えていない単語 " + left + " 語 → 1日 <b>" + Math.ceil(left / days) + "</b> 語ずつ"
       : "試験日を過ぎています";
   } else $("r-count").textContent = "試験日を入れると、残りの日数と1日に覚える語数の目安が出ます。";
@@ -1165,7 +1175,9 @@ function renderRec() {
     if (n === 0 && sum) tr.className = "now";
     body.appendChild(tr);
   }
-  $("r-goal").value = String(st.goal);
+  $("r-goal").options[0].textContent = "おすすめ（" + recGoal() + "問）";
+  $("r-goal").value = st.goalAuto ? "auto" : String(st.goal);
+  $("r-ask").checked = st.goalAsk;
   const bars = $("r-bars"); bars.innerHTML = "";
   [1, 2, 3, 4].forEach(lv => {
     const ws = WORDS.filter(w => w.level === lv); if (!ws.length) return;
@@ -1183,7 +1195,8 @@ function renderRec() {
   });
 }
 $("r-date").addEventListener("change", e => { st.examDate[st.exam] = e.target.value === autoDate() ? "" : e.target.value; save(); renderRec(); });
-$("r-goal").addEventListener("change", e => { st.goal = +e.target.value; save(); stats(); });
+$("r-goal").addEventListener("change", e => { st.goalAuto = e.target.value === "auto"; if (!st.goalAuto) st.goal = +e.target.value; save(); stats(); });
+$("r-ask").addEventListener("change", e => { st.goalAsk = e.target.checked; save(); });
 $("bookbtn").onclick = () => { toggleMark(cur); showBookBtn(); };
 $("l-addall").onclick = () => { const bw = ensureBook().words; markList().forEach(k => { if (!bw.includes(k)) bw.push(k); }); st.marks[st.exam] = []; $("l-mark").checked = false; save(); renderList(); };
 ["l-q", "l-sort", "l-book", "l-mark"].forEach(id => $(id).addEventListener(id === "l-q" ? "input" : "change", renderList));

@@ -135,8 +135,11 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .srcbtn[aria-pressed="true"]{background:var(--c);color:var(--sheet)}
 .srcbtn[aria-pressed="true"] small{color:var(--sheet);opacity:.85}
 .srcbtn:focus-visible{outline:2px solid var(--ink);outline-offset:-3px}
-.chip.multi{border-style:dashed;color:var(--muted);font-size:12px}
-.chip.multi[aria-pressed="true"]{background:var(--ink);border:1px solid var(--ink);color:var(--sheet)}
+.multi{font:inherit;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:2px solid var(--ink);border-radius:999px;background:var(--sheet);color:var(--ink);cursor:pointer}
+.multi .box{width:16px;height:16px;border:2px solid currentColor;border-radius:3px;display:grid;place-items:center;font-size:12px;line-height:1}
+.multi[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.multi[aria-pressed="true"] .box::after{content:"✓"}
+.multi:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .multirow{display:flex;justify-content:flex-end;margin-top:-6px}
 .notes{font-size:12px;color:var(--muted)}
 .notes summary{cursor:pointer;padding:4px 0}
@@ -218,7 +221,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <dt>単語帳</dt><dd>自分で☆を付けて集めた単語だけを出す</dd>
       <dt>苦手</dt><dd>間違えた問題だけを出す。2回続けて正解すると外れる</dd>
       <dt>今日の復習</dt><dd>前に解いて、ちょうど忘れやすいころになった問題を出す</dd>
-      <dt>レベル</dt><dd>単語の難しさ。ふだんは1つ選ぶ</dd>
+      <dt>レベル</dt><dd>難しさ。単語・イディオム・語源で使う。ふだんは1つ選ぶ</dd>
       <dt>複数選択</dt><dd>オンにすると、レベルや単語の種類をいくつでも選べる</dd>
       <dt class="uonly">過去問の単語</dt><dd class="uonly">その大学の過去問に出た単語（ふつうはこれ）</dd>
       <dt class="uonly">出典記事の単語</dt><dd class="uonly">過去問の元になった英文記事に出てくる単語</dd>
@@ -271,7 +274,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="srcbtn" data-src="source_article" aria-pressed="false">出典記事の単語<small id="n-source_article"></small></button>
     <button class="srcbtn" data-src="predicted" aria-pressed="false">予想の単語<small id="n-predicted"></small></button>
   </div>
-  <div class="multirow" id="src-multi-row"><button class="chip multi" id="multi-src" aria-pressed="false">複数選択</button></div>
+  <div class="multirow" id="src-multi-row"><button class="multi" id="multi-src" aria-pressed="false"><span class="box" aria-hidden="true"></span>複数選択</button></div>
 
   <div id="v-quiz" class="view">
   <div id="setup" class="view">
@@ -296,7 +299,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="chip" id="lv2" data-lv="2" aria-pressed="true">標準</button>
     <button class="chip" id="lv3" data-lv="3" aria-pressed="true">難関</button>
     <button class="chip" id="lv4" data-lv="4" aria-pressed="true">最難関</button>
-    <button class="chip multi" id="multi-lv" aria-pressed="false">複数選択</button>
+    <button class="multi" id="multi-lv" aria-pressed="false"><span class="box" aria-hidden="true"></span>複数選択</button>
   </div>
   <div class="filters" id="f-qbook" hidden>
     <label for="q-book">出題する単語帳</label>
@@ -424,7 +427,8 @@ const IDIOMS = __IDIOMS__;
 const AFFIXES = __AFFIXES__;
 const NEAR = __NEAR__;       // 英単語 → 意味の近い英単語（類義語辞書 WordNet から作った）
 const NEAR_JA = __NEARJA__;  // 意味の近い日本語のグループ（自分で書いたもの）
-const ROOTS = __ROOTS__;   // 語源モード：単語の中心になる部品（語根）。形は接頭辞・接尾辞と同じ
+const ROOTS = __ROOTS__;
+const EXTRA_LV = __EXTRALV__;   // イディオムと語根のレベル（tools/levels/build_extra_levels.py で作る仮のもの）   // 語源モード：単語の中心になる部品（語根）。形は接頭辞・接尾辞と同じ
 // 接頭辞・接尾辞の問題：接辞1つにつき「働きをすべて選ぶ」問題と、接尾辞なら「つくる品詞をすべて選ぶ」問題を作る
 // データの形：{affix, type, senses: [{role: 働き, pos: 品詞, examples: [[単語, 意味], ...]}, ...]}
 const affixRoles = a => a.senses.map(x => x.role);
@@ -434,7 +438,7 @@ const AFFIX_ITEMS = AFFIXES.flatMap(a => {
   if (a.type === "suffix" && affixPos(a).length) items.push({kind: "pos", affix: a, w: a.affix});
   return items;
 });
-const ROOT_ITEMS = ROOTS.map(a => ({kind: "role", affix: a, w: a.affix}));
+const ROOT_ITEMS = ROOTS.map(a => ({kind: "role", affix: a, w: a.affix, level: EXTRA_LV.roots[a.affix] || 2}));
 function affixSpan(a, w) {
   const vs = a.affix.split("/").map(v => v.trim().replace(/-/g, ""));
   if (a.type === "root") { // 語根は単語の途中にあるので、長い形から順に探す
@@ -505,8 +509,8 @@ function setExam() {
   WORDS.forEach(w => w.meanings.forEach(m => { if (!OWNERS.has(m.ja)) OWNERS.set(m.ja, new Set()); OWNERS.get(m.ja).add(w.word.toLowerCase()); }));
   WORDS.forEach(w => (w.confusables || []).forEach(c => { if (!OWNER.has(c.ja)) OWNER.set(c.ja, c.en); }));
   // イディオム問題の材料：（大学版なら）入試に出たイディオム＋単語データのイディオム
-  IDIOM_ITEMS = (UNIVS[st.exam] ? UNIVS[st.exam].idioms.map(x => ({en: x.en, ja: x.ja, src: "exam", year: x.year})) : [])
-    .concat(WORDS.flatMap(w => w.idioms.map(i => ({en: i.en, ja: i.ja, src: w.source || "exam", word: w.word, level: w.level}))))
+  IDIOM_ITEMS = (UNIVS[st.exam] ? UNIVS[st.exam].idioms.map(x => ({en: x.en, ja: x.ja, src: "exam", year: x.year, level: EXTRA_LV.idioms[x.en] || 2})) : [])
+    .concat(WORDS.flatMap(w => w.idioms.map(i => ({en: i.en, ja: i.ja, src: w.source || "exam", word: w.word, level: EXTRA_LV.idioms[i.en] || w.level}))))
     .filter((x, i, a) => a.findIndex(y => y.en === x.en) === i);
   st.levels = st.levelsByExam[st.exam] || [2];
   $("h-name").textContent = APP_NAME; $("h-sub").textContent = exInfo().sub;
@@ -547,8 +551,8 @@ const allItems = () => ["word", "idiom", "ety", "affix"].flatMap(itemsOf);
 function pool(pick = st.pick) {
   const srcOk = x => st.exam === "kyotsu" || st.srcs.includes(x);
   switch (pick) {
-    case "idiom": return IDIOM_ITEMS.filter(x => srcOk(x.src));
-    case "ety": return ROOT_ITEMS;
+    case "idiom": return IDIOM_ITEMS.filter(x => st.levels.includes(x.level) && srcOk(x.src));
+    case "ety": return ROOT_ITEMS.filter(x => st.levels.includes(x.level));
     case "affix": return AFFIX_ITEMS;
     case "book": return WORDS.filter(inBook);
     case "weak": { const set = new Set(weakList()); return allItems().filter(q => set.has(keyOf(q))); }
@@ -722,7 +726,7 @@ function render() {
   $("q-word").textContent = idiom ? cur.en : cur.word;
   $("q-word").className = "word" + (idiom ? " idiom" : "");
   $("q-pos").textContent = idiom ? "イディオム" : cur.pos;
-  $("q-lv").hidden = idiom; if (!idiom) { $("q-lv").textContent = LVNAME[cur.level]; $("q-lv").dataset.lv = cur.level; }
+  $("q-lv").hidden = !cur.level; if (cur.level) { $("q-lv").textContent = LVNAME[cur.level]; $("q-lv").dataset.lv = cur.level; }
   $("q-src").textContent = idiom && !cur.year ? "単語の関連表現" : srcName(src);
   $("q-src").className = "tag src" + (src === "predicted" ? " pred" : "");
   $("q-exam").textContent = idiom ? (cur.year ? uShort() + " " + cur.year + "年度に出題" : "「" + cur.word + "」の関連表現")
@@ -739,7 +743,8 @@ function renderAffix() {
   const opts = setupAffixQuestion(cur), a = cur.affix;
   const root = a.type === "root";
   $("q-pos").textContent = root ? "語根" : a.type === "prefix" ? "接頭辞" : "接尾辞";
-  $("q-lv").hidden = true; $("q-src").hidden = true;
+  $("q-lv").hidden = !cur.level; if (cur.level) { $("q-lv").textContent = LVNAME[cur.level]; $("q-lv").dataset.lv = cur.level; }
+  $("q-src").hidden = true;
   $("q-exam").textContent = root ? "単語の中心になる部品" : a.type === "prefix" ? "単語の頭に付く部品" : "単語の語尾に付く部品";
   $("q-word").textContent = a.affix;
   $("q-word").className = "word idiom";
@@ -874,13 +879,14 @@ function stats() {
   $("s-total").textContent = p.length;
   $("s-master").textContent = p.filter(q => (st.mastery[keyOf(q)] || 0) >= 2).length;
 }
+const LV_PICKS = ["word", "idiom", "ety"];   // レベルで絞れるモード
 const PICK_NAME = {word: "単語", idiom: "イディオム", ety: "語源", affix: "接頭辞・接尾辞", book: "単語帳", weak: "苦手", due: "今日の復習"};
 function syncControls() {
   document.querySelectorAll(".mode").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === st.pick));
   document.querySelectorAll(".chip[data-lv]").forEach(c => c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv)));
   document.querySelectorAll(".srcbtn").forEach(c => c.setAttribute("aria-pressed", st.srcs.includes(c.dataset.src)));
   $("multi-src").setAttribute("aria-pressed", st.multiSrc); $("multi-lv").setAttribute("aria-pressed", st.multiLv);
-  $("f-level").hidden = st.pick !== "word";
+  $("f-level").hidden = !LV_PICKS.includes(st.pick);
   ["exam", "source_article", "predicted"].forEach(k => $("n-" + k).textContent = WORDS.filter(w => (w.source || "exam") === k).length + "語");
   // 単語帳・苦手・今日の復習のボタンに、今の数を出す
   const cb = curBook();
@@ -900,7 +906,7 @@ function syncControls() {
   if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; $("u-row").hidden = $("src-row").hidden = $("src-multi-row").hidden = true; syncUniv(); return; }
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
   const srcLbl = UNIVS[st.exam] && (st.pick === "word" || st.pick === "idiom") ? ["exam", "source_article", "predicted"].filter(k => st.srcs.includes(k)).map(k => ({exam: "過去問", source_article: "出典記事", predicted: "予想"})[k]).join("・") + "／" : "";
-  $("study-sum").textContent = srcLbl + PICK_NAME[st.pick] + (st.pick === "word" ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
+  $("study-sum").textContent = srcLbl + PICK_NAME[st.pick] + (LV_PICKS.includes(st.pick) ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
   fillDueBox($("due-info"));
   $("setup").hidden = studying; $("study").hidden = !studying;
   document.querySelector(".wrap > .exams").hidden = studying;
@@ -959,7 +965,7 @@ function pickExam(want) {
 document.querySelectorAll(".exam:not(.start-exam)").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; studying = false; setExam(); restart(); });
 $("startbtn").onclick = () => {
   if (UNIVS[st.exam] && (st.pick === "word" || st.pick === "idiom") && !st.srcs.length) { setupMsg("「過去問の単語」「出典記事の単語」「予想の単語」から、1つ以上選択してください。"); return; }
-  if (st.pick === "word" && !st.levels.length) { setupMsg("レベルを1つ以上選択してください。"); return; }
+  if (LV_PICKS.includes(st.pick) && !st.levels.length) { setupMsg("レベルを1つ以上選択してください。"); return; }
   if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや単語の種類を変えてください。"; return; }
   studying = true; solved = 0; restart(); window.scrollTo(0, 0);
 };

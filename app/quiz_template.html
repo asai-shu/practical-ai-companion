@@ -72,6 +72,12 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .big{font-size:16px;font-weight:700;margin:0;line-height:1.8}
 .big b{font-family:var(--f-num);font-size:24px;color:var(--drop)}
 .duebox{border:2px solid var(--drop);background:var(--drop-soft);border-radius:6px;padding:12px 14px;display:grid;gap:8px}
+.duebox.late{border:3px solid var(--ng);background:var(--ng-soft)}
+.duebox .warn{font-size:17px;font-weight:900;color:var(--ng)}
+.duebox .warn b{font-family:var(--f-num);font-size:26px;margin:0 2px}
+.mode.late{box-shadow:inset 0 0 0 3px var(--ng)}
+.mode.late small{color:var(--ng)!important;font-weight:700;opacity:1}
+.duetable tr.late th,.duetable tr.late td{background:var(--ng-soft);color:var(--ng);font-weight:900}
 .duebox h3{margin:0;font-size:15px}
 .duebox h3 b{font-family:var(--f-num);font-size:22px;color:var(--drop);margin:0 2px}
 .duebox p{margin:0;font-size:13px}
@@ -124,8 +130,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .help{border:1px solid var(--line);border-radius:6px;background:var(--sheet);font-size:13px;padding:12px 0;gap:8px}
 .help h2{font-size:13px;margin:0;padding:0 12px;color:var(--drop)}
 .help .btn{margin-left:12px}
-.helpbtn{font:inherit;font-size:13px;font-weight:700;margin-left:auto;padding:8px 6px;border:0;background:none;color:var(--drop);cursor:pointer}
-.helpbtn:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
+
 .help dl{margin:0;padding:0 12px 4px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px}
 .help dt{font-weight:700;white-space:nowrap}
 .help dd{margin:0;color:var(--muted)}
@@ -135,10 +140,11 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .srcbtn[aria-pressed="true"]{background:var(--c);color:var(--sheet)}
 .srcbtn[aria-pressed="true"] small{color:var(--sheet);opacity:.85}
 .srcbtn:focus-visible{outline:2px solid var(--ink);outline-offset:-3px}
-.multi{font:inherit;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:2px solid var(--ink);border-radius:999px;background:var(--sheet);color:var(--ink);cursor:pointer}
-.multi .box{width:16px;height:16px;border:2px solid currentColor;border-radius:3px;display:grid;place-items:center;font-size:12px;line-height:1}
+.multi{font:inherit;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border:2px solid var(--ink);border-radius:999px;background:var(--sheet);color:var(--ink);cursor:pointer}
+.multi .box{width:22px;height:22px;border:2px solid currentColor;border-radius:4px;display:grid;place-items:center;font-size:20px;font-weight:900;line-height:1}
 .multi[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
-.multi[aria-pressed="true"] .box::after{content:"✓"}
+.multi[aria-pressed="true"] .box{background:var(--sheet);color:var(--ink)}
+.multi[aria-pressed="true"] .box::after{content:"✔"}
 .multi:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .multirow{display:flex;justify-content:flex-end;margin-top:-6px}
 .notes{font-size:12px;color:var(--muted)}
@@ -198,7 +204,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   <section id="v-start" class="view startbox" hidden>
     <h2>はじめに</h2>
     <p>大学入試に「実際に出た英単語」を、9つの選択肢から意味をすべて選ぶクイズで覚えるアプリです。1つの単語が持つ複数の意味を、まとめて覚えられます。</p>
-    <p>下に、各機能の短い説明があります。あとからは、右上の「？ 使い方」でいつでも見られます。</p>
+    <p>下に、各機能の短い説明があります。あとからは「使い方」のタブでいつでも見られます。</p>
     <div class="filters">
       <label for="u-sel0">選択中の大学</label>
       <select id="u-sel0" class="usel"></select>
@@ -248,16 +254,16 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <dt>習得</dt><dd>2回続けて正解した問題の数</dd>
       <dt>今日</dt><dd>今日解いた問題数 ／ 1日の目標</dd>
       <dt>連続</dt><dd>1日の目標を達成した日が続いている日数</dd>
-      <dt>復習の予定</dt><dd>解いた問題は、1・3・7・14・30・60日後にもう一度出る</dd>
+      <dt>復習の予定</dt><dd>解いた問題は、1・3・7・14・30・60日後にもう一度出る。今日解いた問題は、明日から復習に出る</dd>
+      <dt>⚠ 遅れ</dt><dd>復習の日を過ぎた問題。早めに解く</dd>
     </dl>
-    <button class="btn ghost small" id="helpclose">閉じる</button>
   </section>
 
   <div class="tabs" role="tablist" aria-label="表示" id="tabs">
     <button class="tab" id="t-quiz" data-view="quiz" role="tab" aria-selected="true">クイズ</button>
     <button class="tab" id="t-list" data-view="list" role="tab" aria-selected="false">単語一覧・単語帳</button>
     <button class="tab" id="t-rec" data-view="rec" role="tab" aria-selected="false">記録</button>
-    <button class="helpbtn" id="helpbtn" aria-expanded="false">？ 使い方</button>
+    <button class="tab" id="t-help" data-view="help" role="tab" aria-selected="false">使い方</button>
   </div>
 
   <div class="exams" role="group" aria-label="試験">
@@ -278,6 +284,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
   <div id="v-quiz" class="view">
   <div id="setup" class="view">
+  <div class="duebox" id="due-info" hidden></div>
   <h2 class="steph">学習の設定</h2>
   <div class="modes" role="group" aria-label="モード">
     <button class="mode" id="m-word" data-mode="word" data-c aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
@@ -311,7 +318,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </div>
   </div>
   </div>
-  <div class="duebox" id="due-info" hidden></div>
   <p class="tip" id="setup-msg" hidden></p>
   <button class="btn startbtn" id="startbtn">学習を始める</button>
   </div>
@@ -580,6 +586,13 @@ const MODE_SHORT = {word: "単語", idiom: "熟語", ety: "語源", affix: "接�
 function dueDates(mode) {
   return itemsOf(mode).map(q => st.srs[keyOf(q)]).filter(Boolean).map(e => e.d);
 }
+// 復習の日を過ぎてしまった問題の数と、いちばん長く過ぎている日数
+const daysBetween = (a, b) => Math.round((new Date(b + "T00:00:00") - new Date(a + "T00:00:00")) / 86400000);
+function overdue(mode) {
+  const today = ymd(new Date());
+  const late = (mode ? dueDates(mode) : MODES.flatMap(([k]) => dueDates(k))).filter(d => d < today);
+  return {n: late.length, days: late.length ? Math.max(...late.map(d => daysBetween(d, today))) : 0};
+}
 // from日後〜to日後に復習の日が来る数（from が 0 のときは、過ぎてしまった分も含める）
 function dueCount(mode, from, to) {
   const a = from ? addDays(from) : "", b = addDays(to);
@@ -590,11 +603,17 @@ function fillDueBox(box) {
   const list = MODES.map(([k, name]) => [k, name, dueCount(k, 0, 0)]).filter(x => x[2]);
   box.hidden = !list.length; box.innerHTML = "";
   if (!list.length) return;
-  const total = list.reduce((n, x) => n + x[2], 0);
+  const total = list.reduce((n, x) => n + x[2], 0), late = overdue();
+  box.classList.toggle("late", late.n > 0);
+  if (late.n) {   // 復習の日を過ぎている：色だけでなく、記号と言葉でも強く知らせる
+    const w = el("p", "warn"); w.innerHTML = "⚠ 復習が <b>" + late.days + "日</b> 遅れています";
+    box.appendChild(w);
+    box.appendChild(el("p", null, late.n + "問が復習の日を過ぎています。忘れかけているので、今すぐ解きましょう。"));
+  }
   const h = el("h3"); h.innerHTML = "今日の復習 <b>" + total + "</b> 問"; box.appendChild(h);
-  box.appendChild(el("p", null, "前に解いてから日がたち、忘れやすいころの問題です。今日のうちに解いておきましょう。"));
+  if (!late.n) box.appendChild(el("p", null, "前に解いてから日がたち、忘れやすいころの問題です。今日のうちに解いておきましょう。"));
   box.appendChild(el("p", null, list.map(([k, name, n]) => name + " " + n + "問").join("・")));
-  const b = el("button", "btn small", "今日の復習を始める");
+  const b = el("button", "btn small", late.n ? "今すぐ復習する" : "今日の復習を始める");
   b.onclick = () => { st.pick = "due"; st.view = "quiz"; studying = true; solved = 0; restart(); window.scrollTo(0, 0); };
   box.appendChild(b);
 }
@@ -892,15 +911,16 @@ function syncControls() {
   const cb = curBook();
   $("d-book").textContent = cb ? "「" + cb.name + "」" + cb.words.length + "語" : "まだありません";
   $("d-weak").textContent = pool("weak").length + "問";
-  $("d-due").textContent = pool("due").length + "問";
+  const lateNow = overdue(), dueNow = pool("due").length, tmr = MODES.reduce((n, [k]) => n + dueCount(k, 1, 1), 0);
+  $("d-due").textContent = lateNow.n ? "⚠ " + lateNow.days + "日遅れ・" + dueNow + "問" : dueNow ? dueNow + "問" : tmr ? "0問（明日 " + tmr + "問）" : "0問";
+  $("m-due").classList.toggle("late", lateNow.n > 0);
   $("f-qbook").hidden = st.pick !== "book";
   const qb = $("q-book"); qb.innerHTML = "";
   books().forEach(b => { const o = el("option", null, b.name + "（" + b.words.length + "語）"); o.value = b.id; qb.appendChild(o); });
   if (cb) qb.value = cb.id;
   document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === st.view));
   const starting = !st.seen;
-  $("v-help").hidden = !(starting || helpOpen); $("helpclose").hidden = starting;
-  $("helpbtn").setAttribute("aria-expanded", helpOpen);
+  $("v-help").hidden = !(starting || st.view === "help");
   $("v-start").hidden = !starting; $("tabs").hidden = starting;
   document.querySelector(".wrap > .exams").hidden = starting;
   if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; $("u-row").hidden = $("src-row").hidden = $("src-multi-row").hidden = true; syncUniv(); return; }
@@ -913,8 +933,10 @@ function syncControls() {
   $("weak-on").checked = st.weakOn;
   $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec";
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", (b.dataset.exam === "kyotsu") === (st.exam === "kyotsu")));
-  $("u-row").hidden = starting || studying;
-  $("src-row").hidden = $("src-multi-row").hidden = starting || studying || st.exam === "kyotsu";
+  const onHelp = st.view === "help";
+  document.querySelector(".wrap > .exams").hidden = starting || studying || onHelp;
+  $("u-row").hidden = starting || studying || onHelp;
+  $("src-row").hidden = $("src-multi-row").hidden = starting || studying || onHelp || st.exam === "kyotsu";
   syncUniv();
 }
 // 大学の選択欄と、大学版のボタンの表示をそろえる
@@ -937,9 +959,6 @@ document.querySelectorAll(".usel").forEach(sel => sel.addEventListener("change",
   else { save(); syncUniv(); }
 }));
 // 使い方：はじめの画面では最初から見せる。そのあとは「？ 使い方」を押したときだけ見せる
-let helpOpen = false;
-$("helpbtn").onclick = () => { helpOpen = !helpOpen; syncControls(); if (helpOpen) window.scrollTo(0, 0); };
-$("helpclose").onclick = () => { helpOpen = false; syncControls(); };
 function restart() { $("setup-msg").hidden = true; save(); syncControls(); buildQueue(); stats(); render(); }
 const setupMsg = t => { $("setup-msg").hidden = false; $("setup-msg").textContent = t; };
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
@@ -1094,13 +1113,21 @@ function renderRec() {
   const thd = el("thead"); thd.appendChild(hr); tb.appendChild(thd);
   const body = el("tbody"); tb.appendChild(body);
   const WD = "日月火水木金土";
+  const lateAll = overdue();
+  if (lateAll.n) {
+    const tr = el("tr", "late"), th = el("th", null, "⚠ 遅れ"); th.appendChild(el("small", null, "最大" + lateAll.days + "日"));
+    tr.appendChild(th);
+    MODES.forEach(([k]) => { const c = overdue(k).n; tr.appendChild(el("td", null, String(c))); });
+    tr.appendChild(el("td", null, String(lateAll.n)));
+    body.appendChild(tr);
+  }
   for (let n = 0; n <= 7; n++) {
     const d = new Date(); d.setDate(d.getDate() + n);
     const tr = el("tr"), th = el("th", null, n === 0 ? "今日" : n === 1 ? "明日" : n + "日後");
     th.appendChild(el("small", null, (d.getMonth() + 1) + "/" + d.getDate() + "(" + WD[d.getDay()] + ")"));
     tr.appendChild(th);
     let sum = 0;
-    MODES.forEach(([k]) => { const c = dueCount(k, n, n); sum += c; tr.appendChild(el("td", c ? null : "zero", String(c))); });
+    MODES.forEach(([k]) => { const c = n ? dueCount(k, n, n) : dueCount(k, 0, 0) - overdue(k).n; sum += c; tr.appendChild(el("td", c ? null : "zero", String(c))); });
     tr.appendChild(el("td", sum ? null : "zero", String(sum)));
     if (n === 0 && sum) tr.className = "now";
     body.appendChild(tr);

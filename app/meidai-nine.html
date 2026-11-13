@@ -6,7 +6,9 @@
 /* Layout: one answer sheet in the middle; word on top, 9 mark-sheet bubbles below, feedback slides under it */
 :root{
   --paper:#fbf9f8; --sheet:#ffffff; --ink:#1d2330; --muted:#6b6f7b; --line:#ecd9d6;
-  --lv1:#1f7a4d; --lv2:#2563a8; --lv3:#b8600a; --lv4:#7a3fb0;
+  /* 色覚の違いがあっても見分けやすい配色（Okabe-Ito）を、文字が読める濃さにしたもの。色だけでなく文字でも区別できるようにしている */
+  --cB:#0072B2; --cV:#B34D00; --cG:#007A5A; --cP:#A8507F; --cO:#8F5F00; --cS:#1A6C9A;
+  --lv1:var(--cG); --lv2:var(--cB); --lv3:var(--cO); --lv4:var(--cP);
   --drop:#d2554a;   /* マークシートの印刷色 */
   --drop-soft:#fbe9e6; --mark:#2b2f38; --ok:#1f7a4d; --ok-soft:#e3f3ea; --ng:#b3261e; --ng-soft:#fbe4e2;
   --f-word:"Newsreader", "Times New Roman", serif;
@@ -15,10 +17,10 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#16181d; --sheet:#1e2128; --ink:#eceef2; --muted:#9aa0ad; --line:#3a2f31;
-  --lv1:#5cc792; --lv2:#7fb2f0; --lv3:#f0a860; --lv4:#c79bf0; --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}}
+  --cB:#56B4E9; --cV:#F08A4B; --cG:#2FC497; --cP:#E39BC4; --cO:#E6A817; --cS:#7FC8F0; --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#16181d; --sheet:#1e2128; --ink:#eceef2; --muted:#9aa0ad; --line:#3a2f31;
-  --lv1:#5cc792; --lv2:#7fb2f0; --lv3:#f0a860; --lv4:#c79bf0; --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}
+  --cB:#56B4E9; --cV:#F08A4B; --cG:#2FC497; --cP:#E39BC4; --cO:#E6A817; --cS:#7FC8F0; --drop:#ef7d71; --drop-soft:#3a2524; --mark:#eceef2; --ok:#5cc792; --ok-soft:#173226; --ng:#ff8a80; --ng-soft:#3b1d1b; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-ja);font-size:15px;line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
@@ -97,7 +99,13 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .tip .ex{font-family:var(--f-word);font-size:18px;color:var(--ink);white-space:nowrap}
 .tip mark,.answer mark{background:var(--drop-soft);color:var(--drop);padding:0 1px}
 .word mark{background:var(--drop-soft);color:var(--drop);border-bottom:3px solid var(--drop);padding:0 2px}
-.mode[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.mode[aria-pressed="true"]{background:var(--c,var(--ink));color:var(--sheet)}
+.mode[data-c]{color:var(--c)}
+.mode[data-c]:not([aria-pressed="true"]) small{color:var(--muted);opacity:1}
+.mode[aria-pressed="true"] small{opacity:.9}
+.mode[data-c][aria-pressed="true"]{color:var(--sheet)}
+.mode[data-mode="word"]{--c:var(--cB)} .mode[data-mode="idiom"]{--c:var(--cV)} .mode[data-mode="ety"]{--c:var(--cG)} .mode[data-mode="affix"]{--c:var(--cP)}
+.srcbtn[data-src="exam"]{--c:var(--cV)} .srcbtn[data-src="source_article"]{--c:var(--cS)} .srcbtn[data-src="predicted"]{--c:var(--cP)}
 .mode small{display:block;font-weight:400;font-size:11px;opacity:.75}
 .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px}
 .filters span{color:var(--muted);margin-right:4px}
@@ -121,15 +129,19 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .help dl{margin:0;padding:0 12px 4px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px}
 .help dt{font-weight:700;white-space:nowrap}
 .help dd{margin:0;color:var(--muted)}
-.srcs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--drop);border:1px solid var(--drop);border-radius:6px;overflow:hidden}
-.srcbtn{font:inherit;font-weight:700;font-size:14px;padding:10px 6px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.srcs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--ink);border:1px solid var(--ink);border-radius:6px;overflow:hidden}
+.srcbtn{font:inherit;font-weight:700;font-size:14px;padding:10px 6px;border:0;background:var(--sheet);color:var(--c);cursor:pointer}
 .srcbtn small{display:block;font-weight:400;font-size:11px;color:var(--muted)}
-.srcbtn[aria-pressed="true"]{background:var(--drop);color:var(--sheet)}
+.srcbtn[aria-pressed="true"]{background:var(--c);color:var(--sheet)}
 .srcbtn[aria-pressed="true"] small{color:var(--sheet);opacity:.85}
 .srcbtn:focus-visible{outline:2px solid var(--ink);outline-offset:-3px}
 .chip.multi{border-style:dashed;color:var(--muted);font-size:12px}
 .chip.multi[aria-pressed="true"]{background:var(--ink);border:1px solid var(--ink);color:var(--sheet)}
 .multirow{display:flex;justify-content:flex-end;margin-top:-6px}
+.notes{font-size:12px;color:var(--muted)}
+.notes summary{cursor:pointer;padding:4px 0}
+.notes summary:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
+.notes .note{margin-top:4px}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -265,10 +277,10 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   <div id="setup" class="view">
   <h2 class="steph">学習の設定</h2>
   <div class="modes" role="group" aria-label="モード">
-    <button class="mode" id="m-word" data-mode="word" aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
-    <button class="mode" id="m-idiom" data-mode="idiom" aria-pressed="false">イディオム<small>熟語の意味を選ぶ</small></button>
-    <button class="mode" id="m-ety" data-mode="ety" aria-pressed="false">語源<small>部品の意味をすべて選ぶ</small></button>
-    <button class="mode" id="m-affix" data-mode="affix" aria-pressed="false">接頭辞・接尾辞<small>働きをすべて選ぶ</small></button>
+    <button class="mode" id="m-word" data-mode="word" data-c aria-pressed="true">単語<small>意味をすべて選ぶ</small></button>
+    <button class="mode" id="m-idiom" data-mode="idiom" data-c aria-pressed="false">イディオム<small>熟語の意味を選ぶ</small></button>
+    <button class="mode" id="m-ety" data-mode="ety" data-c aria-pressed="false">語源<small>部品の意味をすべて選ぶ</small></button>
+    <button class="mode" id="m-affix" data-mode="affix" data-c aria-pressed="false">接頭辞・接尾辞<small>働きをすべて選ぶ</small></button>
   </div>
   <div class="modes decks" role="group" aria-label="まとめて復習">
     <button class="mode" id="m-book" data-mode="book" aria-pressed="false">単語帳<small id="d-book">自分で集めた単語</small></button>
@@ -401,7 +413,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <div id="r-modes"></div>
     </div>
   </section>
-  <p class="note" id="note"></p>
+  <details class="notes"><summary>このアプリのデータについて</summary><p class="note" id="note"></p></details>
 </div>
 
 <script>

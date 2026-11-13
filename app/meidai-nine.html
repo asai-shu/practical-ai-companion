@@ -121,6 +121,12 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .help dl{margin:0;padding:0 12px 4px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px}
 .help dt{font-weight:700;white-space:nowrap}
 .help dd{margin:0;color:var(--muted)}
+.srcs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--drop);border:1px solid var(--drop);border-radius:6px;overflow:hidden}
+.srcbtn{font:inherit;font-weight:700;font-size:14px;padding:10px 6px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.srcbtn small{display:block;font-weight:400;font-size:11px;color:var(--muted)}
+.srcbtn[aria-pressed="true"]{background:var(--drop);color:var(--sheet)}
+.srcbtn[aria-pressed="true"] small{color:var(--sheet);opacity:.85}
+.srcbtn:focus-visible{outline:2px solid var(--ink);outline-offset:-3px}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -198,7 +204,9 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <dt>苦手</dt><dd>間違えた問題だけを出す。2回続けて正解すると外れる</dd>
       <dt>今日の復習</dt><dd>前に解いて、ちょうど忘れやすいころになった問題を出す</dd>
       <dt>レベル</dt><dd>単語の難しさ。出したいものを選ぶ（いくつでも）</dd>
-      <dt class="uonly">出題元</dt><dd class="uonly">入試＝過去問に出た単語。出典記事＝過去問の元になった記事に出てくる単語。予想＝これから出そうな最近の記事の単語</dd>
+      <dt class="uonly">過去問の単語</dt><dd class="uonly">その大学の過去問に出た単語（ふつうはこれ）</dd>
+      <dt class="uonly">出典記事の単語</dt><dd class="uonly">過去問の元になった英文記事に出てくる単語</dd>
+      <dt class="uonly">予想の単語</dt><dd class="uonly">これから出そうな最近の記事に出てくる単語</dd>
     </dl>
     <h2>問題の途中</h2>
     <dl>
@@ -242,6 +250,11 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <select id="u-sel" class="usel"></select>
     <span>いつでも変えられます</span>
   </div>
+  <div class="srcs" role="group" aria-label="どの単語を学ぶか" id="src-row">
+    <button class="srcbtn" data-src="exam" aria-pressed="true">過去問の単語<small id="n-exam"></small></button>
+    <button class="srcbtn" data-src="source_article" aria-pressed="false">出典記事の単語<small id="n-source_article"></small></button>
+    <button class="srcbtn" data-src="predicted" aria-pressed="false">予想の単語<small id="n-predicted"></small></button>
+  </div>
 
   <div id="v-quiz" class="view">
   <div id="setup" class="view">
@@ -266,12 +279,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="chip" id="lv2" data-lv="2" aria-pressed="true">標準</button>
     <button class="chip" id="lv3" data-lv="3" aria-pressed="true">難関</button>
     <button class="chip" id="lv4" data-lv="4" aria-pressed="true">最難関</button>
-  </div>
-  <div class="filters" role="group" aria-label="出題元" id="f-src">
-    <span>出題元</span>
-    <button class="chip" id="src-exam" data-src="exam" aria-pressed="true">入試</button>
-    <button class="chip" id="src-article" data-src="source_article" aria-pressed="true">入試の出典記事</button>
-    <button class="chip" id="src-pred" data-src="predicted" aria-pressed="true">予想（最近の記事）</button>
   </div>
   <div class="filters" id="f-qbook" hidden>
     <label for="q-book">出題する単語帳</label>
@@ -431,7 +438,7 @@ const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
 const UNIVS = {
   nagoya: {name: "名古屋大学", short: "名大", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", words: NAGOYA_WORDS, idioms: IDIOMS,
     date: {name: "名古屋大学 前期日程（1日目）", dates: ["2027-02-25"]},
-    note: "出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「入試の出典記事」は名大・九大の入試で使われた記事の全文、「予想」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。"},
+    note: "出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「出典記事の単語」は名大・九大の入試で使われた記事の全文、「予想の単語」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。"},
 };
 const KYOTSU = {sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", date: {name: "共通テスト（本試験1日目）", dates: ["2027-01-16"]},
   note: "出現回数は、大学入試センターが公開している共通テストの英語（リーディング・リスニング、2024〜2026年度の本試験・追再試験）を数えたものです。"};
@@ -440,7 +447,7 @@ const NOTE_HEAD = "意味は辞書・単語帳を写さずに作成していま�
 const exInfo = () => UNIVS[st.exam] || KYOTSU;                 // いま選んでいる試験の情報
 const uShort = () => (UNIVS[st.exam] || {}).short || "";       // 「名大」など
 const srcName = k => k === "exam" ? uShort() + "の入試" : ({source_article: "入試の出典記事", predicted: "予想", kyotsu: "共通テスト"})[k];
-let st = {v:0, univ:"", pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
+let st = {v:0, univ:"", src:"exam", pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
 let studying = false;
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
@@ -465,6 +472,7 @@ if (st.v < 4) {                                                   // 大学：�
 if (st.exam !== "kyotsu" && !UNIVS[st.exam]) st.exam = "kyotsu";  // データのない大学が保存されていたら、共通テストに戻す
 if (st.univ && !UNIVS[st.univ]) st.univ = "";
 if (st.exam !== "kyotsu") st.univ = st.exam;
+if (st.v < 5) { st.src = "exam"; st.v = 5; save(); }             // 出題元は1つだけ選ぶ形にした。最初は過去問
 const $ = id => document.getElementById(id);
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -486,7 +494,6 @@ function setExam() {
   $("h-name").textContent = APP_NAME; $("h-sub").textContent = exInfo().sub;
   document.title = APP_NAME;
   $("note").textContent = NOTE_HEAD + exInfo().note + NOTE_TAIL;
-  $("src-exam").textContent = srcName("exam");
   document.querySelectorAll(".uonly").forEach(e => e.hidden = !UNIVS[st.exam]);
 }
 
@@ -520,7 +527,7 @@ const itemsOf = mode => mode === "affix" ? AFFIX_ITEMS : mode === "ety" ? ROOT_I
 const allItems = () => ["word", "idiom", "ety", "affix"].flatMap(itemsOf);
 // 出題する問題の集まり。pick ＝ 設定画面で選んだボタン（word / idiom / ety / affix / book / weak / due）
 function pool(pick = st.pick) {
-  const srcOk = x => st.exam === "kyotsu" || st.sources.includes(x);
+  const srcOk = x => st.exam === "kyotsu" || x === st.src;
   switch (pick) {
     case "idiom": return IDIOM_ITEMS.filter(x => srcOk(x.src));
     case "ety": return ROOT_ITEMS;
@@ -853,9 +860,9 @@ const PICK_NAME = {word: "単語", idiom: "イディオム", ety: "語源", affi
 function syncControls() {
   document.querySelectorAll(".mode").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === st.pick));
   document.querySelectorAll(".chip[data-lv]").forEach(c => c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv)));
-  document.querySelectorAll(".chip[data-src]").forEach(c => c.setAttribute("aria-pressed", st.sources.includes(c.dataset.src)));
+  document.querySelectorAll(".srcbtn").forEach(c => c.setAttribute("aria-pressed", c.dataset.src === st.src));
   $("f-level").hidden = st.pick !== "word";
-  $("f-src").hidden = !(st.pick === "word" || st.pick === "idiom") || st.exam === "kyotsu";
+  ["exam", "source_article", "predicted"].forEach(k => $("n-" + k).textContent = WORDS.filter(w => (w.source || "exam") === k).length + "語");
   // 単語帳・苦手・今日の復習のボタンに、今の数を出す
   const cb = curBook();
   $("d-book").textContent = cb ? "「" + cb.name + "」" + cb.words.length + "語" : "まだありません";
@@ -871,9 +878,10 @@ function syncControls() {
   $("helpbtn").setAttribute("aria-expanded", helpOpen);
   $("v-start").hidden = !starting; $("tabs").hidden = starting;
   document.querySelector(".wrap > .exams").hidden = starting;
-  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; $("u-row").hidden = true; syncUniv(); return; }
+  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; $("u-row").hidden = $("src-row").hidden = true; syncUniv(); return; }
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
-  $("study-sum").textContent = PICK_NAME[st.pick] + (st.pick === "word" ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
+  const srcLbl = UNIVS[st.exam] && (st.pick === "word" || st.pick === "idiom") ? ({exam: "過去問", source_article: "出典記事", predicted: "予想"})[st.src] + "／" : "";
+  $("study-sum").textContent = srcLbl + PICK_NAME[st.pick] + (st.pick === "word" ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
   fillDueBox($("due-info"));
   $("setup").hidden = studying; $("study").hidden = !studying;
   document.querySelector(".wrap > .exams").hidden = studying;
@@ -881,6 +889,7 @@ function syncControls() {
   $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec";
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", (b.dataset.exam === "kyotsu") === (st.exam === "kyotsu")));
   $("u-row").hidden = starting || studying;
+  $("src-row").hidden = starting || studying || st.exam === "kyotsu";
   syncUniv();
 }
 // 大学の選択欄と、大学版のボタンの表示をそろえる
@@ -940,11 +949,7 @@ document.querySelectorAll(".chip[data-lv]").forEach(c => c.onclick = () => {
   if (on && st.levels.length === 1) return;
   st.levels = on ? st.levels.filter(x => x !== lv) : st.levels.concat(lv); st.levelsByExam[st.exam] = st.levels; restart();
 });
-document.querySelectorAll(".chip[data-src]").forEach(c => c.onclick = () => {
-  const v = c.dataset.src, on = st.sources.includes(v);
-  if (on && st.sources.length === 1) return;
-  st.sources = on ? st.sources.filter(x => x !== v) : st.sources.concat(v); restart();
-});
+document.querySelectorAll(".srcbtn").forEach(c => c.onclick = () => { st.src = c.dataset.src; if (["book", "weak", "due"].includes(st.pick)) st.pick = "word"; restart(); });
 $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = true; };
 $("check").onclick = check; $("next").onclick = render;
 document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; st.seen = true; st.view = "quiz"; setExam(); restart(); });

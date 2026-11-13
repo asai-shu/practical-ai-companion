@@ -138,6 +138,9 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .srcbtn[aria-pressed="true"]{background:var(--drop);color:var(--sheet)}
 .srcbtn[aria-pressed="true"] small{color:var(--sheet);opacity:.85}
 .srcbtn:focus-visible{outline:2px solid var(--ink);outline-offset:-3px}
+.chip.multi{border-style:dashed;color:var(--muted);font-size:12px}
+.chip.multi[aria-pressed="true"]{background:var(--ink);border:1px solid var(--ink);color:var(--sheet)}
+.multirow{display:flex;justify-content:flex-end;margin-top:-6px}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -217,7 +220,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <dt>単語帳</dt><dd>自分で☆を付けて集めた単語だけを出す</dd>
       <dt>苦手</dt><dd>間違えた問題だけを出す。2回続けて正解すると外れる</dd>
       <dt>今日の復習</dt><dd>前に解いて、ちょうど忘れやすいころになった問題を出す</dd>
-      <dt>レベル</dt><dd>単語の難しさ。出したいものを選ぶ（いくつでも）</dd>
+      <dt>レベル</dt><dd>単語の難しさ。ふだんは1つ選ぶ</dd>
+      <dt>複数選択</dt><dd>オンにすると、レベルや単語の種類をいくつでも選べる</dd>
       <dt class="uonly">過去問の単語</dt><dd class="uonly">その大学の過去問に出た単語（ふつうはこれ）</dd>
       <dt class="uonly">出典記事の単語</dt><dd class="uonly">過去問の元になった英文記事に出てくる単語</dd>
       <dt class="uonly">予想の単語</dt><dd class="uonly">これから出そうな最近の記事に出てくる単語</dd>
@@ -269,6 +273,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="srcbtn" data-src="source_article" aria-pressed="false">出典記事の単語<small id="n-source_article"></small></button>
     <button class="srcbtn" data-src="predicted" aria-pressed="false">予想の単語<small id="n-predicted"></small></button>
   </div>
+  <div class="multirow" id="src-multi-row"><button class="chip multi" id="multi-src" aria-pressed="false">複数選択</button></div>
 
   <div id="v-quiz" class="view">
   <div id="setup" class="view">
@@ -293,6 +298,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="chip" id="lv2" data-lv="2" aria-pressed="true">標準</button>
     <button class="chip" id="lv3" data-lv="3" aria-pressed="true">難関</button>
     <button class="chip" id="lv4" data-lv="4" aria-pressed="true">最難関</button>
+    <button class="chip multi" id="multi-lv" aria-pressed="false">複数選択</button>
   </div>
   <div class="filters" id="f-qbook" hidden>
     <label for="q-book">出題する単語帳</label>
@@ -461,7 +467,7 @@ const NOTE_HEAD = "意味は辞書・単語帳を写さずに作成していま�
 const exInfo = () => UNIVS[st.exam] || KYOTSU;                 // いま選んでいる試験の情報
 const uShort = () => (UNIVS[st.exam] || {}).short || "";       // 「名大」など
 const srcName = k => k === "exam" ? uShort() + "の入試" : ({source_article: "入試の出典記事", predicted: "予想", kyotsu: "共通テスト"})[k];
-let st = {v:0, univ:"", src:"exam", pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
+let st = {v:0, univ:"", srcs:["exam"], multiSrc:false, multiLv:false, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
 let studying = false;
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
@@ -486,7 +492,7 @@ if (st.v < 4) {                                                   // 大学：�
 if (st.exam !== "kyotsu" && !UNIVS[st.exam]) st.exam = "kyotsu";  // データのない大学が保存されていたら、共通テストに戻す
 if (st.univ && !UNIVS[st.univ]) st.univ = "";
 if (st.exam !== "kyotsu") st.univ = st.exam;
-if (st.v < 5) { st.src = "exam"; st.v = 5; save(); }             // 出題元は1つだけ選ぶ形にした。最初は過去問
+if (st.v < 6) { st.srcs = ["exam"]; st.multiSrc = false; st.multiLv = false; st.v = 6; save(); }   // 出題元・レベルは、ふだんは1つだけ選ぶ（「複数選択」で複数）
 const $ = id => document.getElementById(id);
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -541,7 +547,7 @@ const itemsOf = mode => mode === "affix" ? AFFIX_ITEMS : mode === "ety" ? ROOT_I
 const allItems = () => ["word", "idiom", "ety", "affix"].flatMap(itemsOf);
 // 出題する問題の集まり。pick ＝ 設定画面で選んだボタン（word / idiom / ety / affix / book / weak / due）
 function pool(pick = st.pick) {
-  const srcOk = x => st.exam === "kyotsu" || x === st.src;
+  const srcOk = x => st.exam === "kyotsu" || st.srcs.includes(x);
   switch (pick) {
     case "idiom": return IDIOM_ITEMS.filter(x => srcOk(x.src));
     case "ety": return ROOT_ITEMS;
@@ -874,7 +880,8 @@ const PICK_NAME = {word: "単語", idiom: "イディオム", ety: "語源", affi
 function syncControls() {
   document.querySelectorAll(".mode").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === st.pick));
   document.querySelectorAll(".chip[data-lv]").forEach(c => c.setAttribute("aria-pressed", st.levels.includes(+c.dataset.lv)));
-  document.querySelectorAll(".srcbtn").forEach(c => c.setAttribute("aria-pressed", c.dataset.src === st.src));
+  document.querySelectorAll(".srcbtn").forEach(c => c.setAttribute("aria-pressed", st.srcs.includes(c.dataset.src)));
+  $("multi-src").setAttribute("aria-pressed", st.multiSrc); $("multi-lv").setAttribute("aria-pressed", st.multiLv);
   $("f-level").hidden = st.pick !== "word";
   ["exam", "source_article", "predicted"].forEach(k => $("n-" + k).textContent = WORDS.filter(w => (w.source || "exam") === k).length + "語");
   // 単語帳・苦手・今日の復習のボタンに、今の数を出す
@@ -892,9 +899,9 @@ function syncControls() {
   $("helpbtn").setAttribute("aria-expanded", helpOpen);
   $("v-start").hidden = !starting; $("tabs").hidden = starting;
   document.querySelector(".wrap > .exams").hidden = starting;
-  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; $("u-row").hidden = $("src-row").hidden = true; syncUniv(); return; }
+  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = true; $("u-row").hidden = $("src-row").hidden = $("src-multi-row").hidden = true; syncUniv(); return; }
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
-  const srcLbl = UNIVS[st.exam] && (st.pick === "word" || st.pick === "idiom") ? ({exam: "過去問", source_article: "出典記事", predicted: "予想"})[st.src] + "／" : "";
+  const srcLbl = UNIVS[st.exam] && (st.pick === "word" || st.pick === "idiom") ? ["exam", "source_article", "predicted"].filter(k => st.srcs.includes(k)).map(k => ({exam: "過去問", source_article: "出典記事", predicted: "予想"})[k]).join("・") + "／" : "";
   $("study-sum").textContent = srcLbl + PICK_NAME[st.pick] + (st.pick === "word" ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
   fillDueBox($("due-info"));
   $("setup").hidden = studying; $("study").hidden = !studying;
@@ -903,7 +910,7 @@ function syncControls() {
   $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec";
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", (b.dataset.exam === "kyotsu") === (st.exam === "kyotsu")));
   $("u-row").hidden = starting || studying;
-  $("src-row").hidden = starting || studying || st.exam === "kyotsu";
+  $("src-row").hidden = $("src-multi-row").hidden = starting || studying || st.exam === "kyotsu";
   syncUniv();
 }
 // 大学の選択欄と、大学版のボタンの表示をそろえる
@@ -953,17 +960,33 @@ function pickExam(want) {
 }
 document.querySelectorAll(".exam:not(.start-exam)").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; studying = false; setExam(); restart(); });
 $("startbtn").onclick = () => {
-  if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや出題元を変えてください。"; return; }
+  if (UNIVS[st.exam] && (st.pick === "word" || st.pick === "idiom") && !st.srcs.length) { setupMsg("「過去問の単語」「出典記事の単語」「予想の単語」から、1つ以上選択してください。"); return; }
+  if (st.pick === "word" && !st.levels.length) { setupMsg("レベルを1つ以上選択してください。"); return; }
+  if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや単語の種類を変えてください。"; return; }
   studying = true; solved = 0; restart(); window.scrollTo(0, 0);
 };
 $("pausebtn").onclick = () => { studying = false; syncControls(); stats(); window.scrollTo(0, 0); };
 $("weak-on").addEventListener("change", e => { st.weakOn = e.target.checked; save(); });
+// ふだんは1つだけ選ぶ（別のものを押すと入れ替わる）。「複数選択」をオンにすると、押すたびに足したり外したりできる。
+// 何も選んでいない状態も許し、「学習を始める」を押したときに知らせる。
+function pickOne(list, v, multi) {
+  if (list.includes(v)) return list.filter(x => x !== v);
+  return multi ? list.concat(v) : [v];
+}
 document.querySelectorAll(".chip[data-lv]").forEach(c => c.onclick = () => {
-  const lv = +c.dataset.lv, on = st.levels.includes(lv);
-  if (on && st.levels.length === 1) return;
-  st.levels = on ? st.levels.filter(x => x !== lv) : st.levels.concat(lv); st.levelsByExam[st.exam] = st.levels; restart();
+  st.levels = pickOne(st.levels, +c.dataset.lv, st.multiLv); st.levelsByExam[st.exam] = st.levels; restart();
 });
-document.querySelectorAll(".srcbtn").forEach(c => c.onclick = () => { st.src = c.dataset.src; if (["book", "weak", "due"].includes(st.pick)) st.pick = "word"; restart(); });
+$("multi-lv").onclick = () => {
+  st.multiLv = !st.multiLv;
+  if (!st.multiLv && st.levels.length > 1) { st.levels = [Math.min(...st.levels)]; st.levelsByExam[st.exam] = st.levels; }   // 1つに戻すときは、いちばん易しいものを残す
+  restart();
+};
+$("multi-src").onclick = () => {
+  st.multiSrc = !st.multiSrc;
+  if (!st.multiSrc && st.srcs.length > 1) st.srcs = ["exam", "source_article", "predicted"].filter(k => st.srcs.includes(k)).slice(0, 1);
+  restart();
+};
+document.querySelectorAll(".srcbtn").forEach(c => c.onclick = () => { st.srcs = pickOne(st.srcs, c.dataset.src, st.multiSrc); if (["book", "weak", "due"].includes(st.pick)) st.pick = "word"; restart(); });
 $("hintbtn").onclick = () => { showHint(cur.etymology); $("hintbtn").hidden = true; };
 $("check").onclick = check; $("next").onclick = render;
 document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; st.seen = true; st.view = "quiz"; setExam(); restart(); });

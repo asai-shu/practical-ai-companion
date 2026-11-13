@@ -155,6 +155,10 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .goalbox p{margin:0}
 .linkbtn{font:inherit;font-size:13px;justify-self:start;padding:4px 0;border:0;background:none;color:var(--muted);text-decoration:underline;cursor:pointer}
 .linkbtn:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
+.msg{margin:0;padding:10px 12px;border-radius:6px;font-size:14px;font-weight:700}
+.msg.err{border:2px solid var(--ng);background:var(--ng-soft);color:var(--ng)}
+.msg.ok{border:2px solid var(--ok);background:var(--ok-soft);color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){.msg.err{animation:shake .3s}@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -217,7 +221,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <p>どちらの単語から始めますか（これも、あとから切り替えられます）。</p>
     <div class="exams">
       <button class="exam start-exam" data-exam="kyotsu">共通テスト<small id="s0-kyotsu">無料版</small></button>
-      <button class="exam start-exam" data-exam="univ"><span class="u-name">大学の単語</span><small class="u-sub">大学特化版</small></button>
+      <button class="exam start-exam" data-exam="univ"><span class="u-name">2次対策</span><small class="u-sub">大学特化版</small></button>
     </div>
   </section>
 
@@ -272,7 +276,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 
   <div class="exams" role="group" aria-label="試験">
     <button class="exam" id="e-kyotsu" data-exam="kyotsu" aria-pressed="true">共通テスト<small>無料版</small></button>
-    <button class="exam" id="e-univ" data-exam="univ" aria-pressed="false"><span class="u-name">大学の単語</span><small class="u-sub">大学特化版</small></button>
+    <button class="exam" id="e-univ" data-exam="univ" aria-pressed="false"><span class="u-name">2次対策</span><small class="u-sub">大学特化版</small></button>
   </div>
   <div class="filters" id="u-row">
     <label for="u-sel">選択中の大学</label>
@@ -322,7 +326,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
   </div>
   </div>
   </div>
-  <p class="tip" id="setup-msg" hidden></p>
+  <p class="msg" id="setup-msg" role="alert" hidden></p>
   <button class="btn startbtn" id="startbtn">学習を始める</button>
   </div>
 
@@ -737,13 +741,12 @@ function render() {
   if (!queue.length && st.pick === "due" && studying) buildQueue();
   if (!queue.length && st.pick === "due" && studying) { // 今日の復習をすべて終えた
     studying = false; st.pick = "word"; save(); syncControls(); buildQueue(); stats();
-    $("setup-msg").hidden = false; $("setup-msg").textContent = "今日の復習は終わりです。おつかれさまでした。";
-    window.scrollTo(0, 0);
+    setupMsg("今日の復習は終わりです。おつかれさまでした。", "ok");
   }
   if (!queue.length && studying && solved > 0) { // この設定の問題を一通り解き終えた（同じ問題をくり返し出し続けない）
     studying = false; syncControls(); stats();
-    $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定の問題を一通り解きました（" + solved + "問）。おつかれさまでした。もう一度始めると、覚えていない問題から順に出ます。";
-    solved = 0; window.scrollTo(0, 0);
+    setupMsg("この設定の問題を一通り解きました（" + solved + "問）。おつかれさまでした。もう一度始めると、覚えていない問題から順に出ます。", "ok");
+    solved = 0;
   }
   if (!queue.length) buildQueue();
   if (!queue.length) { $("q-word").textContent = "出題できる問題がありません"; $("opts").innerHTML = ""; return; }
@@ -961,8 +964,8 @@ function syncUniv() {
     sel.value = st.univ || "";
   });
   const u = UNIVS[st.univ];
-  document.querySelectorAll(".u-name").forEach(e => e.textContent = u ? u.name + " 2次試験" : "大学の単語");
-  document.querySelectorAll(".u-sub").forEach(e => e.textContent = u ? "大学特化版・" + u.words.length + "語" : "先に大学を選んでください");
+  // ボタンの名前は大学によらず「2次対策」。どの大学かは下の小さい字で示す（大学が増えてもボタンはそのまま）
+  document.querySelectorAll(".u-sub").forEach(e => e.textContent = u ? u.name + "・" + u.words.length + "語" : "先に大学を選んでください");
   $("s0-kyotsu").textContent = "無料版・" + KYOTSU_WORDS.length + "語";
 }
 document.querySelectorAll(".usel").forEach(sel => sel.addEventListener("change", e => {
@@ -972,7 +975,12 @@ document.querySelectorAll(".usel").forEach(sel => sel.addEventListener("change",
 }));
 // 使い方：はじめの画面では最初から見せる。そのあとは「？ 使い方」を押したときだけ見せる
 function restart() { $("setup-msg").hidden = true; save(); syncControls(); buildQueue(); stats(); render(); }
-const setupMsg = t => { $("setup-msg").hidden = false; $("setup-msg").textContent = t; };
+// 設定画面の知らせ。まちがい（err）は赤い枠と ⚠ で目立たせ、見える位置までスクロールする。終わりの知らせ（ok）は緑
+function setupMsg(t, kind = "err") {
+  const m = $("setup-msg"); m.hidden = false; m.className = "msg " + kind;
+  m.textContent = (kind === "err" ? "⚠ " : "") + t;
+  m.scrollIntoView({block: "center"});
+}
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
   const want = b.dataset.mode;
   if (want === "book") {
@@ -997,7 +1005,7 @@ document.querySelectorAll(".exam:not(.start-exam)").forEach(b => b.onclick = () 
 $("startbtn").onclick = () => {
   if (UNIVS[st.exam] && (st.pick === "word" || st.pick === "idiom") && !st.srcs.length) { setupMsg("「過去問の単語」「出典記事の単語」「予想の単語」から、1つ以上選択してください。"); return; }
   if (LV_PICKS.includes(st.pick) && !st.levels.length) { setupMsg("レベルを1つ以上選択してください。"); return; }
-  if (!pool().length) { $("setup-msg").hidden = false; $("setup-msg").textContent = "この設定では、出題できる問題がありません。レベルや単語の種類を変えてください。"; return; }
+  if (!pool().length) { setupMsg("この設定では、出題できる問題がありません。レベルや単語の種類を変えてください。"); return; }
   studying = true; solved = 0; restart(); window.scrollTo(0, 0);
 };
 $("pausebtn").onclick = () => { studying = false; syncControls(); stats(); window.scrollTo(0, 0); };
@@ -1031,10 +1039,10 @@ $("check").onclick = () => {
   }
 };
 // 次の問題は、ページのいちばん上から見せる
-$("next").onclick = () => { render(); window.scrollTo(0, 0); };
+$("next").onclick = () => { render(); if (studying) window.scrollTo(0, 0); };
 $("goal-end").onclick = () => { $("goalbox").hidden = true; $("mainactions").hidden = false; $("pausebtn").click(); };
 $("goal-never").onclick = () => { st.goalAsk = false; save(); $("goal-go").click(); };   // 記録の「1日の目標」で、また表示するようにできる
-$("goal-go").onclick = () => { $("goalbox").hidden = true; $("mainactions").hidden = false; render(); window.scrollTo(0, 0); };
+$("goal-go").onclick = () => { $("goalbox").hidden = true; $("mainactions").hidden = false; render(); if (studying) window.scrollTo(0, 0); };
 document.querySelectorAll(".start-exam").forEach(b => b.onclick = () => { if (!pickExam(b.dataset.exam)) return; st.seen = true; st.view = "quiz"; setExam(); restart(); });
 const POS_ORDER = {"名詞":1, "動詞":2, "形容詞":3, "副詞":4, "前置詞句":5};
 function renderBooks() {
@@ -1046,7 +1054,7 @@ function renderBooks() {
   $("bk-del").textContent = "この単語帳を消す"; delArmed = false;
 }
 let delArmed = false;
-const bkMsg = t => { $("bk-msg").textContent = t; };
+const bkMsg = (t, err) => { const m = $("bk-msg"); m.textContent = (err ? "⚠ " : "") + t; m.className = err ? "msg err" : "tip"; };
 $("bk-sel").addEventListener("change", e => { st.curBook[st.exam] = e.target.value; save(); renderList(); syncControls(); bkMsg("☆を押すと、上で選んでいる単語帳に入ります。"); });
 $("bk-new").onclick = () => {
   const name = $("bk-name").value.trim() || "単語帳" + (books().length + 1);
@@ -1056,12 +1064,12 @@ $("bk-new").onclick = () => {
 $("bk-ren").onclick = () => {
   const name = $("bk-name").value.trim(), b = curBook();
   if (!b) return;
-  if (!name) { bkMsg("新しい名前を左の欄に入れてから、「名前を変える」を押してください。"); $("bk-name").focus(); return; }
+  if (!name) { bkMsg("新しい名前を左の欄に入れてから、「名前を変える」を押してください。", true); $("bk-name").focus(); return; }
   b.name = name; $("bk-name").value = ""; save(); renderList(); syncControls(); bkMsg("名前を「" + name + "」に変えました。");
 };
 $("bk-del").onclick = () => {
   const b = curBook(); if (!b) return;
-  if (!delArmed) { delArmed = true; $("bk-del").textContent = "本当に消す（もう一度押す）"; bkMsg("単語帳「" + b.name + "」（" + b.words.length + "語）を消します。消すと元に戻せません。"); return; }
+  if (!delArmed) { delArmed = true; $("bk-del").textContent = "本当に消す（もう一度押す）"; bkMsg("単語帳「" + b.name + "」（" + b.words.length + "語）を消します。消すと元に戻せません。", true); return; }
   st.books[st.exam] = books().filter(x => x !== b); st.curBook[st.exam] = (books()[0] || {}).id || "";
   save(); renderList(); syncControls(); bkMsg("単語帳「" + b.name + "」を消しました。");
 };

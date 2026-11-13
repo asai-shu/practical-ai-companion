@@ -231,54 +231,54 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     </div>
   </section>
 
-  <section id="v-help" class="view help" hidden>
-    <h2>クイズ</h2>
-    <dl>
-      <dt>単語</dt><dd>英単語の意味を、9つの中からすべて選ぶ</dd>
-      <dt>イディオム</dt><dd>熟語の意味を1つ選ぶ</dd>
-      <dt>語源</dt><dd>単語の中心の部品（spect＝見る など）の意味を選ぶ</dd>
-      <dt>接頭辞・接尾辞</dt><dd>頭や語尾の部品（re-、-tion など）の働きを選ぶ</dd>
-      <dt>単語帳</dt><dd>自分で☆を付けて集めた単語だけを出す</dd>
-      <dt>苦手</dt><dd>間違えた問題だけを出す。2回続けて正解すると外れる</dd>
-      <dt>今日の復習</dt><dd>前に解いて、ちょうど忘れやすいころになった問題を出す</dd>
-      <dt>レベル</dt><dd>難しさ。単語・イディオム・語源で使う。ふだんは1つ選ぶ</dd>
-      <dt>複数選択</dt><dd>オンにすると、レベルや単語の種類をいくつでも選べる</dd>
-      <dt class="uonly">過去問の単語</dt><dd class="uonly">その大学の過去問に出た単語（ふつうはこれ）</dd>
-      <dt class="uonly">出典記事の単語</dt><dd class="uonly">過去問の元になった英文記事に出てくる単語</dd>
-      <dt class="uonly">予想の単語</dt><dd class="uonly">これから出そうな最近の記事に出てくる単語</dd>
-    </dl>
-    <h2>問題の途中</h2>
-    <dl>
-      <dt>← 単語</dt><dd>答え合わせのあと、不正解の選択肢がどの単語の意味だったかを示す</dd>
-      <dt>点線の枠</dt><dd>選ばなかった正解</dd>
-      <dt class="uonly">★</dt><dd class="uonly">その大学の入試で、実際に使われた意味</dd>
-      <dt>ブックマーク</dt><dd>気になった単語に印を付ける。あとで単語帳に移せる</dd>
-      <dt>語源ヒント</dt><dd>単語を部品に分けて見せる</dd>
-      <dt>中断する</dt><dd>設定の画面に戻る。記録は残る</dd>
-    </dl>
-    <h2>単語一覧・単語帳</h2>
-    <dl>
-      <dt>☆</dt><dd>押すと、下で選んでいる単語帳に入る。もう一度押すと外れる</dd>
-      <dt>単語帳</dt><dd>何冊でも作れる。クイズの「単語帳」で、その単語だけを練習できる</dd>
-      <dt>ブックマーク</dt><dd>問題の途中で印を付けた単語。まとめて単語帳に移せる</dd>
-      <dt>回数</dt><dd>その試験の英文に出てきた回数</dd>
-    </dl>
-    <h2>記録</h2>
-    <dl>
-      <dt>習得</dt><dd>2回続けて正解した問題の数</dd>
-      <dt>今日</dt><dd>今日解いた問題数 ／ 1日の目標</dd>
-      <dt>連続</dt><dd>1日の目標を達成した日が続いている日数</dd>
-      <dt>復習の予定</dt><dd>解いた問題は、1・3・7・14・30・60日後にもう一度出る。今日解いた問題は、明日から復習に出る</dd>
-      <dt>⚠ 遅れ</dt><dd>復習の日を過ぎた問題。早めに解く</dd>
-    </dl>
-  </section>
-
   <div class="tabs" role="tablist" aria-label="表示" id="tabs">
     <button class="tab" id="t-quiz" data-view="quiz" role="tab" aria-selected="true">クイズ</button>
     <button class="tab" id="t-list" data-view="list" role="tab" aria-selected="false">単語一覧・単語帳</button>
     <button class="tab" id="t-rec" data-view="rec" role="tab" aria-selected="false">記録</button>
     <button class="tab" id="t-help" data-view="help" role="tab" aria-selected="false">使い方</button>
   </div>
+
+  <section id="v-help" class="view help" hidden>
+    <h2>クイズ</h2>
+    <dl>
+      <dt>単語</dt><dd>英単語の意味を、9つの選択肢から選びます。意味が2つ以上ある単語は、すべて選んでください。</dd>
+      <dt>イディオム</dt><dd>熟語（いくつかの単語で1つの意味になる表現）の意味を、1つ選びます。</dd>
+      <dt>語源</dt><dd>単語の中心になる部品（spect＝見る など）の意味を選びます。知らない単語の意味を推測する力がつきます。</dd>
+      <dt>接頭辞・接尾辞</dt><dd>単語の頭や語尾に付く部品（re-、-tion など）の働きを選びます。</dd>
+      <dt>単語帳</dt><dd>「単語一覧・単語帳」で☆を付けて集めた単語だけを出します。</dd>
+      <dt>苦手</dt><dd>間違えた問題だけを出します。2回続けて正解すると、苦手から外れます。</dd>
+      <dt>今日の復習</dt><dd>前に解いた問題のうち、忘れかけるころになったものを出します。</dd>
+      <dt>レベル</dt><dd>問題の難しさです。単語・イディオム・語源で選べます。</dd>
+      <dt>複数選択</dt><dd>ふだんは1つだけ選べます。オンにすると、レベルや単語の種類をいくつでも選べます。</dd>
+      <dt class="uonly">過去問の単語</dt><dd class="uonly">その大学の過去問に出た単語です。まずはこれがおすすめです。</dd>
+      <dt class="uonly">出典記事の単語</dt><dd class="uonly">過去問の英文の元になった記事に出てくる単語です。</dd>
+      <dt class="uonly">予想の単語</dt><dd class="uonly">これから出題されそうな、最近の記事に出てくる単語です。</dd>
+    </dl>
+    <h2>問題の途中</h2>
+    <dl>
+      <dt>← 単語</dt><dd>答え合わせのあと、不正解の選択肢がどの単語の意味だったかを示します。</dd>
+      <dt>点線の枠</dt><dd>選ばなかった正解です。</dd>
+      <dt class="uonly">★</dt><dd class="uonly">その大学の入試で、実際に使われた意味です。</dd>
+      <dt>ブックマーク</dt><dd>気になった単語に印を付けます。あとでまとめて単語帳に移せます。</dd>
+      <dt>語源ヒント</dt><dd>単語を部品に分けて、それぞれの意味を見せます。</dd>
+      <dt>中断する</dt><dd>設定の画面に戻ります。それまでの記録は残ります。</dd>
+    </dl>
+    <h2>単語一覧・単語帳</h2>
+    <dl>
+      <dt>☆</dt><dd>押すと、選んでいる単語帳に単語が入ります。もう一度押すと外れます。</dd>
+      <dt>単語帳</dt><dd>何冊でも作れます。クイズの「単語帳」で、その単語だけを練習できます。</dd>
+      <dt>ブックマーク</dt><dd>問題の途中で印を付けた単語です。まとめて単語帳に移せます。</dd>
+      <dt>回数</dt><dd>その試験の英文に、その単語が出てきた回数です。</dd>
+    </dl>
+    <h2>記録</h2>
+    <dl>
+      <dt>習得</dt><dd>2回続けて正解した問題の数です。</dd>
+      <dt>今日</dt><dd>今日解いた問題の数と、1日の目標です。</dd>
+      <dt>連続</dt><dd>1日の目標を達成した日が、何日続いているかです。</dd>
+      <dt>復習の予定</dt><dd>解いた問題は、1・3・7・14・30・60日後にもう一度出ます。今日解いた問題は、明日から復習に出ます。</dd>
+      <dt>⚠ 遅れ</dt><dd>復習の日を過ぎてしまった問題です。忘れかけているので、早めに解いてください。</dd>
+    </dl>
+  </section>
 
   <div class="exams" role="group" aria-label="試験">
     <button class="exam" id="e-kyotsu" data-exam="kyotsu" aria-pressed="true">共通テスト<small>無料版</small></button>
@@ -1091,7 +1091,7 @@ function renderList() {
     ul.appendChild(li);
   });
 }
-document.querySelectorAll(".tab").forEach(t => t.onclick = () => { st.view = t.dataset.view; save(); syncControls(); if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); });
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => { st.view = t.dataset.view; save(); syncControls(); if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); window.scrollTo(0, 0); });   // 別のページを開いたら、いちばん上から見せる
 const ymd = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
 function countToday() {
   const today = ymd(new Date());

@@ -159,6 +159,10 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .msg.err{border:2px solid var(--ng);background:var(--ng-soft);color:var(--ng)}
 .msg.ok{border:2px solid var(--ok);background:var(--ok-soft);color:var(--ink)}
 @media (prefers-reduced-motion:no-preference){.msg.err{animation:shake .3s}@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}}
+.lftoggle{font:inherit;font-size:14px;font-weight:700;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);cursor:pointer}
+.lftoggle[aria-expanded="true"]{border-color:var(--ink)}
+.lftoggle.on{border:2px solid var(--ink)}
+.lftoggle:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .lfilter{border:1px solid var(--line);border-radius:6px;background:var(--sheet);padding:10px 12px;display:grid;gap:8px}
 .frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .flabel{font-size:12px;color:var(--muted);min-width:4.5em}
@@ -182,6 +186,9 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .sug li span{font-size:13px;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sug li em{font-style:normal;font-size:12px;color:var(--ok);margin-left:auto;white-space:nowrap}
 .sug li[aria-selected="true"],.sug li:hover{background:var(--drop-soft)}
+.addlist{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:6px}
+.add-btn{font:inherit;font-size:13px;font-weight:700;border:2px solid var(--ink);border-radius:999px;background:var(--sheet);color:var(--ink);padding:2px 10px;cursor:pointer;grid-row:span 2}
+.add-btn:disabled{border-color:var(--line);color:var(--muted);cursor:default}
 .addbox{border:2px solid var(--ink);border-radius:6px;background:var(--sheet);padding:12px;display:grid;gap:8px}
 .addbox label{font-size:13px;font-weight:700}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -264,7 +271,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <dt>イディオム</dt><dd>熟語（いくつかの単語で1つの意味になる表現）の意味を、1つ選びます。</dd>
       <dt>語源</dt><dd>単語の中心になる部品（spect＝見る など）の意味を選びます。知らない単語の意味を推測する力がつきます。</dd>
       <dt>接頭辞・接尾辞</dt><dd>単語の頭や語尾に付く部品（re-、-tion など）の働きを選びます。</dd>
-      <dt>単語帳</dt><dd>「単語一覧・単語帳」で☆を付けて集めた単語だけを出します。</dd>
+      <dt>単語帳</dt><dd>自分で作った単語帳の単語だけを出します。</dd>
       <dt>苦手</dt><dd>間違えた問題だけを出します。2回続けて正解すると、苦手から外れます。</dd>
       <dt>今日の復習</dt><dd>前に解いた問題のうち、忘れかけるころになったものを出します。</dd>
       <dt>レベル</dt><dd>問題の難しさです。単語・イディオム・語源で選べます。</dd>
@@ -284,7 +291,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     </dl>
     <h2>単語一覧・単語帳</h2>
     <dl>
-      <dt>☆</dt><dd>押すと、選んでいる単語帳に単語が入ります。もう一度押すと外れます。</dd>
+      <dt>☆</dt><dd>押すとブックマークできます。もう一度押すと外れます。</dd>
       <dt>単語帳</dt><dd>何冊でも作れます。「単語帳を編集」で、作る・名前を変える・消す・単語を外すができます。演習の「単語帳」で、その単語だけを練習できます。</dd>
       <dt>しぼりこみ</dt><dd>出題範囲・レベル・品詞・印で、表示する単語をしぼれます。同じ段では、選んだどれかに当てはまる単語が出ます。</dd>
       <dt>ブックマーク</dt><dd>問題の途中で印を付けた単語です。まとめて単語帳に移せます。</dd>
@@ -402,8 +409,9 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
         <option value="pos">品詞順</option>
         <option value="level">レベル順（易しい順）</option>
       </select>
+      <button class="lftoggle" id="lf-toggle" aria-expanded="false" aria-controls="lf">しぼりこみ <span aria-hidden="true">▾</span></button>
     </div>
-    <div class="lfilter" id="lf">
+    <div class="lfilter" id="lf" hidden>
       <div class="frow" id="lf-src-row"><span class="flabel">出題範囲</span>
         <button class="chip" data-lf="src" data-v="exam">過去問</button><button class="chip" data-lf="src" data-v="source_article">出典記事</button><button class="chip" data-lf="src" data-v="predicted">予想</button></div>
       <div class="frow"><span class="flabel">レベル</span>
@@ -418,6 +426,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <span id="bk-cur"></span>
       <button class="btn small" id="bk-edit">単語帳を編集</button>
     </div>
+    <p class="tip">☆を押すとブックマークできます。単語帳への追加は「単語帳を編集」でできます。</p>
     <p class="tip" id="l-count"></p>
     <ul class="wlist" id="l-list"></ul>
   </section>
@@ -429,7 +438,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <input id="bk-name" type="text" maxlength="20" placeholder="新しい単語帳の名前" autocomplete="off" aria-label="新しい単語帳の名前">
       <button class="btn small" id="bk-new">新しく作る</button>
     </div>
-    <p class="tip" id="bk-msg">単語帳を押すと、中身が下に出ます。選んだ単語帳が、単語一覧の☆の入れ先になります。</p>
+    <p class="tip" id="bk-msg">単語帳を押すと、中身が下に出ます。選んだ単語帳が、演習の「単語帳」で使われます。</p>
     <ul class="books" id="bk-list"></ul>
     <h3 class="steph" id="bk-words-h"></h3>
     <div class="actions">
@@ -437,10 +446,12 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <button class="btn ghost small" id="l-addall" hidden>ブックマークをすべてこの単語帳に移す</button>
     </div>
     <div class="addbox" id="bk-addbox" hidden>
-      <label for="bk-add">追加する単語（英語・日本語のどちらでも探せます）</label>
-      <div class="sugwrap"><input id="bk-add" type="search" placeholder="例：benefit、利益" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="bk-add-sug"><ul class="sug" id="bk-add-sug" role="listbox" hidden></ul></div>
-      <p class="tip" id="bk-add-msg">候補を押すと、この単語帳に入ります。続けていくつでも追加できます。</p>
-      <button class="btn ghost small" id="bk-addclose">追加を終える</button>
+      <label for="bk-add">単語を一覧から選んで「＋ 追加」を押してください（英語・日本語でしぼれます）</label>
+      <div class="sugwrap"><input id="bk-add" type="search" placeholder="例：benefit、利益" autocomplete="off"></div>
+      <p class="tip" id="bk-add-msg"></p>
+      <ul class="wlist addlist" id="bk-addlist"></ul>
+      <button class="btn ghost small" id="bk-addmore" hidden>もっと見る</button>
+      <button class="btn small" id="bk-addclose">追加を終える</button>
     </div>
     <div class="sugwrap" id="bk-find-wrap"><input id="bk-find" type="search" placeholder="この単語帳の中を検索" autocomplete="off" aria-label="この単語帳の中を検索"></div>
     <ul class="wlist" id="bk-words"></ul>
@@ -1038,7 +1049,7 @@ document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
   const want = b.dataset.mode;
   if (want === "book") {
     const full = books().find(x => x.words.length);
-    if (!full) { setupMsg("単語帳がまだ空です。「単語一覧・単語帳」の☆やブックマークから、単語を入れてください。"); return; }
+    if (!full) { setupMsg("単語帳がまだ空です。「単語一覧・単語帳」の「単語帳を編集」で、単語を追加してください。"); return; }
     if (!bookList().length) st.curBook[st.exam] = full.id;   // 選んでいる単語帳が空なら、中身のある単語帳に切り替える
   }
   if (want === "weak" && !pool("weak").length) { setupMsg("苦手な問題はまだありません。間違えた問題が、ここに自動で集まります。"); return; }
@@ -1114,13 +1125,17 @@ document.querySelectorAll(".chip[data-lf]").forEach(c => c.onclick = () => {
   if (i >= 0) g.splice(i, 1); else g.push(v);
   renderList();
 });
+$("lf-toggle").onclick = () => { const open = $("lf").hidden; $("lf").hidden = !open; $("lf-toggle").setAttribute("aria-expanded", open); };
 $("lf-clear").onclick = () => { Object.values(LF).forEach(g => g.length = 0); renderList(); };
 function renderList() {
   document.querySelectorAll(".chip[data-lf]").forEach(c => c.setAttribute("aria-pressed", LF[c.dataset.lf].includes(c.dataset.v)));
   $("lf-src-row").hidden = !UNIVS[st.exam];
   $("lf-clear").hidden = !Object.values(LF).some(g => g.length);
   const cb = curBook();
-  $("bk-cur").textContent = cb ? "☆の入れ先：「" + cb.name + "」（" + cb.words.length + "語）" : "☆を押すと、単語帳が作られます";
+  $("bk-cur").textContent = books().length ? "単語帳 " + books().length + "冊（選択中：「" + cb.name + "」" + cb.words.length + "語）" : "単語帳はまだありません";
+  const nOn = Object.values(LF).reduce((n, g) => n + g.length, 0);
+  $("lf-toggle").firstChild.textContent = "しぼりこみ" + (nOn ? "（" + nOn + "）" : "") + " ";
+  $("lf-toggle").classList.toggle("on", nOn > 0);
   const q = $("l-q").value.trim().toLowerCase();
   const sort = $("l-sort").value;
   let ws = WORDS.filter(w => lfOk(w) && (!q || w.word.toLowerCase().includes(q) || w.meanings.some(m => m.ja.includes(q))));
@@ -1135,13 +1150,14 @@ function renderList() {
   const ul = $("l-list"); ul.innerHTML = "";
   ws.forEach(w => ul.appendChild(wordRow(w, "star")));
 }
-// 単語の1行。kind = "star"（単語一覧：☆で出し入れ）／"rm"（単語帳の編集：外すボタン）
+// 単語の1行。kind = "star"（単語一覧：☆でブックマーク）／"rm"（単語帳の編集：外すボタン）
 function wordRow(w, kind) {
   const li = el("li");
   if (kind === "star") {
-    const b = el("button", "star-btn", inBook(w) ? "★" : "☆");
-    b.setAttribute("aria-label", (inBook(w) ? "単語帳から外す：" : "単語帳に入れる：") + w.word);
-    b.onclick = () => { toggleBook(w); renderList(); };
+    const b = el("button", "star-btn", inMark(w) ? "★" : "☆");
+    b.setAttribute("aria-label", (inMark(w) ? "ブックマークを外す：" : "ブックマークする：") + w.word);
+    b.setAttribute("aria-pressed", inMark(w));
+    b.onclick = () => { toggleMark(w); renderList(); };
     li.appendChild(b);
   } else {
     const b = el("button", "rm-btn", "外す");
@@ -1154,7 +1170,7 @@ function wordRow(w, kind) {
   li.appendChild(el("span", "cnt", n ? n + "回" : ""));
   const sub = el("span", "sub", w.pos + "・");
   const lv = el("span", "lvtxt", LVNAME[w.level]); lv.dataset.lv = w.level; sub.appendChild(lv);
-  sub.appendChild(document.createTextNode((w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + srcName(w.source) : "") + (inMark(w) ? "・ブックマーク中" : "") + (inWeakW(w) ? "・苦手" : "")));
+  sub.appendChild(document.createTextNode((w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + srcName(w.source) : "") + (kind === "star" && inBook(w) ? "・単語帳" : "") + (inWeakW(w) ? "・苦手" : "")));
   li.appendChild(sub);
   const m = el("span", "m", w.meanings.map(x => x.ja).join(" / "));
   m.style.gridColumn = "2 / 4";
@@ -1165,6 +1181,7 @@ function wordRow(w, kind) {
 let editing = "", delArmed = "";
 const bkMsg = (t, err) => { const m = $("bk-msg"); m.textContent = (err ? "⚠ " : "") + t; m.className = err ? "msg err" : "tip"; };
 function renderBooks() {
+  if (!$("bk-addbox").hidden) renderAddList();
   const ul = $("bk-list"), cb = curBook(); ul.innerHTML = "";
   if (!books().length) ul.appendChild(el("li", null, "まだ単語帳はありません。上で名前を入れて「新しく作る」を押してください。"));
   books().forEach(b => {
@@ -1178,7 +1195,7 @@ function renderBooks() {
       setTimeout(() => inp.focus(), 0);
     } else {
       const pick = el("button", "pick", (b === cb ? "✔ " : "") + b.name);
-      pick.appendChild(el("small", null, b.words.length + "語" + (b === cb ? "・選択中（☆の入れ先）" : "")));
+      pick.appendChild(el("small", null, b.words.length + "語" + (b === cb ? "・選択中" : "")));
       pick.onclick = () => { st.curBook[st.exam] = b.id; delArmed = ""; save(); renderBooks(); };
       const ren = el("button", "btn ghost small", "名前を変える"); ren.onclick = () => { editing = b.id; delArmed = ""; renderBooks(); };
       const del = el("button", "btn ghost small", delArmed === b.id ? "本当に消す" : "消す");
@@ -1202,7 +1219,7 @@ function renderBooks() {
     const fq = $("bk-find").value.trim().toLowerCase();
     const ws = fq ? all.filter(w => w.word.toLowerCase().includes(fq) || w.meanings.some(m => m.ja.includes(fq))) : all;
     $("bk-find-wrap").hidden = all.length < 2;
-    if (!all.length) wl.appendChild(el("li", null, "まだ単語がありません。「＋ 単語を追加」か、単語一覧の☆で入れられます。"));
+    if (!all.length) wl.appendChild(el("li", null, "まだ単語がありません。「＋ 単語を追加」で入れられます。"));
     else if (!ws.length) wl.appendChild(el("li", null, "「" + fq + "」に当てはまる単語は、この単語帳にありません。"));
     ws.forEach(w => wl.appendChild(wordRow(w, "rm")));
   }
@@ -1210,9 +1227,9 @@ function renderBooks() {
 $("bk-new").onclick = () => {
   const name = $("bk-name").value.trim() || "単語帳" + (books().length + 1);
   const b = {id: "b" + Date.now(), name, words: []}; books().push(b); st.curBook[st.exam] = b.id; $("bk-name").value = "";
-  save(); renderBooks(); bkMsg("単語帳「" + name + "」を作りました。単語一覧の☆を押すと、この単語帳に入ります。");
+  save(); renderBooks(); bkMsg("単語帳「" + name + "」を作りました。「＋ 単語を追加」で単語を入れられます。");
 };
-$("bk-edit").onclick = () => { st.view = "books"; editing = ""; delArmed = ""; bkMsg("単語帳を押すと、中身が下に出ます。選んだ単語帳が、単語一覧の☆の入れ先になります。"); save(); syncControls(); renderBooks(); window.scrollTo(0, 0); };
+$("bk-edit").onclick = () => { st.view = "books"; editing = ""; delArmed = ""; bkMsg("単語帳を押すと、中身が下に出ます。選んだ単語帳が、演習の「単語帳」で使われます。"); save(); syncControls(); renderBooks(); window.scrollTo(0, 0); };
 $("bk-back").onclick = () => { st.view = "list"; save(); syncControls(); renderList(); window.scrollTo(0, 0); };
 document.querySelectorAll(".tab").forEach(t => t.onclick = () => { st.view = t.dataset.view; save(); syncControls(); if (st.view === "list") renderList(); if (st.view === "rec") renderRec(); window.scrollTo(0, 0); });   // 別のページを開いたら、いちばん上から見せる
 const ymd = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
@@ -1302,7 +1319,7 @@ $("l-addall").onclick = () => { const bw = ensureBook().words, n = markList().le
 $("l-sort").addEventListener("change", renderList);
 // ---- 予測変換（入力の途中で、単語の候補を出す）：アプリの中の単語データだけで探す。外部のサービスは使わない ----
 // 英語は「その文字で始まる単語」を先に、「途中に含む単語」をあとに出す。日本語は意味に含む単語を出す
-function suggestWords(q, list) {
+function suggestWords(q, list, limit = 8) {
   q = q.trim().toLowerCase(); if (!q) return [];
   const starts = [], inner = [], ja = [];
   for (const w of list) {
@@ -1314,7 +1331,7 @@ function suggestWords(q, list) {
   // 入試によく出た単語を先に。同じくらいなら短い単語を先に
   const cnt = w => w.exam_count || w.article_count || 0;
   const order = (a, b) => cnt(b) - cnt(a) || a.word.length - b.word.length || a.word.localeCompare(b.word);
-  return starts.sort(order).concat(inner.sort(order), ja.sort(order)).slice(0, 8);
+  return starts.sort(order).concat(inner.sort(order), ja.sort(order)).slice(0, limit);
 }
 // input に候補の一覧をつなぐ。getItems(q) → 単語の配列、onPick(単語)、note(単語) → 右に出す小さい字
 function attachSuggest(input, box, getItems, onPick, note) {
@@ -1348,17 +1365,36 @@ function attachSuggest(input, box, getItems, onPick, note) {
 }
 // 単語一覧の検索：打つたびに一覧をしぼり、候補を押すとその単語だけを出す
 $("l-q").addEventListener("input", renderList);
-attachSuggest($("l-q"), $("l-q-sug"), q => suggestWords(q, WORDS), w => { $("l-q").value = w.word; renderList(); }, w => inBook(w) ? "★単語帳" : "");
-// 単語帳の編集：単語を追加
-$("bk-addbtn").onclick = () => { $("bk-addbox").hidden = false; $("bk-addbtn").hidden = true; $("bk-add").value = ""; $("bk-add").focus(); };
+attachSuggest($("l-q"), $("l-q-sug"), q => suggestWords(q, WORDS), w => { $("l-q").value = w.word; renderList(); }, w => inMark(w) ? "★" : "");
+// 単語帳の編集：単語を追加（一覧から選ぶ。上の欄で英語・日本語からしぼれる）
+let addShown = 40;
+function renderAddList() {
+  const q = $("bk-add").value.trim().toLowerCase(), b = curBook();
+  const ws = q ? suggestWords(q, WORDS, Infinity) : WORDS.slice().sort((x, y) => (y.exam_count || y.article_count || 0) - (x.exam_count || x.article_count || 0) || x.word.localeCompare(y.word));
+  const ul = $("bk-addlist"); ul.innerHTML = "";
+  ws.slice(0, addShown).forEach(w => {
+    const li = el("li"), has = !!b && b.words.includes(wkey(w));
+    const btn = el("button", "add-btn", has ? "追加済み" : "＋ 追加"); btn.disabled = has;
+    btn.setAttribute("aria-label", (has ? "追加済み：" : "追加する：") + w.word);
+    btn.onclick = () => {
+      const bk = ensureBook(); bk.words.push(wkey(w)); save();
+      $("bk-add-msg").className = "msg ok"; $("bk-add-msg").textContent = "「" + w.word + "」を「" + bk.name + "」に追加しました。";
+      renderBooks();
+    };
+    li.appendChild(btn); li.appendChild(el("span", "w", w.word));
+    const n = w.exam_count || w.article_count; li.appendChild(el("span", "cnt", n ? n + "回" : ""));
+    const sub = el("span", "sub", w.pos + "・"); const lv = el("span", "lvtxt", LVNAME[w.level]); lv.dataset.lv = w.level; sub.appendChild(lv); li.appendChild(sub);
+    const m = el("span", "m", w.meanings.map(x => x.ja).join(" / ")); m.style.gridColumn = "2 / 4"; li.appendChild(m);
+    ul.appendChild(li);
+  });
+  if (!ws.length) ul.appendChild(el("li", null, "「" + q + "」に当てはまる単語はありません。"));
+  $("bk-addmore").hidden = ws.length <= addShown;
+  $("bk-addmore").textContent = "もっと見る（あと" + (ws.length - addShown) + "語）";
+}
+$("bk-addbtn").onclick = () => { $("bk-addbox").hidden = false; $("bk-addbtn").hidden = true; $("bk-add").value = ""; $("bk-add-msg").textContent = ""; $("bk-add-msg").className = "tip"; addShown = 40; renderAddList(); $("bk-add").focus(); };
 $("bk-addclose").onclick = () => { $("bk-addbox").hidden = true; $("bk-addbtn").hidden = false; };
-attachSuggest($("bk-add"), $("bk-add-sug"), q => suggestWords(q, WORDS), w => {
-  const b = ensureBook();
-  const msg = $("bk-add-msg");
-  if (b.words.includes(wkey(w))) { msg.className = "msg err"; msg.textContent = "⚠ 「" + w.word + "」は、もうこの単語帳に入っています。"; }
-  else { b.words.push(wkey(w)); save(); renderBooks(); msg.className = "msg ok"; msg.textContent = "「" + w.word + "」を「" + b.name + "」に追加しました。"; }
-  $("bk-add").value = ""; $("bk-add").focus();
-}, w => inBook(w) ? "追加済み" : "");
+$("bk-add").addEventListener("input", () => { addShown = 40; renderAddList(); });
+$("bk-addmore").onclick = () => { addShown += 40; renderAddList(); };
 // 単語帳の中を検索
 $("bk-find").addEventListener("input", () => renderBooks());
 const origSetExam = setExam;

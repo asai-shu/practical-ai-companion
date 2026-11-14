@@ -56,7 +56,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .startbox{border:2px solid var(--drop);border-radius:6px;background:var(--sheet);padding:18px clamp(16px,4vw,28px)}
 .startbox h2{margin:0;font-size:20px}
 .startbox p{margin:0}
-.modelist{margin:0;padding-left:1.2em;display:grid;gap:4px}
 .settings{border:1px solid var(--line);border-radius:6px;background:var(--sheet)}
 .settings summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:14px}
 .settings summary span{font-weight:400;color:var(--muted);margin-left:10px;font-size:12px}
@@ -81,7 +80,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .duebox h3{margin:0;font-size:15px}
 .duebox h3 b{font-family:var(--f-num);font-size:22px;color:var(--drop);margin:0 2px}
 .duebox p{margin:0;font-size:13px}
-.duebtns{display:flex;flex-wrap:wrap;gap:8px}
 .duetable{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
 .duetable th,.duetable td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
 .duetable th:first-child,.duetable td:first-child{text-align:left}
@@ -191,7 +189,6 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .add-btn:disabled{border-color:var(--line);color:var(--muted);cursor:default}
 .addbox{border:2px solid var(--ink);border-radius:6px;background:var(--sheet);padding:12px;display:grid;gap:8px}
 .addbox .addhead{margin:0;font-size:13px;font-weight:700}
-.wlink{font:inherit;text-align:left;border:0;background:none;color:inherit;padding:0;cursor:pointer;display:contents}
 .wlist li.tap{cursor:pointer}
 .wlist li.tap:hover{background:var(--drop-soft)}
 .wlist li .go{color:var(--muted);font-size:14px}
@@ -541,7 +538,8 @@ const KYOTSU_WORDS = __KYOTSU__;
 let WORDS = NAGOYA_WORDS;
 const IDIOMS = __IDIOMS__;
 const AFFIXES = __AFFIXES__;
-const NEAR = __NEAR__;       // 英単語 → 意味の近い英単語（類義語辞書 WordNet から作った）
+const NEAR = __NEAR__;       // 英単語 → 意味の近い英単語をスペースでつないだ文字列（類義語辞書 WordNet から作った）
+const nearOf = w => NEAR[w] ? NEAR[w].split(" ") : [];
 const NEAR_JA = __NEARJA__;  // 意味の近い日本語のグループ（自分で書いたもの）
 const ROOTS = __ROOTS__;
 const EXTRA_LV = __EXTRALV__;
@@ -589,7 +587,18 @@ const uShort = () => (UNIVS[st.exam] || {}).short || "";       // 「名大」�
 const srcName = k => k === "exam" ? uShort() + "の入試" : ({source_article: "入試の出典記事", predicted: "予想", kyotsu: "共通テスト"})[k];
 let st = {v:0, goalAuto:true, goalAsk:true, univ:"", srcs:["exam"], multiSrc:false, multiLv:false, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
 let studying = false;
-try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) st = Object.assign(st, s); } catch (e) {}
+// 保存内容を読む。壊れていたり、形が違っていたりする項目は使わない（最初の値のまま）
+try {
+  const s = JSON.parse(localStorage.getItem(KEY) || "null");
+  if (s && typeof s === "object" && !Array.isArray(s)) {
+    for (const k of Object.keys(st)) {
+      if (!(k in s)) continue;
+      const a = st[k], b = s[k];
+      const same = Array.isArray(a) ? Array.isArray(b) : (a !== null && typeof a === "object") ? (b !== null && typeof b === "object" && !Array.isArray(b)) : typeof a === typeof b;
+      if (same) st[k] = b;
+    }
+  }
+} catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
 // 古い保存内容を今の形に直す（1回だけ）
 if ((st.v || 0) < 3) {
@@ -609,6 +618,9 @@ if (st.v < 4) {                                                   // 大学：�
   if (!st.univ && st.seen) st.univ = "nagoya";
   st.v = 4; save();
 }
+// 古い形から直し終えたら、もう使わない項目（以前の単語帳・範囲・出題元）は消す
+["book", "range", "sources", "src", "help"].forEach(k => delete st[k]);
+if (st.v < 8) { st.v = 8; save(); }
 if (st.exam !== "kyotsu" && !UNIVS[st.exam]) st.exam = "kyotsu";  // データのない大学が保存されていたら、共通テストに戻す
 if (st.univ && !UNIVS[st.univ]) st.univ = "";
 if (st.exam !== "kyotsu") st.univ = st.exam;
@@ -636,6 +648,8 @@ function setExam() {
   document.title = APP_NAME;
   $("note").textContent = NOTE_HEAD + exInfo().note + NOTE_TAIL;
   document.querySelectorAll(".uonly").forEach(e => e.hidden = !UNIVS[st.exam]);
+  // 単語帳・苦手・今日の復習を選んでいて、その試験では空なら、単語に戻す。開いているページを描き直す
+  if (["book", "weak", "due"].includes(st.pick) && !pool().length) st.pick = "word"; if (st.view === "list") renderList(); if (st.view === "books") renderBooks(); if (st.view === "rec") renderRec();
 }
 
 let solved = 0; // 今回の学習で解いた問題数
@@ -643,7 +657,10 @@ let queue = [], cur = null, correct = [], picked = new Set(), answered = false, 
 
 const wkey = w => w.word + "|" + w.pos;
 // ---- 単語帳（試験ごとに、いくつでも作れる）: st.books[試験] = [{id, name, words: ["単語|品詞", ...]}] ----
-const books = () => (st.books[st.exam] = st.books[st.exam] || []);
+const books = () => {
+  const bs = Array.isArray(st.books[st.exam]) ? st.books[st.exam] : (st.books[st.exam] = []);
+  return bs.filter(b => b && typeof b.name === "string" && Array.isArray(b.words)).map(b => (b.name = b.name.slice(0, 20), b)) && bs;
+};
 const curBook = () => { const bs = books(); return bs.find(b => b.id === st.curBook[st.exam]) || bs[0] || null; };
 function ensureBook() { // 単語帳がまだ1つもなければ作る
   let b = curBook();
@@ -772,7 +789,7 @@ function setupWordQuestion(w) {
   const conf = shuffle((w.confusables || []).map(c => c.ja)).slice(0, 2);
   const near = shuffle(WORDS.filter(x => x !== w && x.pos === w.pos && Math.abs(x.level - w.level) <= 1).flatMap(x => x.meanings.map(m => m.ja)));
   const rest = shuffle(WORDS.filter(x => x !== w).flatMap(x => x.meanings.map(m => m.ja)));
-  const opts = shuffle(correct.concat(pickDistractors(new Set(w.meanings.map(m => m.ja).concat(moreMeanings(w))), total - correct.length, conf, near, rest, new Set(NEAR[w.word] || []))));
+  const opts = shuffle(correct.concat(pickDistractors(new Set(w.meanings.map(m => m.ja).concat(moreMeanings(w))), total - correct.length, conf, near, rest, new Set(nearOf(w.word)))));
   fromOf = new Map(opts.map(t => [t, correct.includes(t) ? w.word : (OWNER.get(t) || "")]));
   // まぎらわしい単語の意味は、その単語名を表示する
   (w.confusables || []).forEach(c => { if (fromOf.has(c.ja) && !correct.includes(c.ja)) fromOf.set(c.ja, c.en); });
@@ -1375,7 +1392,6 @@ const ymd = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0
 function examDays() { const d = st.examDate[st.exam] || autoDate(); return d ? Math.ceil((new Date(d + "T00:00:00") - new Date(ymd(new Date()) + "T00:00:00")) / 86400000) : 0; }
 // まだ覚えていない（2回続けて正解していない）問題の数。モードごと
 const leftOf = mode => itemsOf(mode).filter(q => (st.mastery[keyOf(q)] || 0) < 2).length;
-function leftWords() { return leftOf("word"); }
 // おすすめの1日の問題数＝試験日までに、全モードのまだ覚えていない問題を覚えきる数（モードごとに切り上げて合計）
 function recGoal() {
   const d = examDays(); if (d <= 0) return 20;
@@ -1562,8 +1578,6 @@ $("bk-addmore").onclick = () => { addShown += 40; renderAddList(); };
 $("bk-add-sort").addEventListener("change", () => { addShown = 40; renderAddList(); });
 // 単語帳の中を検索
 $("bk-find").addEventListener("input", () => renderBooks());
-const origSetExam = setExam;
-setExam = function () { origSetExam(); if (["book", "weak", "due"].includes(st.pick) && !pool().length) st.pick = "word"; if (st.view === "list") renderList(); if (st.view === "books") renderBooks(); if (st.view === "rec") renderRec(); };
 if (st.view === "word") st.view = "list";   // 詳しいページのまま閉じたら、次は単語一覧から
 setExam(); syncControls(); buildQueue(); stats(); render();
 if (st.view === "list") renderList();

@@ -38,15 +38,22 @@ for _f in sorted((ROOT / "data" / "extra_meanings").glob("*.txt")):
                 extra_m.setdefault(_w + "|" + _q, []).extend(m if "(" + _p in m else m + "(" + _p + ")" for m in _ms)
 near = json.load(open(ROOT / "data" / "near_words.json", encoding="utf-8"))          # tools/synonyms/build_near.py で作る
 near_ja = json.load(open(ROOT / "data" / "near_meanings.json", encoding="utf-8"))
-page = (page.replace("__DATA__", json.dumps(words, ensure_ascii=False))
-        .replace("__IDIOMS__", json.dumps(idioms, ensure_ascii=False))
-        .replace("__KYOTSU__", json.dumps(kyotsu, ensure_ascii=False))
-        .replace("__AFFIXES__", json.dumps(affixes, ensure_ascii=False))
-        .replace("__ROOTS__", json.dumps(roots, ensure_ascii=False))
-        .replace("__EXTRALV__", json.dumps(extra_lv, ensure_ascii=False))
-        .replace("__EXTRAMEAN__", json.dumps(extra_m, ensure_ascii=False))
-        .replace("__NEARJA__", json.dumps(near_ja, ensure_ascii=False))
-        .replace("__NEAR__", json.dumps(near, ensure_ascii=False, separators=(",", ":"))))
+# データは空白なしで詰めて書く。意味の「出ていない（false）」「回数なし（null）」は書かない（アプリでは無いのと同じ扱い）
+def _slim(ws):
+    for _w in ws:
+        _w["meanings"] = [{k: v for k, v in m.items() if v not in (False, None)} for m in _w["meanings"]]
+    return ws
+J = lambda x: json.dumps(x, ensure_ascii=False, separators=(",", ":"))
+near = {k: " ".join(v) for k, v in near.items()}   # 近い単語は「単語 単語 …」の文字列にする
+page = (page.replace("__DATA__", J(_slim(words)))
+        .replace("__IDIOMS__", J(idioms))
+        .replace("__KYOTSU__", J(_slim(kyotsu)))
+        .replace("__AFFIXES__", J(affixes))
+        .replace("__ROOTS__", J(roots))
+        .replace("__EXTRALV__", J(extra_lv))
+        .replace("__EXTRAMEAN__", J(extra_m))
+        .replace("__NEARJA__", J(near_ja))
+        .replace("__NEAR__", J(near)))
 (ROOT / "app" / "meidai-nine.html").write_text(page, encoding="utf-8")
 print(len(words), "words,", len(idioms), "idioms")
 
@@ -55,7 +62,20 @@ print(len(words), "words,", len(idioms), "idioms")
 SITE = ROOT / "site"
 SITE.mkdir(exist_ok=True)
 head, body = page.split("</style>", 1)
-DESC = "大学入試に実際に出た英単語を、9つの選択肢から意味をすべて選ぶクイズで覚える単語アプリ。共通テスト版は無料。"
+DESC = "大学入試に実際に出た英単語を、9つの選択肢から意味をすべて選ぶ演習で覚える単語アプリ。共通テスト版は無料。"
+SW_REG = """
+// オフラインでも開けるようにする（対応していないブラウザでは何もしない）
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+"""
+# ---- セキュリティ：このページで動いてよいものを決める（Content-Security-Policy） ----
+# スクリプトは、このページに書いてあるもの（下のハッシュで指定）だけ。外への通信・埋め込み・フォーム送信はしない。
+# 文字の形（フォント）だけは Google Fonts から読む。
+import base64, hashlib, re as _re
+_scripts = _re.findall(r"<script>(.*?)</script>", body, _re.S) + [SW_REG]
+_hashes = " ".join("'sha256-" + base64.b64encode(hashlib.sha256(x.encode("utf-8")).digest()).decode() + "'" for x in _scripts)
+CSP = ("default-src 'self'; script-src " + _hashes + "; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+       "font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; "
+       "object-src 'none'; base-uri 'none'; form-action 'none'")
 html = f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -63,6 +83,8 @@ html = f"""<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="{DESC}">
 <meta name="theme-color" content="#d2554a">
+<meta http-equiv="Content-Security-Policy" content="{CSP}">
+<meta name="referrer" content="no-referrer">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
@@ -71,10 +93,7 @@ html = f"""<!doctype html>
 </head>
 <body>
 {body}
-<script>
-// オフラインでも開けるようにする（対応していないブラウザでは何もしない）
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {{}});
-</script>
+<script>{SW_REG}</script>
 </body>
 </html>
 """
@@ -99,7 +118,15 @@ self.addEventListener("activate", e => {{ e.waitUntil(caches.keys().then(ks => P
 // 新しい版があればそれを使い、つながらないときだけ保存してある版を使う
 self.addEventListener("fetch", e => {{
   if (e.request.method !== "GET" || new URL(e.request.url).origin !== location.origin) return;
-  e.respondWith(fetch(e.request).then(r => {{ const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); return r; }}).catch(() => caches.match(e.request, {{ignoreSearch: true}})));
+  // 正しく取れた応答だけを保存する（エラーのページを保存して、オフラインのときに出してしまわないように）
+  e.respondWith(fetch(e.request).then(r => {{ if (r.ok && r.type === "basic") {{ const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); }} return r; }}).catch(() => caches.match(e.request, {{ignoreSearch: true}})));
 }});
 """, encoding="utf-8")
+# 公開先（Cloudflare Pages など）で付けてもらうヘッダー。meta では効かない「ほかのサイトの枠に埋め込ませない」などもここで指定する
+(SITE / "_headers").write_text("/*\n"
+    "  Content-Security-Policy: " + CSP + "; frame-ancestors 'none'\n"
+    "  X-Content-Type-Options: nosniff\n"
+    "  Referrer-Policy: no-referrer\n"
+    "  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()\n"
+    "  X-Frame-Options: DENY\n", encoding="utf-8")
 print("site/ を作成:", ", ".join(sorted(p.name for p in SITE.iterdir())))

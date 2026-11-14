@@ -101,11 +101,27 @@ async function checkTotp(user: Record<string, unknown>, code: unknown, field: "t
 }
 
 // 試行回数の制限：bucket ごとに、windowSec 秒の間に max 回まで
-async function limit(bucket: string, max: number, windowSec: number) {
+// limit：呼ばれた回数をすべて数える（登録・ログインの呼び出しの多さを抑える）
+// guard / miss：まちがえた回だけを数える（6桁のコード・復旧コード。正しく入れた人は締め出さない）
+async function overLimit(bucket: string, max: number, windowSec: number) {
   const since = new Date(Date.now() - windowSec * 1000).toISOString();
   const { count } = await db.from("auth_attempts").select("id", { count: "exact", head: true }).eq("bucket", bucket).gte("at", since);
-  if ((count ?? 0) >= max) fail(429, "too_many", "試した回数が多すぎます。しばらく待ってから、もう一度試してください。");
+  return (count ?? 0) >= max;
+}
+const TOO_MANY = "試した回数が多すぎます。しばらく待ってから、もう一度試してください。";
+async function limit(bucket: string, max: number, windowSec: number) {
+  if (await overLimit(bucket, max, windowSec)) fail(429, "too_many", TOO_MANY);
   await db.from("auth_attempts").insert({ bucket });
+}
+async function guard(bucket: string, max: number, windowSec: number) {
+  if (await overLimit(bucket, max, windowSec)) fail(429, "too_many", TOO_MANY);
+}
+const miss = (bucket: string) => db.from("auth_attempts").insert({ bucket });
+// 6桁のコードを確かめ、まちがえたら1回と数えて断る（10分に5回まで）
+async function needTotp(user: Record<string, unknown>, code: unknown, field: "totp_secret_enc" | "totp_pending_enc", message: string) {
+  const bucket = "user:" + user.id + ":totp";
+  await guard(bucket, 5, 600);
+  if (!(await checkTotp(user, code, field))) { await miss(bucket); fail(401, "bad_code", message); }
 }
 
 // ---------- ログイン中の記録 ----------
@@ -221,21 +237,17 @@ const actions: Record<string, (req: Request, b: Body, ip: string) => Promise<unk
   async login_totp(req, b) {
     const { session, user, hash } = await getSession(req, false);
     if (session.full_access) return { ok: true };
-    await limit("user:" + user.id + ":totp", 5, 600);
-    if (!(await checkTotp(user, b.code, "totp_secret_enc"))) fail(401, "bad_code", "コードが違います。認証アプリの今の6桁を入れてください。");
+    await needTotp(user, b.code, "totp_secret_enc", "コードが違います。認証アプリの今の6桁を入れてください。");
     await db.from("sessions").delete().eq("token_hash", hash);       // 途中の記録は捨てて、新しく発行する
     return { token: await newSession(user.id, true) };
   },
   // 復旧：パスキーが使えないとき。復旧コード（＋2段階認証を設定している人は6桁のコード）
   async recover(_req, b, ip) {
-    await limit("ip:" + ip + ":recover", 5, 3600);
+    await guard("ip:" + ip + ":recover", 10, 3600);
     if (typeof b.recoveryCode !== "string") fail(400, "bad_recovery", "復旧コードを入れてください。");
     const { data: user } = await db.from("app_users").select("*").eq("recovery_code_hash", await sha256hex(normRecovery(b.recoveryCode as string))).maybeSingle();
-    if (!user) fail(401, "bad_recovery", "復旧コードが違います。");
-    if (user!.totp_enabled) {
-      await limit("user:" + user!.id + ":totp", 5, 600);
-      if (!(await checkTotp(user!, b.code, "totp_secret_enc"))) fail(401, "bad_code", "認証アプリの6桁のコードが違います。");
-    }
+    if (!user) { await miss("ip:" + ip + ":recover"); fail(401, "bad_recovery", "復旧コードが違います。"); }
+    if (user!.totp_enabled) await needTotp(user!, b.code, "totp_secret_enc", "認証アプリの6桁のコードが違います。");
     // 復旧コードは使い捨て。新しいものに取り替え、ほかの端末のログインはすべて終わらせる
     const recoveryCode = newRecoveryCode();
     await db.from("app_users").update({ recovery_code_hash: await sha256hex(normRecovery(recoveryCode)) }).eq("id", user!.id);
@@ -275,26 +287,21 @@ const actions: Record<string, (req: Request, b: Body, ip: string) => Promise<unk
   // 2段階認証：② 認証アプリの6桁を確かめてから有効にする（読み取りまちがいで締め出されないように）
   async totp_enable(req, b) {
     const { user } = await getSession(req);
-    await limit("user:" + user.id + ":totp", 5, 600);
-    if (!(await checkTotp(user, b.code, "totp_pending_enc"))) fail(401, "bad_code", "コードが違います。認証アプリに出ている今の6桁を入れてください。");
+    await needTotp(user, b.code, "totp_pending_enc", "コードが違います。認証アプリに出ている今の6桁を入れてください。");
     await db.from("app_users").update({ totp_secret_enc: user.totp_pending_enc, totp_pending_enc: null, totp_enabled: true }).eq("id", user.id);
     return { ok: true };
   },
   // 2段階認証をやめる（今の6桁のコードが必要）
   async totp_disable(req, b) {
     const { user } = await getSession(req);
-    await limit("user:" + user.id + ":totp", 5, 600);
-    if (!(await checkTotp(user, b.code, "totp_secret_enc"))) fail(401, "bad_code", "コードが違います。");
+    await needTotp(user, b.code, "totp_secret_enc", "コードが違います。");
     await db.from("app_users").update({ totp_secret_enc: null, totp_enabled: false, totp_last_step: 0 }).eq("id", user.id);
     return { ok: true };
   },
   // 復旧コードを作り直す（2段階認証を設定している人は6桁のコードが必要）
   async recovery_new(req, b) {
     const { user } = await getSession(req);
-    if (user.totp_enabled) {
-      await limit("user:" + user.id + ":totp", 5, 600);
-      if (!(await checkTotp(user, b.code, "totp_secret_enc"))) fail(401, "bad_code", "コードが違います。");
-    }
+    if (user.totp_enabled) await needTotp(user, b.code, "totp_secret_enc", "コードが違います。");
     const recoveryCode = newRecoveryCode();
     await db.from("app_users").update({ recovery_code_hash: await sha256hex(normRecovery(recoveryCode)) }).eq("id", user.id);
     return { recoveryCode };
@@ -326,10 +333,7 @@ const actions: Record<string, (req: Request, b: Body, ip: string) => Promise<unk
   // アカウントを消す（学習記録・パスキー・ログインの記録も一緒に消える）
   async delete_account(req, b) {
     const { user } = await getSession(req);
-    if (user.totp_enabled) {
-      await limit("user:" + user.id + ":totp", 5, 600);
-      if (!(await checkTotp(user, b.code, "totp_secret_enc"))) fail(401, "bad_code", "コードが違います。");
-    }
+    if (user.totp_enabled) await needTotp(user, b.code, "totp_secret_enc", "コードが違います。");
     if (b.confirm !== user.nickname) fail(400, "confirm", "確認のため、ニックネームを正しく入れてください。");
     await db.from("app_users").delete().eq("id", user.id);
     return { ok: true };

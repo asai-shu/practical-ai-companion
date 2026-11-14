@@ -54,6 +54,10 @@ page = (page.replace("__DATA__", J(_slim(words)))
         .replace("__EXTRAMEAN__", J(extra_m))
         .replace("__NEARJA__", J(near_ja))
         .replace("__NEAR__", J(near)))
+# ログインは公開版（site/）だけ。Claude の中のプレビュー版ではアカウントの画面を出さない（パスキーはサイトのアドレスに結び付くため）
+AUTH_URL = "https://ullpwyqbabphwkcpqash.supabase.co/functions/v1/nine-auth"
+site_page = page.replace("__AUTH__", J({"url": AUTH_URL}))
+page = page.replace("__AUTH__", "null")
 (ROOT / "app" / "meidai-nine.html").write_text(page, encoding="utf-8")
 print(len(words), "words,", len(idioms), "idioms")
 
@@ -61,7 +65,7 @@ print(len(words), "words,", len(idioms), "idioms")
 # quiz_template.html は Artifact 用で <html> や <head> がないので、ここで補う。
 SITE = ROOT / "site"
 SITE.mkdir(exist_ok=True)
-head, body = page.split("</style>", 1)
+head, body = site_page.split("</style>", 1)
 DESC = "大学入試に実際に出た英単語を、9つの選択肢から意味をすべて選ぶ演習で覚える単語アプリ。共通テスト版は無料。"
 SW_REG = """
 // オフラインでも開けるようにする（対応していないブラウザでは何もしない）
@@ -74,7 +78,7 @@ import base64, hashlib, re as _re
 _scripts = _re.findall(r"<script>(.*?)</script>", body, _re.S) + [SW_REG]
 _hashes = " ".join("'sha256-" + base64.b64encode(hashlib.sha256(x.encode("utf-8")).digest()).decode() + "'" for x in _scripts)
 CSP = ("default-src 'self'; script-src " + _hashes + "; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
-       "font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; "
+       "font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://ullpwyqbabphwkcpqash.supabase.co; manifest-src 'self'; worker-src 'self'; "
        "object-src 'none'; base-uri 'none'; form-action 'none'")
 html = f"""<!doctype html>
 <html lang="ja">

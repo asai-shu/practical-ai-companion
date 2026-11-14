@@ -36,9 +36,10 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .stats b{font-family:var(--f-num);font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:2px}
 .modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--ink);border:1px solid var(--ink);border-radius:6px;overflow:hidden}
 @media (max-width:560px){.modes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line)}
-.tab{font:inherit;font-weight:700;padding:8px 14px;border:0;border-bottom:3px solid transparent;background:none;color:var(--muted);cursor:pointer}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tab{font:inherit;font-weight:700;padding:8px 14px;white-space:nowrap;flex:none;border:0;border-bottom:3px solid transparent;background:none;color:var(--muted);cursor:pointer}
 .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--drop)}
+@media (max-width:480px){.tab{padding:8px 9px;font-size:.92em}}@media (max-width:400px){.tabs{gap:0}.tab{padding:8px 6px;font-size:.86em}}
 .tab:focus-visible{outline:2px solid var(--drop);outline-offset:2px}
 .view{display:grid;gap:14px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
@@ -198,6 +199,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .wdetail ul{margin:0;padding:0;list-style:none;display:grid;gap:4px}
 .wdetail .facts{font-size:13px;color:var(--muted);display:grid;gap:2px}
 .wlist .m .more{color:var(--muted);font-size:12px}
+.code{font-family:var(--f-num);font-size:20px;letter-spacing:.06em;margin:0;word-break:break-all}
+#ac-qr{background:#fff;border-radius:6px;padding:6px;display:block}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -269,6 +272,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
     <button class="tab" id="t-list" data-view="list" role="tab" aria-selected="false">単語一覧・単語帳</button>
     <button class="tab" id="t-rec" data-view="rec" role="tab" aria-selected="false">記録</button>
     <button class="tab" id="t-help" data-view="help" role="tab" aria-selected="false">使い方</button>
+    <button class="tab" id="t-account" data-view="account" role="tab" aria-selected="false" hidden>アカウント</button>
   </div>
 
   <section id="v-help" class="view help" hidden>
@@ -529,6 +533,99 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <div id="r-modes"></div>
     </div>
   </section>
+  <section id="v-account" class="view" hidden>
+    <p class="msg" id="ac-msg" role="status" hidden></p>
+    <div class="recbox" id="ac-recovery" hidden>
+      <h2>復旧コード（いま1回だけ表示します）</h2>
+      <p class="code" id="ac-recovery-code"></p>
+      <p class="tip">スマホをなくしたり、パスキーが使えなくなったりしたときに、ログインするためのコードです。<b>紙に書き写すか、写真に撮って</b>、人に見せないところに保管してください。もう一度表示することはできません。</p>
+      <label class="chk"><input type="checkbox" id="ac-recovery-ok"> 保管しました</label>
+    </div>
+    <div id="ac-out">
+      <div class="recbox">
+        <h2>ログインしなくても使えます</h2>
+        <p class="tip">ログインすると、学習の記録をほかの端末でも使えるようになります。登録するのはニックネームだけです。名前・メールアドレス・電話番号は集めません。パスワードはなく、スマホやパソコンの指紋・顔・PIN で本人確認をします（パスキー）。</p>
+      </div>
+      <div class="recbox">
+        <h2>はじめて使う</h2>
+        <div class="listbar">
+          <input id="ac-nick" type="text" maxlength="20" placeholder="ニックネーム（本名は使わないでください）" autocomplete="nickname" aria-label="ニックネーム">
+          <button class="btn small" id="ac-register">パスキーで登録</button>
+        </div>
+      </div>
+      <div class="recbox">
+        <h2>登録したことがある</h2>
+        <button class="btn small" id="ac-login">パスキーでログイン</button>
+        <details class="notes">
+          <summary>スマホを替えた・パスキーが使えないとき</summary>
+          <div class="listbar">
+            <input id="ac-rc" type="text" placeholder="復旧コード（XXXX-XXXX-…）" autocomplete="off" aria-label="復旧コード">
+            <input id="ac-rc-code" type="text" inputmode="numeric" maxlength="6" placeholder="認証アプリの6桁（設定した人だけ）" autocomplete="one-time-code" aria-label="認証アプリの6桁">
+            <button class="btn small" id="ac-recover">復旧コードでログイン</button>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="recbox" id="ac-totp-step" hidden>
+      <h2>2段階認証</h2>
+      <p class="tip">認証アプリ（Google Authenticator など）に出ている6桁の数字を入れてください。</p>
+      <div class="listbar">
+        <input id="ac-totp" type="text" inputmode="numeric" maxlength="6" placeholder="6桁の数字" autocomplete="one-time-code" aria-label="認証アプリの6桁">
+        <button class="btn small" id="ac-totp-go">確かめる</button>
+        <button class="btn ghost small" id="ac-totp-cancel">やめる</button>
+      </div>
+    </div>
+    <div id="ac-in" hidden>
+      <div class="recbox">
+        <h2 id="ac-name"></h2>
+        <p class="tip" id="ac-sync"></p>
+        <div class="actions"><button class="btn small" id="ac-sync-now">記録を今すぐ保存</button><button class="btn ghost small" id="ac-logout">ログアウト</button></div>
+      </div>
+      <div class="recbox">
+        <h2>2段階認証（認証アプリ）</h2>
+        <p class="tip" id="ac-mfa-state"></p>
+        <button class="btn small" id="ac-mfa-start" hidden>認証アプリを設定する</button>
+        <div id="ac-mfa-setup" hidden>
+          <p class="tip">① 認証アプリ（Google Authenticator・Microsoft Authenticator など）で、このQRコードを読み取ってください。読み取れないときは、下の文字を手で入れてください。</p>
+          <img id="ac-qr" alt="認証アプリに読み取らせるQRコード" width="180" height="180">
+          <p class="code" id="ac-secret"></p>
+          <p class="tip">② アプリに出た6桁の数字を入れてください。正しく入れられたら、2段階認証が有効になります。</p>
+          <div class="listbar">
+            <input id="ac-mfa-code" type="text" inputmode="numeric" maxlength="6" placeholder="6桁の数字" autocomplete="one-time-code" aria-label="認証アプリの6桁">
+            <button class="btn small" id="ac-mfa-enable">有効にする</button>
+          </div>
+        </div>
+        <details class="notes" id="ac-mfa-off-box" hidden>
+          <summary>2段階認証をやめる</summary>
+          <div class="listbar">
+            <input id="ac-mfa-off-code" type="text" inputmode="numeric" maxlength="6" placeholder="今の6桁" autocomplete="one-time-code" aria-label="認証アプリの6桁">
+            <button class="btn ghost small" id="ac-mfa-off">やめる</button>
+          </div>
+        </details>
+      </div>
+      <div class="recbox">
+        <h2>パスキーと復旧コード</h2>
+        <p class="tip" id="ac-keys"></p>
+        <div class="actions"><button class="btn ghost small" id="ac-add">この端末のパスキーを追加</button></div>
+        <div class="listbar">
+          <input id="ac-rc-new-code" type="text" inputmode="numeric" maxlength="6" placeholder="認証アプリの6桁（設定した人だけ）" autocomplete="one-time-code" aria-label="認証アプリの6桁">
+          <button class="btn ghost small" id="ac-rc-new">復旧コードを作り直す</button>
+        </div>
+      </div>
+      <details class="notes">
+        <summary>そのほか（すべての端末からログアウト・アカウントを消す）</summary>
+        <div class="recbox">
+          <button class="btn ghost small" id="ac-logout-all">すべての端末からログアウト</button>
+          <p class="tip">アカウントを消すと、サーバーに保存した記録もすべて消えます。この端末の中の記録は残ります。</p>
+          <div class="listbar">
+            <input id="ac-del-nick" type="text" placeholder="確認のためニックネーム" autocomplete="off" aria-label="確認のためニックネーム">
+            <input id="ac-del-code" type="text" inputmode="numeric" maxlength="6" placeholder="認証アプリの6桁（設定した人だけ）" autocomplete="one-time-code" aria-label="認証アプリの6桁">
+            <button class="btn ghost small" id="ac-del">アカウントを消す</button>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
   <details class="notes"><summary>このアプリのデータについて</summary><p class="note" id="note"></p></details>
 </div>
 
@@ -569,6 +666,12 @@ function affixSpan(a, w) {
   return [0, 0];
 }
 const KEY = "meidai-nine-v2";
+// ログイン（公開版だけ）。保存のたびに使うので、いちばん最初に用意しておく
+const AUTH = null;   // 公開版では {url}、Claude の中のプレビュー版では null（アカウントの画面を出さない）
+const SESSION_KEY = "nine-session";
+let session = (() => { try { return localStorage.getItem(SESSION_KEY) || ""; } catch (e) { return ""; } })();
+let pendingTotp = false, syncTimer = 0, lastSync = 0;
+
 const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
 // ---- 大学の一覧 ----
 // 大学を足すときは、その大学の単語データとイディオムを埋め込んで、ここに1つ足す。
@@ -585,7 +688,7 @@ const NOTE_HEAD = "意味は辞書・単語帳を写さずに作成していま�
 const exInfo = () => UNIVS[st.exam] || KYOTSU;                 // いま選んでいる試験の情報
 const uShort = () => (UNIVS[st.exam] || {}).short || "";       // 「名大」など
 const srcName = k => k === "exam" ? uShort() + "の入試" : ({source_article: "入試の出典記事", predicted: "予想", kyotsu: "共通テスト"})[k];
-let st = {v:0, goalAuto:true, goalAsk:true, univ:"", srcs:["exam"], multiSrc:false, multiLv:false, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
+let st = {v:0, savedAt:0, goalAuto:true, goalAsk:true, univ:"", srcs:["exam"], multiSrc:false, multiLv:false, pick:"word", books:{}, curBook:{}, done:0, ok:0, mastery:{}, levels:[2], sources:["exam","source_article","predicted"], mode:"word", exam:"kyotsu", levelsByExam:{}, book:{}, range:"all", view:"quiz", weak:{}, goal:20, day:"", today:0, streak:0, lastGoalDay:"", examDate:{}, modeStats:{}, seen:false, weakOn:true, marks:{}, srs:{}};
 let studying = false;
 // 保存内容を読む。壊れていたり、形が違っていたりする項目は使わない（最初の値のまま）
 try {
@@ -599,7 +702,7 @@ try {
     }
   }
 } catch (e) {}
-const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
+const save = () => { st.savedAt = Date.now(); try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} if (typeof syncSoon === "function") syncSoon(); };
 // 古い保存内容を今の形に直す（1回だけ）
 if ((st.v || 0) < 3) {
   st.levelsByExam = {}; st.levels = [2];                       // レベルは最初は1つだけ選んだ状態にする
@@ -1056,7 +1159,7 @@ function syncControls() {
   $("v-help").hidden = !(starting || st.view === "help");
   $("v-start").hidden = !starting; $("tabs").hidden = starting;
   document.querySelector(".wrap > .exams").hidden = starting;
-  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = $("v-books").hidden = $("v-word").hidden = true; $("u-row").hidden = $("src-row").hidden = $("src-multi-row").hidden = true; syncUniv(); return; }
+  if (starting) { $("v-quiz").hidden = $("v-list").hidden = $("v-rec").hidden = $("v-books").hidden = $("v-word").hidden = $("v-account").hidden = true; $("u-row").hidden = $("src-row").hidden = $("src-multi-row").hidden = true; syncUniv(); return; }
   const lvs = st.levels.slice().sort().map(l => LVNAME[l]).join("・");
   const srcLbl = UNIVS[st.exam] && (st.pick === "word" || st.pick === "idiom") ? ["exam", "source_article", "predicted"].filter(k => st.srcs.includes(k)).map(k => ({exam: "過去問", source_article: "出典記事", predicted: "予想"})[k]).join("・") + "／" : "";
   $("study-sum").textContent = srcLbl + PICK_NAME[st.pick] + (LV_PICKS.includes(st.pick) ? "／" + lvs : st.pick === "book" && cb ? "「" + cb.name + "」" : "");
@@ -1064,9 +1167,9 @@ function syncControls() {
   $("setup").hidden = studying; $("study").hidden = !studying;
   document.querySelector(".wrap > .exams").hidden = studying;
   $("weak-on").checked = st.weakOn;
-  $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec"; $("v-books").hidden = st.view !== "books"; $("v-word").hidden = st.view !== "word";
+  $("v-quiz").hidden = st.view !== "quiz"; $("v-list").hidden = st.view !== "list"; $("v-rec").hidden = st.view !== "rec"; $("v-books").hidden = st.view !== "books"; $("v-account").hidden = st.view !== "account"; $("v-word").hidden = st.view !== "word";
   document.querySelectorAll(".exam").forEach(b => b.setAttribute("aria-pressed", (b.dataset.exam === "kyotsu") === (st.exam === "kyotsu")));
-  const onHelp = st.view === "help" || st.view === "books" || st.view === "word";
+  const onHelp = st.view === "help" || st.view === "books" || st.view === "word" || st.view === "account";
   document.querySelector(".wrap > .exams").hidden = starting || studying || onHelp;
   $("u-row").hidden = starting || studying || onHelp;
   $("src-row").hidden = $("src-multi-row").hidden = starting || studying || st.view !== "quiz" || st.exam === "kyotsu";
@@ -1578,7 +1681,178 @@ $("bk-addmore").onclick = () => { addShown += 40; renderAddList(); };
 $("bk-add-sort").addEventListener("change", () => { addShown = 40; renderAddList(); });
 // 単語帳の中を検索
 $("bk-find").addEventListener("input", () => renderBooks());
-if (st.view === "word") st.view = "list";   // 詳しいページのまま閉じたら、次は単語一覧から
+// ======================= アカウント（公開版だけ） =======================
+// パスキーでログインし、学習の記録をサーバーに保存して、ほかの端末と同じにする。
+// サーバーは Supabase の Edge Function「nine-auth」。ここでは表示と、端末のパスキーを呼び出すことだけをする。
+const setSession = t => { session = t || ""; try { t ? localStorage.setItem(SESSION_KEY, t) : localStorage.removeItem(SESSION_KEY); } catch (e) {} };
+function acMsg(t, kind = "err") { const m = $("ac-msg"); m.hidden = !t; m.className = "msg " + kind; m.textContent = t ? (kind === "err" ? "⚠ " : "") + t : ""; if (t) m.scrollIntoView({block: "center"}); }
+async function api(action, body = {}) {
+  const r = await fetch(AUTH.url, { method: "POST", headers: Object.assign({"content-type": "application/json"}, session ? {"x-session": session} : {}), body: JSON.stringify(Object.assign({action}, body)) });
+  let data = {}; try { data = await r.json(); } catch (e) {}
+  if (!r.ok) { const e = new Error(data.message || "通信に失敗しました。"); e.code = data.error; e.status = r.status; throw e; }
+  return data;
+}
+// --- WebAuthn：サーバーの値（base64url の文字列）とブラウザの値（ArrayBuffer）を変換する ---
+const b64uToBuf = s => { s = s.replace(/-/g, "+").replace(/_/g, "/"); const b = atob(s + "===".slice((s.length + 3) % 4)); const u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u.buffer; };
+const bufToB64u = buf => { const u = new Uint8Array(buf); let s = ""; for (const x of u) s += String.fromCharCode(x); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); };
+async function passkeyCreate(o) {
+  const pk = Object.assign({}, o, { challenge: b64uToBuf(o.challenge), user: Object.assign({}, o.user, { id: b64uToBuf(o.user.id) }),
+    excludeCredentials: (o.excludeCredentials || []).map(c => Object.assign({}, c, { id: b64uToBuf(c.id) })) });
+  const c = await navigator.credentials.create({ publicKey: pk });
+  const r = c.response;
+  return { id: c.id, rawId: bufToB64u(c.rawId), type: c.type, authenticatorAttachment: c.authenticatorAttachment || undefined,
+    clientExtensionResults: c.getClientExtensionResults ? c.getClientExtensionResults() : {},
+    response: { clientDataJSON: bufToB64u(r.clientDataJSON), attestationObject: bufToB64u(r.attestationObject), transports: r.getTransports ? r.getTransports() : [] } };
+}
+async function passkeyGet(o) {
+  const pk = Object.assign({}, o, { challenge: b64uToBuf(o.challenge), allowCredentials: (o.allowCredentials || []).map(c => Object.assign({}, c, { id: b64uToBuf(c.id) })) });
+  const c = await navigator.credentials.get({ publicKey: pk });
+  const r = c.response;
+  return { id: c.id, rawId: bufToB64u(c.rawId), type: c.type, authenticatorAttachment: c.authenticatorAttachment || undefined,
+    clientExtensionResults: c.getClientExtensionResults ? c.getClientExtensionResults() : {},
+    response: { clientDataJSON: bufToB64u(r.clientDataJSON), authenticatorData: bufToB64u(r.authenticatorData), signature: bufToB64u(r.signature), userHandle: r.userHandle ? bufToB64u(r.userHandle) : undefined } };
+}
+const passkeyError = e => e && e.name === "NotAllowedError" ? "パスキーの操作が取り消されたか、時間切れになりました。" : e && e.name === "InvalidStateError" ? "この端末のパスキーは、すでに登録されています。" : (e && e.message) || "うまくいきませんでした。";
+// --- 学習の記録：新しいほうを使う ---
+const SYNC_SKIP = ["view"];   // 端末ごとに違ってよいもの（開いていたページ）は送らない
+function stateForServer() { const o = {}; for (const k of Object.keys(st)) if (!SYNC_SKIP.includes(k)) o[k] = st[k]; return o; }
+// 2台の記録を合わせる。どちらかで覚えたこと・集めたものは、消さずに両方残す
+//  ・覚えた回数・復習の段階：進んでいるほう   ・ブックマーク・苦手・単語帳の単語：どちらかにあれば残す
+//  ・設定（レベル・選んでいる大学など）：あとから保存したほう
+function mergeStates(a, b) {
+  const obj = x => (x && typeof x === "object" && !Array.isArray(x)) ? x : {};
+  const newer = (b.savedAt || 0) > (a.savedAt || 0) ? b : a, older = newer === a ? b : a;
+  const out = Object.assign({}, older, newer);
+  out.mastery = Object.assign({}, obj(a.mastery));
+  for (const [k, v] of Object.entries(obj(b.mastery))) out.mastery[k] = Math.max(out.mastery[k] || 0, v || 0);
+  out.srs = Object.assign({}, obj(a.srs));
+  for (const [k, v] of Object.entries(obj(b.srs))) { const c = out.srs[k]; if (!c || v.b > c.b || (v.b === c.b && v.d > c.d)) out.srs[k] = v; }
+  out.modeStats = Object.assign({}, obj(a.modeStats));
+  for (const [k, v] of Object.entries(obj(b.modeStats))) { const c = out.modeStats[k]; if (!c || (v.done || 0) > (c.done || 0)) out.modeStats[k] = v; }
+  for (const f of ["marks", "weak"]) {
+    out[f] = {};
+    for (const ex of new Set([...Object.keys(obj(a[f])), ...Object.keys(obj(b[f]))]))
+      out[f][ex] = [...new Set([...(obj(a[f])[ex] || []), ...(obj(b[f])[ex] || [])])];
+  }
+  out.books = {};
+  for (const ex of new Set([...Object.keys(obj(a.books)), ...Object.keys(obj(b.books))])) {
+    const byId = new Map();
+    for (const bk of [...(obj(older.books)[ex] || []), ...(obj(newer.books)[ex] || [])]) {
+      const c = byId.get(bk.id);
+      byId.set(bk.id, c ? { id: bk.id, name: bk.name, words: [...new Set([...c.words, ...bk.words])] } : { id: bk.id, name: bk.name, words: [...bk.words] });
+    }
+    out.books[ex] = [...byId.values()];
+  }
+  const more = (a.done || 0) >= (b.done || 0) ? a : b; out.done = more.done || 0; out.ok = more.ok || 0;
+  if (a.day && a.day === b.day) out.today = Math.max(a.today || 0, b.today || 0);
+  const g = (a.lastGoalDay || "") >= (b.lastGoalDay || "") ? a : b; out.lastGoalDay = g.lastGoalDay; out.streak = g.streak || 0;
+  out.savedAt = Math.max(a.savedAt || 0, b.savedAt || 0);
+  return out;
+}
+async function pullAndMerge() {
+  const r = await api("state_get");
+  const server = r.state && typeof r.state === "object" && !Array.isArray(r.state) ? r.state : null;
+  const local = stateForServer();
+  if (!server) { await api("state_put", { state: local }); lastSync = Date.now(); return "この端末の記録をサーバーに保存しました。"; }
+  const merged = mergeStates(local, server);
+  const view = st.view;
+  for (const k of Object.keys(st)) if (k in merged && !SYNC_SKIP.includes(k)) st[k] = merged[k];
+  st.view = view;
+  try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {}
+  await api("state_put", { state: stateForServer() }); lastSync = Date.now();
+  setExam(); syncControls(); buildQueue(); stats();
+  return "この端末の記録とサーバーの記録をまとめました。";
+}
+function syncSoon() {
+  if (!AUTH || !session || pendingTotp) return;
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(async () => { try { await api("state_put", { state: stateForServer() }); lastSync = Date.now(); if (st.view === "account") showSyncText(); } catch (e) { if (e.status === 401) { setSession(""); renderAccount(); } } }, 3000);
+}
+const showSyncText = () => { $("ac-sync").textContent = lastSync ? "最後にサーバーへ保存：" + new Date(lastSync).toLocaleString("ja-JP") : "学習すると、自動でサーバーに保存されます。"; };
+function showRecovery(code) { $("ac-recovery").hidden = false; $("ac-recovery-code").textContent = code; $("ac-recovery-ok").checked = false; }
+// --- 画面 ---
+async function renderAccount() {
+  if (!AUTH) return;
+  $("ac-totp-step").hidden = !pendingTotp;
+  const inn = !!session && !pendingTotp;
+  $("ac-out").hidden = !!session; $("ac-in").hidden = !inn;
+  if (!inn) return;
+  try {
+    const me = await api("me");
+    $("ac-name").textContent = "ログイン中：" + me.nickname;
+    showSyncText();
+    $("ac-mfa-state").textContent = me.totpEnabled ? "✔ 有効です。ログインのときに、パスキーと認証アプリの6桁の両方が必要です。" : "まだ設定していません。設定すると、ログインのときにパスキーに加えて、認証アプリの6桁の数字も必要になり、より安全になります。";
+    $("ac-mfa-start").hidden = me.totpEnabled || !$("ac-mfa-setup").hidden; $("ac-mfa-off-box").hidden = !me.totpEnabled;
+    $("ac-keys").textContent = "登録しているパスキー：" + me.passkeys.length + "個。別のスマホやパソコンでも使うときは、その端末でログインしてから「この端末のパスキーを追加」を押してください。";
+  } catch (e) { if (e.status === 401) { setSession(""); renderAccount(); } else acMsg(e.message); }
+}
+async function run(btn, fn) {   // ボタンを押している間は、二度押しできないようにする
+  btn.disabled = true; acMsg("");
+  try { await fn(); } catch (e) { acMsg(e.name ? passkeyError(e) : e.message); } finally { btn.disabled = false; }
+}
+if (AUTH) {
+  $("t-account").hidden = false;
+  if (!window.PublicKeyCredential) { $("ac-register").disabled = $("ac-login").disabled = true; acMsg("このブラウザはパスキーに対応していません。新しいブラウザで開いてください。"); }
+  $("ac-register").onclick = () => run($("ac-register"), async () => {
+    const nickname = $("ac-nick").value.trim();
+    if (!nickname) { $("ac-nick").focus(); throw new Error("ニックネームを入れてください。"); }
+    const o = await api("reg_options", { nickname });
+    const r = await api("reg_verify", { challengeId: o.challengeId, response: await passkeyCreate(o.options) });
+    setSession(r.token); showRecovery(r.recoveryCode);
+    acMsg(await pullAndMerge(), "ok"); renderAccount();
+  });
+  $("ac-login").onclick = () => run($("ac-login"), async () => {
+    const o = await api("login_options");
+    const r = await api("login_verify", { challengeId: o.challengeId, response: await passkeyGet(o.options) });
+    setSession(r.token);
+    if (r.needTotp) { pendingTotp = true; renderAccount(); $("ac-totp").focus(); return; }
+    acMsg("ログインしました。" + await pullAndMerge(), "ok"); renderAccount();
+  });
+  $("ac-totp-go").onclick = () => run($("ac-totp-go"), async () => {
+    const r = await api("login_totp", { code: $("ac-totp").value.trim() });
+    if (r.token) setSession(r.token);
+    pendingTotp = false; $("ac-totp").value = "";
+    acMsg("ログインしました。" + await pullAndMerge(), "ok"); renderAccount();
+  });
+  $("ac-totp-cancel").onclick = async () => { try { await api("logout"); } catch (e) {} setSession(""); pendingTotp = false; renderAccount(); };
+  $("ac-recover").onclick = () => run($("ac-recover"), async () => {
+    const r = await api("recover", { recoveryCode: $("ac-rc").value, code: $("ac-rc-code").value.trim() });
+    setSession(r.token); $("ac-rc").value = $("ac-rc-code").value = "";
+    showRecovery(r.recoveryCode);
+    acMsg("ログインしました。今までの復旧コードは使えなくなったので、上の新しいコードを保管してください。この端末で使うなら「この端末のパスキーを追加」を押してください。", "ok");
+    await pullAndMerge(); renderAccount();
+  });
+  $("ac-recovery-ok").addEventListener("change", e => { if (e.target.checked) { $("ac-recovery").hidden = true; $("ac-recovery-code").textContent = ""; } });
+  $("ac-sync-now").onclick = () => run($("ac-sync-now"), async () => { acMsg(await pullAndMerge(), "ok"); showSyncText(); });
+  $("ac-logout").onclick = () => run($("ac-logout"), async () => { await api("logout"); setSession(""); acMsg("ログアウトしました。この端末の中の記録は残っています。", "ok"); renderAccount(); });
+  $("ac-logout-all").onclick = () => run($("ac-logout-all"), async () => { await api("logout_all"); setSession(""); acMsg("すべての端末からログアウトしました。", "ok"); renderAccount(); });
+  $("ac-mfa-start").onclick = () => run($("ac-mfa-start"), async () => {
+    const r = await api("totp_setup");
+    $("ac-qr").src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(r.qrSvg);   // 画像として表示する（中のスクリプトは動かない）
+    $("ac-secret").textContent = r.secret;
+    $("ac-mfa-setup").hidden = false; $("ac-mfa-start").hidden = true; $("ac-mfa-code").focus();
+  });
+  $("ac-mfa-enable").onclick = () => run($("ac-mfa-enable"), async () => {
+    await api("totp_enable", { code: $("ac-mfa-code").value.trim() });
+    $("ac-mfa-setup").hidden = true; $("ac-qr").removeAttribute("src"); $("ac-secret").textContent = ""; $("ac-mfa-code").value = "";
+    acMsg("2段階認証を有効にしました。次からのログインでは、認証アプリの6桁も必要です。", "ok"); renderAccount();
+  });
+  $("ac-mfa-off").onclick = () => run($("ac-mfa-off"), async () => { await api("totp_disable", { code: $("ac-mfa-off-code").value.trim() }); $("ac-mfa-off-code").value = ""; acMsg("2段階認証をやめました。", "ok"); renderAccount(); });
+  $("ac-add").onclick = () => run($("ac-add"), async () => {
+    const o = await api("add_options");
+    await api("add_verify", { challengeId: o.challengeId, response: await passkeyCreate(o.options) });
+    acMsg("この端末のパスキーを追加しました。", "ok"); renderAccount();
+  });
+  $("ac-rc-new").onclick = () => run($("ac-rc-new"), async () => { const r = await api("recovery_new", { code: $("ac-rc-new-code").value.trim() }); $("ac-rc-new-code").value = ""; showRecovery(r.recoveryCode); acMsg("新しい復旧コードを作りました。前のコードは使えません。", "ok"); });
+  $("ac-del").onclick = () => run($("ac-del"), async () => {
+    await api("delete_account", { confirm: $("ac-del-nick").value.trim(), code: $("ac-del-code").value.trim() });
+    setSession(""); acMsg("アカウントを消しました。", "ok"); renderAccount();
+  });
+  document.querySelector('.tab[data-view="account"]').addEventListener("click", renderAccount);
+  if (session) setTimeout(() => api("state_get").then(() => pullAndMerge()).catch(e => { if (e.status === 401 || e.status === 403) setSession(""); }), 0);
+}
+if (st.view === "word") st.view = "list";
+if (st.view === "account" && !AUTH) st.view = "quiz";   // 詳しいページのまま閉じたら、次は単語一覧から
 setExam(); syncControls(); buildQueue(); stats(); render();
 if (st.view === "list") renderList();
 if (st.view === "books") renderBooks();

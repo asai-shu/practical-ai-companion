@@ -13,6 +13,22 @@ kyotsu = json.load(open(ROOT / "data" / "words_kyotsu.json", encoding="utf-8"))
 affixes = json.load(open(ROOT / "data" / "affixes_nagoya.json", encoding="utf-8"))
 roots = json.load(open(ROOT / "data" / "roots.json", encoding="utf-8"))
 extra_lv = json.load(open(ROOT / "data" / "extra_levels.json", encoding="utf-8"))   # tools/levels/build_extra_levels.py で作る
+# ほかの意味（演習には出さず、単語一覧・詳しいページで見せる）。data/extra_meanings/*.txt に「単語|品詞|意味;意味」で書く
+extra_m = {}
+_pos = {}
+for _w in words + kyotsu:
+    _pos.setdefault(_w["word"], []).append(_w["pos"])
+for _f in sorted((ROOT / "data" / "extra_meanings").glob("*.txt")):
+    for _l in _f.read_text(encoding="utf-8").splitlines():
+        if not _l.strip():
+            continue
+        _w, _p, _ms = _l.split("|")
+        _ms = [m for m in _ms.split(";") if m]
+        if _p in _pos.get(_w, []):
+            extra_m.setdefault(_w + "|" + _p, []).extend(_ms)
+        else:   # 品詞が違う意味は、その単語の欄に品詞を添えて出す
+            for _q in dict.fromkeys(_pos.get(_w, [])):
+                extra_m.setdefault(_w + "|" + _q, []).extend(m if "(" + _p in m else m + "(" + _p + ")" for m in _ms)
 near = json.load(open(ROOT / "data" / "near_words.json", encoding="utf-8"))          # tools/synonyms/build_near.py で作る
 near_ja = json.load(open(ROOT / "data" / "near_meanings.json", encoding="utf-8"))
 page = (page.replace("__DATA__", json.dumps(words, ensure_ascii=False))
@@ -21,6 +37,7 @@ page = (page.replace("__DATA__", json.dumps(words, ensure_ascii=False))
         .replace("__AFFIXES__", json.dumps(affixes, ensure_ascii=False))
         .replace("__ROOTS__", json.dumps(roots, ensure_ascii=False))
         .replace("__EXTRALV__", json.dumps(extra_lv, ensure_ascii=False))
+        .replace("__EXTRAMEAN__", json.dumps(extra_m, ensure_ascii=False))
         .replace("__NEARJA__", json.dumps(near_ja, ensure_ascii=False))
         .replace("__NEAR__", json.dumps(near, ensure_ascii=False, separators=(",", ":"))))
 (ROOT / "app" / "meidai-nine.html").write_text(page, encoding="utf-8")

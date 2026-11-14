@@ -200,6 +200,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
 .wdetail section{display:grid;gap:6px}
 .wdetail ul{margin:0;padding:0;list-style:none;display:grid;gap:4px}
 .wdetail .facts{font-size:13px;color:var(--muted);display:grid;gap:2px}
+.wlist .m .more{color:var(--muted);font-size:12px}
 .modes.decks{grid-template-columns:repeat(3,minmax(0,1fr))}
 .filters select,.listbar input[type=text]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);min-width:0}
 .listbar input[type=text]{flex:1 1 140px}
@@ -417,6 +418,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
         <option value="alpha">アルファベット順</option>
         <option value="pos">品詞順</option>
         <option value="level">レベル順（易しい順）</option>
+        <option value="level_desc">レベル順（難しい順）</option>
       </select>
       <button class="lftoggle" id="lf-toggle" aria-expanded="false" aria-controls="lf">しぼりこみ <span aria-hidden="true">▾</span></button>
     </div>
@@ -468,6 +470,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
         <option value="alpha">アルファベット順</option>
         <option value="pos">品詞順</option>
         <option value="level">レベル順（易しい順）</option>
+        <option value="level_desc">レベル順（難しい順）</option>
         </select>
         <button class="lftoggle" id="af-toggle" aria-expanded="false" aria-controls="af">しぼりこみ <span aria-hidden="true">▾</span></button>
       </div>
@@ -537,7 +540,9 @@ const AFFIXES = __AFFIXES__;
 const NEAR = __NEAR__;       // 英単語 → 意味の近い英単語（類義語辞書 WordNet から作った）
 const NEAR_JA = __NEARJA__;  // 意味の近い日本語のグループ（自分で書いたもの）
 const ROOTS = __ROOTS__;
-const EXTRA_LV = __EXTRALV__;   // イディオムと語根のレベル（tools/levels/build_extra_levels.py で作る仮のもの）   // 語源モード：単語の中心になる部品（語根）。形は接頭辞・接尾辞と同じ
+const EXTRA_LV = __EXTRALV__;
+const EXTRA_MEAN = __EXTRAMEAN__;   // ほかの意味（演習には出さず、単語一覧と詳しいページで見せる）。キーは「単語|品詞」
+const moreMeanings = w => EXTRA_MEAN[w.word + "|" + w.pos] || [];   // イディオムと語根のレベル（tools/levels/build_extra_levels.py で作る仮のもの）   // 語源モード：単語の中心になる部品（語根）。形は接頭辞・接尾辞と同じ
 // 接頭辞・接尾辞の問題：接辞1つにつき「働きをすべて選ぶ」問題と、接尾辞なら「つくる品詞をすべて選ぶ」問題を作る
 // データの形：{affix, type, senses: [{role: 働き, pos: 品詞, examples: [[単語, 意味], ...]}, ...]}
 const affixRoles = a => a.senses.map(x => x.role);
@@ -761,7 +766,7 @@ function setupWordQuestion(w) {
   const conf = shuffle((w.confusables || []).map(c => c.ja)).slice(0, 2);
   const near = shuffle(WORDS.filter(x => x !== w && x.pos === w.pos && Math.abs(x.level - w.level) <= 1).flatMap(x => x.meanings.map(m => m.ja)));
   const rest = shuffle(WORDS.filter(x => x !== w).flatMap(x => x.meanings.map(m => m.ja)));
-  const opts = shuffle(correct.concat(pickDistractors(new Set(w.meanings.map(m => m.ja)), total - correct.length, conf, near, rest, new Set(NEAR[w.word] || []))));
+  const opts = shuffle(correct.concat(pickDistractors(new Set(w.meanings.map(m => m.ja).concat(moreMeanings(w))), total - correct.length, conf, near, rest, new Set(NEAR[w.word] || []))));
   fromOf = new Map(opts.map(t => [t, correct.includes(t) ? w.word : (OWNER.get(t) || "")]));
   // まぎらわしい単語の意味は、その単語名を表示する
   (w.confusables || []).forEach(c => { if (fromOf.has(c.ja) && !correct.includes(c.ja)) fromOf.set(c.ja, c.en); });
@@ -958,6 +963,7 @@ function check() {
     const srcNow = cur.source || "exam";
     $("a-mh").textContent = srcNow === "kyotsu" ? "この単語の意味" : ex ? "この単語の意味（★＝" + uShort() + "で出た意味）" : "この単語の意味（◆＝記事で使われた意味）";
     cur.meanings.forEach(m => $("a-means").appendChild(listItem(m.in_exam ? "★" : (m.in_article ? "◆" : ""), m.ja, m.exam_count ? m.exam_count + "回" : "")));
+    if (moreMeanings(cur).length) $("a-means").appendChild(listItem("", "ほかに：" + moreMeanings(cur).join(" / "), ""));
   }
   const et = !idiom && cur.etymology;
   $("a-eth").hidden = $("a-ety").hidden = !et;
@@ -1170,6 +1176,7 @@ function sortWords(ws, key) {
     alpha: (a, b) => a.word.localeCompare(b.word),
     pos: (a, b) => (POS_ORDER[a.pos] || 9) - (POS_ORDER[b.pos] || 9) || a.word.localeCompare(b.word),
     level: (a, b) => a.level - b.level || a.word.localeCompare(b.word),
+    level_desc: (a, b) => b.level - a.level || a.word.localeCompare(b.word),
   }[key];
   return ws.slice().sort(by);
 }
@@ -1193,7 +1200,7 @@ function renderList() {
   $("bk-cur").textContent = books().length ? "単語帳 " + books().length + "冊（選択中：「" + cb.name + "」" + cb.words.length + "語）" : "単語帳はまだありません";
   const q = $("l-q").value.trim().toLowerCase();
   const sort = $("l-sort").value;
-  let ws = WORDS.filter(w => lfOk(w) && (!q || w.word.toLowerCase().includes(q) || w.meanings.some(m => m.ja.includes(q))));
+  let ws = WORDS.filter(w => lfOk(w) && (!q || w.word.toLowerCase().includes(q) || w.meanings.some(m => m.ja.includes(q)) || moreMeanings(w).some(m => m.includes(q))));
   ws = sortWords(ws, sort);
   $("l-count").textContent = ws.length + "語" + (ws.length !== WORDS.length ? "（全" + WORDS.length + "語のうち）" : "");
   const ul = $("l-list"); ul.innerHTML = "";
@@ -1226,6 +1233,8 @@ function wordRow(w, kind) {
   sub.appendChild(document.createTextNode((w.source && w.source !== "exam" && w.source !== "kyotsu" ? "・" + srcName(w.source) : "") + (kind === "star" && inBook(w) ? "・単語帳" : "") + (inWeakW(w) ? "・苦手" : "")));
   li.appendChild(sub);
   const m = el("span", "m", w.meanings.map(x => x.ja).join(" / "));
+  const more = moreMeanings(w);
+  if (more.length) m.appendChild(el("span", "more", "　ほかに：" + more.join(" / ")));
   m.style.gridColumn = "2 / 4";
   li.appendChild(m);
   return li;
@@ -1258,6 +1267,10 @@ function renderWord(w) {
   const ms = el("ul");
   w.meanings.forEach(m => ms.appendChild(listItem(m.in_exam ? "★" : (m.in_article ? "◆" : ""), m.ja, m.exam_count ? m.exam_count + "回" : "")));
   sec(src === "kyotsu" ? "意味" : ex ? "意味（★＝" + uShort() + "で出た意味）" : "意味（◆＝記事で使われた意味）", ms);
+  if (moreMeanings(w).length) {
+    const u = el("ul"); moreMeanings(w).forEach(x => u.appendChild(listItem("", x, "")));
+    sec("ほかの意味（演習には出ません）", u);
+  }
   // 語源
   if (w.etymology) {
     const et = w.etymology, d = el("div");
@@ -1441,7 +1454,7 @@ function suggestWords(q, list, limit = 8) {
     const lw = w.word.toLowerCase();
     if (lw.startsWith(q)) starts.push(w);
     else if (lw.includes(q)) inner.push(w);
-    else if (w.meanings.some(m => m.ja.includes(q))) ja.push(w);
+    else if (w.meanings.some(m => m.ja.includes(q)) || moreMeanings(w).some(m => m.includes(q))) ja.push(w);
   }
   // 入試によく出た単語を先に。同じくらいなら短い単語を先に
   const cnt = w => w.exam_count || w.article_count || 0;

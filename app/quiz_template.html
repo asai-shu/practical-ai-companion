@@ -305,7 +305,8 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <dt>単語帳</dt><dd>何冊でも作れます。「単語帳を編集」で、作る・名前を変える・消す・単語を外すができます。演習の「単語帳」で、その単語だけを練習できます。</dd>
       <dt>しぼりこみ</dt><dd>出題範囲・レベル・品詞・印で、表示する単語をしぼれます。同じ段では、選んだどれかに当てはまる単語が出ます。</dd>
       <dt>ブックマーク</dt><dd>問題の途中で印を付けた単語です。まとめて単語帳に移せます。</dd>
-      <dt>回数</dt><dd>その試験の英文に、その単語が出てきた回数です。</dd>
+      <dt>出やすさ順</dt><dd>何年にわたって出たかを中心に並べます。1年の長文だけに何度も出た単語より、毎年のように出る単語を先に出します。演習の出題順も同じ考え方です。</dd>
+      <dt>〇年中〇年・回数</dt><dd>その試験の過去問のうち、その単語が出た年数と、出てきた回数です。</dd>
     </dl>
     <h2>記録</h2>
     <dl>
@@ -414,6 +415,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <div class="sugwrap"><input id="l-q" type="search" placeholder="英語・日本語で検索" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="l-q-sug"><ul class="sug" id="l-q-sug" role="listbox" hidden></ul></div>
       <label for="l-sort" class="sr">並べ替え</label>
       <select id="l-sort">
+        <option value="likely">出やすさ順</option>
         <option value="count">出た回数の多い順</option>
         <option value="alpha">アルファベット順</option>
         <option value="pos">品詞順</option>
@@ -466,6 +468,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       <div class="listbar">
         <div class="sugwrap"><input id="bk-add" type="search" placeholder="例：benefit、利益" autocomplete="off" aria-label="追加する単語を検索"></div>
         <select id="bk-add-sort" aria-label="並べ替え">
+        <option value="likely">出やすさ順</option>
         <option value="count">出た回数の多い順</option>
         <option value="alpha">アルファベット順</option>
         <option value="pos">品詞順</option>
@@ -572,11 +575,11 @@ const LVNAME = {1:"基礎", 2:"標準", 3:"難関", 4:"最難関"};
 // 大学を足すときは、その大学の単語データとイディオムを埋め込んで、ここに1つ足す。
 // 番号（nagoya など）は保存した記録のキーに使うので、あとから変えないこと。
 const UNIVS = {
-  nagoya: {name: "名古屋大学", short: "名大", sub: "名古屋大学 2次試験（2020〜2024年度）頻出", words: NAGOYA_WORDS, idioms: IDIOMS,
+  nagoya: {name: "名古屋大学", short: "名大", years: 5, sub: "名古屋大学 2次試験（2020〜2024年度）頻出", words: NAGOYA_WORDS, idioms: IDIOMS,
     date: {name: "名古屋大学 前期日程（1日目）", dates: ["2027-02-25"]},
     note: "出現回数は名古屋大学 理系前期 英語（2020〜2024年度）を数えたものです。「出典記事の単語」は名大・九大の入試で使われた記事の全文、「予想の単語」は最近の科学・心理・ニュース記事から選んだ単語で、入試に出た回数ではありません。"},
 };
-const KYOTSU = {sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", date: {name: "共通テスト（本試験1日目）", dates: ["2027-01-16"]},
+const KYOTSU = {years: 3, sub: "大学入学共通テスト 英語（2024〜2026年度）頻出", date: {name: "共通テスト（本試験1日目）", dates: ["2027-01-16"]},
   note: "出現回数は、大学入試センターが公開している共通テストの英語（リーディング・リスニング、2024〜2026年度の本試験・追再試験）を数えたものです。"};
 const APP_NAME = "入試 英単語 ナイン";
 const NOTE_HEAD = "意味は辞書・単語帳を写さずに作成しています。まぎらわしい選択肢を避けるために、英語の類義語辞書 WordNet（Princeton University）を参照しています。", NOTE_TAIL = "レベル分けは CEFR-J Wordlist Version 1.5（Compiled by Yukio Tono, Tokyo University of Foreign Studies）と英語の使用頻度データ（wordfreq）を参照しています。";
@@ -727,8 +730,10 @@ function fillDueBox(box) {
   box.appendChild(b);
 }
 function buildQueue() {
-  // 復習の日が来たものを先に、そのあとは正解した回数の少ない順
-  queue = shuffle(pool().slice()).sort((a, b) => (isDue(b) - isDue(a)) || (st.mastery[keyOf(a)] || 0) - (st.mastery[keyOf(b)] || 0));
+  // 復習の日が来たものを先に、そのあとは正解した回数の少ない順、同じなら出やすい単語から。
+  // 毎回まったく同じ順にならないよう、出やすさには少しだけばらつきを足す
+  const jit = new Map(pool().map(q => [q, (q.likely || 0) + Math.random() * 0.8]));
+  queue = pool().slice().sort((a, b) => (isDue(b) - isDue(a)) || (st.mastery[keyOf(a)] || 0) - (st.mastery[keyOf(b)] || 0) || jit.get(b) - jit.get(a));
 }
 // 漢字・カタカナの2文字の並びが正解と重なる選択肢は、意味が近すぎるので出さない（例：「減らす」と「減少させる」）
 const core = t => { const s = t.replace(/[（(].*?[）)]|～|〜/g, ""); const out = new Set();
@@ -1172,6 +1177,7 @@ function syncFilter(F, attr, panel, toggle, clear, srcRow) {
 function sortWords(ws, key) {
   const cnt = w => w.exam_count || w.article_count || 0;
   const by = {
+    likely: (a, b) => (b.likely || 0) - (a.likely || 0) || cnt(b) - cnt(a) || a.word.localeCompare(b.word),
     count: (a, b) => cnt(b) - cnt(a) || a.word.localeCompare(b.word),
     alpha: (a, b) => a.word.localeCompare(b.word),
     pos: (a, b) => (POS_ORDER[a.pos] || 9) - (POS_ORDER[b.pos] || 9) || a.word.localeCompare(b.word),
@@ -1223,7 +1229,8 @@ function wordRow(w, kind) {
   }
   li.appendChild(el("span", "w", w.word));
   const n = w.exam_count || w.article_count;
-  li.appendChild(el("span", "cnt", (n ? n + "回 " : "") + "›"));
+  const yrs = w.exam_years && (w.source || "exam") !== "source_article" && w.source !== "predicted" ? exInfo().years + "年中" + w.exam_years + "年・" : "";
+  li.appendChild(el("span", "cnt", yrs + (n ? n + "回 " : "") + "›"));
   // ☆や外すボタン以外のところを押すと、その単語の詳しいページへ
   li.classList.add("tap"); li.tabIndex = 0; li.setAttribute("role", "button"); li.setAttribute("aria-label", w.word + "の詳しい情報を見る");
   li.addEventListener("click", e => { if (!e.target.closest("button")) openWord(w); });
@@ -1256,6 +1263,8 @@ function renderWord(w) {
     : src === "exam" ? uShort() + "で" + w.exam_count + "回 / " + w.exam_years + "年分"
     : (src === "predicted" ? "最近の記事で" : "入試の出典記事で") + w.article_count + "回 / " + w.article_num + "本"));
   box.appendChild(meta);
+  if (w.exam_years && (src === "exam" || src === "kyotsu"))
+    box.appendChild(el("p", "tip", "過去" + exInfo().years + "年のうち " + w.exam_years + "年に出ています" + (w.exam_years >= 2 ? "。テーマに関係なく出やすい単語です。" : "。1年だけに出た単語は、その年の長文のテーマに偏っていることがあります。")));
   box.appendChild(el("h2", null, w.word));
   const mk = el("button", "btn ghost small", inMark(w) ? "★ ブックマーク中（外す）" : "☆ ブックマークする");
   mk.setAttribute("aria-pressed", inMark(w));

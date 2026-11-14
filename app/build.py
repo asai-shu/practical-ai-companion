@@ -13,6 +13,13 @@ kyotsu = json.load(open(ROOT / "data" / "words_kyotsu.json", encoding="utf-8"))
 affixes = json.load(open(ROOT / "data" / "affixes_nagoya.json", encoding="utf-8"))
 roots = json.load(open(ROOT / "data" / "roots.json", encoding="utf-8"))
 extra_lv = json.load(open(ROOT / "data" / "extra_levels.json", encoding="utf-8"))   # tools/levels/build_extra_levels.py で作る
+# 出やすさ（likely）：何年にわたって出たか ＋ 英語全体での使われやすさ（wordfreq）×0.6。
+# 過去問の4年分で残りの1年を当てる試し（tools/vocab-analysis の年ごとの回数を使用）で、
+# 出た回数の合計（的中率38.5%）より当たりやすかった並べ方（43.1%）。過去問の年数が増えたら決め方を見直す。
+from wordfreq import zipf_frequency
+for _w in words + kyotsu:
+    _years = _w.get("exam_years", 0) if _w.get("source", "exam") in ("exam", "kyotsu") else 0
+    _w["likely"] = round(_years + 0.6 * zipf_frequency(_w["word"], "en"), 3)
 # ほかの意味（演習には出さず、単語一覧・詳しいページで見せる）。data/extra_meanings/*.txt に「単語|品詞|意味;意味」で書く
 extra_m = {}
 _pos = {}

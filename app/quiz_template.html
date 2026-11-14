@@ -506,6 +506,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
       </div>
       <p class="tip" id="r-auto"></p>
       <p id="r-count" class="big"></p>
+      <table class="duetable cdtable" id="r-left" hidden></table>
     </div>
     <div class="recbox">
       <h2>復習の予定</h2>
@@ -519,7 +520,7 @@ h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-
         <label for="r-goal">1日に解く問題数</label>
         <select id="r-goal"><option value="auto">おすすめ</option><option>10</option><option>20</option><option>30</option><option>50</option><option>100</option></select>
       </div>
-      <p class="tip">「おすすめ」は、上の「1日〇語ずつ」と同じ数です。覚えた単語が増えると、毎日変わります。目標を達成した日が続くと「連続」の日数が増えます。</p>
+      <p class="tip">「おすすめ」は、上の「1日〇問ずつ」と同じ数です（単語・イディオム・語源・接頭辞・接尾辞の合計）。覚えた単語が増えると、毎日変わります。目標を達成した日が続くと「連続」の日数が増えます。</p>
       <label class="chk"><input type="checkbox" id="r-ask"> 目標に届いたら「ここで終了しますか？」と聞く</label>
     </div>
     <div class="recbox">
@@ -1372,8 +1373,15 @@ document.querySelectorAll(".tab").forEach(t => t.onclick = () => { st.view = t.d
 const ymd = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
 // 試験日までに、まだ覚えていない単語を覚えきるための1日の語数（試験日がなければ 20）
 function examDays() { const d = st.examDate[st.exam] || autoDate(); return d ? Math.ceil((new Date(d + "T00:00:00") - new Date(ymd(new Date()) + "T00:00:00")) / 86400000) : 0; }
-function leftWords() { return WORDS.filter(w => (st.mastery[st.exam + "|word|" + w.word + "|" + w.pos] || 0) < 2).length; }
-function recGoal() { const d = examDays(), l = leftWords(); return d > 0 && l > 0 ? Math.max(1, Math.ceil(l / d)) : 20; }
+// まだ覚えていない（2回続けて正解していない）問題の数。モードごと
+const leftOf = mode => itemsOf(mode).filter(q => (st.mastery[keyOf(q)] || 0) < 2).length;
+function leftWords() { return leftOf("word"); }
+// おすすめの1日の問題数＝試験日までに、全モードのまだ覚えていない問題を覚えきる数（モードごとに切り上げて合計）
+function recGoal() {
+  const d = examDays(); if (d <= 0) return 20;
+  const n = MODES.reduce((t, [k]) => t + Math.ceil(leftOf(k) / d), 0);
+  return n > 0 ? n : 20;
+}
 const goalNow = () => st.goalAuto ? recGoal() : st.goal;
 let goalJust = false;
 function countToday() {
@@ -1398,10 +1406,26 @@ function renderRec() {
   $("r-auto").textContent = !auto ? "" : date === auto ? exInfo().date.name + "の " + jp(auto) + " を自動で入れています。別の日にしたいときは、上で変えられます。"
     : "自分で入れた日付を使っています。" + exInfo().date.name + "は " + jp(auto) + " です。";
   if (date) {
-    const days = examDays(), left = leftWords();
-    $("r-count").innerHTML = days > 0 ? "あと <b>" + days + "</b> 日　まだ覚えていない単語 " + left + " 語 → 1日 <b>" + Math.ceil(left / days) + "</b> 語ずつ"
-      : "試験日を過ぎています";
-  } else $("r-count").textContent = "試験日を入れると、残りの日数と1日に覚える語数の目安が出ます。";
+    const days = examDays();
+    $("r-count").innerHTML = days > 0 ? "あと <b>" + days + "</b> 日　1日 <b>" + recGoal() + "</b> 問ずつ" : "試験日を過ぎています";
+    // 分野ごとに、まだ覚えていない数と1日の目安
+    const tb = $("r-left"); tb.innerHTML = ""; tb.hidden = days <= 0;
+    if (days > 0) {
+      const hr = el("tr"); ["分野", "まだ覚えていない", "全体", "1日の目安"].forEach(h => hr.appendChild(el("th", null, h)));
+      const th = el("thead"); th.appendChild(hr); tb.appendChild(th);
+      const bd = el("tbody"); tb.appendChild(bd);
+      let sum = 0;
+      MODES.forEach(([k, name]) => {
+        const all = itemsOf(k).length, left = leftOf(k), per = Math.ceil(left / days); sum += per;
+        const tr = el("tr"); tr.appendChild(el("th", null, name));
+        const u = k === "word" ? "語" : "個";   // 単語は「語」、イディオム・部品は「個」
+        tr.appendChild(el("td", left ? null : "zero", left + u)); tr.appendChild(el("td", null, all + u));
+        tr.appendChild(el("td", per ? null : "zero", per + u)); bd.appendChild(tr);
+      });
+      const tr = el("tr", "now"); tr.appendChild(el("th", null, "合計")); tr.appendChild(el("td")); tr.appendChild(el("td"));
+      tr.appendChild(el("td", null, sum + "問")); bd.appendChild(tr);
+    }
+  } else { $("r-count").textContent = "試験日を入れると、残りの日数と1日に解く問題数の目安が出ます。"; $("r-left").hidden = true; }
   fillDueBox($("r-today"));
   // 今日から7日後までの復習の予定を、日ごと・モードごとに表にする
   const tb = $("r-due"); tb.innerHTML = "";

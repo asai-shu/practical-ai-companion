@@ -56,7 +56,12 @@ page = (page.replace("__DATA__", J(_slim(words)))
         .replace("__NEAR__", J(near)))
 # ログインは公開版（site/）だけ。Claude の中のプレビュー版ではアカウントの画面を出さない（パスキーはサイトのアドレスに結び付くため）
 AUTH_URL = "https://ullpwyqbabphwkcpqash.supabase.co/functions/v1/nine-auth"
-site_page = page.replace("__AUTH__", J({"url": AUTH_URL}))
+# ログイン（パスキー）はドメインに結び付く。自分のドメインを取って nine-auth の RP_ID・ORIGINS を合わせるまでは出さない
+# （仮の 〜.pages.dev でパスキーを作らせると、ドメインを移したときに使えなくなるため）
+# テストでログイン画面を出すときは、環境変数 NINE_LOGIN=1 を付けて実行する
+import os
+LOGIN_ENABLED = os.environ.get("NINE_LOGIN") == "1"
+site_page = page.replace("__AUTH__", J({"url": AUTH_URL}) if LOGIN_ENABLED else "null")
 page = page.replace("__AUTH__", "null")
 (ROOT / "app" / "meidai-nine.html").write_text(page, encoding="utf-8")
 print(len(words), "words,", len(idioms), "idioms")

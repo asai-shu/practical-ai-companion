@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="大学入試に実際に出た英単語を、9つの選択肢から意味をすべて選ぶ演習で覚える単語アプリ。共通テスト版は無料。">
 <meta name="theme-color" content="#d2554a">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-felIgjCSAFRNMslR53urevvAILMxpmlRbq+yHniphD4=' 'sha256-J3oLKBPanKe3I81eOkOFkjdu7Vp/xW7gTgL7+eyrfQg='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://ullpwyqbabphwkcpqash.supabase.co; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-LdsYqb9u6n8CfAfmy6jFpElR4ijjzCAbz4QIfgebwI0=' 'sha256-J3oLKBPanKe3I81eOkOFkjdu7Vp/xW7gTgL7+eyrfQg='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://ullpwyqbabphwkcpqash.supabase.co; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -683,7 +683,7 @@ function affixSpan(a, w) {
 }
 const KEY = "meidai-nine-v2";
 // ログイン（公開版だけ）。保存のたびに使うので、いちばん最初に用意しておく
-const AUTH = {"url":"https://ullpwyqbabphwkcpqash.supabase.co/functions/v1/nine-auth"};   // 公開版では {url}、Claude の中のプレビュー版では null（アカウントの画面を出さない）
+const AUTH = null;   // 公開版では {url}、Claude の中のプレビュー版では null（アカウントの画面を出さない）
 const SESSION_KEY = "nine-session";
 let session = (() => { try { return localStorage.getItem(SESSION_KEY) || ""; } catch (e) { return ""; } })();
 let pendingTotp = false, syncTimer = 0, lastSync = 0;

@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'sha256-LdsYqb9u6n8CfAfmy6jFpElR4ijjzCAbz4QIfgebwI0=' 'sha256-J3oLKBPanKe3I81eOkOFkjdu7Vp/xW7gTgL7+eyrfQg='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://ullpwyqbabphwkcpqash.supabase.co; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'sha256-1mVf3x5Aqhi/v9NPvaC3T+jYXyFTw5SpEOMBNO0X8us=' 'sha256-J3oLKBPanKe3I81eOkOFkjdu7Vp/xW7gTgL7+eyrfQg='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://ullpwyqbabphwkcpqash.supabase.co; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()

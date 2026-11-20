@@ -1073,7 +1073,9 @@ function check() {
   }
   const k = keyOf(cur); st.mastery[k] = good ? (st.mastery[k] || 0) + 1 : 0;
   srsRecord(k, good);
-  if (!good) queue.splice(Math.min(3, queue.length), 0, cur);
+  // まちがえた問題は、少しあとにもう一度出す。ただし「今日の復習」では、登録されている問題を1回ずつ出すだけにする
+  // （まちがえた問題は明日の復習に回るので、今日のうちに数が増えたように見えないように）
+  if (!good && st.pick !== "due") queue.splice(Math.min(3, queue.length), 0, cur);
   save(); stats();
   $("result").textContent = good ? "正解" : "不正解（点線が正しい答え）";
   $("result").className = "result " + (good ? "ok" : "ng");
